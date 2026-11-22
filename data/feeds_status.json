@@ -1,0 +1,309 @@
+{
+ "checked": "2026-11-22T20:30:13Z",
+ "feeds": [
+  {
+   "checked": "2026-11-22T20:26:59Z",
+   "entries": 0,
+   "error": "interdit par robots.txt",
+   "name": "13Cubed (YouTube)",
+   "ok": false,
+   "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCy8ntxFEudOCRZYqDm4j3NA"
+  },
+  {
+   "checked": "2026-11-22T20:26:59Z",
+   "entries": 20,
+   "http_status": 200,
+   "latest": "2026-11-18T07:00:00Z",
+   "name": "ANSSI - Actualités",
+   "ok": true,
+   "url": "https://cyber.gouv.fr/actualites/rss/"
+  },
+  {
+   "checked": "2026-11-22T20:26:59Z",
+   "entries": 20,
+   "http_status": 200,
+   "latest": "2026-11-20T22:57:22Z",
+   "name": "AWS Security Blog",
+   "ok": true,
+   "url": "https://aws.amazon.com/blogs/security/feed/"
+  },
+  {
+   "checked": "2026-11-22T20:26:59Z",
+   "entries": 15,
+   "http_status": 200,
+   "latest": "2026-11-22T18:45:37Z",
+   "name": "BleepingComputer",
+   "ok": true,
+   "url": "https://www.bleepingcomputer.com/feed/"
+  },
+  {
+   "checked": "2026-11-22T20:26:59Z",
+   "entries": 40,
+   "http_status": 200,
+   "latest": "2026-11-18T00:00:00Z",
+   "name": "CERT-FR - Alertes",
+   "ok": true,
+   "url": "https://www.cert.ssi.gouv.fr/alerte/feed/"
+  },
+  {
+   "checked": "2026-11-22T20:26:59Z",
+   "entries": 40,
+   "http_status": 200,
+   "latest": "2026-11-20T00:00:00Z",
+   "name": "CERT-FR - Avis",
+   "ok": true,
+   "url": "https://www.cert.ssi.gouv.fr/avis/feed/"
+  },
+  {
+   "checked": "2026-11-22T20:26:59Z",
+   "entries": 40,
+   "http_status": 200,
+   "latest": "2026-11-12T00:00:00Z",
+   "name": "CERT-FR - Menaces et incidents",
+   "ok": true,
+   "url": "https://www.cert.ssi.gouv.fr/cti/feed/"
+  },
+  {
+   "checked": "2026-11-22T20:26:59Z",
+   "entries": 30,
+   "http_status": 200,
+   "latest": "2026-11-20T12:00:00Z",
+   "name": "CISA - Cybersecurity Advisories",
+   "ok": true,
+   "url": "https://www.cisa.gov/cybersecurity-advisories/all.xml"
+  },
+  {
+   "checked": "2026-11-22T20:26:59Z",
+   "entries": 0,
+   "error": "HTTP 403",
+   "http_status": 403,
+   "name": "Cloud Security Alliance",
+   "ok": false,
+   "url": "https://cloudsecurityalliance.org/blog/feed/"
+  },
+  {
+   "checked": "2026-11-22T20:26:59Z",
+   "entries": 20,
+   "http_status": 200,
+   "latest": "2026-11-19T10:29:47Z",
+   "name": "Cybermalveillance.gouv.fr - Actualités",
+   "ok": true,
+   "url": "https://www.cybermalveillance.gouv.fr/feed/atom-flux-actualites"
+  },
+  {
+   "checked": "2026-11-22T20:26:59Z",
+   "entries": 0,
+   "error": "HTTP 403",
+   "http_status": 403,
+   "name": "Dark Reading",
+   "ok": false,
+   "url": "https://www.darkreading.com/rss.xml"
+  },
+  {
+   "checked": "2026-11-22T20:26:59Z",
+   "entries": 20,
+   "http_status": 200,
+   "latest": "2026-11-20T17:00:00Z",
+   "name": "Google Cloud - Security & Identity",
+   "ok": true,
+   "url": "https://cloudblog.withgoogle.com/products/identity-security/rss/"
+  },
+  {
+   "checked": "2026-11-22T20:26:59Z",
+   "entries": 0,
+   "error": "HTTP 403",
+   "http_status": 403,
+   "name": "HiddenLayer Blog",
+   "ok": false,
+   "url": "https://hiddenlayer.com/feed/"
+  },
+  {
+   "checked": "2026-11-22T20:26:59Z",
+   "entries": 10,
+   "http_status": 200,
+   "latest": "2026-11-21T00:36:39Z",
+   "name": "Krebs on Security",
+   "ok": true,
+   "url": "https://krebsonsecurity.com/feed/"
+  },
+  {
+   "checked": "2026-11-22T20:26:59Z",
+   "entries": 0,
+   "error": "HTTP 403",
+   "http_status": 403,
+   "name": "LeMagIT",
+   "ok": false,
+   "url": "https://www.lemagit.fr/rss/ContentSyndication.xml"
+  },
+  {
+   "checked": "2026-11-22T20:26:59Z",
+   "entries": 10,
+   "http_status": 200,
+   "latest": "2026-10-28T22:55:37Z",
+   "name": "MITRE ATLAS - releases (atlas-data)",
+   "ok": true,
+   "url": "https://github.com/mitre-atlas/atlas-data/releases.atom"
+  },
+  {
+   "checked": "2026-11-22T20:26:59Z",
+   "entries": 10,
+   "http_status": 200,
+   "latest": "2026-11-20T21:04:52Z",
+   "name": "Magnet Forensics Blog",
+   "ok": true,
+   "url": "https://www.magnetforensics.com/feed/"
+  },
+  {
+   "checked": "2026-11-22T20:26:59Z",
+   "entries": 10,
+   "http_status": 200,
+   "latest": "2026-11-20T17:00:00Z",
+   "name": "Microsoft Security Blog",
+   "ok": true,
+   "url": "https://www.microsoft.com/en-us/security/blog/feed/"
+  },
+  {
+   "checked": "2026-11-22T20:26:59Z",
+   "entries": 0,
+   "error": "HTTP 403",
+   "http_status": 403,
+   "name": "NIST - Cybersecurity news",
+   "ok": false,
+   "url": "https://www.nist.gov/news-events/cybersecurity/rss.xml"
+  },
+  {
+   "checked": "2026-11-22T20:26:59Z",
+   "entries": 10,
+   "http_status": 200,
+   "latest": "2026-10-08T12:07:42Z",
+   "name": "OWASP GenAI Security Project",
+   "ok": true,
+   "url": "https://genai.owasp.org/feed/"
+  },
+  {
+   "checked": "2026-11-22T20:26:59Z",
+   "entries": 0,
+   "error": "HTTP 403",
+   "http_status": 403,
+   "name": "Orca Security Blog",
+   "ok": false,
+   "url": "https://orca.security/feed/"
+  },
+  {
+   "checked": "2026-11-22T20:26:59Z",
+   "entries": 0,
+   "http_status": 200,
+   "name": "PyRIT (Microsoft) - releases",
+   "ok": true,
+   "url": "https://github.com/Azure/PyRIT/releases.atom"
+  },
+  {
+   "checked": "2026-11-22T20:26:59Z",
+   "entries": 0,
+   "error": "HTTP 404",
+   "http_status": 404,
+   "name": "SANS Blog (DFIR)",
+   "ok": false,
+   "url": "https://www.sans.org/blog/feed/"
+  },
+  {
+   "checked": "2026-11-22T20:26:59Z",
+   "entries": 0,
+   "error": "HTTP 403",
+   "http_status": 403,
+   "name": "SANS Internet Storm Center",
+   "ok": false,
+   "url": "https://isc.sans.edu/rssfeed_full.xml"
+  },
+  {
+   "checked": "2026-11-22T20:26:59Z",
+   "entries": 0,
+   "error": "HTTP 403",
+   "http_status": 403,
+   "name": "Sysdig Blog",
+   "ok": false,
+   "url": "https://sysdig.com/feed/"
+  },
+  {
+   "checked": "2026-11-22T20:26:59Z",
+   "entries": 10,
+   "http_status": 200,
+   "latest": "2026-08-24T14:28:41Z",
+   "name": "The DFIR Report",
+   "ok": true,
+   "url": "https://thedfirreport.com/feed/"
+  },
+  {
+   "checked": "2026-11-22T20:26:59Z",
+   "entries": 40,
+   "http_status": 200,
+   "latest": "2026-11-22T05:06:55Z",
+   "name": "The Hacker News",
+   "ok": true,
+   "url": "https://feeds.feedburner.com/TheHackersNews"
+  },
+  {
+   "checked": "2026-11-22T20:26:59Z",
+   "entries": 20,
+   "http_status": 200,
+   "latest": "2026-11-06T12:00:00Z",
+   "name": "Trail of Bits Blog",
+   "ok": true,
+   "url": "https://blog.trailofbits.com/feed/"
+  },
+  {
+   "checked": "2026-11-22T20:26:59Z",
+   "entries": 15,
+   "http_status": 200,
+   "latest": "2026-11-20T22:00:25Z",
+   "name": "Unit 42 (Palo Alto Networks)",
+   "ok": true,
+   "url": "https://unit42.paloaltonetworks.com/feed/"
+  },
+  {
+   "checked": "2026-11-22T20:26:59Z",
+   "entries": 10,
+   "http_status": 200,
+   "latest": "2026-10-05T12:30:41Z",
+   "name": "Velociraptor - releases",
+   "ok": true,
+   "url": "https://github.com/Velocidex/velociraptor/releases.atom"
+  },
+  {
+   "checked": "2026-11-22T20:26:59Z",
+   "entries": 10,
+   "http_status": 200,
+   "latest": "2026-09-17T19:47:09Z",
+   "name": "Volatility 3 - releases",
+   "ok": true,
+   "url": "https://github.com/volatilityfoundation/volatility3/releases.atom"
+  },
+  {
+   "checked": "2026-11-22T20:26:59Z",
+   "entries": 40,
+   "http_status": 200,
+   "latest": "2026-11-19T21:46:23Z",
+   "name": "Wiz Blog",
+   "ok": true,
+   "url": "https://www.wiz.io/feed/rss.xml"
+  },
+  {
+   "checked": "2026-11-22T20:26:59Z",
+   "entries": 0,
+   "error": "HTTP 403",
+   "http_status": 403,
+   "name": "ZATAZ",
+   "ok": false,
+   "url": "https://www.zataz.com/feed/"
+  },
+  {
+   "checked": "2026-11-22T20:26:59Z",
+   "entries": 10,
+   "http_status": 200,
+   "latest": "2026-10-16T20:14:17Z",
+   "name": "garak (NVIDIA) - releases",
+   "ok": true,
+   "url": "https://github.com/NVIDIA/garak/releases.atom"
+  }
+ ]
+}
