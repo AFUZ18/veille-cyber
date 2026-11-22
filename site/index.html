@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<title>{{SITE_TITLE}}</title>
+<link rel="alternate" type="application/rss+xml" title="{{SITE_TITLE}}" href="feed.xml">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+:root{
+  --bg:#f6f7f9;--surface:#fff;--surface-2:#eef0f4;--text:#14171f;--muted:#545b6a;--border:#d9dde5;
+  --accent:#1b4fd6;--accent-text:#fff;--focus:#1b4fd6;
+  --crit:#b3261e;--crit-bg:#fde7e5;--high:#9a4a00;--high-bg:#ffedd9;--med:#6b5800;--med-bg:#fff6c7;--info:#2f5d50;--info-bg:#e1f2ec;
+  --kev:#7a0f5c;--kev-bg:#fbe3f3;--radius:10px;--shadow:0 1px 2px rgba(16,24,40,.06);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#0f1218;--surface:#171b23;--surface-2:#202631;--text:#e8ebf1;--muted:#a3abba;--border:#2e3544;
+  --accent:#7ea2ff;--accent-text:#0b0f17;--focus:#9fb9ff;
+  --crit:#ffb4ab;--crit-bg:#4a1512;--high:#ffc58f;--high-bg:#43290c;--med:#f2dd73;--med-bg:#3a3209;--info:#9fdcc6;--info-bg:#143229;
+  --kev:#ffb0e4;--kev-bg:#45123a;--shadow:none;
+}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:4px}
+.skip{position:absolute;left:-9999px}.skip:focus{left:12px;top:12px;background:var(--surface);padding:8px 12px;z-index:10}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+header.top{background:var(--surface);border-bottom:1px solid var(--border)}
+header.top .wrap{padding-top:18px;padding-bottom:14px}
+h1{font-size:1.45rem;margin:0}
+.subtitle{color:var(--muted);margin:2px 0 10px}
+.meta{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;color:var(--muted);font-size:.9rem}
+.counters{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;padding:0;list-style:none}
+.counters li{background:var(--surface-2);border-radius:999px;padding:2px 10px;font-size:.85rem}
+.counters b{color:var(--text)}
+nav.tabs{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--border)}
+.tablist{display:flex;gap:4px;overflow-x:auto;padding:8px 0;scrollbar-width:thin}
+.tab{flex:0 0 auto;border:1px solid var(--border);background:var(--surface);color:var(--text);padding:7px 12px;border-radius:999px;font:inherit;font-size:.9rem;cursor:pointer;white-space:nowrap}
+.tab[aria-selected="true"]{background:var(--accent);color:var(--accent-text);border-color:var(--accent)}
+.filters{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px 0}
+.filters label:first-child{grid-column:1/-1}
+@media (min-width:720px){.filters{grid-template-columns:2fr 1fr 1fr 1fr auto}.filters label:first-child{grid-column:auto}}
+.filters label{display:flex;flex-direction:column;font-size:.78rem;color:var(--muted);gap:3px;min-width:0;width:100%}
+.filters input[type=search],.filters select{font:inherit;font-size:.93rem;padding:8px 10px;border:1px solid var(--border);border-radius:8px;background:var(--surface);color:var(--text);min-width:0;width:100%}
+.filters .check{flex-direction:row;align-items:center;gap:6px;font-size:.9rem;color:var(--text);padding-top:16px}
+@media (max-width:719px){.filters .check{padding-top:0;grid-column:1/-1}}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;margin-bottom:10px;color:var(--muted);font-size:.9rem}
+.btn{font:inherit;font-size:.88rem;border:1px solid var(--border);background:var(--surface);color:var(--text);padding:6px 12px;border-radius:8px;cursor:pointer;text-decoration:none;display:inline-block}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--accent);color:var(--accent-text);border-color:var(--accent)}
+section h2{font-size:1.1rem;margin:22px 0 10px}
+.grid{display:grid;grid-template-columns:1fr;gap:12px}
+@media (min-width:900px){.grid.two{grid-template-columns:1fr 1fr}}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;box-shadow:var(--shadow)}
+.card h3{font-size:1rem;margin:6px 0 6px;line-height:1.35}
+.card h3 a{color:var(--text);text-decoration:none}
+.card h3 a:hover{text-decoration:underline;color:var(--accent)}
+.card .src{color:var(--muted);font-size:.83rem}
+.card p{margin:6px 0}
+.why{background:var(--surface-2);border-radius:8px;padding:7px 10px;font-size:.92rem}
+.why strong,.action strong{font-weight:600}
+.action{font-size:.92rem;border-left:3px solid var(--accent);padding-left:9px}
+.badges{display:flex;flex-wrap:wrap;gap:5px;align-items:center}
+.badge{display:inline-block;font-size:.74rem;font-weight:600;padding:1px 8px;border-radius:999px;border:1px solid transparent;white-space:nowrap}
+.lvl-Critique{color:var(--crit);background:var(--crit-bg)}
+.lvl-Élevé{color:var(--high);background:var(--high-bg)}
+.lvl-Moyen{color:var(--med);background:var(--med-bg)}
+.lvl-Info{color:var(--info);background:var(--info-bg)}
+.badge.kev{color:var(--kev);background:var(--kev-bg)}
+.badge.theme{background:var(--surface-2);color:var(--text);font-weight:500}
+.badge.sector{border-color:var(--border);color:var(--muted);font-weight:500}
+.cves{font-size:.83rem;display:flex;flex-wrap:wrap;gap:4px 10px}
+.cves a{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.small{font-size:.8rem;color:var(--muted)}
+.empty{padding:30px;text-align:center;color:var(--muted)}
+.event{display:flex;gap:14px;align-items:flex-start}
+.countdown{flex:0 0 74px;text-align:center;background:var(--surface-2);border-radius:8px;padding:8px 4px}
+.countdown b{display:block;font-size:1.4rem;line-height:1.1}
+.countdown span{font-size:.72rem;color:var(--muted)}
+details.health{margin:26px 0;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:10px 14px}
+details.health summary{cursor:pointer;font-weight:600}
+table{border-collapse:collapse;width:100%;font-size:.85rem}
+th,td{text-align:left;padding:5px 6px;border-bottom:1px solid var(--border);vertical-align:top}
+.ok{color:var(--info)}.ko{color:var(--crit)}
+.table-scroll{overflow-x:auto}
+footer{color:var(--muted);font-size:.85rem;padding:24px 0 40px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.more{display:flex;justify-content:center;margin:16px 0}
+@media (prefers-reduced-motion:no-preference){.card{transition:border-color .15s}.card:hover{border-color:var(--accent)}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+<header class="top">
+  <div class="wrap">
+    <h1>{{SITE_TITLE}}</h1>
+    <p class="subtitle">{{SITE_SUBTITLE}}</p>
+    <div class="meta">
+      <span id="updated">Chargement…</span>
+      <span id="next-event"></span>
+      <a href="feed.xml">S'abonner au flux RSS</a>
+    </div>
+    <ul class="counters" id="counters" aria-label="Nombre d'articles par thème"></ul>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Thèmes">
+  <div class="wrap"><div class="tablist" role="tablist" id="tabs"></div></div>
+</nav>
+
+<main id="main" class="wrap" tabindex="-1">
+  <div id="panel" role="tabpanel" aria-labelledby="">
+    <form class="filters" id="filters" role="search" onsubmit="return false">
+      <label>Recherche
+        <input type="search" id="f-q" placeholder="Titre, résumé, CVE, éditeur…" autocomplete="off">
+      </label>
+      <label>Criticité
+        <select id="f-level">
+          <option value="">Toutes</option>
+          <option value="Critique">Critique</option>
+          <option value="Élevé">Élevé et +</option>
+          <option value="Moyen">Moyen et +</option>
+        </select>
+      </label>
+      <label>Source
+        <select id="f-source"><option value="">Toutes</option></select>
+      </label>
+      <label>Période
+        <select id="f-period">
+          <option value="1">24 heures</option>
+          <option value="7" selected>7 jours</option>
+          <option value="30">30 jours</option>
+          <option value="0">Tout (90 j)</option>
+        </select>
+      </label>
+      <label class="check"><input type="checkbox" id="f-kev"> Exploité activement (KEV)</label>
+    </form>
+
+    <section id="featured-section" aria-labelledby="featured-title">
+      <h2 id="featured-title">À la une cette semaine</h2>
+      <div class="grid two" id="featured"></div>
+    </section>
+
+    <section id="events-section" aria-labelledby="events-title" hidden>
+      <h2 id="events-title">Agenda des salons</h2>
+      <div class="grid two" id="events"></div>
+    </section>
+
+    <section aria-labelledby="list-title">
+      <h2 id="list-title">Articles</h2>
+      <div class="toolbar">
+        <span id="result-count" aria-live="polite"></span>
+        <span>
+          <button type="button" class="btn" id="export-csv">Exporter CSV</button>
+          <button type="button" class="btn" id="export-md">Exporter Markdown</button>
+        </span>
+      </div>
+      <div class="grid" id="list"></div>
+      <div class="more"><button type="button" class="btn primary" id="more" hidden>Afficher plus</button></div>
+    </section>
+  </div>
+
+  <details class="health">
+    <summary>Santé des sources</summary>
+    <div class="table-scroll"><table id="health"><caption class="sr-only">État de chaque flux lors de la dernière collecte</caption>
+      <thead><tr><th scope="col">Source</th><th scope="col">État</th><th scope="col">Entrées</th><th scope="col">Dernier article</th></tr></thead>
+      <tbody></tbody></table></div>
+  </details>
+</main>
+<footer class="wrap">
+  Résumés générés par IA à partir du titre et de l'extrait publics : vérifiez toujours la source originale avant d'agir.
+  Les contenus restent la propriété de leurs auteurs ; seuls le titre, le lien et un court extrait sont repris.
+</footer>
+
+<script>
+"use strict";
+(function () {
+  // ---- Safe DOM helpers: feed content is untrusted, never use innerHTML with it ----
+  function el(tag, attrs, children) {
+    const node = document.createElement(tag);
+    if (attrs) for (const [k, v] of Object.entries(attrs)) {
+      if (v === null || v === undefined || v === false) continue;
+      if (k === "text") node.textContent = String(v);
+      else if (k === "class") node.className = v;
+      else node.setAttribute(k, v === true ? "" : String(v));
+    }
+    (children || []).forEach(c => { if (c) node.appendChild(typeof c === "string" ? document.createTextNode(c) : c); });
+    return node;
+  }
+  function safeUrl(u) {
+    try { const p = new URL(u); return (p.protocol === "https:" || p.protocol === "http:") ? p.href : null; }
+    catch (e) { return null; }
+  }
+  function extLink(href, text, cls) {
+    const url = safeUrl(href);
+    if (!url) return el("span", { text });
+    return el("a", { href: url, target: "_blank", rel: "noopener noreferrer", class: cls, text });
+  }
+
+  const LEVEL_RANK = { "Critique": 3, "Élevé": 2, "Moyen": 1, "Info": 0 };
+  const TABS = [["ALL", "Tout"], ["H1", "H1 Cloud"], ["H2", "H2 Forensique"], ["H3", "H3 IA"], ["H4", "H4 Général"], ["EVENTS", "Salons & événements"]];
+  const PAGE = 30;
+  const rtf = new Intl.RelativeTimeFormat("fr", { numeric: "auto" });
+  const dtf = new Intl.DateTimeFormat("fr-FR", { dateStyle: "medium", timeStyle: "short" });
+  const dfmt = new Intl.DateTimeFormat("fr-FR", { day: "numeric", month: "long", year: "numeric" });
+
+  const state = { data: null, tab: "ALL", shown: PAGE, filtered: [] };
+  const $ = id => document.getElementById(id);
+
+  function relative(iso) {
+    const diff = (new Date(iso) - Date.now()) / 1000;
+    const units = [["year", 31536000], ["month", 2592000], ["week", 604800], ["day", 86400], ["hour", 3600], ["minute", 60]];
+    for (const [u, s] of units) if (Math.abs(diff) >= s) return rtf.format(Math.round(diff / s), u);
+    return "à l'instant";
+  }
+
+  // ---- Filtering ----
+  function currentFilters() {
+    return {
+      q: $("f-q").value.trim().toLowerCase(),
+      level: $("f-level").value,
+      source: $("f-source").value,
+      period: parseInt($("f-period").value, 10),
+      kev: $("f-kev").checked,
+    };
+  }
+  function matches(a, f, tab) {
+    if (tab === "EVENTS" ? !a.is_event : (tab !== "ALL" && !(a.themes || []).includes(tab))) return false;
+    if (f.level && LEVEL_RANK[a.level] < LEVEL_RANK[f.level]) return false;
+    if (f.source && a.source !== f.source) return false;
+    if (f.kev && !a.kev) return false;
+    if (f.period && (Date.now() - new Date(a.published)) > f.period * 86400000) return false;
+    if (f.q) {
+      const hay = [a.title, a.summary, a.excerpt, a.why, a.source, (a.cves || []).join(" "), (a.sectors || []).join(" "), (a.ai_tags || []).join(" ")].join(" ").toLowerCase();
+      if (!f.q.split(/\s+/).every(t => hay.includes(t))) return false;
+    }
+    return true;
+  }
+
+  // ---- Rendering ----
+  function card(a, compact) {
+    const labels = state.data.theme_labels;
+    const badges = el("div", { class: "badges" }, [
+      el("span", { class: "badge lvl-" + a.level, text: a.level + " · " + a.criticality, title: (a.criticality_reasons || []).join(" ; ") || "Score de criticité" }),
+      a.kev ? el("span", { class: "badge kev", text: a.kev_ransomware ? "Exploité (KEV) · ransomware" : "Exploité activement (KEV)" }) : null,
+      ...(a.themes || []).map(t => el("span", { class: "badge theme", text: t + " " + (labels[t] || "") })),
+      ...(a.sectors || []).slice(0, 4).map(s => el("span", { class: "badge sector", text: s })),
+    ]);
+    const src = el("div", { class: "src" }, [
+      a.source + " · ",
+      el("time", { datetime: a.published, title: dtf.format(new Date(a.published)), text: relative(a.published) }),
+      a.also_in && a.also_in.length ? " · aussi : " + a.also_in.join(", ") : "",
+      a.summary_source === "ia" ? " · résumé IA" : "",
+    ]);
+    const body = [badges, el("h3", {}, [extLink(a.url, a.title)]), src];
+    if (a.summary) body.push(el("p", { text: a.summary, lang: a.summary_source === "ia" ? "fr" : (a.language || "en") }));
+    if (!compact && a.why) body.push(el("p", { class: "why" }, [el("strong", { text: "Pourquoi c'est important : " }), a.why]));
+    if (!compact && a.action) body.push(el("p", { class: "action" }, [el("strong", { text: "Action recommandée" + (a.action_type ? " (" + a.action_type + ")" : "") + " : " }), a.action]));
+    if (a.cves && a.cves.length) {
+      body.push(el("div", { class: "cves", "aria-label": "CVE citées" }, a.cves.slice(0, compact ? 4 : 12).map(c => {
+        const d = (a.cve_details || {})[c] || {};
+        const extra = [d.cvss ? "CVSS " + d.cvss : "", d.epss ? "EPSS " + Math.round(d.epss * 100) + " %" : ""].filter(Boolean).join(", ");
+        return el("span", {}, [extLink("https://nvd.nist.gov/vuln/detail/" + encodeURIComponent(c), c), extra ? " (" + extra + ")" : ""]);
+      })));
+    }
+    return el("article", { class: "card" }, body);
+  }
+
+  function renderList() {
+    const list = $("list");
+    list.replaceChildren();
+    const items = state.filtered.slice(0, state.shown);
+    if (!items.length) list.appendChild(el("p", { class: "empty", text: "Aucun article ne correspond à ces filtres." }));
+    items.forEach(a => list.appendChild(card(a, false)));
+    $("more").hidden = state.filtered.length <= state.shown;
+    $("result-count").textContent = state.filtered.length + " article(s)";
+  }
+
+  function renderFeatured() {
+    const weekAgo = Date.now() - 7 * 86400000;
+    const pool = state.data.articles.filter(a => new Date(a.published) >= weekAgo && matches(a, { q: "", level: "", source: "", period: 0, kev: false }, state.tab));
+    pool.sort((x, y) => (y.criticality + y.relevance) - (x.criticality + x.relevance));
+    const box = $("featured");
+    box.replaceChildren();
+    pool.slice(0, 5).forEach(a => box.appendChild(card(a, true)));
+    $("featured-section").hidden = state.tab === "EVENTS" || !pool.length;
+  }
+
+  function daysUntil(iso) { return Math.ceil((new Date(iso + "T00:00:00") - Date.now()) / 86400000); }
+
+  function renderEvents() {
+    const box = $("events");
+    box.replaceChildren();
+    const upcoming = state.data.events.filter(e => !e.past);
+    upcoming.forEach(e => {
+      const d = daysUntil(e.start);
+      const ongoing = d <= 0;
+      const when = e.start === e.end ? dfmt.format(new Date(e.start)) : "du " + dfmt.format(new Date(e.start)) + " au " + dfmt.format(new Date(e.end));
+      box.appendChild(el("article", { class: "card event" }, [
+        el("div", { class: "countdown", "aria-label": ongoing ? "En cours" : "Dans " + d + " jours" }, ongoing
+          ? [el("b", { text: "●" }), el("span", { text: "en cours" })]
+          : [el("b", { text: String(d) }), el("span", { text: d > 1 ? "jours" : "jour" })]),
+        el("div", {}, [
+          el("h3", {}, [extLink(e.url, e.name)]),
+          el("div", { class: "src", text: when + " · " + e.location + (e.confirmed ? "" : " · dates à confirmer") }),
+          e.description ? el("p", { class: "small", text: e.description }) : null,
+        ]),
+      ]));
+    });
+    if (!upcoming.length) box.appendChild(el("p", { class: "empty", text: "Aucun salon à venir dans config/events.yaml." }));
+    const next = upcoming[0];
+    $("next-event").textContent = next ? "Prochain salon : " + next.name + " (J-" + Math.max(daysUntil(next.start), 0) + ")" : "";
+  }
+
+  function renderHealth() {
+    const tb = $("health").querySelector("tbody");
+    tb.replaceChildren();
+    state.data.feeds_status.forEach(s => tb.appendChild(el("tr", {}, [
+      el("td", { text: s.name }),
+      el("td", { class: s.ok ? "ok" : "ko", text: s.ok ? "OK" : "Erreur : " + (s.error || "inconnue") }),
+      el("td", { text: String(s.entries || 0) }),
+      el("td", { text: s.latest ? relative(s.latest) : "—" }),
+    ])));
+  }
+
+  function apply() {
+    const f = currentFilters();
+    state.filtered = state.data.articles
+      .filter(a => matches(a, f, state.tab))
+      .sort((x, y) => y.published.localeCompare(x.published));
+    state.shown = PAGE;
+    $("events-section").hidden = state.tab !== "EVENTS";
+    renderFeatured();
+    renderList();
+  }
+
+  function selectTab(id, focus) {
+    state.tab = id;
+    document.querySelectorAll(".tab").forEach(b => {
+      const on = b.dataset.tab === id;
+      b.setAttribute("aria-selected", on ? "true" : "false");
+      b.tabIndex = on ? 0 : -1;
+      if (on) { $("panel").setAttribute("aria-labelledby", b.id); if (focus) b.focus(); }
+    });
+    try { history.replaceState(null, "", "#" + id); } catch (e) { /* ignore */ }
+    apply();
+  }
+
+  function buildTabs() {
+    const tl = $("tabs");
+    TABS.forEach(([id, label]) => {
+      const count = state.data.counts[id] ?? 0;
+      const b = el("button", { type: "button", role: "tab", class: "tab", id: "tab-" + id, "aria-controls": "panel", "aria-selected": "false", text: label + " (" + count + ")" });
+      b.dataset.tab = id;
+      b.addEventListener("click", () => selectTab(id));
+      tl.appendChild(b);
+    });
+    tl.addEventListener("keydown", ev => {
+      const ids = TABS.map(t => t[0]);
+      let i = ids.indexOf(state.tab);
+      if (ev.key === "ArrowRight") i = (i + 1) % ids.length;
+      else if (ev.key === "ArrowLeft") i = (i - 1 + ids.length) % ids.length;
+      else if (ev.key === "Home") i = 0;
+      else if (ev.key === "End") i = ids.length - 1;
+      else return;
+      ev.preventDefault();
+      selectTab(ids[i], true);
+    });
+  }
+
+  // ---- Export ----
+  function download(name, mime, text) {
+    const blob = new Blob([text], { type: mime + ";charset=utf-8" });
+    const a = el("a", { href: URL.createObjectURL(blob), download: name });
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+  }
+  function csvCell(v) {
+    let s = String(v ?? "");
+    if (/^[=+\-@\t\r]/.test(s)) s = "'" + s; // spreadsheet formula injection guard
+    return '"' + s.replace(/"/g, '""') + '"';
+  }
+  function exportCsv() {
+    const head = ["date", "criticite", "score", "kev", "themes", "source", "titre", "url", "cve", "resume", "pourquoi", "action"];
+    const rows = state.filtered.map(a => [a.published, a.level, a.criticality, a.kev ? "oui" : "non", (a.themes || []).join(" "), a.source, a.title, a.url, (a.cves || []).join(" "), a.summary, a.why, a.action]);
+    download("veille-cyber-" + new Date().toISOString().slice(0, 10) + ".csv", "text/csv", "﻿" + [head, ...rows].map(r => r.map(csvCell).join(";")).join("\r\n"));
+  }
+  function mdEscape(s) { return String(s ?? "").replace(/([\\`*_{}\[\]()#+!|<>])/g, "\\$1"); }
+  function exportMd() {
+    const lines = ["# Veille cyber - export du " + dfmt.format(new Date()), ""];
+    state.filtered.forEach(a => {
+      const url = safeUrl(a.url) || "";
+      lines.push("## [" + mdEscape(a.title) + "](" + url.replace(/\)/g, "%29") + ")", "",
+        "*" + mdEscape(a.source) + " - " + a.published.slice(0, 10) + " - " + a.level + (a.kev ? " - KEV" : "") + " - " + (a.themes || []).join(", ") + "*", "");
+      if (a.summary) lines.push(mdEscape(a.summary), "");
+      if (a.why) lines.push("**Pourquoi c'est important :** " + mdEscape(a.why), "");
+      if (a.action) lines.push("**Action :** " + mdEscape(a.action), "");
+      if (a.cves && a.cves.length) lines.push("CVE : " + a.cves.join(", "), "");
+    });
+    download("veille-cyber-" + new Date().toISOString().slice(0, 10) + ".md", "text/markdown", lines.join("\n"));
+  }
+
+  // ---- Init ----
+  function init(data) {
+    state.data = data;
+    $("updated").textContent = "Mise à jour : " + dtf.format(new Date(data.generated_at)) + " (" + relative(data.generated_at) + ")";
+    const c = $("counters");
+    ["H1", "H2", "H3", "H4"].forEach(t => c.appendChild(el("li", {}, [el("b", { text: String(data.counts[t] || 0) }), " " + t + " " + data.theme_labels[t]])));
+    const crit = data.articles.filter(a => a.level === "Critique" && Date.now() - new Date(a.published) < 7 * 86400000).length;
+    c.appendChild(el("li", {}, [el("b", { text: String(crit) }), " critiques (7 j)"]));
+    const sel = $("f-source");
+    [...new Set(data.articles.map(a => a.source))].sort((x, y) => x.localeCompare(y, "fr")).forEach(s => sel.appendChild(el("option", { value: s, text: s })));
+    buildTabs();
+    renderEvents();
+    renderHealth();
+    ["f-level", "f-source", "f-period", "f-kev"].forEach(id => $(id).addEventListener("change", apply));
+    let t; $("f-q").addEventListener("input", () => { clearTimeout(t); t = setTimeout(apply, 180); });
+    $("more").addEventListener("click", () => { state.shown += PAGE; renderList(); });
+    $("export-csv").addEventListener("click", exportCsv);
+    $("export-md").addEventListener("click", exportMd);
+    const initial = (location.hash || "").slice(1);
+    selectTab(TABS.some(x => x[0] === initial) ? initial : "ALL");
+  }
+
+  fetch("articles.json", { cache: "no-cache" })
+    .then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+    .then(init)
+    .catch(err => { $("updated").textContent = "Impossible de charger les données (" + err.message + ")."; });
+})();
+</script>
+</body>
+</html>

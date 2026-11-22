@@ -1,0 +1,234 @@
+# ---------------------------------------------------------------------------
+# Flux RSS / Atom de la veille.
+# Champs : name, url, theme (H1|H2|H3|H4|EVENTS ou liste), language (fr|en),
+#          priority (1 = prioritaire … 3 = secondaire), enabled (true|false)
+#          note (facultatif, pour vous).
+#
+# Vérification : lancez `python scripts/check_feeds.py` (ou le workflow
+# « Vérifier les flux ») : il teste chaque URL et indique les flux en panne.
+# Le pipeline ne s'arrête jamais si un flux échoue : l'état de chaque flux
+# est visible en bas du site (section « Santé des sources »).
+# ---------------------------------------------------------------------------
+
+feeds:
+  # ===================== H1 - Cloud =====================
+  - name: "AWS Security Blog"
+    url: "https://aws.amazon.com/blogs/security/feed/"
+    theme: H1
+    language: en
+    priority: 2
+    enabled: true
+  - name: "Microsoft Security Blog"
+    url: "https://www.microsoft.com/en-us/security/blog/feed/"
+    theme: [H1, H4]
+    language: en
+    priority: 2
+    enabled: true
+  - name: "Google Cloud - Security & Identity"
+    url: "https://cloudblog.withgoogle.com/products/identity-security/rss/"
+    theme: H1
+    language: en
+    priority: 2
+    enabled: true
+  - name: "Cloud Security Alliance"
+    url: "https://cloudsecurityalliance.org/blog/feed/"
+    theme: H1
+    language: en
+    priority: 3
+    enabled: true
+    note: "à confirmer par check_feeds.py"
+  - name: "Wiz Blog"
+    url: "https://www.wiz.io/feed/rss.xml"
+    theme: H1
+    language: en
+    priority: 2
+    enabled: true
+  - name: "Sysdig Blog"
+    url: "https://sysdig.com/feed/"
+    theme: H1
+    language: en
+    priority: 3
+    enabled: true
+  - name: "Unit 42 (Palo Alto Networks)"
+    url: "https://unit42.paloaltonetworks.com/feed/"
+    theme: [H1, H2]
+    language: en
+    priority: 1
+    enabled: true
+  - name: "Orca Security Blog"
+    url: "https://orca.security/feed/"
+    theme: H1
+    language: en
+    priority: 3
+    enabled: true
+
+  # ===================== H2 - Forensique / DFIR =====================
+  - name: "The DFIR Report"
+    url: "https://thedfirreport.com/feed/"
+    theme: H2
+    language: en
+    priority: 1
+    enabled: true
+  - name: "SANS Internet Storm Center"
+    url: "https://isc.sans.edu/rssfeed_full.xml"
+    theme: [H2, H4]
+    language: en
+    priority: 2
+    enabled: true
+  - name: "Magnet Forensics Blog"
+    url: "https://www.magnetforensics.com/feed/"
+    theme: H2
+    language: en
+    priority: 3
+    enabled: true
+  - name: "13Cubed (YouTube)"
+    url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCy8ntxFEudOCRZYqDm4j3NA"
+    theme: H2
+    language: en
+    priority: 3
+    enabled: true
+    note: "identifiant de chaîne à confirmer (voir README, § Ajouter une chaîne YouTube)"
+  - name: "Velociraptor - releases"
+    url: "https://github.com/Velocidex/velociraptor/releases.atom"
+    theme: H2
+    language: en
+    priority: 2
+    enabled: true
+  - name: "Volatility 3 - releases"
+    url: "https://github.com/volatilityfoundation/volatility3/releases.atom"
+    theme: H2
+    language: en
+    priority: 2
+    enabled: true
+  - name: "SANS Blog (DFIR)"
+    url: "https://www.sans.org/blog/feed/"
+    theme: H2
+    language: en
+    priority: 3
+    enabled: true
+    note: "flux global SANS ; le classement par mots-clés garde les articles DFIR. À confirmer."
+
+  # ===================== H3 - Sécurité et pentest de l'IA =====================
+  - name: "OWASP GenAI Security Project"
+    url: "https://genai.owasp.org/feed/"
+    theme: H3
+    language: en
+    priority: 1
+    enabled: true
+  - name: "MITRE ATLAS - releases (atlas-data)"
+    url: "https://github.com/mitre-atlas/atlas-data/releases.atom"
+    theme: H3
+    language: en
+    priority: 2
+    enabled: true
+    note: "MITRE ATLAS ne publie pas de flux RSS d'actualités ; on suit les versions de la base."
+  - name: "Trail of Bits Blog"
+    url: "https://blog.trailofbits.com/feed/"
+    theme: H3
+    language: en
+    priority: 2
+    enabled: true
+  - name: "HiddenLayer Blog"
+    url: "https://hiddenlayer.com/feed/"
+    theme: H3
+    language: en
+    priority: 2
+    enabled: true
+    note: "à confirmer par check_feeds.py"
+  - name: "garak (NVIDIA) - releases"
+    url: "https://github.com/NVIDIA/garak/releases.atom"
+    theme: H3
+    language: en
+    priority: 2
+    enabled: true
+  - name: "PyRIT (Microsoft) - releases"
+    url: "https://github.com/Azure/PyRIT/releases.atom"
+    theme: H3
+    language: en
+    priority: 2
+    enabled: true
+  - name: "NIST - Cybersecurity news"
+    url: "https://www.nist.gov/news-events/cybersecurity/rss.xml"
+    theme: [H3, H4]
+    language: en
+    priority: 3
+    enabled: true
+    note: "flux NIST cyber (AI RMF inclus) ; à confirmer"
+  - name: "ANSSI - Actualités"
+    url: "https://cyber.gouv.fr/actualites/rss/"
+    theme: [H3, H4]
+    language: fr
+    priority: 1
+    enabled: true
+    note: "version anglaise confirmée : https://cyber.gouv.fr/en/news/rss/ ; la version FR est à confirmer"
+  # ENISA : flux RSS supprimés par l'agence (« RSS feeds discontinued »). Retiré.
+
+  # ===================== H4 - Général / Entreprises =====================
+  - name: "CERT-FR - Alertes"
+    url: "https://www.cert.ssi.gouv.fr/alerte/feed/"
+    theme: H4
+    language: fr
+    priority: 1
+    enabled: true
+  - name: "CERT-FR - Avis"
+    url: "https://www.cert.ssi.gouv.fr/avis/feed/"
+    theme: H4
+    language: fr
+    priority: 1
+    enabled: true
+  - name: "CERT-FR - Menaces et incidents"
+    url: "https://www.cert.ssi.gouv.fr/cti/feed/"
+    theme: [H2, H4]
+    language: fr
+    priority: 1
+    enabled: true
+  - name: "Cybermalveillance.gouv.fr - Actualités"
+    url: "https://www.cybermalveillance.gouv.fr/feed/atom-flux-actualites"
+    theme: H4
+    language: fr
+    priority: 2
+    enabled: true
+    note: "flux « bonnes pratiques » confirmé : …/feed/atom-flux-bonnes-pratiques"
+  - name: "BleepingComputer"
+    url: "https://www.bleepingcomputer.com/feed/"
+    theme: H4
+    language: en
+    priority: 2
+    enabled: true
+  - name: "The Hacker News"
+    url: "https://feeds.feedburner.com/TheHackersNews"
+    theme: H4
+    language: en
+    priority: 2
+    enabled: true
+  - name: "Krebs on Security"
+    url: "https://krebsonsecurity.com/feed/"
+    theme: H4
+    language: en
+    priority: 3
+    enabled: true
+  - name: "LeMagIT"
+    url: "https://www.lemagit.fr/rss/ContentSyndication.xml"
+    theme: H4
+    language: fr
+    priority: 2
+    enabled: true
+    note: "flux global LeMagIT ; les règles d'exclusion écartent le hors-sujet"
+  - name: "ZATAZ"
+    url: "https://www.zataz.com/feed/"
+    theme: H4
+    language: fr
+    priority: 3
+    enabled: true
+  - name: "CISA - Cybersecurity Advisories"
+    url: "https://www.cisa.gov/cybersecurity-advisories/all.xml"
+    theme: H4
+    language: en
+    priority: 1
+    enabled: true
+  - name: "Dark Reading"
+    url: "https://www.darkreading.com/rss.xml"
+    theme: H4
+    language: en
+    priority: 3
+    enabled: true

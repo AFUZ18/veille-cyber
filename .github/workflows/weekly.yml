@@ -1,0 +1,91 @@
+# Synthèse hebdomadaire : lundi 07:00 Europe/Paris.
+#
+# GitHub Actions ne connaît que l'heure UTC. Paris = UTC+1 en hiver, UTC+2 en été.
+# On planifie donc DEUX déclenchements le lundi :
+#   - 05:03 UTC = 07:03 à Paris en été  (06:03 en hiver)
+#   - 06:03 UTC = 07:03 à Paris en hiver (08:03 en été)
+# Le script (--respect-schedule) ne fait quelque chose que s'il est 7 h à Paris,
+# et un journal data/weekly/sent.json empêche tout double envoi la même semaine.
+name: Synthèse hebdomadaire
+
+on:
+  schedule:
+    - cron: "3 5 * * 1"
+    - cron: "3 6 * * 1"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "test = groupe interne uniquement ; envoi = tous les groupes actifs ; archive = Markdown seulement"
+        type: choice
+        options: [test, envoi, archive]
+        default: test
+
+permissions: {}
+
+concurrency:
+  group: veille-data
+  cancel-in-progress: false
+
+jobs:
+  newsletter:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write          # commit de l'archive data/weekly/
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Générer et envoyer la synthèse
+        env:
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          SMTP_FROM: ${{ secrets.SMTP_FROM }}
+          SMTP_HOST: ${{ vars.SMTP_HOST }}
+          SMTP_PORT: ${{ vars.SMTP_PORT }}
+          NEWSLETTER_RECIPIENTS_INTERNE: ${{ secrets.NEWSLETTER_RECIPIENTS_INTERNE }}
+          NEWSLETTER_RECIPIENTS_CLIENTS: ${{ secrets.NEWSLETTER_RECIPIENTS_CLIENTS }}
+          SITE_URL: ${{ vars.SITE_URL || format('https://{0}.github.io/{1}/', github.repository_owner, github.event.repository.name) }}
+          MODE: ${{ github.event_name == 'schedule' && 'cron' || inputs.mode }}
+        run: |
+          case "$MODE" in
+            cron)    python -m src.newsletter --send --respect-schedule ;;
+            test)    python -m src.newsletter --send --test ;;
+            envoi)   python -m src.newsletter --send ;;
+            archive) python -m src.newsletter ;;
+          esac
+      - name: Aperçu HTML de l'e-mail (téléchargeable dans l'onglet du run)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: apercu-newsletter
+          path: build/newsletter_preview.html
+          if-no-files-found: ignore
+          retention-days: 14
+      - name: Archiver (commit)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/weekly/
+          if ! git diff --cached --quiet; then
+            git commit -m "newsletter: archive $(date -u +%G-W%V)"
+            git pull --rebase --autostash
+            git push
+          fi
+
+  notify-failure:
+    needs: newsletter
+    if: failure()
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          gh issue create --title "Échec de la synthèse hebdomadaire" --body "Voir les logs : $RUN_URL"

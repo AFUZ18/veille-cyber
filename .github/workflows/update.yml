@@ -1,0 +1,91 @@
+# Collecte + classement + scoring + résumés + build + déploiement GitHub Pages.
+# Toutes les 6 heures (UTC) et à la demande (onglet Actions > « Run workflow »).
+name: Mise à jour de la veille
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"   # minute 17 : évite la cohue de l'heure pile sur GitHub
+  workflow_dispatch:
+  push:                        # reconstruit dès que vous modifiez la configuration ou le site
+    branches: [main]
+    paths: ["config/**", "site/**", "src/**", "requirements.txt"]
+
+# Moindre privilège : rien par défaut, chaque job déclare ce dont il a besoin.
+permissions: {}
+
+# Une seule exécution à la fois (partagé avec la newsletter qui commit aussi dans data/).
+concurrency:
+  group: veille-data
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write          # commit des fichiers JSON de data/
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Installer les dépendances
+        run: pip install -r requirements.txt
+      - name: Collecter, classer, scorer, résumer, construire le site
+        env:
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
+          SITE_URL: ${{ vars.SITE_URL || format('https://{0}.github.io/{1}/', github.repository_owner, github.event.repository.name) }}
+        run: python -m src.pipeline
+      - name: Enregistrer les données (commit)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "Aucune donnée nouvelle."
+          else
+            git commit -m "data: mise à jour $(date -u +%Y-%m-%dT%H:%MZ)"
+            git pull --rebase --autostash
+            git push
+          fi
+      - name: Préparer l'artefact Pages
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: public
+
+  deploy:
+    needs: update
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Déployer sur GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  notify-failure:
+    needs: [update, deploy]
+    if: failure()
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Ouvrir (ou commenter) une issue « Échec du pipeline »
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          existing=$(gh issue list --state open --search "Échec du pipeline de veille in:title" --json number --jq '.[0].number')
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --body "Nouvel échec : $RUN_URL"
+          else
+            gh issue create --title "Échec du pipeline de veille" \
+              --body "Le workflow de mise à jour a échoué : $RUN_URL. Consultez les logs, corrigez puis fermez cette issue."
+          fi

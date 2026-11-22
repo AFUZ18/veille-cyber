@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.venv/
+public/
+build/
+data/*.tmp
+.env
+# caches re-téléchargés à chaque exécution (inutile de les versionner)
+data/cache/kev.json
+data/cache/robots.json

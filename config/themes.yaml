@@ -1,0 +1,175 @@
+# ---------------------------------------------------------------------------
+# Thèmes et mots-clés.
+# - Un article hérite du thème de son flux, puis gagne d'autres thèmes si
+#   au moins `min_hits` mots-clés du thème apparaissent dans son titre/extrait.
+# - La recherche ignore la casse et les accents ; les mots courts (<= 4
+#   lettres, ex. « IAM », « LLM ») sont recherchés en mot entier.
+# ---------------------------------------------------------------------------
+
+themes:
+  H1:
+    label: "Cloud"
+    min_hits: 1
+    keywords:
+      - cloud
+      - IAM
+      - Kubernetes
+      - k8s
+      - container
+      - conteneur
+      - S3 bucket
+      - misconfiguration
+      - mauvaise configuration
+      - Azure
+      - Entra ID
+      - Azure AD
+      - AWS
+      - GCP
+      - Google Cloud
+      - SecNumCloud
+      - CSPM
+      - CNAPP
+      - serverless
+      - SaaS
+      - OVHcloud
+      - S3NS
+      - Bleu
+      - tenant
+  H2:
+    label: "Forensique & DFIR"
+    min_hits: 1
+    keywords:
+      - DFIR
+      - forensic
+      - forensics
+      - forensique
+      - investigation numérique
+      - memory forensics
+      - analyse mémoire
+      - Volatility
+      - Velociraptor
+      - EDR telemetry
+      - incident response
+      - réponse à incident
+      - réponse aux incidents
+      - timeline
+      - artefact
+      - artifact
+      - triage
+      - threat hunting
+      - chasse aux menaces
+      - IOC
+      - indicateurs de compromission
+      - post-mortem
+      - intrusion
+  H3:
+    label: "Sécurité de l'IA"
+    min_hits: 1
+    keywords:
+      - prompt injection
+      - injection de prompt
+      - jailbreak
+      - LLM
+      - large language model
+      - generative AI
+      - IA générative
+      - GenAI
+      - data poisoning
+      - empoisonnement
+      - adversarial
+      - model theft
+      - vol de modèle
+      - AI Act
+      - règlement européen sur l'IA
+      - AI red teaming
+      - red teaming IA
+      - AI agent
+      - agent IA
+      - agentic
+      - MCP server
+      - Model Context Protocol
+      - machine learning
+      - garak
+      - PyRIT
+      - ATLAS
+      - AI RMF
+  H4:
+    label: "Général / Entreprises"
+    min_hits: 1
+    keywords:
+      - ransomware
+      - rançongiciel
+      - data breach
+      - fuite de données
+      - vulnérabilité critique
+      - critical vulnerability
+      - zero-day
+      - NIS2
+      - NIS 2
+      - DORA
+      - RGPD
+      - GDPR
+      - CNIL
+      - ANSSI
+      - CERT-FR
+      - CISA
+      - phishing
+      - hameçonnage
+      - patch
+      - correctif
+
+# Thème transversal « Sectoriel » : adaptez ces listes à vos entreprises.
+# (valeurs par défaut reprises de la section 12 du cahier des charges)
+sectoral:
+  sectors:
+    santé: [hôpital, hospital, healthcare, santé, clinique, HDS, dossier patient, CHU]
+    industrie: [industrie, industrial, OT, ICS, SCADA, usine, manufacturing, automate]
+    finance: [banque, bank, finance, assurance, insurance, DORA, fintech, paiement]
+    collectivités: [collectivité, mairie, municipality, commune, département, région, service public, administration]
+  technologies:
+    Microsoft 365: [Microsoft 365, M365, Office 365, Exchange Online, SharePoint, Teams, Outlook, Entra ID]
+    Fortinet: [Fortinet, FortiGate, FortiOS, FortiManager, FortiWeb, FortiClient]
+    VMware: [VMware, ESXi, vCenter, Broadcom VMware]
+    Veeam: [Veeam]
+    Citrix: [Citrix, NetScaler]
+    Ivanti: [Ivanti, Connect Secure, Pulse Secure]
+  cloud_providers:
+    Azure: [Azure]
+    AWS: [AWS, Amazon Web Services]
+    GCP: [GCP, Google Cloud]
+    OVHcloud: [OVHcloud, OVH]
+    S3NS: [S3NS]
+  priority_topics:
+    ransomware: [ransomware, rançongiciel]
+    NIS2: [NIS2, NIS 2]
+    souveraineté du cloud: [souveraineté, sovereign cloud, SecNumCloud, cloud de confiance]
+
+# Règles d'exclusion : un article est écarté si son TITRE contient l'un de ces motifs
+# (sauf s'il contient une CVE ou provient d'une source officielle).
+exclusions:
+  title_patterns:
+    - webinar
+    - webinaire
+    - "register now"
+    - "inscrivez-vous"
+    - "sponsored"
+    - "contenu sponsorisé"
+    - "partner content"
+    - "save the date"
+    - "% off"
+    - "deal:"
+    - "black friday"
+    - "podcast episode"
+    - "we're hiring"
+    - "nous recrutons"
+  # Pour les flux généralistes, on exige au moins un mot-clé « cyber »
+  generic_feeds: ["LeMagIT", "SANS Blog (DFIR)", "NIST - Cybersecurity news"]
+  cyber_keywords: [sécurité, security, cyber, vulnérabilité, vulnerability, attaque, attack, ransomware, rançongiciel, malware, CVE, faille, breach, fuite, phishing, forensic, DFIR, incident, menace, threat]
+
+# Mots-clés pour rattacher un article à un salon (onglet « Salons & événements »)
+events_keywords:
+  - Cloud & Cyber Security Expo
+  - CyberShow
+  - Cyber Show Paris
+  - European Cyber Week
+  - Tech Show Paris

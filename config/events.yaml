@@ -1,0 +1,45 @@
+# ---------------------------------------------------------------------------
+# Agenda des salons suivis. Mettez à jour les dates à chaque nouvelle édition.
+# Dates au format AAAA-MM-JJ. `confirmed: false` = date estimée, affichée
+# comme « à confirmer » sur le site.
+# `news_feed` (facultatif) : flux RSS d'actualités du salon s'il en publie un.
+# ---------------------------------------------------------------------------
+
+events:
+  - name: "CyberShow Paris 2027"
+    start: 2027-01-27
+    end: 2027-01-28
+    location: "Espace Champerret, Paris 17e"
+    url: "https://www.cybershow-paris.com/"   # URL officielle à confirmer
+    confirmed: true
+    description: "Salon des solutions de cybersécurité (Eden Forums)."
+
+  - name: "Cloud & Cyber Security Expo Paris 2027"
+    start: 2027-11-17
+    end: 2027-11-18
+    location: "Paris Expo Porte de Versailles (Tech Show Paris)"
+    url: "https://www.techshowparis.fr/"
+    confirmed: false
+    description: "Salon cloud et cybersécurité, intégré à Tech Show Paris. Édition 2026 : 18-19 novembre 2026."
+
+  - name: "European Cyber Week 2027"
+    start: 2027-11-15
+    end: 2027-11-18
+    location: "Couvent des Jacobins, Rennes"
+    url: "https://www.european-cyber-week.eu/"
+    confirmed: false
+    description: "Rendez-vous européen cyberdéfense & IA de défense. Édition 2026 : 16-19 novembre 2026."
+
+  # Éditions passées (conservées pour l'historique, masquées du compte à rebours)
+  - name: "Cloud & Cyber Security Expo Paris 2026"
+    start: 2026-11-18
+    end: 2026-11-19
+    location: "Paris Expo Porte de Versailles"
+    url: "https://www.techshowparis.fr/"
+    confirmed: true
+  - name: "European Cyber Week 2026"
+    start: 2026-11-16
+    end: 2026-11-19
+    location: "Couvent des Jacobins, Rennes"
+    url: "https://www.european-cyber-week.eu/"
+    confirmed: true

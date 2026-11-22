@@ -1,0 +1,132 @@
+# ---------------------------------------------------------------------------
+# Paramètres généraux de la veille cyber
+# Toutes les valeurs sensibles (clés, mots de passe, adresses) passent par
+# des secrets / variables GitHub, JAMAIS par ce fichier.
+# ---------------------------------------------------------------------------
+
+site:
+  title: "Veille cyber"
+  subtitle: "Cloud · Forensique & DFIR · Sécurité de l'IA · Actualité entreprises"
+  # URL publique du site (GitHub Pages). Peut être surchargée par la variable SITE_URL.
+  url: "https://VOTRE-COMPTE.github.io/veille-cyber/"
+  output_dir: "public"          # dossier généré puis publié sur GitHub Pages
+  max_articles_on_site: 1500    # limite d'articles envoyés au navigateur
+  feed_items: 50                # nombre d'entrées dans feed.xml
+
+collect:
+  user_agent: "VeilleCyberBot/1.0 (+https://github.com/; veille interne, contact via le dépôt)"
+  timeout_seconds: 20
+  retries: 2                    # nouvelles tentatives par flux (backoff exponentiel)
+  backoff_seconds: 2
+  max_workers: 8                # flux téléchargés en parallèle
+  retention_days: 90            # articles plus anciens supprimés
+  excerpt_max_chars: 300        # extrait court (droit d'auteur)
+  max_entries_per_feed: 40
+  title_similarity_threshold: 0.88   # 0-1 : au-delà, deux titres sont considérés comme doublons
+  dedup_window_days: 4               # fenêtre de comparaison des titres
+  respect_robots_txt: true
+
+# ---------------------------------------------------------------------------
+# Criticité (0-100). Somme des composantes, plafonnée à 100.
+#   KEV                : +kev_points si une CVE de l'article est dans le catalogue CISA KEV
+#   CVSS               : (CVSS max / 10) * cvss_weight
+#   EPSS               : (EPSS max, 0-1) * epss_weight
+#   Mots-clés          : +keyword_points par mot-clé critique trouvé, plafonné à keyword_cap
+#   Source officielle  : +official_source_points (CERT-FR, CISA, ANSSI…)
+# Niveaux : >= critical → Critique ; >= high → Élevé ; >= medium → Moyen ; sinon Info
+# ---------------------------------------------------------------------------
+criticality:
+  kev_points: 40
+  cvss_weight: 25
+  epss_weight: 20
+  keyword_points: 10
+  keyword_cap: 25
+  official_source_points: 10
+  official_sources: ["CERT-FR", "CISA", "ANSSI", "Cybermalveillance"]
+  keywords:
+    - zero-day
+    - 0-day
+    - zero day
+    - jour zéro
+    - actively exploited
+    - activement exploitée
+    - exploitée activement
+    - in the wild
+    - ransomware
+    - rançongiciel
+    - rce
+    - remote code execution
+    - exécution de code à distance
+    - exécution de code arbitraire à distance
+    - authentication bypass
+    - contournement de l'authentification
+    - supply chain
+    - data breach
+    - fuite de données
+  levels:
+    critical: 75
+    high: 50
+    medium: 25
+
+# ---------------------------------------------------------------------------
+# Pertinence (0-100) pour MES entreprises. Somme plafonnée à 100.
+#   Thèmes        : theme_points par thème H1-H4 détecté (plafond theme_cap)
+#   Sectoriel     : sector_points par mot-clé secteur/techno trouvé (plafond sector_cap)
+#   Priorité flux : priority_points[priorité]
+#   Criticité     : criticality * criticality_factor
+# ---------------------------------------------------------------------------
+relevance:
+  theme_points: 15
+  theme_cap: 30
+  sector_points: 10
+  sector_cap: 30
+  priority_points: {1: 20, 2: 10, 3: 5}
+  criticality_factor: 0.2
+
+enrichment:
+  kev_url: "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+  kev_cache_hours: 12
+  epss_enabled: true
+  epss_url: "https://api.first.org/data/v1/epss"
+  nvd_enabled: true
+  nvd_url: "https://services.nvd.nist.gov/rest/json/cves/2.0"
+  # Sans clé NVD : 5 requêtes / 30 s. La variable NVD_API_KEY (facultative) relève la limite.
+  nvd_max_lookups_per_run: 30      # 30 × 6,5 s ≈ 3 min sans clé NVD
+  nvd_delay_seconds: 6.5
+  nvd_delay_seconds_with_key: 0.7
+  cve_cache_days: 7
+
+llm:
+  provider: "anthropic"          # seul fournisseur fourni ; voir src/summarize.py pour en ajouter
+  model: "claude-haiku-5-5"      # modèle rapide et économique
+  api_url: "https://api.anthropic.com/v1/messages"
+  max_tokens: 600
+  temperature: 0.2
+  timeout_seconds: 45
+  retries: 2
+  min_relevance: 30              # seuil de pertinence pour demander un résumé
+  max_summaries_per_run: 40      # plafond de coût par exécution
+
+newsletter:
+  timezone: "Europe/Paris"
+  send_hour_local: 7             # le workflow est planifié à 05:00 et 06:00 UTC ; seul le passage de 07:00 Paris envoie
+  cadence_h3: "mensuelle"        # "mensuelle" ou "hebdomadaire"
+  top_items: 5
+  items_per_theme: 5
+  min_items_per_theme: 3
+  smtp:
+    host: "smtp.gmail.com"       # surchargeable par la variable SMTP_HOST
+    port: 587                    # surchargeable par SMTP_PORT
+    starttls: true
+  # Groupes de destinataires. Les adresses viennent des secrets GitHub :
+  #   NEWSLETTER_RECIPIENTS_INTERNE, NEWSLETTER_RECIPIENTS_CLIENTS (séparées par des virgules)
+  recipients:
+    interne:
+      enabled: true
+      env: "NEWSLETTER_RECIPIENTS_INTERNE"
+      example: ["analyste@example.com"]
+    clients:
+      enabled: false             # passez à true quand la diffusion aux clients est décidée
+      env: "NEWSLETTER_RECIPIENTS_CLIENTS"
+      example: []
+  unsubscribe_text: "Pour ne plus recevoir cette synthèse, répondez à ce message avec « DÉSINSCRIPTION »."
