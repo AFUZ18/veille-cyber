@@ -1,0 +1,49 @@
+name: "Signal faible transformé"
+description: "Déclarer qu'un signal faible a été transformé en action ou en hypothèse. Alimente les KPI D2 et D3."
+title: "Signal transformé : "
+labels: ["signal-transforme"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Reprenez la fiche du signal dans `data/weak_signals.md` (hypothèse, indicateurs, échéance, décision).
+        **Ne saisissez aucune donnée confidentielle.**
+  - type: input
+    id: signal
+    attributes:
+      label: "Signal faible"
+      description: "Terme tel qu'affiché sur la page KPI (ex. « Java4Shell »)."
+    validations:
+      required: true
+  - type: input
+    id: article_id
+    attributes:
+      label: "Identifiant de l'article"
+      description: "Facultatif : article à l'origine du signal (16 caractères)."
+  - type: dropdown
+    id: usage_type
+    attributes:
+      label: "Type d'usage"
+      options:
+        - "hypothèse de transformation"
+        - "alerte envoyée"
+        - "note rédigée"
+        - "sensibilisation"
+        - "correctif appliqué"
+    validations:
+      required: true
+  - type: input
+    id: entreprise
+    attributes:
+      label: "Entreprise concernée"
+      description: "Facultatif."
+  - type: input
+    id: date
+    attributes:
+      label: "Date"
+      placeholder: "2026-11-23"
+  - type: textarea
+    id: commentaire
+    attributes:
+      label: "Commentaire"
+      description: "Hypothèse, indicateurs à surveiller, échéance, décision. Non repris sur le site."

@@ -27,6 +27,9 @@ PUBLIC_FIELDS = (
     "id", "title", "url", "source", "published", "language", "themes", "sectors", "is_event",
     "cves", "kev", "kev_ransomware", "cve_details", "criticality", "level", "criticality_reasons",
     "relevance", "excerpt", "summary", "why", "action", "action_type", "ai_tags", "summary_source", "also_in",
+    # quality layer
+    "reliability", "checks", "source_language", "translation_steps", "summary_from", "glossary_concepts",
+    "corroboration_sources", "domain",
 )  # fmt: skip
 
 
@@ -62,6 +65,47 @@ def events_payload(events: list[dict[str, Any]], today: date) -> list[dict[str, 
     return sorted(out, key=lambda e: e["start"])
 
 
+def repository(cfg: Config) -> str:
+    """owner/name of the GitHub repository (for the usage issue forms)."""
+    import os
+    import re
+
+    repo = os.environ.get("GITHUB_REPOSITORY") or cfg.settings["site"].get("repository", "")
+    return repo if re.fullmatch(r"[\w.-]+/[\w.-]+", repo or "") else ""
+
+
+def kpi_payload(report: dict[str, Any] | None, cfg: Config) -> dict[str, Any]:
+    """Data of the « KPI & qualité » tab (public/kpi.json)."""
+    if not report:
+        return {"available": False}
+    values = {k["id"]: k for k in report["kpis"]}
+    objectives = {
+        t: {"label": spec.get("label", t), **(spec.get("objectifs") or {})}
+        for t, spec in cfg.themes.get("themes", {}).items()
+        if t in THEME_IDS
+    }
+    biases = []
+    for b in (cfg.bias or {}).get("biais", []) or []:
+        ind = values.get(b.get("indicateur") or "")
+        biases.append(
+            {
+                **b,
+                "indicator_name": ind["nom"] if ind else None,
+                "indicator_value": ind["value"] if ind else None,
+                "indicator_unit": ind["unite"] if ind else None,
+                "indicator_status": ind["status_label"] if ind else None,
+            }
+        )
+    return {
+        "available": True,
+        **report,
+        "objectives": objectives,
+        "biases": biases,
+        "checklist": (cfg.checklist or {}).get("criteres", []),
+        "glossary_concepts": len((cfg.glossary or {}).get("concepts", []) or []),
+    }
+
+
 def site_payload(articles: list[dict[str, Any]], cfg: Config, feeds_status: list[dict], now: datetime) -> dict:
     limit = cfg.settings["site"]["max_articles_on_site"]
     ordered = sorted(articles, key=lambda a: a["published"], reverse=True)[:limit]
@@ -73,6 +117,7 @@ def site_payload(articles: list[dict[str, Any]], cfg: Config, feeds_status: list
             "title": cfg.settings["site"]["title"],
             "subtitle": cfg.settings["site"]["subtitle"],
             "url": cfg.site_url,
+            "repository": repository(cfg),
         },
         "theme_labels": labels,
         "counts": {t: sum(1 for a in public if t in (a["themes"] or [])) for t in THEME_IDS}
@@ -123,7 +168,13 @@ def build_rss(articles: list[dict[str, Any]], cfg: Config, now: datetime) -> str
     return "\n".join(parts)
 
 
-def build_site(articles: list[dict[str, Any]], cfg: Config, feeds_status: list[dict], now: datetime | None = None) -> Path:
+def build_site(
+    articles: list[dict[str, Any]],
+    cfg: Config,
+    feeds_status: list[dict],
+    now: datetime | None = None,
+    kpi_report: dict[str, Any] | None = None,
+) -> Path:
     now = now or utcnow()
     out = ROOT / cfg.settings["site"]["output_dir"]
     if out.exists():
@@ -138,6 +189,10 @@ def build_site(articles: list[dict[str, Any]], cfg: Config, feeds_status: list[d
     )
     (out / "index.html").write_text(page, "utf-8")
     (out / "feed.xml").write_text(build_rss(articles, cfg, now), "utf-8")
+    (out / "kpi.json").write_text(json.dumps(kpi_payload(kpi_report, cfg), ensure_ascii=False, separators=(",", ":")), "utf-8")
+    from .kpi import history_csv, load_history  # local import: avoids a cycle at module load
+
+    (out / "kpi_history.csv").write_text(history_csv(load_history(cfg), cfg), "utf-8")
     (out / ".nojekyll").write_text("", "utf-8")
     if (TEMPLATE_DIR / "favicon.svg").exists():
         shutil.copy(TEMPLATE_DIR / "favicon.svg", out / "favicon.svg")

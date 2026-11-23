@@ -1,0 +1,80 @@
+# ---------------------------------------------------------------------------
+# Qualité et autorité des sources : VALEURS INITIALES À VALIDER
+# ---------------------------------------------------------------------------
+# Une entrée par flux de feeds.yaml (même « name »).
+#   ae : expertise des auteurs (Author Expertise)              0-100
+#   ir : réputation de l'institution (Institutional Reputation) 0-100
+#   pr : rigueur éditoriale / relecture (Peer/editorial Review) 0-100
+#        Crédibilité = 30 % AE + 40 % IR + 30 % PR (poids dans settings.yaml > quality)
+#   org     : organisation éditrice. Deux flux de la même organisation ne comptent
+#             PAS comme deux sources indépendantes pour le recoupement.
+#   type    : officielle | éditeur | presse | communauté | recherche | outil
+#   country : pays d'origine (code ISO) ou « INT » pour international
+#   domains : domaines (ou domaine/chemin) des liens d'articles approuvés.
+#             Un article dont le lien n'est couvert par aucun domaine approuvé
+#             est marqué « Source non référencée ».
+#
+# Barème indicatif utilisé pour pré-remplir :
+#   sources officielles (CERT-FR, ANSSI, CISA, NIST)   AE 85-90  IR 95  PR 85-90
+#   recherche reconnue / éditeurs majeurs              AE 75-85  IR 75-85 PR 65-75
+#   presse spécialisée                                 AE 60-70  IR 60-70 PR 55-65
+#   blogs personnels, vidéo, communauté                AE 60-75  IR 40-55 PR 30-45
+#   dépôts d'outils (releases GitHub)                  AE 75     IR 60-70 PR 50
+# ---------------------------------------------------------------------------
+
+# Domaines approuvés supplémentaires (liens courants qui ne sont pas des flux suivis)
+extra_approved_domains:
+  - nvd.nist.gov
+  - cve.org
+  - www.cve.org
+
+sources:
+  # ---------- H1 Cloud
+  "AWS Security Blog":                 {ae: 80, ir: 80, pr: 70, org: "Amazon", type: éditeur, country: US, domains: [aws.amazon.com]}
+  "Microsoft Security Blog":           {ae: 85, ir: 85, pr: 75, org: "Microsoft", type: éditeur, country: US, domains: [microsoft.com]}
+  "Google Cloud - Security & Identity": {ae: 80, ir: 85, pr: 70, org: "Google", type: éditeur, country: US, domains: [cloud.google.com]}
+  "Cloud Security Alliance":           {ae: 70, ir: 75, pr: 65, org: "Cloud Security Alliance", type: communauté, country: INT, domains: [cloudsecurityalliance.org]}
+  "Wiz Blog":                          {ae: 80, ir: 70, pr: 60, org: "Wiz", type: éditeur, country: US, domains: [wiz.io]}
+  "Sysdig Blog":                       {ae: 75, ir: 65, pr: 60, org: "Sysdig", type: éditeur, country: US, domains: [sysdig.com]}
+  "Unit 42 (Palo Alto Networks)":      {ae: 85, ir: 80, pr: 75, org: "Palo Alto Networks", type: recherche, country: US, domains: [unit42.paloaltonetworks.com]}
+  "Orca Security Blog":                {ae: 70, ir: 60, pr: 55, org: "Orca Security", type: éditeur, country: IL, domains: [orca.security]}
+
+  # ---------- H2 Forensique / DFIR
+  "The DFIR Report":                   {ae: 85, ir: 70, pr: 70, org: "The DFIR Report", type: recherche, country: INT, domains: [thedfirreport.com]}
+  "SANS Internet Storm Center":        {ae: 85, ir: 85, pr: 70, org: "SANS", type: communauté, country: US, domains: [isc.sans.edu]}
+  "Magnet Forensics Blog":             {ae: 75, ir: 65, pr: 60, org: "Magnet Forensics", type: éditeur, country: CA, domains: [magnetforensics.com]}
+  "13Cubed (YouTube)":                 {ae: 80, ir: 45, pr: 35, org: "13Cubed", type: communauté, country: US, domains: [youtube.com, youtu.be]}
+  "Velociraptor - releases":           {ae: 80, ir: 65, pr: 50, org: "Rapid7 / Velocidex", type: outil, country: INT, domains: [github.com/Velocidex]}
+  "Volatility 3 - releases":           {ae: 80, ir: 70, pr: 50, org: "Volatility Foundation", type: outil, country: INT, domains: [github.com/volatilityfoundation]}
+  "SANS Blog (DFIR)":                  {ae: 80, ir: 85, pr: 70, org: "SANS", type: communauté, country: US, domains: [sans.org]}
+
+  # ---------- H3 Sécurité de l'IA
+  "OWASP GenAI Security Project":      {ae: 80, ir: 80, pr: 75, org: "OWASP", type: communauté, country: INT, domains: [genai.owasp.org, owasp.org]}
+  "MITRE ATLAS - releases (atlas-data)": {ae: 85, ir: 90, pr: 70, org: "MITRE", type: recherche, country: US, domains: [github.com/mitre-atlas]}
+  "Trail of Bits Blog":                {ae: 90, ir: 80, pr: 70, org: "Trail of Bits", type: recherche, country: US, domains: [blog.trailofbits.com]}
+  "HiddenLayer Blog":                  {ae: 75, ir: 60, pr: 55, org: "HiddenLayer", type: éditeur, country: US, domains: [hiddenlayer.com]}
+  "garak (NVIDIA) - releases":         {ae: 75, ir: 70, pr: 50, org: "NVIDIA", type: outil, country: US, domains: [github.com/NVIDIA/garak, github.com/nvidia/garak]}
+  "PyRIT (Microsoft) - releases":      {ae: 75, ir: 75, pr: 50, org: "Microsoft", type: outil, country: US, domains: [github.com/Azure/PyRIT]}
+  "NIST - Cybersecurity news":         {ae: 85, ir: 95, pr: 90, org: "NIST", type: officielle, country: US, domains: [nist.gov]}
+  "ANSSI - Actualités":                {ae: 90, ir: 95, pr: 90, org: "ANSSI", type: officielle, country: FR, domains: [cyber.gouv.fr, ssi.gouv.fr]}
+
+  # ---------- H4 Général / Entreprises
+  "CERT-FR - Alertes":                 {ae: 90, ir: 95, pr: 90, org: "ANSSI", type: officielle, country: FR, domains: [cert.ssi.gouv.fr, cert.cyber.gouv.fr]}
+  "CERT-FR - Avis":                    {ae: 90, ir: 95, pr: 90, org: "ANSSI", type: officielle, country: FR, domains: [cert.ssi.gouv.fr, cert.cyber.gouv.fr]}
+  "CERT-FR - Menaces et incidents":    {ae: 90, ir: 95, pr: 90, org: "ANSSI", type: officielle, country: FR, domains: [cert.ssi.gouv.fr, cert.cyber.gouv.fr]}
+  "Cybermalveillance.gouv.fr - Actualités": {ae: 75, ir: 90, pr: 85, org: "GIP ACYMA", type: officielle, country: FR, domains: [cybermalveillance.gouv.fr]}
+  "BleepingComputer":                  {ae: 70, ir: 70, pr: 60, org: "BleepingComputer", type: presse, country: US, domains: [bleepingcomputer.com]}
+  "The Hacker News":                   {ae: 60, ir: 60, pr: 50, org: "The Hacker News", type: presse, country: IN, domains: [thehackernews.com]}
+  "Krebs on Security":                 {ae: 85, ir: 60, pr: 45, org: "Brian Krebs", type: communauté, country: US, domains: [krebsonsecurity.com]}
+  "LeMagIT":                           {ae: 65, ir: 70, pr: 65, org: "TechTarget / LeMagIT", type: presse, country: FR, domains: [lemagit.fr]}
+  "ZATAZ":                             {ae: 60, ir: 50, pr: 40, org: "ZATAZ", type: communauté, country: FR, domains: [zataz.com]}
+  "CISA - Cybersecurity Advisories":   {ae: 90, ir: 95, pr: 90, org: "CISA", type: officielle, country: US, domains: [cisa.gov]}
+  "Dark Reading":                      {ae: 65, ir: 65, pr: 60, org: "Informa / Dark Reading", type: presse, country: US, domains: [darkreading.com]}
+
+# Valeurs appliquées à une source absente de cette liste (nouveau flux non encore noté)
+default:
+  ae: 50
+  ir: 50
+  pr: 50
+  type: communauté
+  country: INT

@@ -9,6 +9,12 @@
 themes:
   H1:
     label: "Cloud"
+    # Objectif SMART de l'axe (facultatif, affiché sur la page KPI). VALEURS INITIALES À VALIDER
+    objectifs:
+      smart: "Suivre chaque semaine au moins 10 articles pertinents sur les risques cloud (IAM, mauvaises configurations, conteneurs) touchant Azure, AWS, GCP, OVHcloud ou S3NS, pour alerter les clients sous 48 h."
+      cible_hebdo: 10           # articles pertinents / semaine (KPI A2)
+      echeance: "2027-03-31"
+      horizon: court             # court | moyen | long
     min_hits: 1
     keywords:
       - cloud
@@ -37,6 +43,12 @@ themes:
       - tenant
   H2:
     label: "Forensique & DFIR"
+    # Objectif SMART de l'axe (facultatif, affiché sur la page KPI). VALEURS INITIALES À VALIDER
+    objectifs:
+      smart: "Disposer chaque semaine d'au moins 4 retours d'expérience ou outils DFIR exploitables, pour enrichir la méthodologie de réponse à incident d'ici fin du 1er semestre 2027."
+      cible_hebdo: 4           # articles pertinents / semaine (KPI A2)
+      echeance: "2027-06-30"
+      horizon: moyen             # court | moyen | long
     min_hits: 1
     keywords:
       - DFIR
@@ -64,6 +76,12 @@ themes:
       - intrusion
   H3:
     label: "Sécurité de l'IA"
+    # Objectif SMART de l'axe (facultatif, affiché sur la page KPI). VALEURS INITIALES À VALIDER
+    objectifs:
+      smart: "Constituer d'ici fin 2027 une base de connaissance sur les attaques contre l'IA (injection de prompt, empoisonnement, agents) avec au moins 3 articles pertinents par semaine, pour préparer une offre de test d'intrusion de l'IA."
+      cible_hebdo: 3           # articles pertinents / semaine (KPI A2)
+      echeance: "2027-12-31"
+      horizon: long             # court | moyen | long
     min_hits: 1
     keywords:
       - prompt injection
@@ -95,6 +113,12 @@ themes:
       - AI RMF
   H4:
     label: "Général / Entreprises"
+    # Objectif SMART de l'axe (facultatif, affiché sur la page KPI). VALEURS INITIALES À VALIDER
+    objectifs:
+      smart: "Repérer chaque semaine au moins 15 informations pertinentes (vulnérabilités exploitées, rançongiciels, réglementation) concernant les entreprises clientes, et diffuser les alertes critiques sous 24 h."
+      cible_hebdo: 15           # articles pertinents / semaine (KPI A2)
+      echeance: "2027-03-31"
+      horizon: court             # court | moyen | long
     min_hits: 1
     keywords:
       - ransomware

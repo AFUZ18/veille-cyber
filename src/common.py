@@ -57,6 +57,12 @@ class Config:
     themes: dict[str, Any]
     events: list[dict[str, Any]]
     data_dir: Path = field(default_factory=lambda: DATA_DIR)
+    # Quality / KPI layer (optional files: an absent file yields an empty dict)
+    kpi: dict[str, Any] = field(default_factory=dict)
+    glossary: dict[str, Any] = field(default_factory=dict)
+    sources_quality: dict[str, Any] = field(default_factory=dict)
+    checklist: dict[str, Any] = field(default_factory=dict)
+    bias: dict[str, Any] = field(default_factory=dict)
 
     @property
     def site_url(self) -> str:
@@ -69,6 +75,10 @@ def load_yaml(path: Path) -> Any:
         return yaml.safe_load(fh) or {}
 
 
+def load_optional_yaml(path: Path) -> dict[str, Any]:
+    return load_yaml(path) if path.exists() else {}
+
+
 def load_config(config_dir: Path | None = None, data_dir: Path | None = None) -> Config:
     cdir = Path(config_dir or CONFIG_DIR)
     feeds = load_yaml(cdir / "feeds.yaml").get("feeds", [])
@@ -79,6 +89,11 @@ def load_config(config_dir: Path | None = None, data_dir: Path | None = None) ->
         themes=load_yaml(cdir / "themes.yaml"),
         events=load_yaml(cdir / "events.yaml").get("events", []),
         data_dir=Path(data_dir or DATA_DIR),
+        kpi=load_optional_yaml(cdir / "kpi.yaml"),
+        glossary=load_optional_yaml(cdir / "glossary.yaml"),
+        sources_quality=load_optional_yaml(cdir / "sources_quality.yaml"),
+        checklist=load_optional_yaml(cdir / "verification_checklist.yaml"),
+        bias=load_optional_yaml(cdir / "bias.yaml"),
     )
 
 

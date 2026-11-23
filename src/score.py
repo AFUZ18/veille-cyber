@@ -106,7 +106,10 @@ def enrich_cves(cves: set[str], cfg: Config) -> dict[str, dict[str, Any]]:
             try:
                 resp = http_get(e["nvd_url"], user_agent=ua, params={"cveId": cve}, headers=headers, timeout=20)
                 if resp.status_code == 200:
-                    cache.setdefault(cve, {})["cvss"] = _nvd_cvss(resp.json())
+                    payload = resp.json()
+                    entry = cache.setdefault(cve, {})
+                    entry["cvss"] = _nvd_cvss(payload)
+                    entry["nvd_found"] = bool(payload.get("vulnerabilities"))
             except Exception as exc:
                 log.warning("NVD indisponible pour %s : %s", cve, exc)
                 break
@@ -194,7 +197,10 @@ def score_articles(articles: list[dict[str, Any]], cfg: Config) -> list[dict[str
         art["criticality_reasons"] = reasons
         art["kev"] = any(c in kev for c in art.get("cves", []))
         art["kev_ransomware"] = any(kev.get(c, {}).get("ransomware") for c in art.get("cves", []))
-        art["cve_details"] = {c: {k: cve_info.get(c, {}).get(k) for k in ("cvss", "epss")} for c in art.get("cves", [])}
+        art["cve_details"] = {
+            c: {k: cve_info.get(c, {}).get(k) for k in ("cvss", "epss", "nvd_found")} | {"kev": c in kev}
+            for c in art.get("cves", [])
+        }
         art["relevance"] = compute_relevance(art, crit, cfg.settings["relevance"])
     counts = {lvl: sum(1 for a in articles if a["level"] == lvl) for lvl in LEVELS}
     log.info("Scoring : %s", ", ".join(f"{k}={v}" for k, v in counts.items()))

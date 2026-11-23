@@ -1,0 +1,47 @@
+name: "Information utilisée"
+description: "Déclarer l'utilisation d'un article de la veille (alerte, correctif, note, sensibilisation…). Alimente les KPI d'utilité."
+title: "Usage : "
+labels: ["usage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Merci ! Ce formulaire alimente les KPI d'utilité de la veille (page « KPI & qualité »).
+        **Ne saisissez aucune donnée confidentielle** : les issues d'un dépôt public sont visibles de tous.
+  - type: input
+    id: article_id
+    attributes:
+      label: "Identifiant de l'article"
+      description: "Rempli automatiquement depuis le lien « Signaler un usage » (16 caractères, en bas de la carte)."
+      placeholder: "0123456789abcdef"
+    validations:
+      required: true
+  - type: dropdown
+    id: usage_type
+    attributes:
+      label: "Type d'usage"
+      options:
+        - "alerte envoyée"
+        - "correctif appliqué"
+        - "note rédigée"
+        - "sensibilisation"
+        - "hypothèse de transformation"
+        - "article écarté (hors sujet)"
+    validations:
+      required: true
+  - type: input
+    id: entreprise
+    attributes:
+      label: "Entreprise concernée"
+      description: "Facultatif. Préférez un nom de code si le dépôt est public."
+  - type: input
+    id: date
+    attributes:
+      label: "Date"
+      description: "AAAA-MM-JJ (par défaut : date de création de l'issue)"
+      placeholder: "2026-11-23"
+  - type: textarea
+    id: commentaire
+    attributes:
+      label: "Commentaire"
+      description: "Facultatif. Le commentaire n'est pas repris sur le site."

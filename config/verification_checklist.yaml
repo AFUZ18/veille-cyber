@@ -1,0 +1,104 @@
+# ---------------------------------------------------------------------------
+# Checklist de vérification de l'information (fausses informations, recoupement…)
+# ---------------------------------------------------------------------------
+#   importance : bloquant | majeur | mineur
+#   methode    : automatique (contrôle par le pipeline) | manuelle (à faire par l'analyste)
+#   controle   : identifiant du contrôle automatique dans src/quality.py
+#
+# Badge de fiabilité affiché sur chaque article :
+#   « Source non référencée » : le contrôle « domaine_approuve » échoue.
+#   « Vérifié »               : tous les contrôles automatiques bloquants et majeurs
+#                               réussissent (un contrôle non applicable compte comme réussi).
+#                               Le recoupement peut être remplacé par une source dont la
+#                               crédibilité >= credibilite_suffisante (ex. CERT-FR, CISA).
+#   « À recouper »            : tous les autres cas.
+# ---------------------------------------------------------------------------
+
+credibilite_suffisante: 85
+
+# Formulations sensationnalistes : leur présence dans le titre fait échouer le contrôle
+formulations_sensationnalistes:
+  - "you won't believe"
+  - "shocking"
+  - "massive hack"
+  - "biggest ever"
+  - "apocalypse"
+  - "catastrophe"
+  - "incroyable"
+  - "choc"
+  - "panique"
+  - "everyone is affected"
+  - "tout le monde est concerné"
+  - "!!!"
+
+criteres:
+  - id: domaine_approuve
+    nom: "Source référencée"
+    description: "Le lien pointe vers un domaine de la liste des sources approuvées (sources_quality.yaml)."
+    famille: source
+    importance: bloquant
+    methode: automatique
+    controle: approved_domain
+  - id: https
+    nom: "Lien sécurisé"
+    description: "Le lien de l'article utilise HTTPS."
+    famille: source
+    importance: majeur
+    methode: automatique
+    controle: https
+  - id: date_plausible
+    nom: "Date plausible"
+    description: "La date de publication existe, n'est pas dans le futur et n'a pas été corrigée par le pipeline."
+    famille: date
+    importance: majeur
+    methode: automatique
+    controle: plausible_date
+  - id: cve_confirmees
+    nom: "CVE confirmées"
+    description: "Les CVE citées existent dans le catalogue CISA KEV ou dans la base NVD."
+    famille: cohérence
+    importance: majeur
+    methode: automatique
+    controle: cves_confirmed
+  - id: recoupement
+    nom: "Recoupement"
+    description: "L'information est publiée par au moins deux organisations indépendantes (ou par une source de très haute crédibilité)."
+    famille: recoupement
+    importance: majeur
+    methode: automatique
+    controle: corroborated
+  - id: ton_neutre
+    nom: "Ton non sensationnaliste"
+    description: "Le titre ne contient pas de formulation sensationnaliste (liste ci-dessus)."
+    famille: fausses informations
+    importance: mineur
+    methode: automatique
+    controle: not_sensational
+  - id: source_primaire
+    nom: "Remonter à la source primaire"
+    description: "Pour une information de presse, retrouver l'avis de l'éditeur, du CERT ou du chercheur d'origine."
+    famille: source
+    importance: majeur
+    methode: manuelle
+    controle: null
+  - id: coherence_technique
+    nom: "Cohérence technique"
+    description: "Les versions, produits et impacts annoncés sont cohérents avec l'avis de l'éditeur."
+    famille: cohérence
+    importance: majeur
+    methode: manuelle
+    controle: null
+  - id: interet_commercial
+    nom: "Intérêt commercial"
+    description: "Vérifier si l'auteur vend une solution au problème qu'il décrit (biais de source commerciale)."
+    famille: fausses informations
+    importance: mineur
+    methode: manuelle
+    controle: null
+  - id: actualite
+    nom: "Information toujours d'actualité"
+    description: "Vérifier qu'un correctif ou un démenti n'a pas été publié depuis."
+    famille: date
+    importance: mineur
+    methode: manuelle
+    controle: null

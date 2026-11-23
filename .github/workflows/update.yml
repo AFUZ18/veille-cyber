@@ -24,6 +24,7 @@ jobs:
     timeout-minutes: 15
     permissions:
       contents: write          # commit des fichiers JSON de data/
+      issues: write            # lecture du journal d'usage (issues) + issues « Action d'amélioration »
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6
@@ -36,6 +37,8 @@ jobs:
         env:
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
           NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
+          GITHUB_TOKEN: ${{ github.token }}   # jeton automatique, limité aux permissions ci-dessus
+          ISSUES_SYNC: "1"
           SITE_URL: ${{ vars.SITE_URL || format('https://{0}.github.io/{1}/', github.repository_owner, github.event.repository.name) }}
         run: python -m src.pipeline
       - name: Enregistrer les données (commit)

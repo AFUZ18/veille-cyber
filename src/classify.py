@@ -29,6 +29,27 @@ def detect_themes(article: dict[str, Any], themes_cfg: dict[str, Any]) -> tuple[
     return sorted(themes), hits
 
 
+def glossary_terms(concept: dict[str, Any]) -> list[str]:
+    """All French and English terms of a glossary concept."""
+    return list(concept.get("fr") or []) + list(concept.get("en") or [])
+
+
+def detect_glossary(article: dict[str, Any], glossary: dict[str, Any]) -> tuple[list[str], list[str]]:
+    """Return (matched concept ids, axes implied by those concepts).
+
+    Terms are searched in BOTH languages whatever the article language, so a French
+    and an English article on the same subject map to the same concept and axes.
+    """
+    text = article_text(article)
+    concepts: list[str] = []
+    axes: set[str] = set()
+    for concept in glossary.get("concepts", []) or []:
+        if find_keywords(text, glossary_terms(concept)):
+            concepts.append(concept["id"])
+            axes.update(a for a in concept.get("axes", []) if a in THEME_IDS)
+    return concepts, sorted(axes)
+
+
 def detect_sectors(article: dict[str, Any], themes_cfg: dict[str, Any]) -> list[str]:
     """Names of sectors / technologies / cloud providers / priority topics mentioned."""
     text = article_text(article)
@@ -73,7 +94,11 @@ def classify(articles: list[dict[str, Any]], cfg: Config) -> list[dict[str, Any]
             log.debug("Exclu (%s) : %s", reason, art["title"])
             continue
         themes, hits = detect_themes(art, cfg.themes)
-        art["themes"] = themes
+        concepts, glossary_axes = detect_glossary(art, cfg.glossary)
+        added = sorted(set(glossary_axes) - set(themes))
+        art["themes"] = sorted(set(themes) | set(glossary_axes))
+        art["glossary_concepts"] = concepts
+        art["glossary_axes_added"] = added  # axes reached only thanks to the bilingual glossary
         art["keyword_hits"] = hits
         art["sectors"] = detect_sectors(art, cfg.themes)
         art["is_event"] = is_event(art, cfg.themes)

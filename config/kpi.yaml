@@ -1,0 +1,513 @@
+# ---------------------------------------------------------------------------
+# KPI de la veille : définitions SMART, cibles, seuils et actions (SLA)
+# ---------------------------------------------------------------------------
+# VALEURS INITIALES À VALIDER : cibles et seuils ont été fixés a priori, à
+# ajuster après 4 à 8 semaines d'observation (voir docs/KPI.md).
+#
+# Champs d'un KPI :
+#   id, nom, famille (A à F), smart (5 champs), formule, unite
+#   periode      : fenêtre de calcul et unité de comptage des périodes consécutives
+#                  (execution | jour | semaine | mois)
+#   sens         : hausse (plus c'est haut, mieux c'est) | baisse | info (pas de cible)
+#   cible        : valeur visée ; seuil_alerte : au-delà (côté défavorable) = rouge
+#                  Statut : vert = cible atteinte ; orange = entre cible et seuil ;
+#                  rouge = seuil franchi ; « non disponible » = données manquantes.
+#   par          : null | axe | source  (un résultat par axe ou par source)
+#   periodes_consecutives : nombre de périodes hors cible (orange ou rouge) avant de
+#                  déclencher l'action d'amélioration (SLA)
+#   action       : action à appliquer ({sujet} = axe ou source concerné(e))
+#   calcul       : nom de la fonction de calcul dans src/kpi.py (ne pas modifier)
+# ---------------------------------------------------------------------------
+
+parametres:
+  seuil_pertinence: 35          # un article est « pertinent » si sa pertinence (0-100) >= ce seuil
+  fenetre_sources_jours: 30     # fenêtre de calcul des scores de qualité des sources
+  fenetre_usage_jours: 30       # fenêtre des KPI d'utilité
+
+# Détection des signaux faibles (famille C)
+signaux_faibles:
+  semaines_reference: 4         # comparaison : semaine écoulée vs moyenne des 4 semaines précédentes
+  min_articles_semaine: 2       # au moins N articles dans la semaine…
+  max_articles_semaine: 8       # …mais pas plus (sinon c'est un signal fort)
+  max_sources: 3                # rare : cité par peu de sources
+  croissance_min: 3.0           # fréquence semaine >= 3 × moyenne de référence
+  max_moyenne_reference: 1.0    # le terme était quasi absent avant (<= 1 article / semaine en moyenne)
+  # Mots ignorés pour l'extraction des noms propres (produits, logiciels malveillants…)
+  mots_ignores: [The, This, That, These, How, Why, What, When, New, Critical, Security, Update, Updates,
+                 Report, Week, Weekly, Patch, Tuesday, Monday, Friday, Attack, Attacks, Hackers, Hacker,
+                 Flaw, Flaws, Bug, Bugs, Vulnerability, Vulnerabilities, Multiples, Vulnérabilité, Vulnérabilités,
+                 Les, Des, Une, Pour, Dans, Avec, Sur, Nouvelle, Nouveau, Alerte, Avis, Bulletin, Release,
+                 Google, Microsoft, Amazon, AWS, Apple, Cisco, CISA, CERT, ANSSI, Cloud, Windows, Linux,
+                 Data, Users, User, Over, From, With, Into, After, Before, Your, Our, Their, Its, Are, Is, For,
+                 And, Not, Now, More, Most, All, Top, Best, Free, Using, Used, Via, Part, Year,
+                 Zero-Day, HTTP, HTTPS, Pre-Auth, Server, Remote, Code, Access, Control, Execution, Malware,
+                 API, APIs, SDK, CLI, VPN, AI, IA, LLM, Open, Source, Agent, Agents, Threat, Threats]
+
+kpis:
+  # ======================================================== A. Pertinence
+  - id: A1_pertinence_axe
+    nom: "Part d'articles pertinents par axe"
+    famille: A
+    smart:
+      specifique: "Mesurer la part des articles collectés qui servent réellement les objectifs de chaque axe."
+      mesurable: "Pourcentage d'articles dont la pertinence >= seuil_pertinence, sur 7 jours."
+      atteignable: "Ajustement des sources et des mots-clés."
+      realiste: "40 % : une partie de l'actualité générale reste du bruit utile au contexte."
+      temporel: "Calcul à chaque exécution, revue chaque semaine."
+    formule: "articles de l'axe avec pertinence >= seuil / articles de l'axe (7 jours) × 100"
+    unite: "%"
+    periode: semaine
+    sens: hausse
+    cible: 40
+    seuil_alerte: 20
+    par: axe
+    periodes_consecutives: 2
+    responsable: "Analyste veille"
+    action: "Axe {sujet} : revoir les mots-clés du thème et les sources peu pertinentes de l'axe."
+    calcul: relevance_share_by_axis
+
+  - id: A2_couverture_axe
+    nom: "Couverture hebdomadaire par axe"
+    famille: A
+    smart:
+      specifique: "Vérifier que chaque axe reçoit assez d'articles pertinents chaque semaine."
+      mesurable: "Articles pertinents de la semaine / cible hebdomadaire de l'axe (themes.yaml) × 100."
+      atteignable: "Cibles hebdomadaires réalistes par axe (themes.yaml > objectifs)."
+      realiste: "Fondé sur le volume observé des sources actuelles."
+      temporel: "Chaque semaine."
+    formule: "articles pertinents de l'axe sur 7 jours / objectifs.cible_hebdo × 100"
+    unite: "%"
+    periode: semaine
+    sens: hausse
+    cible: 100
+    seuil_alerte: 50
+    par: axe
+    periodes_consecutives: 2
+    responsable: "Responsable veille"
+    action: "Axe {sujet} sous-couvert : ajouter au moins une source spécialisée sur cet axe (feeds.yaml)."
+    calcul: weekly_coverage_by_axis
+
+  - id: A3_temps_hors_sujet
+    nom: "Part du temps passé sur des articles hors sujet"
+    famille: A
+    smart:
+      specifique: "Limiter le temps perdu sur des articles finalement écartés."
+      mesurable: "Usages « article écarté (hors sujet) » / tous les usages déclarés (30 jours)."
+      atteignable: "Dépend de la saisie du journal d'usage."
+      realiste: "10 % maximum."
+      temporel: "Mensuel."
+    formule: "usages de type « écarté » / usages déclarés × 100 (30 jours)"
+    unite: "%"
+    periode: mois
+    sens: baisse
+    cible: 10
+    seuil_alerte: 25
+    par: null
+    periodes_consecutives: 1
+    responsable: "Analyste veille"
+    action: "Trop d'articles hors sujet consultés : renforcer les exclusions (themes.yaml > exclusions)."
+    calcul: offtopic_time_share
+
+  # ======================================================== B. Qualité des sources
+  - id: B1_qualite_moyenne
+    nom: "Score de qualité moyen des sources"
+    famille: B
+    smart:
+      specifique: "Suivre la qualité globale du panel de sources."
+      mesurable: "Moyenne du Source Quality Score des sources actives ayant publié sur 30 jours."
+      atteignable: "Remplacement progressif des sources faibles."
+      realiste: "60 / 100."
+      temporel: "Chaque semaine."
+    formule: "moyenne(SQS) ; SQS = 30 % pertinence + 25 % crédibilité + 25 % nouveauté + 20 % efficacité"
+    unite: "/100"
+    periode: semaine
+    sens: hausse
+    cible: 60
+    seuil_alerte: 50
+    par: null
+    periodes_consecutives: 4
+    responsable: "Responsable veille"
+    action: "Qualité moyenne des sources insuffisante : revoir le panel de sources."
+    calcul: average_source_quality
+
+  - id: B2_qualite_source
+    nom: "Score de qualité par source"
+    famille: B
+    smart:
+      specifique: "Repérer les sources qui n'apportent pas assez de valeur."
+      mesurable: "Source Quality Score de chaque source (30 jours glissants)."
+      atteignable: "Remplacer ou désactiver une source durablement faible."
+      realiste: "Seuil 50 / 100."
+      temporel: "Décision après 4 semaines consécutives sous le seuil."
+    formule: "SQS = 30 % pertinence + 25 % crédibilité + 25 % nouveauté + 20 % efficacité"
+    unite: "/100"
+    periode: semaine
+    sens: hausse
+    cible: 60
+    seuil_alerte: 50
+    par: source
+    periodes_consecutives: 4
+    responsable: "Responsable veille"
+    action: "Source « {sujet} » sous le score de qualité cible depuis 4 semaines : la remplacer ou la désactiver (feeds.yaml)."
+    calcul: source_quality_by_source
+
+  - id: B3_taux_recoupement
+    nom: "Taux de recoupement des informations importantes"
+    famille: B
+    smart:
+      specifique: "S'assurer que les informations Élevé/Critique sont confirmées."
+      mesurable: "Part des articles de criticité Élevé ou Critique confirmés par >= 2 sources indépendantes (7 jours)."
+      atteignable: "Diversifier les sources H4."
+      realiste: "50 %."
+      temporel: "Chaque semaine."
+    formule: "articles Élevé/Critique recoupés par >= 2 organisations / articles Élevé/Critique × 100"
+    unite: "%"
+    periode: semaine
+    sens: hausse
+    cible: 50
+    seuil_alerte: 25
+    par: null
+    periodes_consecutives: 3
+    responsable: "Analyste veille"
+    action: "Trop d'informations importantes non recoupées : ajouter une source officielle ou de presse indépendante."
+    calcul: corroboration_rate
+
+  - id: B4_sources_non_referencees
+    nom: "Articles de sources non référencées"
+    famille: B
+    smart:
+      specifique: "Détecter les liens qui pointent hors des domaines approuvés."
+      mesurable: "Nombre d'articles dont le domaine n'est pas dans sources_quality.yaml (7 jours)."
+      atteignable: "Compléter la liste des domaines approuvés."
+      realiste: "0 attendu."
+      temporel: "Chaque semaine."
+    formule: "nombre d'articles dont le domaine n'est couvert par aucune source approuvée"
+    unite: "articles"
+    periode: semaine
+    sens: baisse
+    cible: 0
+    seuil_alerte: 5
+    par: null
+    periodes_consecutives: 2
+    responsable: "Analyste veille"
+    action: "Des articles pointent vers des domaines non approuvés : vérifier ces domaines et compléter sources_quality.yaml."
+    calcul: unreferenced_articles
+
+  - id: B5_delai_reception
+    nom: "Délai de réception de l'information (TTRI)"
+    famille: B
+    smart:
+      specifique: "Recevoir l'information rapidement après sa publication."
+      mesurable: "Médiane (en heures) de collecte - publication, sur 7 jours."
+      atteignable: "Collecte toutes les 6 heures."
+      realiste: "6 heures."
+      temporel: "Chaque semaine."
+    formule: "médiane(date de collecte - date de publication), en heures"
+    unite: "h"
+    periode: semaine
+    sens: baisse
+    cible: 6
+    seuil_alerte: 24
+    par: null
+    periodes_consecutives: 2
+    responsable: "Administrateur"
+    action: "Délai de réception trop long : vérifier la fréquence d'exécution du workflow et les flux lents."
+    calcul: time_to_receive
+
+  - id: B6_disponibilite_flux
+    nom: "Disponibilité des flux"
+    famille: B
+    smart:
+      specifique: "S'assurer que les sources répondent."
+      mesurable: "Part des flux actifs collectés sans erreur lors de la dernière exécution."
+      atteignable: "Correction ou remplacement des flux en panne."
+      realiste: "90 %."
+      temporel: "À chaque exécution."
+    formule: "flux OK / flux actifs × 100"
+    unite: "%"
+    periode: jour
+    sens: hausse
+    cible: 90
+    seuil_alerte: 75
+    par: null
+    periodes_consecutives: 3
+    responsable: "Administrateur"
+    action: "Trop de flux en panne : lancer scripts/check_feeds.py et corriger feeds.yaml."
+    calcul: feed_availability
+
+  - id: B7_flux_en_erreur
+    nom: "Disponibilité par flux"
+    famille: B
+    smart:
+      specifique: "Repérer chaque flux durablement en panne."
+      mesurable: "100 si le flux répond, 0 sinon, à chaque exécution."
+      atteignable: "Corriger l'URL ou désactiver le flux."
+      realiste: "Tolérance de 2 jours (8 exécutions)."
+      temporel: "À chaque exécution."
+    formule: "100 si collecte OK, 0 sinon"
+    unite: "%"
+    periode: execution
+    sens: hausse
+    cible: 100
+    seuil_alerte: 50
+    par: source
+    periodes_consecutives: 8
+    responsable: "Administrateur"
+    action: "Le flux « {sujet} » est en erreur depuis 2 jours : corriger son URL, le remplacer ou le désactiver (feeds.yaml)."
+    calcul: feed_availability_by_source
+
+  # ======================================================== C. Intérêt (signaux faibles)
+  - id: C1_signaux_faibles
+    nom: "Signaux faibles détectés"
+    famille: C
+    smart:
+      specifique: "Repérer tôt les sujets émergents."
+      mesurable: "Nombre de termes en forte hausse mais encore rares (semaine vs 4 semaines)."
+      atteignable: "Détection automatique, glossaire FR/EN."
+      realiste: "Indicateur d'observation (pas de cible imposée)."
+      temporel: "Chaque semaine."
+    formule: "nombre de termes respectant les seuils de signaux_faibles"
+    unite: "signaux"
+    periode: semaine
+    sens: info
+    cible: null
+    seuil_alerte: null
+    par: axe
+    periodes_consecutives: 0
+    responsable: "Analyste veille"
+    action: ""
+    calcul: weak_signals_count
+
+  # ======================================================== D. Utilité
+  - id: D1_utilisations
+    nom: "Utilisations de l'information collectée"
+    famille: D
+    smart:
+      specifique: "Mesurer l'usage réel de la veille (alertes, correctifs, notes, sensibilisation)."
+      mesurable: "Nombre d'usages déclarés (issues « Information utilisée » + data/usage.yaml) sur 30 jours."
+      atteignable: "Saisie d'un usage en 1 minute depuis chaque carte."
+      realiste: "4 par mois."
+      temporel: "Mensuel."
+    formule: "nombre d'usages déclarés (hors « écarté ») sur 30 jours"
+    unite: "usages"
+    periode: mois
+    sens: hausse
+    cible: 4
+    seuil_alerte: 1
+    par: null
+    periodes_consecutives: 1
+    responsable: "Responsable veille"
+    action: "La veille est peu utilisée : présenter la synthèse aux équipes et rappeler le lien « Signaler un usage »."
+    calcul: usage_count
+
+  - id: D2_signaux_transformes
+    nom: "Signaux faibles transformés en action ou hypothèse"
+    famille: D
+    smart:
+      specifique: "Suivre la transformation des signaux faibles en décisions."
+      mesurable: "Nombre d'issues « Signal faible transformé » sur 30 jours."
+      atteignable: "Revue mensuelle des signaux (data/weak_signals.md)."
+      realiste: "1 par mois."
+      temporel: "Mensuel."
+    formule: "nombre de signaux transformés (30 jours)"
+    unite: "signaux"
+    periode: mois
+    sens: hausse
+    cible: 1
+    seuil_alerte: 0
+    par: null
+    periodes_consecutives: 2
+    responsable: "Responsable veille"
+    action: "Aucun signal faible transformé : organiser la revue mensuelle des signaux (data/weak_signals.md)."
+    calcul: transformed_signals_count
+
+  - id: D3_taux_transformation
+    nom: "Taux de transformation des signaux faibles"
+    famille: D
+    smart:
+      specifique: "Mesurer la part des signaux faibles exploités."
+      mesurable: "Signaux transformés / signaux détectés sur 30 jours."
+      atteignable: "Revue mensuelle."
+      realiste: "20 %."
+      temporel: "Mensuel."
+    formule: "signaux transformés / signaux détectés × 100 (30 jours)"
+    unite: "%"
+    periode: mois
+    sens: hausse
+    cible: 20
+    seuil_alerte: 5
+    par: null
+    periodes_consecutives: 2
+    responsable: "Responsable veille"
+    action: "Taux de transformation faible : prioriser les signaux faibles en revue et formuler des hypothèses."
+    calcul: transformation_rate
+
+  # ======================================================== E. Double traduction
+  - id: E1_repartition_langues
+    nom: "Répartition des articles par langue source"
+    famille: E
+    smart:
+      specifique: "Connaître l'exposition au risque de traduction."
+      mesurable: "Part de chaque langue d'origine (7 jours)."
+      atteignable: "Observation."
+      realiste: "Indicateur d'observation."
+      temporel: "Chaque semaine."
+    formule: "articles de la langue / total × 100 ; valeur principale = part des articles non francophones"
+    unite: "%"
+    periode: semaine
+    sens: info
+    cible: null
+    seuil_alerte: null
+    par: langue
+    periodes_consecutives: 0
+    responsable: "Analyste veille"
+    action: ""
+    calcul: language_distribution
+
+  - id: E2_traduction_une_etape
+    nom: "Articles traités en une seule étape de traduction"
+    famille: E
+    smart:
+      specifique: "Éviter toute double traduction (résumé d'un texte déjà traduit ou résumé)."
+      mesurable: "Part des articles avec <= 1 étape de traduction, résumé produit depuis l'original."
+      atteignable: "Garanti par conception du pipeline."
+      realiste: "100 %."
+      temporel: "À chaque exécution."
+    formule: "articles avec translation_steps <= 1 et summary_from = original / total × 100"
+    unite: "%"
+    periode: semaine
+    sens: hausse
+    cible: 100
+    seuil_alerte: 95
+    par: null
+    periodes_consecutives: 1
+    responsable: "Administrateur"
+    action: "Des articles ont subi plusieurs étapes de traduction : vérifier src/summarize.py."
+    calcul: single_translation_share
+
+  - id: E3_rattachement_glossaire
+    nom: "Articles rattachés à un axe grâce au glossaire"
+    famille: E
+    smart:
+      specifique: "Mesurer les signaux qui auraient été manqués sans le glossaire bilingue."
+      mesurable: "Part des articles dont au moins un axe provient uniquement du glossaire."
+      atteignable: "Enrichir config/glossary.yaml."
+      realiste: "Indicateur d'observation."
+      temporel: "Chaque semaine."
+    formule: "articles avec axe ajouté par le glossaire / total × 100"
+    unite: "%"
+    periode: semaine
+    sens: info
+    cible: null
+    seuil_alerte: null
+    par: null
+    periodes_consecutives: 0
+    responsable: "Analyste veille"
+    action: ""
+    calcul: glossary_assisted_share
+
+  # ======================================================== F. Biais et diversité
+  - id: F1_part_max_source
+    nom: "Part de la source la plus représentée"
+    famille: F
+    smart:
+      specifique: "Éviter la dépendance à une seule source."
+      mesurable: "Part de la première source dans le total des articles (7 jours)."
+      atteignable: "Plafonner ou compléter les sources."
+      realiste: "30 % maximum."
+      temporel: "Chaque semaine."
+    formule: "max(articles d'une source) / total × 100"
+    unite: "%"
+    periode: semaine
+    sens: baisse
+    cible: 30
+    seuil_alerte: 40
+    par: null
+    periodes_consecutives: 2
+    responsable: "Responsable veille"
+    action: "Une source pèse trop dans la veille : réduire max_entries_per_feed ou ajouter des sources sur ses sujets."
+    calcul: max_source_share
+
+  - id: F2_concentration_hhi
+    nom: "Indice de concentration des sources (Herfindahl)"
+    famille: F
+    smart:
+      specifique: "Mesurer la diversité globale des sources."
+      mesurable: "Somme des carrés des parts (en %) de chaque source, 0-10 000 (7 jours)."
+      atteignable: "Diversification des sources."
+      realiste: "< 1 000 = diversifié ; > 1 800 = concentré."
+      temporel: "Chaque semaine."
+    formule: "Σ (part de la source en %)²"
+    unite: "points"
+    periode: semaine
+    sens: baisse
+    cible: 1000
+    seuil_alerte: 1800
+    par: null
+    periodes_consecutives: 2
+    responsable: "Responsable veille"
+    action: "Veille trop concentrée sur quelques sources : diversifier le panel."
+    calcul: herfindahl_index
+
+  - id: F3_repartition_types
+    nom: "Répartition par type de source"
+    famille: F
+    smart:
+      specifique: "Équilibrer sources officielles, éditeurs, presse et communauté."
+      mesurable: "Part des articles par type de source (7 jours)."
+      atteignable: "Observation."
+      realiste: "Indicateur d'observation."
+      temporel: "Chaque semaine."
+    formule: "articles du type / total × 100 ; valeur principale = part des blogs d'éditeurs (biais commercial)"
+    unite: "%"
+    periode: semaine
+    sens: info
+    cible: null
+    seuil_alerte: null
+    par: type
+    periodes_consecutives: 0
+    responsable: "Analyste veille"
+    action: ""
+    calcul: source_type_distribution
+
+  - id: F4_repartition_geographique
+    nom: "Répartition par origine géographique"
+    famille: F
+    smart:
+      specifique: "Mesurer le biais géographique (sources américaines dominantes)."
+      mesurable: "Part des articles par pays d'origine de la source (7 jours)."
+      atteignable: "Observation."
+      realiste: "Indicateur d'observation."
+      temporel: "Chaque semaine."
+    formule: "articles du pays / total × 100 ; valeur principale = part du premier pays"
+    unite: "%"
+    periode: semaine
+    sens: info
+    cible: null
+    seuil_alerte: null
+    par: pays
+    periodes_consecutives: 0
+    responsable: "Analyste veille"
+    action: ""
+    calcul: geo_distribution
+
+  - id: F5_part_sources_francaises
+    nom: "Part des sources françaises"
+    famille: F
+    smart:
+      specifique: "Garder une vision adaptée au contexte français (réglementation, ANSSI)."
+      mesurable: "Part des articles issus de sources françaises (7 jours)."
+      atteignable: "Ajout de sources FR."
+      realiste: "20 %."
+      temporel: "Chaque semaine."
+    formule: "articles de sources FR / total × 100"
+    unite: "%"
+    periode: semaine
+    sens: hausse
+    cible: 20
+    seuil_alerte: 10
+    par: null
+    periodes_consecutives: 3
+    responsable: "Responsable veille"
+    action: "Biais géographique : ajouter des sources françaises (presse, CERT sectoriels, CLUSIF…)."
+    calcul: french_share

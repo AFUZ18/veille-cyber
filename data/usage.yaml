@@ -1,0 +1,25 @@
+# ---------------------------------------------------------------------------
+# Journal d'usage de la veille (saisie manuelle)
+# ---------------------------------------------------------------------------
+# Autre possibilité, plus simple : le lien « Signaler un usage » de chaque carte
+# du site ouvre un formulaire GitHub pré-rempli (issues « usage » et
+# « signal-transforme »), lu automatiquement par le pipeline.
+#
+# Champs :
+#   article_id : identifiant affiché en bas de la carte (16 caractères)
+#   type       : alerte envoyée | correctif appliqué | note rédigée | sensibilisation |
+#                hypothèse de transformation | article écarté (hors sujet)
+#   kind       : usage (par défaut) | signal  (signal faible transformé)
+#   signal     : terme du signal faible (pour kind: signal)
+#   entreprise : facultatif
+#   date       : AAAA-MM-JJ
+#   commentaire: facultatif (n'est pas publié sur le site)
+#
+# Exemple (retirez le # pour l'activer) :
+# - article_id: 0123456789abcdef
+#   type: alerte envoyée
+#   entreprise: Client A
+#   date: 2026-11-23
+#   commentaire: Alerte FortiGate envoyée au RSSI
+
+entries: []
