@@ -4,6 +4,92 @@
    "action": null,
    "action_type": null,
    "ai_tags": [],
+   "collected": "2026-11-23T07:47:33Z",
+   "criticality": 25,
+   "criticality_reasons": [
+    "mots-clés : actively exploited, in the wild, rce"
+   ],
+   "cve_details": {},
+   "cves": [],
+   "excerpt": "The US Cybersecurity and Infrastructure Security Agency (CISA) warned federal agencies that attackers are now exploiting a recently patched critical Cisco Expressway vulnerability in the wild. [...]",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "id": "66af9006c5e3cf3f",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {
+    "H4": [
+     "CISA"
+    ]
+   },
+   "language": "en",
+   "level": "Moyen",
+   "official": false,
+   "published": "2026-11-23T07:44:19Z",
+   "relevance": 30,
+   "sectors": [],
+   "source": "BleepingComputer",
+   "summary": "The US Cybersecurity and Infrastructure Security Agency (CISA) warned federal agencies that attackers are now exploiting a recently patched critical Cisco Expressway vulnerability in the wild. [...]",
+   "summary_source": "extrait",
+   "tags": [
+    "Security"
+   ],
+   "themes": [
+    "H4"
+   ],
+   "title": "CISA flags critical Cisco RCE flaw as actively exploited in attacks",
+   "url": "https://www.bleepingcomputer.com/news/security/cisa-flags-critical-cisco-expressway-rce-flaw-as-actively-exploited",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "collected": "2026-11-23T07:47:33Z",
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "excerpt": "Artifact changes Added Windows.Forensics.BitLocker, Windows.Forensics.BITS and Windows.Forensics.MPLog for BitLocker state, BITS job databases and Defender support logs. ( #5145 , 2026-11-19) ( #5124 , 2026-11-10) ( #5121 , 2026-11-04) Added Windows.Forensics.Recall, Windows.Forensics.CBS and…",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H2"
+   ],
+   "id": "caf242d2477e71ea",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {
+    "H2": [
+     "forensic",
+     "forensics",
+     "artifact"
+    ]
+   },
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-23T01:15:06Z",
+   "relevance": 25,
+   "sectors": [],
+   "source": "Velociraptor - releases",
+   "summary": "Artifact changes Added Windows.Forensics.BitLocker, Windows.Forensics.BITS and Windows.Forensics.MPLog for BitLocker state, BITS job databases and Defender support logs. ( #5145 , 2026-11-19) ( #5124 , 2026-11-10) ( #5121 , 2026-11-04) Added Windows.Forensics.Recall, Windows.Forensics.CBS and…",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H2"
+   ],
+   "title": "Release 0.77.4",
+   "url": "https://github.com/Velocidex/velociraptor/releases/tag/v0.77.4",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
    "collected": "2026-11-22T20:26:59Z",
    "criticality": 0,
    "criticality_reasons": [],
@@ -12489,6 +12575,6 @@
    "why": null
   }
  ],
- "count": 281,
- "updated": "2026-11-22T21:10:50Z"
+ "count": 283,
+ "updated": "2026-11-23T07:47:37Z"
 }
