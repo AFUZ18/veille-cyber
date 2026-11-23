@@ -1,0 +1,17 @@
+{
+ "actions": {
+  "D1_utilisations|": {
+   "action": "La veille est peu utilisée : présenter la synthèse aux équipes et rappeler le lien « Signaler un usage ».",
+   "first_seen": "2026-11-23T10:02:54Z",
+   "key": "D1_utilisations|",
+   "kpi": "D1_utilisations",
+   "kpi_nom": "Utilisations de l'information collectée",
+   "kpi_status": "rouge",
+   "last_seen": "2026-11-23T10:02:54Z",
+   "periods": 1,
+   "status": "ouverte",
+   "sujet": null
+  }
+ },
+ "updated": "2026-11-23T10:02:54Z"
+}

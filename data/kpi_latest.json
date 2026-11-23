@@ -1,0 +1,1736 @@
+{
+ "actions": [
+  {
+   "action": "La veille est peu utilisée : présenter la synthèse aux équipes et rappeler le lien « Signaler un usage ».",
+   "first_seen": "2026-11-23T10:02:54Z",
+   "key": "D1_utilisations|",
+   "kpi": "D1_utilisations",
+   "kpi_nom": "Utilisations de l'information collectée",
+   "kpi_status": "rouge",
+   "last_seen": "2026-11-23T10:02:54Z",
+   "periods": 1,
+   "status": "ouverte",
+   "sujet": null
+  }
+ ],
+ "generated_at": "2026-11-23T10:02:54Z",
+ "kpis": [
+  {
+   "action": "Axe {sujet} : revoir les mots-clés du thème et les sources peu pertinentes de l'axe.",
+   "cible": 40,
+   "details": null,
+   "famille": "A",
+   "formule": "articles de l'axe avec pertinence >= seuil / articles de l'axe (7 jours) × 100",
+   "id": "A1_pertinence_axe",
+   "nom": "Part d'articles pertinents par axe",
+   "par": "axe",
+   "periode": "semaine",
+   "responsable": "Analyste veille",
+   "sens": "hausse",
+   "seuil_alerte": 20,
+   "smart": {
+    "atteignable": "Ajustement des sources et des mots-clés.",
+    "mesurable": "Pourcentage d'articles dont la pertinence >= seuil_pertinence, sur 7 jours.",
+    "realiste": "40 % : une partie de l'actualité générale reste du bruit utile au contexte.",
+    "specifique": "Mesurer la part des articles collectés qui servent réellement les objectifs de chaque axe.",
+    "temporel": "Calcul à chaque exécution, revue chaque semaine."
+   },
+   "status": "vert",
+   "status_label": "Dans la cible",
+   "sub_trends": {
+    "H1": [
+     [
+      "2026-11-23",
+      91.2
+     ]
+    ],
+    "H2": [
+     [
+      "2026-11-23",
+      76.5
+     ]
+    ],
+    "H3": [
+     [
+      "2026-11-23",
+      100.0
+     ]
+    ],
+    "H4": [
+     [
+      "2026-11-23",
+      67.6
+     ]
+    ]
+   },
+   "subs": {
+    "H1": {
+     "status": "vert",
+     "value": 91.2
+    },
+    "H2": {
+     "status": "vert",
+     "value": 76.5
+    },
+    "H3": {
+     "status": "vert",
+     "value": 100.0
+    },
+    "H4": {
+     "status": "vert",
+     "value": 67.6
+    }
+   },
+   "trend": [
+    [
+     "2026-11-23",
+     66.7
+    ]
+   ],
+   "unite": "%",
+   "value": 66.7
+  },
+  {
+   "action": "Axe {sujet} sous-couvert : ajouter au moins une source spécialisée sur cet axe (feeds.yaml).",
+   "cible": 100,
+   "details": {
+    "H1": {
+     "articles_pertinents": 31,
+     "cible_hebdo": 10
+    },
+    "H2": {
+     "articles_pertinents": 13,
+     "cible_hebdo": 4
+    },
+    "H3": {
+     "articles_pertinents": 15,
+     "cible_hebdo": 3
+    },
+    "H4": {
+     "articles_pertinents": 73,
+     "cible_hebdo": 15
+    }
+   },
+   "famille": "A",
+   "formule": "articles pertinents de l'axe sur 7 jours / objectifs.cible_hebdo × 100",
+   "id": "A2_couverture_axe",
+   "nom": "Couverture hebdomadaire par axe",
+   "par": "axe",
+   "periode": "semaine",
+   "responsable": "Responsable veille",
+   "sens": "hausse",
+   "seuil_alerte": 50,
+   "smart": {
+    "atteignable": "Cibles hebdomadaires réalistes par axe (themes.yaml > objectifs).",
+    "mesurable": "Articles pertinents de la semaine / cible hebdomadaire de l'axe (themes.yaml) × 100.",
+    "realiste": "Fondé sur le volume observé des sources actuelles.",
+    "specifique": "Vérifier que chaque axe reçoit assez d'articles pertinents chaque semaine.",
+    "temporel": "Chaque semaine."
+   },
+   "status": "vert",
+   "status_label": "Dans la cible",
+   "sub_trends": {
+    "H1": [
+     [
+      "2026-11-23",
+      310.0
+     ]
+    ],
+    "H2": [
+     [
+      "2026-11-23",
+      325.0
+     ]
+    ],
+    "H3": [
+     [
+      "2026-11-23",
+      500.0
+     ]
+    ],
+    "H4": [
+     [
+      "2026-11-23",
+      486.7
+     ]
+    ]
+   },
+   "subs": {
+    "H1": {
+     "status": "vert",
+     "value": 310.0
+    },
+    "H2": {
+     "status": "vert",
+     "value": 325.0
+    },
+    "H3": {
+     "status": "vert",
+     "value": 500.0
+    },
+    "H4": {
+     "status": "vert",
+     "value": 486.7
+    }
+   },
+   "trend": [
+    [
+     "2026-11-23",
+     310.0
+    ]
+   ],
+   "unite": "%",
+   "value": 310.0
+  },
+  {
+   "action": "Trop d'articles hors sujet consultés : renforcer les exclusions (themes.yaml > exclusions).",
+   "cible": 10,
+   "details": null,
+   "famille": "A",
+   "formule": "usages de type « écarté » / usages déclarés × 100 (30 jours)",
+   "id": "A3_temps_hors_sujet",
+   "nom": "Part du temps passé sur des articles hors sujet",
+   "par": null,
+   "periode": "mois",
+   "responsable": "Analyste veille",
+   "sens": "baisse",
+   "seuil_alerte": 25,
+   "smart": {
+    "atteignable": "Dépend de la saisie du journal d'usage.",
+    "mesurable": "Usages « article écarté (hors sujet) » / tous les usages déclarés (30 jours).",
+    "realiste": "10 % maximum.",
+    "specifique": "Limiter le temps perdu sur des articles finalement écartés.",
+    "temporel": "Mensuel."
+   },
+   "status": "na",
+   "status_label": "Non disponible",
+   "subs": null,
+   "trend": [
+    [
+     "2026-11-23",
+     null
+    ]
+   ],
+   "unite": "%",
+   "value": null
+  },
+  {
+   "action": "Qualité moyenne des sources insuffisante : revoir le panel de sources.",
+   "cible": 60,
+   "details": null,
+   "famille": "B",
+   "formule": "moyenne(SQS) ; SQS = 30 % pertinence + 25 % crédibilité + 25 % nouveauté + 20 % efficacité",
+   "id": "B1_qualite_moyenne",
+   "nom": "Score de qualité moyen des sources",
+   "par": null,
+   "periode": "semaine",
+   "responsable": "Responsable veille",
+   "sens": "hausse",
+   "seuil_alerte": 50,
+   "smart": {
+    "atteignable": "Remplacement progressif des sources faibles.",
+    "mesurable": "Moyenne du Source Quality Score des sources actives ayant publié sur 30 jours.",
+    "realiste": "60 / 100.",
+    "specifique": "Suivre la qualité globale du panel de sources.",
+    "temporel": "Chaque semaine."
+   },
+   "status": "vert",
+   "status_label": "Dans la cible",
+   "subs": null,
+   "trend": [
+    [
+     "2026-11-23",
+     74.8
+    ]
+   ],
+   "unite": "/100",
+   "value": 74.8
+  },
+  {
+   "action": "Source « {sujet} » sous le score de qualité cible depuis 4 semaines : la remplacer ou la désactiver (feeds.yaml).",
+   "cible": 60,
+   "details": null,
+   "famille": "B",
+   "formule": "SQS = 30 % pertinence + 25 % crédibilité + 25 % nouveauté + 20 % efficacité",
+   "id": "B2_qualite_source",
+   "nom": "Score de qualité par source",
+   "par": "source",
+   "periode": "semaine",
+   "responsable": "Responsable veille",
+   "sens": "hausse",
+   "seuil_alerte": 50,
+   "smart": {
+    "atteignable": "Remplacer ou désactiver une source durablement faible.",
+    "mesurable": "Source Quality Score de chaque source (30 jours glissants).",
+    "realiste": "Seuil 50 / 100.",
+    "specifique": "Repérer les sources qui n'apportent pas assez de valeur.",
+    "temporel": "Décision après 4 semaines consécutives sous le seuil."
+   },
+   "status": "rouge",
+   "status_label": "Hors seuil",
+   "subs": {
+    "13Cubed (YouTube)": {
+     "status": "na",
+     "value": null
+    },
+    "ANSSI - Actualités": {
+     "status": "vert",
+     "value": 98.0
+    },
+    "AWS Security Blog": {
+     "status": "vert",
+     "value": 89.2
+    },
+    "BleepingComputer": {
+     "status": "vert",
+     "value": 64.1
+    },
+    "CERT-FR - Alertes": {
+     "status": "vert",
+     "value": 89.7
+    },
+    "CERT-FR - Avis": {
+     "status": "vert",
+     "value": 96.6
+    },
+    "CERT-FR - Menaces et incidents": {
+     "status": "vert",
+     "value": 98.0
+    },
+    "CISA - Cybersecurity Advisories": {
+     "status": "vert",
+     "value": 95.9
+    },
+    "Cloud Security Alliance": {
+     "status": "na",
+     "value": null
+    },
+    "Cybermalveillance.gouv.fr - Actualités": {
+     "status": "orange",
+     "value": 58.5
+    },
+    "Dark Reading": {
+     "status": "na",
+     "value": null
+    },
+    "Google Cloud - Security & Identity": {
+     "status": "vert",
+     "value": 83.2
+    },
+    "HiddenLayer Blog": {
+     "status": "na",
+     "value": null
+    },
+    "Krebs on Security": {
+     "status": "rouge",
+     "value": 40.8
+    },
+    "LeMagIT": {
+     "status": "na",
+     "value": null
+    },
+    "MITRE ATLAS - releases (atlas-data)": {
+     "status": "rouge",
+     "value": 45.6
+    },
+    "Magnet Forensics Blog": {
+     "status": "rouge",
+     "value": 46.6
+    },
+    "Microsoft Security Blog": {
+     "status": "vert",
+     "value": 95.5
+    },
+    "NIST - Cybersecurity news": {
+     "status": "na",
+     "value": null
+    },
+    "OWASP GenAI Security Project": {
+     "status": "na",
+     "value": null
+    },
+    "Orca Security Blog": {
+     "status": "na",
+     "value": null
+    },
+    "PyRIT (Microsoft) - releases": {
+     "status": "na",
+     "value": null
+    },
+    "SANS Blog (DFIR)": {
+     "status": "na",
+     "value": null
+    },
+    "SANS Internet Storm Center": {
+     "status": "na",
+     "value": null
+    },
+    "Sysdig Blog": {
+     "status": "na",
+     "value": null
+    },
+    "The DFIR Report": {
+     "status": "na",
+     "value": null
+    },
+    "The Hacker News": {
+     "status": "vert",
+     "value": 66.8
+    },
+    "Trail of Bits Blog": {
+     "status": "vert",
+     "value": 61.6
+    },
+    "Unit 42 (Palo Alto Networks)": {
+     "status": "vert",
+     "value": 92.5
+    },
+    "Velociraptor - releases": {
+     "status": "orange",
+     "value": 51.2
+    },
+    "Volatility 3 - releases": {
+     "status": "na",
+     "value": null
+    },
+    "Wiz Blog": {
+     "status": "vert",
+     "value": 72.5
+    },
+    "ZATAZ": {
+     "status": "na",
+     "value": null
+    },
+    "garak (NVIDIA) - releases": {
+     "status": "na",
+     "value": null
+    }
+   },
+   "trend": [
+    [
+     "2026-11-23",
+     40.8
+    ]
+   ],
+   "unite": "/100",
+   "value": 40.8
+  },
+  {
+   "action": "Trop d'informations importantes non recoupées : ajouter une source officielle ou de presse indépendante.",
+   "cible": 50,
+   "details": null,
+   "famille": "B",
+   "formule": "articles Élevé/Critique recoupés par >= 2 organisations / articles Élevé/Critique × 100",
+   "id": "B3_taux_recoupement",
+   "nom": "Taux de recoupement des informations importantes",
+   "par": null,
+   "periode": "semaine",
+   "responsable": "Analyste veille",
+   "sens": "hausse",
+   "seuil_alerte": 25,
+   "smart": {
+    "atteignable": "Diversifier les sources H4.",
+    "mesurable": "Part des articles de criticité Élevé ou Critique confirmés par >= 2 sources indépendantes (7 jours).",
+    "realiste": "50 %.",
+    "specifique": "S'assurer que les informations Élevé/Critique sont confirmées.",
+    "temporel": "Chaque semaine."
+   },
+   "status": "orange",
+   "status_label": "À surveiller",
+   "subs": null,
+   "trend": [
+    [
+     "2026-11-23",
+     28.6
+    ]
+   ],
+   "unite": "%",
+   "value": 28.6
+  },
+  {
+   "action": "Des articles pointent vers des domaines non approuvés : vérifier ces domaines et compléter sources_quality.yaml.",
+   "cible": 0,
+   "details": [],
+   "famille": "B",
+   "formule": "nombre d'articles dont le domaine n'est couvert par aucune source approuvée",
+   "id": "B4_sources_non_referencees",
+   "nom": "Articles de sources non référencées",
+   "par": null,
+   "periode": "semaine",
+   "responsable": "Analyste veille",
+   "sens": "baisse",
+   "seuil_alerte": 5,
+   "smart": {
+    "atteignable": "Compléter la liste des domaines approuvés.",
+    "mesurable": "Nombre d'articles dont le domaine n'est pas dans sources_quality.yaml (7 jours).",
+    "realiste": "0 attendu.",
+    "specifique": "Détecter les liens qui pointent hors des domaines approuvés.",
+    "temporel": "Chaque semaine."
+   },
+   "status": "vert",
+   "status_label": "Dans la cible",
+   "subs": null,
+   "trend": [
+    [
+     "2026-11-23",
+     0.0
+    ]
+   ],
+   "unite": "articles",
+   "value": 0.0
+  },
+  {
+   "action": "Délai de réception trop long : vérifier la fréquence d'exécution du workflow et les flux lents.",
+   "cible": 6,
+   "details": null,
+   "famille": "B",
+   "formule": "médiane(date de collecte - date de publication), en heures",
+   "id": "B5_delai_reception",
+   "nom": "Délai de réception de l'information (TTRI)",
+   "par": null,
+   "periode": "semaine",
+   "responsable": "Administrateur",
+   "sens": "baisse",
+   "seuil_alerte": 24,
+   "smart": {
+    "atteignable": "Collecte toutes les 6 heures.",
+    "mesurable": "Médiane (en heures) de collecte - publication, sur 7 jours.",
+    "realiste": "6 heures.",
+    "specifique": "Recevoir l'information rapidement après sa publication.",
+    "temporel": "Chaque semaine."
+   },
+   "status": "vert",
+   "status_label": "Dans la cible",
+   "subs": null,
+   "trend": [
+    [
+     "2026-11-23",
+     1.7
+    ]
+   ],
+   "unite": "h",
+   "value": 1.7
+  },
+  {
+   "action": "Trop de flux en panne : lancer scripts/check_feeds.py et corriger feeds.yaml.",
+   "cible": 90,
+   "details": null,
+   "famille": "B",
+   "formule": "flux OK / flux actifs × 100",
+   "id": "B6_disponibilite_flux",
+   "nom": "Disponibilité des flux",
+   "par": null,
+   "periode": "jour",
+   "responsable": "Administrateur",
+   "sens": "hausse",
+   "seuil_alerte": 75,
+   "smart": {
+    "atteignable": "Correction ou remplacement des flux en panne.",
+    "mesurable": "Part des flux actifs collectés sans erreur lors de la dernière exécution.",
+    "realiste": "90 %.",
+    "specifique": "S'assurer que les sources répondent.",
+    "temporel": "À chaque exécution."
+   },
+   "status": "rouge",
+   "status_label": "Hors seuil",
+   "subs": null,
+   "trend": [
+    [
+     "2026-11-23",
+     67.6
+    ]
+   ],
+   "unite": "%",
+   "value": 67.6
+  },
+  {
+   "action": "Le flux « {sujet} » est en erreur depuis 2 jours : corriger son URL, le remplacer ou le désactiver (feeds.yaml).",
+   "cible": 100,
+   "details": null,
+   "famille": "B",
+   "formule": "100 si collecte OK, 0 sinon",
+   "id": "B7_flux_en_erreur",
+   "nom": "Disponibilité par flux",
+   "par": "source",
+   "periode": "execution",
+   "responsable": "Administrateur",
+   "sens": "hausse",
+   "seuil_alerte": 50,
+   "smart": {
+    "atteignable": "Corriger l'URL ou désactiver le flux.",
+    "mesurable": "100 si le flux répond, 0 sinon, à chaque exécution.",
+    "realiste": "Tolérance de 2 jours (8 exécutions).",
+    "specifique": "Repérer chaque flux durablement en panne.",
+    "temporel": "À chaque exécution."
+   },
+   "status": "orange",
+   "status_label": "À surveiller",
+   "subs": {
+    "13Cubed (YouTube)": {
+     "status": "rouge",
+     "value": 0.0
+    },
+    "ANSSI - Actualités": {
+     "status": "vert",
+     "value": 100.0
+    },
+    "AWS Security Blog": {
+     "status": "vert",
+     "value": 100.0
+    },
+    "BleepingComputer": {
+     "status": "vert",
+     "value": 100.0
+    },
+    "CERT-FR - Alertes": {
+     "status": "vert",
+     "value": 100.0
+    },
+    "CERT-FR - Avis": {
+     "status": "vert",
+     "value": 100.0
+    },
+    "CERT-FR - Menaces et incidents": {
+     "status": "vert",
+     "value": 100.0
+    },
+    "CISA - Cybersecurity Advisories": {
+     "status": "vert",
+     "value": 100.0
+    },
+    "Cloud Security Alliance": {
+     "status": "rouge",
+     "value": 0.0
+    },
+    "Cybermalveillance.gouv.fr - Actualités": {
+     "status": "vert",
+     "value": 100.0
+    },
+    "Dark Reading": {
+     "status": "rouge",
+     "value": 0.0
+    },
+    "Google Cloud - Security & Identity": {
+     "status": "vert",
+     "value": 100.0
+    },
+    "HiddenLayer Blog": {
+     "status": "rouge",
+     "value": 0.0
+    },
+    "Krebs on Security": {
+     "status": "vert",
+     "value": 100.0
+    },
+    "LeMagIT": {
+     "status": "rouge",
+     "value": 0.0
+    },
+    "MITRE ATLAS - releases (atlas-data)": {
+     "status": "vert",
+     "value": 100.0
+    },
+    "Magnet Forensics Blog": {
+     "status": "vert",
+     "value": 100.0
+    },
+    "Microsoft Security Blog": {
+     "status": "vert",
+     "value": 100.0
+    },
+    "NIST - Cybersecurity news": {
+     "status": "rouge",
+     "value": 0.0
+    },
+    "OWASP GenAI Security Project": {
+     "status": "vert",
+     "value": 100.0
+    },
+    "Orca Security Blog": {
+     "status": "rouge",
+     "value": 0.0
+    },
+    "PyRIT (Microsoft) - releases": {
+     "status": "vert",
+     "value": 100.0
+    },
+    "SANS Blog (DFIR)": {
+     "status": "rouge",
+     "value": 0.0
+    },
+    "SANS Internet Storm Center": {
+     "status": "rouge",
+     "value": 0.0
+    },
+    "Sysdig Blog": {
+     "status": "rouge",
+     "value": 0.0
+    },
+    "The DFIR Report": {
+     "status": "vert",
+     "value": 100.0
+    },
+    "The Hacker News": {
+     "status": "vert",
+     "value": 100.0
+    },
+    "Trail of Bits Blog": {
+     "status": "vert",
+     "value": 100.0
+    },
+    "Unit 42 (Palo Alto Networks)": {
+     "status": "vert",
+     "value": 100.0
+    },
+    "Velociraptor - releases": {
+     "status": "vert",
+     "value": 100.0
+    },
+    "Volatility 3 - releases": {
+     "status": "vert",
+     "value": 100.0
+    },
+    "Wiz Blog": {
+     "status": "vert",
+     "value": 100.0
+    },
+    "ZATAZ": {
+     "status": "rouge",
+     "value": 0.0
+    },
+    "garak (NVIDIA) - releases": {
+     "status": "vert",
+     "value": 100.0
+    }
+   },
+   "trend": [
+    [
+     "2026-11-23",
+     67.6
+    ]
+   ],
+   "unite": "%",
+   "value": 67.6
+  },
+  {
+   "action": "",
+   "cible": null,
+   "details": {
+    "apprentissage": "0.0 semaine(s) d'historique sur 1 requise"
+   },
+   "famille": "C",
+   "formule": "nombre de termes respectant les seuils de signaux_faibles",
+   "id": "C1_signaux_faibles",
+   "nom": "Signaux faibles détectés",
+   "par": "axe",
+   "periode": "semaine",
+   "responsable": "Analyste veille",
+   "sens": "info",
+   "seuil_alerte": null,
+   "smart": {
+    "atteignable": "Détection automatique, glossaire FR/EN.",
+    "mesurable": "Nombre de termes en forte hausse mais encore rares (semaine vs 4 semaines).",
+    "realiste": "Indicateur d'observation (pas de cible imposée).",
+    "specifique": "Repérer tôt les sujets émergents.",
+    "temporel": "Chaque semaine."
+   },
+   "status": "na",
+   "status_label": "Non disponible",
+   "sub_trends": {
+    "H1": [
+     [
+      "2026-11-23",
+      null
+     ]
+    ],
+    "H2": [
+     [
+      "2026-11-23",
+      null
+     ]
+    ],
+    "H3": [
+     [
+      "2026-11-23",
+      null
+     ]
+    ],
+    "H4": [
+     [
+      "2026-11-23",
+      null
+     ]
+    ]
+   },
+   "subs": null,
+   "trend": [
+    [
+     "2026-11-23",
+     null
+    ]
+   ],
+   "unite": "signaux",
+   "value": null
+  },
+  {
+   "action": "La veille est peu utilisée : présenter la synthèse aux équipes et rappeler le lien « Signaler un usage ».",
+   "cible": 4,
+   "details": {},
+   "famille": "D",
+   "formule": "nombre d'usages déclarés (hors « écarté ») sur 30 jours",
+   "id": "D1_utilisations",
+   "nom": "Utilisations de l'information collectée",
+   "par": null,
+   "periode": "mois",
+   "responsable": "Responsable veille",
+   "sens": "hausse",
+   "seuil_alerte": 1,
+   "smart": {
+    "atteignable": "Saisie d'un usage en 1 minute depuis chaque carte.",
+    "mesurable": "Nombre d'usages déclarés (issues « Information utilisée » + data/usage.yaml) sur 30 jours.",
+    "realiste": "4 par mois.",
+    "specifique": "Mesurer l'usage réel de la veille (alertes, correctifs, notes, sensibilisation).",
+    "temporel": "Mensuel."
+   },
+   "status": "rouge",
+   "status_label": "Hors seuil",
+   "subs": null,
+   "trend": [
+    [
+     "2026-11-23",
+     0.0
+    ]
+   ],
+   "unite": "usages",
+   "value": 0.0
+  },
+  {
+   "action": "Aucun signal faible transformé : organiser la revue mensuelle des signaux (data/weak_signals.md).",
+   "cible": 1,
+   "details": null,
+   "famille": "D",
+   "formule": "nombre de signaux transformés (30 jours)",
+   "id": "D2_signaux_transformes",
+   "nom": "Signaux faibles transformés en action ou hypothèse",
+   "par": null,
+   "periode": "mois",
+   "responsable": "Responsable veille",
+   "sens": "hausse",
+   "seuil_alerte": 0,
+   "smart": {
+    "atteignable": "Revue mensuelle des signaux (data/weak_signals.md).",
+    "mesurable": "Nombre d'issues « Signal faible transformé » sur 30 jours.",
+    "realiste": "1 par mois.",
+    "specifique": "Suivre la transformation des signaux faibles en décisions.",
+    "temporel": "Mensuel."
+   },
+   "status": "orange",
+   "status_label": "À surveiller",
+   "subs": null,
+   "trend": [
+    [
+     "2026-11-23",
+     0.0
+    ]
+   ],
+   "unite": "signaux",
+   "value": 0.0
+  },
+  {
+   "action": "Taux de transformation faible : prioriser les signaux faibles en revue et formuler des hypothèses.",
+   "cible": 20,
+   "details": {
+    "detectes": 0,
+    "transformes": 0
+   },
+   "famille": "D",
+   "formule": "signaux transformés / signaux détectés × 100 (30 jours)",
+   "id": "D3_taux_transformation",
+   "nom": "Taux de transformation des signaux faibles",
+   "par": null,
+   "periode": "mois",
+   "responsable": "Responsable veille",
+   "sens": "hausse",
+   "seuil_alerte": 5,
+   "smart": {
+    "atteignable": "Revue mensuelle.",
+    "mesurable": "Signaux transformés / signaux détectés sur 30 jours.",
+    "realiste": "20 %.",
+    "specifique": "Mesurer la part des signaux faibles exploités.",
+    "temporel": "Mensuel."
+   },
+   "status": "na",
+   "status_label": "Non disponible",
+   "subs": null,
+   "trend": [
+    [
+     "2026-11-23",
+     null
+    ]
+   ],
+   "unite": "%",
+   "value": null
+  },
+  {
+   "action": "",
+   "cible": null,
+   "details": null,
+   "famille": "E",
+   "formule": "articles de la langue / total × 100 ; valeur principale = part des articles non francophones",
+   "id": "E1_repartition_langues",
+   "nom": "Répartition des articles par langue source",
+   "par": "langue",
+   "periode": "semaine",
+   "responsable": "Analyste veille",
+   "sens": "info",
+   "seuil_alerte": null,
+   "smart": {
+    "atteignable": "Observation.",
+    "mesurable": "Part de chaque langue d'origine (7 jours).",
+    "realiste": "Indicateur d'observation.",
+    "specifique": "Connaître l'exposition au risque de traduction.",
+    "temporel": "Chaque semaine."
+   },
+   "status": "info",
+   "status_label": "Observation",
+   "subs": {
+    "en": {
+     "status": "info",
+     "value": 84.1
+    },
+    "fr": {
+     "status": "info",
+     "value": 15.9
+    }
+   },
+   "trend": [
+    [
+     "2026-11-23",
+     84.1
+    ]
+   ],
+   "unite": "%",
+   "value": 84.1
+  },
+  {
+   "action": "Des articles ont subi plusieurs étapes de traduction : vérifier src/summarize.py.",
+   "cible": 100,
+   "details": null,
+   "famille": "E",
+   "formule": "articles avec translation_steps <= 1 et summary_from = original / total × 100",
+   "id": "E2_traduction_une_etape",
+   "nom": "Articles traités en une seule étape de traduction",
+   "par": null,
+   "periode": "semaine",
+   "responsable": "Administrateur",
+   "sens": "hausse",
+   "seuil_alerte": 95,
+   "smart": {
+    "atteignable": "Garanti par conception du pipeline.",
+    "mesurable": "Part des articles avec <= 1 étape de traduction, résumé produit depuis l'original.",
+    "realiste": "100 %.",
+    "specifique": "Éviter toute double traduction (résumé d'un texte déjà traduit ou résumé).",
+    "temporel": "À chaque exécution."
+   },
+   "status": "vert",
+   "status_label": "Dans la cible",
+   "subs": null,
+   "trend": [
+    [
+     "2026-11-23",
+     100.0
+    ]
+   ],
+   "unite": "%",
+   "value": 100.0
+  },
+  {
+   "action": "",
+   "cible": null,
+   "details": null,
+   "famille": "E",
+   "formule": "articles avec axe ajouté par le glossaire / total × 100",
+   "id": "E3_rattachement_glossaire",
+   "nom": "Articles rattachés à un axe grâce au glossaire",
+   "par": null,
+   "periode": "semaine",
+   "responsable": "Analyste veille",
+   "sens": "info",
+   "seuil_alerte": null,
+   "smart": {
+    "atteignable": "Enrichir config/glossary.yaml.",
+    "mesurable": "Part des articles dont au moins un axe provient uniquement du glossaire.",
+    "realiste": "Indicateur d'observation.",
+    "specifique": "Mesurer les signaux qui auraient été manqués sans le glossaire bilingue.",
+    "temporel": "Chaque semaine."
+   },
+   "status": "info",
+   "status_label": "Observation",
+   "subs": null,
+   "trend": [
+    [
+     "2026-11-23",
+     9.5
+    ]
+   ],
+   "unite": "%",
+   "value": 9.5
+  },
+  {
+   "action": "Une source pèse trop dans la veille : réduire max_entries_per_feed ou ajouter des sources sur ses sujets.",
+   "cible": 30,
+   "details": {
+    "source": "The Hacker News"
+   },
+   "famille": "F",
+   "formule": "max(articles d'une source) / total × 100",
+   "id": "F1_part_max_source",
+   "nom": "Part de la source la plus représentée",
+   "par": null,
+   "periode": "semaine",
+   "responsable": "Responsable veille",
+   "sens": "baisse",
+   "seuil_alerte": 40,
+   "smart": {
+    "atteignable": "Plafonner ou compléter les sources.",
+    "mesurable": "Part de la première source dans le total des articles (7 jours).",
+    "realiste": "30 % maximum.",
+    "specifique": "Éviter la dépendance à une seule source.",
+    "temporel": "Chaque semaine."
+   },
+   "status": "orange",
+   "status_label": "À surveiller",
+   "subs": null,
+   "trend": [
+    [
+     "2026-11-23",
+     32.5
+    ]
+   ],
+   "unite": "%",
+   "value": 32.5
+  },
+  {
+   "action": "Veille trop concentrée sur quelques sources : diversifier le panel.",
+   "cible": 1000,
+   "details": null,
+   "famille": "F",
+   "formule": "Σ (part de la source en %)²",
+   "id": "F2_concentration_hhi",
+   "nom": "Indice de concentration des sources (Herfindahl)",
+   "par": null,
+   "periode": "semaine",
+   "responsable": "Responsable veille",
+   "sens": "baisse",
+   "seuil_alerte": 1800,
+   "smart": {
+    "atteignable": "Diversification des sources.",
+    "mesurable": "Somme des carrés des parts (en %) de chaque source, 0-10 000 (7 jours).",
+    "realiste": "< 1 000 = diversifié ; > 1 800 = concentré.",
+    "specifique": "Mesurer la diversité globale des sources.",
+    "temporel": "Chaque semaine."
+   },
+   "status": "orange",
+   "status_label": "À surveiller",
+   "subs": null,
+   "trend": [
+    [
+     "2026-11-23",
+     1681
+    ]
+   ],
+   "unite": "points",
+   "value": 1681
+  },
+  {
+   "action": "",
+   "cible": null,
+   "details": null,
+   "famille": "F",
+   "formule": "articles du type / total × 100 ; valeur principale = part des blogs d'éditeurs (biais commercial)",
+   "id": "F3_repartition_types",
+   "nom": "Répartition par type de source",
+   "par": "type",
+   "periode": "semaine",
+   "responsable": "Analyste veille",
+   "sens": "info",
+   "seuil_alerte": null,
+   "smart": {
+    "atteignable": "Observation.",
+    "mesurable": "Part des articles par type de source (7 jours).",
+    "realiste": "Indicateur d'observation.",
+    "specifique": "Équilibrer sources officielles, éditeurs, presse et communauté.",
+    "temporel": "Chaque semaine."
+   },
+   "status": "info",
+   "status_label": "Observation",
+   "subs": {
+    "communauté": {
+     "status": "info",
+     "value": 1.6
+    },
+    "officielle": {
+     "status": "info",
+     "value": 28.6
+    },
+    "outil": {
+     "status": "info",
+     "value": 0.8
+    },
+    "presse": {
+     "status": "info",
+     "value": 46.0
+    },
+    "recherche": {
+     "status": "info",
+     "value": 2.4
+    },
+    "éditeur": {
+     "status": "info",
+     "value": 20.6
+    }
+   },
+   "trend": [
+    [
+     "2026-11-23",
+     20.6
+    ]
+   ],
+   "unite": "%",
+   "value": 20.6
+  },
+  {
+   "action": "",
+   "cible": null,
+   "details": null,
+   "famille": "F",
+   "formule": "articles du pays / total × 100 ; valeur principale = part du premier pays",
+   "id": "F4_repartition_geographique",
+   "nom": "Répartition par origine géographique",
+   "par": "pays",
+   "periode": "semaine",
+   "responsable": "Analyste veille",
+   "sens": "info",
+   "seuil_alerte": null,
+   "smart": {
+    "atteignable": "Observation.",
+    "mesurable": "Part des articles par pays d'origine de la source (7 jours).",
+    "realiste": "Indicateur d'observation.",
+    "specifique": "Mesurer le biais géographique (sources américaines dominantes).",
+    "temporel": "Chaque semaine."
+   },
+   "status": "info",
+   "status_label": "Observation",
+   "subs": {
+    "CA": {
+     "status": "info",
+     "value": 2.4
+    },
+    "FR": {
+     "status": "info",
+     "value": 15.9
+    },
+    "IN": {
+     "status": "info",
+     "value": 32.5
+    },
+    "INT": {
+     "status": "info",
+     "value": 0.8
+    },
+    "US": {
+     "status": "info",
+     "value": 48.4
+    }
+   },
+   "trend": [
+    [
+     "2026-11-23",
+     48.4
+    ]
+   ],
+   "unite": "%",
+   "value": 48.4
+  },
+  {
+   "action": "Biais géographique : ajouter des sources françaises (presse, CERT sectoriels, CLUSIF…).",
+   "cible": 20,
+   "details": null,
+   "famille": "F",
+   "formule": "articles de sources FR / total × 100",
+   "id": "F5_part_sources_francaises",
+   "nom": "Part des sources françaises",
+   "par": null,
+   "periode": "semaine",
+   "responsable": "Responsable veille",
+   "sens": "hausse",
+   "seuil_alerte": 10,
+   "smart": {
+    "atteignable": "Ajout de sources FR.",
+    "mesurable": "Part des articles issus de sources françaises (7 jours).",
+    "realiste": "20 %.",
+    "specifique": "Garder une vision adaptée au contexte français (réglementation, ANSSI).",
+    "temporel": "Chaque semaine."
+   },
+   "status": "orange",
+   "status_label": "À surveiller",
+   "subs": null,
+   "trend": [
+    [
+     "2026-11-23",
+     15.9
+    ]
+   ],
+   "unite": "%",
+   "value": 15.9
+  }
+ ],
+ "signals": [],
+ "sources": [
+  {
+   "articles": 3,
+   "authority": 71.0,
+   "country": "FR",
+   "credibilite": 92.0,
+   "efficacite": 100.0,
+   "nouveaute": 100.0,
+   "org": "ANSSI",
+   "pertinence": 100.0,
+   "referenced": true,
+   "reprise": 0.0,
+   "source": "ANSSI - Actualités",
+   "sqs": 98.0,
+   "ttri_h": null,
+   "type": "officielle"
+  },
+  {
+   "articles": 2,
+   "authority": 71.0,
+   "country": "FR",
+   "credibilite": 92.0,
+   "efficacite": 100.0,
+   "nouveaute": 100.0,
+   "org": "ANSSI",
+   "pertinence": 100.0,
+   "referenced": true,
+   "reprise": 0.0,
+   "source": "CERT-FR - Menaces et incidents",
+   "sqs": 98.0,
+   "ttri_h": null,
+   "type": "officielle"
+  },
+  {
+   "articles": 17,
+   "authority": 69.6,
+   "country": "FR",
+   "credibilite": 92.0,
+   "efficacite": 100.0,
+   "nouveaute": 94.4,
+   "org": "ANSSI",
+   "pertinence": 100.0,
+   "referenced": true,
+   "reprise": 0.0,
+   "source": "CERT-FR - Avis",
+   "sqs": 96.6,
+   "ttri_h": null,
+   "type": "officielle"
+  },
+  {
+   "articles": 24,
+   "authority": 73.1,
+   "country": "US",
+   "credibilite": 92.0,
+   "efficacite": 100.0,
+   "nouveaute": 91.7,
+   "org": "CISA",
+   "pertinence": 100.0,
+   "referenced": true,
+   "reprise": 16.7,
+   "source": "CISA - Cybersecurity Advisories",
+   "sqs": 95.9,
+   "ttri_h": null,
+   "type": "officielle"
+  },
+  {
+   "articles": 10,
+   "authority": 66.0,
+   "country": "US",
+   "credibilite": 82.0,
+   "efficacite": 100.0,
+   "nouveaute": 100.0,
+   "org": "Microsoft",
+   "pertinence": 100.0,
+   "referenced": true,
+   "reprise": 0.0,
+   "source": "Microsoft Security Blog",
+   "sqs": 95.5,
+   "ttri_h": null,
+   "type": "éditeur"
+  },
+  {
+   "articles": 10,
+   "authority": 65.0,
+   "country": "US",
+   "credibilite": 80.0,
+   "efficacite": 100.0,
+   "nouveaute": 90.0,
+   "org": "Palo Alto Networks",
+   "pertinence": 100.0,
+   "referenced": true,
+   "reprise": 10.0,
+   "source": "Unit 42 (Palo Alto Networks)",
+   "sqs": 92.5,
+   "ttri_h": null,
+   "type": "recherche"
+  },
+  {
+   "articles": 3,
+   "authority": 79.3,
+   "country": "FR",
+   "credibilite": 92.0,
+   "efficacite": 100.0,
+   "nouveaute": 66.7,
+   "org": "ANSSI",
+   "pertinence": 100.0,
+   "referenced": true,
+   "reprise": 66.7,
+   "source": "CERT-FR - Alertes",
+   "sqs": 89.7,
+   "ttri_h": null,
+   "type": "officielle"
+  },
+  {
+   "articles": 20,
+   "authority": 63.5,
+   "country": "US",
+   "credibilite": 77.0,
+   "efficacite": 90.0,
+   "nouveaute": 100.0,
+   "org": "Amazon",
+   "pertinence": 90.0,
+   "referenced": true,
+   "reprise": 0.0,
+   "source": "AWS Security Blog",
+   "sqs": 89.2,
+   "ttri_h": null,
+   "type": "éditeur"
+  },
+  {
+   "articles": 13,
+   "authority": 68.3,
+   "country": "US",
+   "credibilite": 79.0,
+   "efficacite": 76.9,
+   "nouveaute": 100.0,
+   "org": "Google",
+   "pertinence": 76.9,
+   "referenced": true,
+   "reprise": 15.4,
+   "source": "Google Cloud - Security & Identity",
+   "sqs": 83.2,
+   "ttri_h": null,
+   "type": "éditeur"
+  },
+  {
+   "articles": 20,
+   "authority": 60.0,
+   "country": "US",
+   "credibilite": 70.0,
+   "efficacite": 65.0,
+   "nouveaute": 90.0,
+   "org": "Wiz",
+   "pertinence": 65.0,
+   "referenced": true,
+   "reprise": 10.0,
+   "source": "Wiz Blog",
+   "sqs": 72.5,
+   "ttri_h": null,
+   "type": "éditeur"
+  },
+  {
+   "articles": 41,
+   "authority": 53.5,
+   "country": "IN",
+   "credibilite": 57.0,
+   "efficacite": 76.8,
+   "nouveaute": 90.2,
+   "org": "The Hacker News",
+   "pertinence": 48.8,
+   "referenced": true,
+   "reprise": 9.8,
+   "source": "The Hacker News",
+   "sqs": 66.8,
+   "ttri_h": 1.6,
+   "type": "presse"
+  },
+  {
+   "articles": 17,
+   "authority": 58.5,
+   "country": "US",
+   "credibilite": 67.0,
+   "efficacite": 67.6,
+   "nouveaute": 100.0,
+   "org": "BleepingComputer",
+   "pertinence": 29.4,
+   "referenced": true,
+   "reprise": 0.0,
+   "source": "BleepingComputer",
+   "sqs": 64.1,
+   "ttri_h": 1.7,
+   "type": "presse"
+  },
+  {
+   "articles": 3,
+   "authority": 65.0,
+   "country": "US",
+   "credibilite": 80.0,
+   "efficacite": 33.3,
+   "nouveaute": 100.0,
+   "org": "Trail of Bits",
+   "pertinence": 33.3,
+   "referenced": true,
+   "reprise": 0.0,
+   "source": "Trail of Bits Blog",
+   "sqs": 61.6,
+   "ttri_h": null,
+   "type": "recherche"
+  },
+  {
+   "articles": 4,
+   "authority": 67.0,
+   "country": "FR",
+   "credibilite": 84.0,
+   "efficacite": 25.0,
+   "nouveaute": 100.0,
+   "org": "GIP ACYMA",
+   "pertinence": 25.0,
+   "referenced": true,
+   "reprise": 0.0,
+   "source": "Cybermalveillance.gouv.fr - Actualités",
+   "sqs": 58.5,
+   "ttri_h": null,
+   "type": "officielle"
+  },
+  {
+   "articles": 1,
+   "authority": 57.5,
+   "country": "INT",
+   "credibilite": 65.0,
+   "efficacite": 49.6,
+   "nouveaute": 100.0,
+   "org": "Rapid7 / Velocidex",
+   "pertinence": 0.0,
+   "referenced": true,
+   "reprise": 0.0,
+   "source": "Velociraptor - releases",
+   "sqs": 51.2,
+   "ttri_h": 6.5,
+   "type": "outil"
+  },
+  {
+   "articles": 10,
+   "authority": 58.2,
+   "country": "CA",
+   "credibilite": 66.5,
+   "efficacite": 10.0,
+   "nouveaute": 100.0,
+   "org": "Magnet Forensics",
+   "pertinence": 10.0,
+   "referenced": true,
+   "reprise": 0.0,
+   "source": "Magnet Forensics Blog",
+   "sqs": 46.6,
+   "ttri_h": null,
+   "type": "éditeur"
+  },
+  {
+   "articles": 2,
+   "authority": 66.2,
+   "country": "US",
+   "credibilite": 82.5,
+   "efficacite": 0.0,
+   "nouveaute": 100.0,
+   "org": "MITRE",
+   "pertinence": 0.0,
+   "referenced": true,
+   "reprise": 0.0,
+   "source": "MITRE ATLAS - releases (atlas-data)",
+   "sqs": 45.6,
+   "ttri_h": null,
+   "type": "recherche"
+  },
+  {
+   "articles": 6,
+   "authority": 56.5,
+   "country": "US",
+   "credibilite": 63.0,
+   "efficacite": 0.0,
+   "nouveaute": 100.0,
+   "org": "Brian Krebs",
+   "pertinence": 0.0,
+   "referenced": true,
+   "reprise": 0.0,
+   "source": "Krebs on Security",
+   "sqs": 40.8,
+   "ttri_h": null,
+   "type": "communauté"
+  },
+  {
+   "articles": 0,
+   "authority": null,
+   "country": "INT",
+   "credibilite": 70.5,
+   "efficacite": null,
+   "nouveaute": null,
+   "org": "Cloud Security Alliance",
+   "pertinence": null,
+   "referenced": true,
+   "reprise": null,
+   "source": "Cloud Security Alliance",
+   "sqs": null,
+   "ttri_h": null,
+   "type": "communauté"
+  },
+  {
+   "articles": 0,
+   "authority": null,
+   "country": "US",
+   "credibilite": 66.5,
+   "efficacite": null,
+   "nouveaute": null,
+   "org": "Sysdig",
+   "pertinence": null,
+   "referenced": true,
+   "reprise": null,
+   "source": "Sysdig Blog",
+   "sqs": null,
+   "ttri_h": null,
+   "type": "éditeur"
+  },
+  {
+   "articles": 0,
+   "authority": null,
+   "country": "IL",
+   "credibilite": 61.5,
+   "efficacite": null,
+   "nouveaute": null,
+   "org": "Orca Security",
+   "pertinence": null,
+   "referenced": true,
+   "reprise": null,
+   "source": "Orca Security Blog",
+   "sqs": null,
+   "ttri_h": null,
+   "type": "éditeur"
+  },
+  {
+   "articles": 0,
+   "authority": null,
+   "country": "INT",
+   "credibilite": 74.5,
+   "efficacite": null,
+   "nouveaute": null,
+   "org": "The DFIR Report",
+   "pertinence": null,
+   "referenced": true,
+   "reprise": null,
+   "source": "The DFIR Report",
+   "sqs": null,
+   "ttri_h": null,
+   "type": "recherche"
+  },
+  {
+   "articles": 0,
+   "authority": null,
+   "country": "US",
+   "credibilite": 80.5,
+   "efficacite": null,
+   "nouveaute": null,
+   "org": "SANS",
+   "pertinence": null,
+   "referenced": true,
+   "reprise": null,
+   "source": "SANS Internet Storm Center",
+   "sqs": null,
+   "ttri_h": null,
+   "type": "communauté"
+  },
+  {
+   "articles": 0,
+   "authority": null,
+   "country": "US",
+   "credibilite": 52.5,
+   "efficacite": null,
+   "nouveaute": null,
+   "org": "13Cubed",
+   "pertinence": null,
+   "referenced": true,
+   "reprise": null,
+   "source": "13Cubed (YouTube)",
+   "sqs": null,
+   "ttri_h": null,
+   "type": "communauté"
+  },
+  {
+   "articles": 0,
+   "authority": null,
+   "country": "INT",
+   "credibilite": 67.0,
+   "efficacite": null,
+   "nouveaute": null,
+   "org": "Volatility Foundation",
+   "pertinence": null,
+   "referenced": true,
+   "reprise": null,
+   "source": "Volatility 3 - releases",
+   "sqs": null,
+   "ttri_h": null,
+   "type": "outil"
+  },
+  {
+   "articles": 0,
+   "authority": null,
+   "country": "US",
+   "credibilite": 79.0,
+   "efficacite": null,
+   "nouveaute": null,
+   "org": "SANS",
+   "pertinence": null,
+   "referenced": true,
+   "reprise": null,
+   "source": "SANS Blog (DFIR)",
+   "sqs": null,
+   "ttri_h": null,
+   "type": "communauté"
+  },
+  {
+   "articles": 0,
+   "authority": null,
+   "country": "INT",
+   "credibilite": 78.5,
+   "efficacite": null,
+   "nouveaute": null,
+   "org": "OWASP",
+   "pertinence": null,
+   "referenced": true,
+   "reprise": null,
+   "source": "OWASP GenAI Security Project",
+   "sqs": null,
+   "ttri_h": null,
+   "type": "communauté"
+  },
+  {
+   "articles": 0,
+   "authority": null,
+   "country": "US",
+   "credibilite": 63.0,
+   "efficacite": null,
+   "nouveaute": null,
+   "org": "HiddenLayer",
+   "pertinence": null,
+   "referenced": true,
+   "reprise": null,
+   "source": "HiddenLayer Blog",
+   "sqs": null,
+   "ttri_h": null,
+   "type": "éditeur"
+  },
+  {
+   "articles": 0,
+   "authority": null,
+   "country": "US",
+   "credibilite": 65.5,
+   "efficacite": null,
+   "nouveaute": null,
+   "org": "NVIDIA",
+   "pertinence": null,
+   "referenced": true,
+   "reprise": null,
+   "source": "garak (NVIDIA) - releases",
+   "sqs": null,
+   "ttri_h": null,
+   "type": "outil"
+  },
+  {
+   "articles": 0,
+   "authority": null,
+   "country": "US",
+   "credibilite": 67.5,
+   "efficacite": null,
+   "nouveaute": null,
+   "org": "Microsoft",
+   "pertinence": null,
+   "referenced": true,
+   "reprise": null,
+   "source": "PyRIT (Microsoft) - releases",
+   "sqs": null,
+   "ttri_h": null,
+   "type": "outil"
+  },
+  {
+   "articles": 0,
+   "authority": null,
+   "country": "US",
+   "credibilite": 90.5,
+   "efficacite": null,
+   "nouveaute": null,
+   "org": "NIST",
+   "pertinence": null,
+   "referenced": true,
+   "reprise": null,
+   "source": "NIST - Cybersecurity news",
+   "sqs": null,
+   "ttri_h": null,
+   "type": "officielle"
+  },
+  {
+   "articles": 0,
+   "authority": null,
+   "country": "FR",
+   "credibilite": 67.0,
+   "efficacite": null,
+   "nouveaute": null,
+   "org": "TechTarget / LeMagIT",
+   "pertinence": null,
+   "referenced": true,
+   "reprise": null,
+   "source": "LeMagIT",
+   "sqs": null,
+   "ttri_h": null,
+   "type": "presse"
+  },
+  {
+   "articles": 0,
+   "authority": null,
+   "country": "FR",
+   "credibilite": 50.0,
+   "efficacite": null,
+   "nouveaute": null,
+   "org": "ZATAZ",
+   "pertinence": null,
+   "referenced": true,
+   "reprise": null,
+   "source": "ZATAZ",
+   "sqs": null,
+   "ttri_h": null,
+   "type": "communauté"
+  },
+  {
+   "articles": 0,
+   "authority": null,
+   "country": "US",
+   "credibilite": 63.5,
+   "efficacite": null,
+   "nouveaute": null,
+   "org": "Informa / Dark Reading",
+   "pertinence": null,
+   "referenced": true,
+   "reprise": null,
+   "source": "Dark Reading",
+   "sqs": null,
+   "ttri_h": null,
+   "type": "presse"
+  }
+ ],
+ "usage_total": 0
+}
