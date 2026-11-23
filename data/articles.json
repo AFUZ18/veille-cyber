@@ -12,6 +12,1482 @@
     "not_sensational": true,
     "plausible_date": true
    },
+   "collected": "2026-11-23T23:58:28Z",
+   "corroboration_orgs": [
+    "BleepingComputer"
+   ],
+   "corroboration_sources": [
+    "BleepingComputer"
+   ],
+   "criticality": 10,
+   "criticality_reasons": [
+    "mots-clés : data breach"
+   ],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "www.bleepingcomputer.com",
+   "excerpt": "A threat actor breached the internal network of Korea Electric Power Corporation (KEPCO) and accessed two systems containing customer, employee, and contractor data. [...]",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "BleepingComputer"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [
+    "fuite-donnees"
+   ],
+   "id": "11d7d6584ec1d002",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {
+    "H4": [
+     "data breach"
+    ]
+   },
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-23T20:54:51Z",
+   "relevance": 27,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "BleepingComputer",
+   "source_country": "US",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "A threat actor breached the internal network of Korea Electric Power Corporation (KEPCO) and accessed two systems containing customer, employee, and contractor data. [...]",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [
+    "Security"
+   ],
+   "themes": [
+    "H4"
+   ],
+   "title": "South Korea’s power giant KEPCO confirms data breach impacting 1.5 million",
+   "translation_steps": 0,
+   "url": "https://www.bleepingcomputer.com/news/security/south-koreas-power-giant-kepco-confirms-data-breach-impacting-15-million",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-23T23:58:28Z",
+   "corroboration_orgs": [
+    "Magnet Forensics"
+   ],
+   "corroboration_sources": [
+    "Magnet Forensics Blog"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "www.magnetforensics.com",
+   "excerpt": "AI in digital forensics has appetite but not trust. Brandon Epstein explains why validation and published research matter, and what the Magnet AI Research Lab is doing. The post Who signs the AI permission slip? appeared first on Magnet Forensics .",
+   "feed_priority": 3,
+   "feed_themes": [
+    "H2"
+   ],
+   "first_publishers": [
+    "Magnet Forensics Blog"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [
+    "analyse-forensique"
+   ],
+   "id": "30a3b90a4a386d76",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {
+    "H2": [
+     "forensic",
+     "forensics"
+    ]
+   },
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-23T20:54:01Z",
+   "relevance": 20,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "Magnet Forensics Blog",
+   "source_country": "CA",
+   "source_language": "en",
+   "source_type": "éditeur",
+   "summary": "AI in digital forensics has appetite but not trust. Brandon Epstein explains why validation and published research matter, and what the Magnet AI Research Lab is doing. The post Who signs the AI permission slip? appeared first on Magnet Forensics .",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [
+    "Industry News",
+    "Newsletter"
+   ],
+   "themes": [
+    "H2"
+   ],
+   "title": "Who signs the AI permission slip?",
+   "translation_steps": 0,
+   "url": "https://www.magnetforensics.com/blog/who-signs-the-ai-permission-slip",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-23T23:58:28Z",
+   "corroboration_orgs": [
+    "Amazon"
+   ],
+   "corroboration_sources": [
+    "AWS Security Blog"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "aws.amazon.com",
+   "excerpt": "Starting today, AWS WAF pricing is easier to predict. Your bill is now based on three dimensions: the resources you protect, the traffic AWS WAF inspects, and the level of protection you apply to that traffic. Existing AWS WAF customers move to the new pricing on February 1, 2027. Until then, you…",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H1"
+   ],
+   "first_publishers": [
+    "AWS Security Blog"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [],
+   "id": "5ab6a3b14adca6f2",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {
+    "H1": [
+     "AWS"
+    ]
+   },
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-23T20:35:03Z",
+   "relevance": 35,
+   "reliability": "À recouper",
+   "sectors": [
+    "AWS"
+   ],
+   "source": "AWS Security Blog",
+   "source_country": "US",
+   "source_language": "en",
+   "source_type": "éditeur",
+   "summary": "Starting today, AWS WAF pricing is easier to predict. Your bill is now based on three dimensions: the resources you protect, the traffic AWS WAF inspects, and the level of protection you apply to that traffic. Existing AWS WAF customers move to the new pricing on February 1, 2027. Until then, you…",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [
+    "Announcements",
+    "AWS WAF",
+    "Intermediate (200)",
+    "Security, Identity, & Compliance",
+    "Security Blog"
+   ],
+   "themes": [
+    "H1"
+   ],
+   "title": "Introducing AWS WAF simplified pricing",
+   "translation_steps": 0,
+   "url": "https://aws.amazon.com/blogs/security/introducing-aws-waf-simplified-pricing",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-23T23:58:28Z",
+   "corroboration_orgs": [
+    "Amazon"
+   ],
+   "corroboration_sources": [
+    "AWS Security Blog"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "aws.amazon.com",
+   "excerpt": "APIs have run digital businesses for more than a decade. For a while, there seemed to be nothing new left to say about them. That changed in 2026, when AI endpoints joined them. Teams now run large language model (LLM) inference endpoints, Model Context Protocol (MCP) servers, and Agent2Agent…",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H1"
+   ],
+   "first_publishers": [
+    "AWS Security Blog"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [
+    "ia-generative",
+    "agents-ia"
+   ],
+   "id": "46bcda34d4938b0e",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {
+    "H1": [
+     "AWS"
+    ],
+    "H3": [
+     "LLM",
+     "large language model",
+     "Model Context Protocol"
+    ]
+   },
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-23T20:25:17Z",
+   "relevance": 60,
+   "reliability": "À recouper",
+   "sectors": [
+    "Microsoft 365",
+    "AWS"
+   ],
+   "source": "AWS Security Blog",
+   "source_country": "US",
+   "source_language": "en",
+   "source_type": "éditeur",
+   "summary": "APIs have run digital businesses for more than a decade. For a while, there seemed to be nothing new left to say about them. That changed in 2026, when AI endpoints joined them. Teams now run large language model (LLM) inference endpoints, Model Context Protocol (MCP) servers, and Agent2Agent…",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [
+    "Announcements",
+    "Artificial Intelligence",
+    "AWS WAF",
+    "Intermediate (200)",
+    "Launch",
+    "Security, Identity, & Compliance",
+    "Security Blog"
+   ],
+   "themes": [
+    "H1",
+    "H3"
+   ],
+   "title": "Introducing API and AI security on AWS, from discovery to protection",
+   "translation_steps": 0,
+   "url": "https://aws.amazon.com/blogs/security/introducing-api-and-ai-security-on-aws-from-discovery-to-protection",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-23T23:58:28Z",
+   "corroboration_orgs": [
+    "BleepingComputer"
+   ],
+   "corroboration_sources": [
+    "BleepingComputer"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "www.bleepingcomputer.com",
+   "excerpt": "OpenRouter removed three AI providers from its platform after discovering that they had violated their stated data-handling policies and exposed sensitive data. [...]",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "BleepingComputer"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [],
+   "id": "e95e27eb950ea737",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {},
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-23T20:00:20Z",
+   "relevance": 25,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "BleepingComputer",
+   "source_country": "US",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "OpenRouter removed three AI providers from its platform after discovering that they had violated their stated data-handling policies and exposed sensitive data. [...]",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [
+    "Security",
+    "Artificial Intelligence"
+   ],
+   "themes": [
+    "H4"
+   ],
+   "title": "OpenRouter drops AI providers over leaked prompts and secrets",
+   "translation_steps": 0,
+   "url": "https://www.bleepingcomputer.com/news/security/openrouter-drops-ai-providers-over-leaked-prompts-and-secrets",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-23T23:58:28Z",
+   "corroboration_orgs": [
+    "BleepingComputer"
+   ],
+   "corroboration_sources": [
+    "BleepingComputer"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "www.bleepingcomputer.com",
+   "excerpt": "Microsoft is warning customers that a security vulnerability in Azure API Management (APIM) Classic tiers was exploited to steal stored API credentials, with Norwegian authorities linking the flaw to cyberattacks against energy companies. [...]",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "BleepingComputer"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [],
+   "id": "a0de9d3c092a62fb",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {
+    "H1": [
+     "Azure"
+    ]
+   },
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-23T19:42:20Z",
+   "relevance": 50,
+   "reliability": "À recouper",
+   "sectors": [
+    "Azure"
+   ],
+   "source": "BleepingComputer",
+   "source_country": "US",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "Microsoft is warning customers that a security vulnerability in Azure API Management (APIM) Classic tiers was exploited to steal stored API credentials, with Norwegian authorities linking the flaw to cyberattacks against energy companies. [...]",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [
+    "Security"
+   ],
+   "themes": [
+    "H1",
+    "H4"
+   ],
+   "title": "Microsoft Azure flaw exploited to steal customers' API credentials",
+   "translation_steps": 0,
+   "url": "https://www.bleepingcomputer.com/news/security/microsoft-azure-flaw-exploited-to-steal-customers-api-credentials",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-23T23:58:28Z",
+   "corroboration_orgs": [
+    "BleepingComputer"
+   ],
+   "corroboration_sources": [
+    "BleepingComputer"
+   ],
+   "criticality": 10,
+   "criticality_reasons": [
+    "mots-clés : data breach"
+   ],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "www.bleepingcomputer.com",
+   "excerpt": "LaLiga, Spain's top men's football league, disclosed a data breach that exposed personal information belonging to users of its services and those of some affiliated clubs. [...]",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "BleepingComputer"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [
+    "fuite-donnees",
+    "protection-donnees"
+   ],
+   "id": "6fd89acf9e3aa36a",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {
+    "H4": [
+     "data breach"
+    ]
+   },
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-23T18:38:40Z",
+   "relevance": 27,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "BleepingComputer",
+   "source_country": "US",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "LaLiga, Spain's top men's football league, disclosed a data breach that exposed personal information belonging to users of its services and those of some affiliated clubs. [...]",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [
+    "Security"
+   ],
+   "themes": [
+    "H4"
+   ],
+   "title": "Spanish LaLiga confirms hackers stole soccer fans’ personal data",
+   "translation_steps": 0,
+   "url": "https://www.bleepingcomputer.com/news/security/spanish-laliga-confirms-hackers-stole-soccer-fans-personal-data",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-23T23:58:28Z",
+   "corroboration_orgs": [
+    "The Hacker News"
+   ],
+   "corroboration_sources": [
+    "The Hacker News"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "thehackernews.com",
+   "excerpt": "The China-aligned threat actor known as Webworm is suspected to be using a custom version of the open-source SoftEther VPN Bridge tool in an attempt to remove recognizable detection fingerprints, while disguising it as network-monitoring software to establish covert remote access to compromised…",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "The Hacker News"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [],
+   "id": "5495a06dee26529f",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {},
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-23T17:45:15Z",
+   "relevance": 25,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "The Hacker News",
+   "source_country": "IN",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "The China-aligned threat actor known as Webworm is suspected to be using a custom version of the open-source SoftEther VPN Bridge tool in an attempt to remove recognizable detection fingerprints, while disguising it as network-monitoring software to establish covert remote access to compromised…",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H4"
+   ],
+   "title": "Webworm Suspected of Modifying SoftEther VPN to Evade Detection and Hide Remote Access",
+   "translation_steps": 0,
+   "url": "https://thehackernews.com/2026/11/webworm-suspected-of-modifying.html",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-23T23:58:28Z",
+   "corroboration_orgs": [
+    "BleepingComputer"
+   ],
+   "corroboration_sources": [
+    "BleepingComputer"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "www.bleepingcomputer.com",
+   "excerpt": "A cyberattack disrupted operations at B2B top-up solutions provider GlobeTopper, causing an estimated $2.5 million in lost revenue, while the attacker redeemed digital gift cards worth $70,000. [...]",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "BleepingComputer"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [],
+   "id": "36c59e697c49ac4d",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {},
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-23T16:50:01Z",
+   "relevance": 25,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "BleepingComputer",
+   "source_country": "US",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "A cyberattack disrupted operations at B2B top-up solutions provider GlobeTopper, causing an estimated $2.5 million in lost revenue, while the attacker redeemed digital gift cards worth $70,000. [...]",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [
+    "Security"
+   ],
+   "themes": [
+    "H4"
+   ],
+   "title": "GlobeTopper loses $2.5 million after hackers steal $70k in gift cards",
+   "translation_steps": 0,
+   "url": "https://www.bleepingcomputer.com/news/security/globetopper-loses-25-million-after-hackers-steal-70k-in-gift-cards",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-23T23:58:28Z",
+   "corroboration_orgs": [
+    "Amazon"
+   ],
+   "corroboration_sources": [
+    "AWS Security Blog"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "aws.amazon.com",
+   "excerpt": "Amazon Cognito helps you implement secure sign-in and access control for users, microservices, and AI agents in minutes. Many of you rely on it for some of the most critical data you operate: the identities and attributes your applications use to authenticate and authorize every request. Recently…",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H1"
+   ],
+   "first_publishers": [
+    "AWS Security Blog"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [
+    "agents-ia"
+   ],
+   "id": "b7cd88b3a870ef39",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {
+    "H3": [
+     "AI agent"
+    ]
+   },
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-23T16:43:50Z",
+   "relevance": 40,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "AWS Security Blog",
+   "source_country": "US",
+   "source_language": "en",
+   "source_type": "éditeur",
+   "summary": "Amazon Cognito helps you implement secure sign-in and access control for users, microservices, and AI agents in minutes. Many of you rely on it for some of the most critical data you operate: the identities and attributes your applications use to authenticate and authorize every request. Recently…",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [
+    "Security, Identity, & Compliance",
+    "Security Blog"
+   ],
+   "themes": [
+    "H1",
+    "H3"
+   ],
+   "title": "Protect identity data with point-in-time recovery in Amazon Cognito",
+   "translation_steps": 0,
+   "url": "https://aws.amazon.com/blogs/security/protect-identity-data-with-point-in-time-recovery-in-amazon-cognito",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-23T23:58:28Z",
+   "corroboration_orgs": [
+    "The Hacker News"
+   ],
+   "corroboration_sources": [
+    "The Hacker News"
+   ],
+   "criticality": 10,
+   "criticality_reasons": [
+    "mots-clés : 0-day"
+   ],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "thehackernews.com",
+   "excerpt": "A stolen key. A trusted message. A routine update. None of these looks like the start of a major security problem. That's partly why they work. Attackers don't always need to break down a door. Sometimes they just use one that's already open. This week's stories show how quickly a small opening…",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "The Hacker News"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [
+    "vulnerabilite-jour-zero"
+   ],
+   "id": "a75fd36abba00688",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {},
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-23T15:10:48Z",
+   "relevance": 37,
+   "reliability": "À recouper",
+   "sectors": [
+    "VMware"
+   ],
+   "source": "The Hacker News",
+   "source_country": "IN",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "A stolen key. A trusted message. A routine update. None of these looks like the start of a major security problem. That's partly why they work. Attackers don't always need to break down a door. Sometimes they just use one that's already open. This week's stories show how quickly a small opening…",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H4"
+   ],
+   "title": "⚡ Weekly Recap: VMware 0-Day, Java4Shell, NGINX2Root, Ruby2Shell, and a Whole Lot of Shell Trouble",
+   "translation_steps": 0,
+   "url": "https://thehackernews.com/2026/11/weekly-recap-vmware-0-day-java4shell.html",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-23T23:58:28Z",
+   "corroboration_orgs": [
+    "BleepingComputer"
+   ],
+   "corroboration_sources": [
+    "BleepingComputer"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "www.bleepingcomputer.com",
+   "excerpt": "AI agents operate across multiple platforms, creating security gaps when no single vendor can see or control their actions. Token Security examines the shared responsibility problem and explains how organizations can better manage agent identities, permissions, and accountability. [...]",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "BleepingComputer"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [
+    "agents-ia"
+   ],
+   "id": "c17e236901f89624",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {
+    "H3": [
+     "AI agent"
+    ]
+   },
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-23T15:00:10Z",
+   "relevance": 40,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "BleepingComputer",
+   "source_country": "US",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "AI agents operate across multiple platforms, creating security gaps when no single vendor can see or control their actions. Token Security examines the shared responsibility problem and explains how organizations can better manage agent identities, permissions, and accountability. [...]",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [
+    "Security"
+   ],
+   "themes": [
+    "H3",
+    "H4"
+   ],
+   "title": "AI Agents Are Creating a Shared Responsibility Gap",
+   "translation_steps": 0,
+   "url": "https://www.bleepingcomputer.com/news/security/ai-agents-are-creating-a-shared-responsibility-gap",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-23T23:58:28Z",
+   "corroboration_orgs": [
+    "Wiz"
+   ],
+   "corroboration_sources": [
+    "Wiz Blog"
+   ],
+   "criticality": 10,
+   "criticality_reasons": [
+    "mots-clés : in the wild"
+   ],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "www.wiz.io",
+   "excerpt": "Agentic offensive frameworks like ARTEX are driving a surge in cloud intrusions. Wiz Research shares cases from the wild, including both sides of one attack via the operator's leaked logs, an update on Black October, and the detections that catch these noisy, machine-speed attacks.",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H1"
+   ],
+   "first_publishers": [
+    "Wiz Blog"
+   ],
+   "glossary_axes_added": [
+    "H4"
+   ],
+   "glossary_concepts": [
+    "exploitation-active"
+   ],
+   "id": "b48722bfe72ffc40",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {
+    "H1": [
+     "cloud"
+    ],
+    "H2": [
+     "intrusion"
+    ],
+    "H3": [
+     "agentic"
+    ]
+   },
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-23T14:46:19Z",
+   "relevance": 42,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "Wiz Blog",
+   "source_country": "US",
+   "source_language": "en",
+   "source_type": "éditeur",
+   "summary": "Agentic offensive frameworks like ARTEX are driving a surge in cloud intrusions. Wiz Research shares cases from the wild, including both sides of one attack via the operator's leaked logs, an update on Black October, and the detections that catch these noisy, machine-speed attacks.",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H1",
+    "H2",
+    "H3",
+    "H4"
+   ],
+   "title": "Agentic Attacks: In The Wild",
+   "translation_steps": 0,
+   "url": "https://www.wiz.io/blog/agentic-attacks-artex-offensive-ai-frameworks",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-23T23:58:28Z",
+   "corroboration_orgs": [
+    "BleepingComputer"
+   ],
+   "corroboration_sources": [
+    "BleepingComputer"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "www.bleepingcomputer.com",
+   "excerpt": "Microsoft is working to fix a long-standing Windows issue that has been causing significant audio quality drops for Bluetooth headphone users. [...]",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "BleepingComputer"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [],
+   "id": "7e0ab8486aa30ee5",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {},
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-23T13:28:45Z",
+   "relevance": 25,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "BleepingComputer",
+   "source_country": "US",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "Microsoft is working to fix a long-standing Windows issue that has been causing significant audio quality drops for Bluetooth headphone users. [...]",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [
+    "Microsoft"
+   ],
+   "themes": [
+    "H4"
+   ],
+   "title": "Microsoft testing fix for Windows 11 Bluetooth audio quality drops",
+   "translation_steps": 0,
+   "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-testing-fix-for-windows-11-bluetooth-audio-quality-drops",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-23T23:58:28Z",
+   "corroboration_orgs": [
+    "The Hacker News"
+   ],
+   "corroboration_sources": [
+    "The Hacker News"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [
+    "EPSS 1%"
+   ],
+   "cve_details": {
+    "CVE-2026-134814": {
+     "cvss": null,
+     "epss": 0.00608,
+     "kev": false,
+     "nvd_found": null
+    }
+   },
+   "cves": [
+    "CVE-2026-134814"
+   ],
+   "date_adjusted": false,
+   "domain": "thehackernews.com",
+   "excerpt": "A critical security flaw has been disclosed in the popular binary-parser library that could allow an attacker who controls parser definitions to execute arbitrary code. The vulnerability, tracked as CVE-2026-134814 (CVSS score: 9.2 / 8.1), is a case of code injection impacting binary-parser…",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "The Hacker News"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [],
+   "id": "fa4289a3f22edc8c",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {},
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-23T13:22:20Z",
+   "relevance": 25,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "The Hacker News",
+   "source_country": "IN",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "A critical security flaw has been disclosed in the popular binary-parser library that could allow an attacker who controls parser definitions to execute arbitrary code. The vulnerability, tracked as CVE-2026-134814 (CVSS score: 9.2 / 8.1), is a case of code injection impacting binary-parser…",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H4"
+   ],
+   "title": "Critical binary-parser Flaw Enables JavaScript Injection via Malicious Parser Definitions",
+   "translation_steps": 0,
+   "url": "https://thehackernews.com/2026/11/critical-binary-parser-flaw-enables.html",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": true,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-23T23:58:28Z",
+   "corroboration_orgs": [
+    "The Hacker News"
+   ],
+   "corroboration_sources": [
+    "The Hacker News"
+   ],
+   "criticality": 40,
+   "criticality_reasons": [
+    "CISA KEV (CVE-2026-84869)",
+    "EPSS 1%"
+   ],
+   "cve_details": {
+    "CVE-2026-84869": {
+     "cvss": null,
+     "epss": 0.01173,
+     "kev": true,
+     "nvd_found": null
+    }
+   },
+   "cves": [
+    "CVE-2026-84869"
+   ],
+   "date_adjusted": false,
+   "domain": "thehackernews.com",
+   "excerpt": "Threat actors are exploiting a now-patched security flaw in ConnectWise ScreenConnect to target managed service provider (MSP) servers. The activity revolves around CVE-2026-84869 (CVSS score: 9.9), a critical ScreenConnect client flaw that allows a guest to transfer and execute a malicious…",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "The Hacker News"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [],
+   "id": "2da724996ccb9ddb",
+   "is_event": false,
+   "kev": true,
+   "kev_ransomware": false,
+   "keyword_hits": {},
+   "language": "en",
+   "level": "Moyen",
+   "official": false,
+   "published": "2026-11-23T12:41:04Z",
+   "relevance": 33,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "The Hacker News",
+   "source_country": "IN",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "Threat actors are exploiting a now-patched security flaw in ConnectWise ScreenConnect to target managed service provider (MSP) servers. The activity revolves around CVE-2026-84869 (CVSS score: 9.9), a critical ScreenConnect client flaw that allows a guest to transfer and execute a malicious…",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H4"
+   ],
+   "title": "Hackers Exploit Critical ScreenConnect Flaw to Hijack MSP Technician PCs Without Warning",
+   "translation_steps": 0,
+   "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-screenconnect.html",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": true,
+    "cves_confirmed": true,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-23T23:58:28Z",
+   "corroboration_orgs": [
+    "CISA",
+    "The Hacker News"
+   ],
+   "corroboration_sources": [
+    "CISA - Cybersecurity Advisories",
+    "The Hacker News"
+   ],
+   "criticality": 40,
+   "criticality_reasons": [
+    "CISA KEV (CVE-2026-134624)",
+    "EPSS 0%"
+   ],
+   "cve_details": {
+    "CVE-2026-134624": {
+     "cvss": null,
+     "epss": 0.00354,
+     "kev": true,
+     "nvd_found": null
+    }
+   },
+   "cves": [
+    "CVE-2026-134624"
+   ],
+   "date_adjusted": false,
+   "domain": "thehackernews.com",
+   "excerpt": "N-able yesterday disclosed a critical flaw it found while investigating the breach of its Mail Assure and SpamExperts Hosted Cloud, an email filtering service it runs for managed service providers. The bug, tracked as CVE-2026-134624, is a server-side request forgery (SSRF) flaw. It allowed a user…",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "CISA - Cybersecurity Advisories"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [],
+   "id": "89ef724f9ef49976",
+   "is_event": false,
+   "kev": true,
+   "kev_ransomware": false,
+   "keyword_hits": {
+    "H1": [
+     "cloud"
+    ]
+   },
+   "language": "en",
+   "level": "Moyen",
+   "official": false,
+   "published": "2026-11-23T12:28:09Z",
+   "relevance": 48,
+   "reliability": "Vérifié",
+   "sectors": [],
+   "source": "The Hacker News",
+   "source_country": "IN",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "N-able yesterday disclosed a critical flaw it found while investigating the breach of its Mail Assure and SpamExperts Hosted Cloud, an email filtering service it runs for managed service providers. The bug, tracked as CVE-2026-134624, is a server-side request forgery (SSRF) flaw. It allowed a user…",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H1",
+    "H4"
+   ],
+   "title": "N-able Discloses Critical Mail Assure Vulnerability Found During Breach Investigation",
+   "translation_steps": 0,
+   "url": "https://thehackernews.com/2026/11/n-able-discloses-critical-mail-assure.html",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-23T23:58:28Z",
+   "corroboration_orgs": [
+    "BleepingComputer"
+   ],
+   "corroboration_sources": [
+    "BleepingComputer"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "www.bleepingcomputer.com",
+   "excerpt": "A Peruvian call center operator was sentenced to eight years in prison for helping steal millions of dollars from over 30,000 Spanish-speaking US residents in a years-long government-impersonation fraud scheme. [...]",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "BleepingComputer"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [],
+   "id": "1162383657bf3738",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {},
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-23T12:02:23Z",
+   "relevance": 25,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "BleepingComputer",
+   "source_country": "US",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "A Peruvian call center operator was sentenced to eight years in prison for helping steal millions of dollars from over 30,000 Spanish-speaking US residents in a years-long government-impersonation fraud scheme. [...]",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [
+    "Security"
+   ],
+   "themes": [
+    "H4"
+   ],
+   "title": "Call center operator gets 8 years for helping scam 30,000 Americans",
+   "translation_steps": 0,
+   "url": "https://www.bleepingcomputer.com/news/security/call-center-operator-gets-8-years-for-helping-scam-30-000-americans",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": true,
+    "cves_confirmed": true,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-23T23:58:28Z",
+   "corroboration_orgs": [
+    "CISA",
+    "The Hacker News"
+   ],
+   "corroboration_sources": [
+    "CISA - Cybersecurity Advisories",
+    "The Hacker News"
+   ],
+   "criticality": 51,
+   "criticality_reasons": [
+    "CISA KEV (CVE-2026-133968, CVE-2026-134624)",
+    "EPSS 4%",
+    "source officielle"
+   ],
+   "cve_details": {
+    "CVE-2026-133968": {
+     "cvss": null,
+     "epss": 0.03664,
+     "kev": true,
+     "nvd_found": null
+    },
+    "CVE-2026-134624": {
+     "cvss": null,
+     "epss": 0.00354,
+     "kev": true,
+     "nvd_found": null
+    }
+   },
+   "cves": [
+    "CVE-2026-133968",
+    "CVE-2026-134624"
+   ],
+   "date_adjusted": false,
+   "domain": "www.cisa.gov",
+   "excerpt": "CISA has added two new vulnerabilities to its Known Exploited Vulnerabilities (KEV) Catalog , based on evidence of active exploitation. CVE-2026-133968 Project MONAI MONAI Label Path Traversal Vulnerability CVE-2026-134624 N-able Mail Assure (SpamExperts) Server-Side Request Forgery (SSRF)…",
+   "feed_priority": 1,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "CISA - Cybersecurity Advisories"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [],
+   "id": "75ea09ea3e752e02",
+   "is_event": false,
+   "kev": true,
+   "kev_ransomware": false,
+   "keyword_hits": {
+    "H4": [
+     "CISA"
+    ]
+   },
+   "language": "en",
+   "level": "Élevé",
+   "official": true,
+   "published": "2026-11-23T12:00:00Z",
+   "relevance": 45,
+   "reliability": "Vérifié",
+   "sectors": [],
+   "source": "CISA - Cybersecurity Advisories",
+   "source_country": "US",
+   "source_language": "en",
+   "source_type": "officielle",
+   "summary": "CISA has added two new vulnerabilities to its Known Exploited Vulnerabilities (KEV) Catalog , based on evidence of active exploitation. CVE-2026-133968 Project MONAI MONAI Label Path Traversal Vulnerability CVE-2026-134624 N-able Mail Assure (SpamExperts) Server-Side Request Forgery (SSRF)…",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H4"
+   ],
+   "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
+   "translation_steps": 0,
+   "url": "https://www.cisa.gov/news-events/alerts/2026/11/23/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-23T23:58:28Z",
+   "corroboration_orgs": [
+    "The Hacker News"
+   ],
+   "corroboration_sources": [
+    "The Hacker News"
+   ],
+   "criticality": 20,
+   "criticality_reasons": [
+    "EPSS 1%",
+    "mots-clés : in the wild, rce"
+   ],
+   "cve_details": {
+    "CVE-2026-131914": {
+     "cvss": null,
+     "epss": 0.00614,
+     "kev": false,
+     "nvd_found": null
+    }
+   },
+   "cves": [
+    "CVE-2026-131914"
+   ],
+   "date_adjusted": false,
+   "domain": "thehackernews.com",
+   "excerpt": "Cybersecurity researchers have urged users to discontinue using a legacy ASP.NET anti-CSRF library named Idunno.AntiCsrf (\"Idunno.AntiCsrf.dll\") following the discovery of a critical vulnerability that has been exploited in the wild. The vulnerability, tracked as CVE-2026-131914, carries a CVSS…",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "The Hacker News"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [
+    "exploitation-active",
+    "execution-code-distance"
+   ],
+   "id": "659149ed49d822a8",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {
+    "H4": [
+     "critical vulnerability"
+    ]
+   },
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-23T09:11:56Z",
+   "relevance": 29,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "The Hacker News",
+   "source_country": "IN",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "Cybersecurity researchers have urged users to discontinue using a legacy ASP.NET anti-CSRF library named Idunno.AntiCsrf (\"Idunno.AntiCsrf.dll\") following the discovery of a critical vulnerability that has been exploited in the wild. The vulnerability, tracked as CVE-2026-131914, carries a CVSS…",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H4"
+   ],
+   "title": "Hackers Exploit Critical ASP.NET Anti-CSRF Library Flaw Allowing Unauthenticated RCE",
+   "translation_steps": 0,
+   "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-aspnet-anti.html",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
    "collected": "2026-11-23T10:02:50Z",
    "corroboration_orgs": [
     "BleepingComputer"
@@ -63,6 +1539,145 @@
    "title": "Microsoft confirms Windows printing issues affecting Forcepoint users",
    "translation_steps": 0,
    "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-confirms-printing-issues-after-kb5132043-windows-hotpatch",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-23T23:58:28Z",
+   "corroboration_orgs": [
+    "The Hacker News"
+   ],
+   "corroboration_sources": [
+    "The Hacker News"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "thehackernews.com",
+   "excerpt": "Hackers exploited a vulnerability in GL.iNet's GoodCloud remote management service to install malware on some customer routers and KVM devices, the maker of travel routers and remote-access KVM hardware said in a security notice updated today. The company identified and fixed the flaw on Friday…",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "The Hacker News"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [],
+   "id": "8dee64bf666c5ac0",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {
+    "H1": [
+     "cloud"
+    ]
+   },
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-23T09:04:08Z",
+   "relevance": 40,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "The Hacker News",
+   "source_country": "IN",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "Hackers exploited a vulnerability in GL.iNet's GoodCloud remote management service to install malware on some customer routers and KVM devices, the maker of travel routers and remote-access KVM hardware said in a security notice updated today. The company identified and fixed the flaw on Friday…",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H1",
+    "H4"
+   ],
+   "title": "Hackers Exploited GL.iNet Cloud Flaw to Install Malware on Routers and KVM Devices",
+   "translation_steps": 0,
+   "url": "https://thehackernews.com/2026/11/hackers-exploited-glinet-cloud-flaw-to.html",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": true,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-23T23:58:28Z",
+   "corroboration_orgs": [
+    "ANSSI"
+   ],
+   "corroboration_sources": [
+    "ANSSI - Actualités"
+   ],
+   "criticality": 10,
+   "criticality_reasons": [
+    "source officielle"
+   ],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "cyber.gouv.fr",
+   "excerpt": "Toutes les organisations doivent faire face à de potentielles cyberattaques. Relevez votre niveau de sécurité avec le parcours de cybersécurité.",
+   "feed_priority": 1,
+   "feed_themes": [
+    "H3",
+    "H4"
+   ],
+   "first_publishers": [
+    "ANSSI - Actualités"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [],
+   "id": "12e4794f39c3ac56",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {
+    "H4": [
+     "ANSSI"
+    ]
+   },
+   "language": "fr",
+   "level": "Info",
+   "official": true,
+   "published": "2026-11-23T08:52:00Z",
+   "relevance": 52,
+   "reliability": "Vérifié",
+   "sectors": [],
+   "source": "ANSSI - Actualités",
+   "source_country": "FR",
+   "source_language": "fr",
+   "source_type": "officielle",
+   "summary": "Toutes les organisations doivent faire face à de potentielles cyberattaques. Relevez votre niveau de sécurité avec le parcours de cybersécurité.",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H3",
+    "H4"
+   ],
+   "title": "L’ANSSI accompagne les organisations dans leur sécurisation",
+   "translation_steps": 0,
+   "url": "https://cyber.gouv.fr/actualites/lanssi-accompagne-les-organisations-dans-leur-securisation",
    "why": null
   },
   {
@@ -271,6 +1886,480 @@
    "title": "Release 0.77.4",
    "translation_steps": 0,
    "url": "https://github.com/Velocidex/velociraptor/releases/tag/v0.77.4",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "also_in": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": true,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-23T23:58:28Z",
+   "corroboration_orgs": [
+    "ANSSI"
+   ],
+   "corroboration_sources": [
+    "CERT-FR - Avis"
+   ],
+   "criticality": 10,
+   "criticality_reasons": [
+    "source officielle"
+   ],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "www.cert.cyber.gouv.fr",
+   "excerpt": "De multiples vulnérabilités ont été découvertes dans SPIP. Elles permettent à un attaquant de provoquer une injection de code indirecte à distance (XSS) et une injection de requêtes illégitimes par rebond (CSRF).",
+   "feed_priority": 1,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "CERT-FR - Avis"
+   ],
+   "glossary_axes_added": [
+    "H3"
+   ],
+   "glossary_concepts": [
+    "injection-prompt"
+   ],
+   "id": "d70d541fca4b2465",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {},
+   "language": "fr",
+   "level": "Info",
+   "official": true,
+   "published": "2026-11-23T00:00:00Z",
+   "relevance": 52,
+   "reliability": "Vérifié",
+   "sectors": [],
+   "source": "CERT-FR - Avis",
+   "source_country": "FR",
+   "source_language": "fr",
+   "source_type": "officielle",
+   "summary": "De multiples vulnérabilités ont été découvertes dans SPIP. Elles permettent à un attaquant de provoquer une injection de code indirecte à distance (XSS) et une injection de requêtes illégitimes par rebond (CSRF).",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H3",
+    "H4"
+   ],
+   "title": "Multiples vulnérabilités dans SPIP (23 novembre 2026)",
+   "translation_steps": 0,
+   "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1599",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": true,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-23T23:58:28Z",
+   "corroboration_orgs": [
+    "ANSSI"
+   ],
+   "corroboration_sources": [
+    "CERT-FR - Avis"
+   ],
+   "criticality": 10,
+   "criticality_reasons": [
+    "source officielle"
+   ],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "www.cert.cyber.gouv.fr",
+   "excerpt": "Une vulnérabilité a été découverte dans Laravel. Elle permet à un attaquant de provoquer un déni de service à distance.",
+   "feed_priority": 1,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "CERT-FR - Avis"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [
+    "deni-service"
+   ],
+   "id": "81b8359321c90c8a",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {},
+   "language": "fr",
+   "level": "Info",
+   "official": true,
+   "published": "2026-11-23T00:00:00Z",
+   "relevance": 37,
+   "reliability": "Vérifié",
+   "sectors": [],
+   "source": "CERT-FR - Avis",
+   "source_country": "FR",
+   "source_language": "fr",
+   "source_type": "officielle",
+   "summary": "Une vulnérabilité a été découverte dans Laravel. Elle permet à un attaquant de provoquer un déni de service à distance.",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H4"
+   ],
+   "title": "Vulnérabilité dans Laravel (23 novembre 2026)",
+   "translation_steps": 0,
+   "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1601",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": true,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-23T23:58:28Z",
+   "corroboration_orgs": [
+    "ANSSI"
+   ],
+   "corroboration_sources": [
+    "CERT-FR - Avis"
+   ],
+   "criticality": 20,
+   "criticality_reasons": [
+    "mots-clés : exécution de code arbitraire à distance",
+    "source officielle"
+   ],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "www.cert.cyber.gouv.fr",
+   "excerpt": "De multiples vulnérabilités ont été découvertes dans Roundcube Webmail. Certaines d'entre elles permettent à un attaquant de provoquer une exécution de code arbitraire à distance, un déni de service à distance et une atteinte à la confidentialité des données.",
+   "feed_priority": 1,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "CERT-FR - Avis"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [
+    "execution-code-distance",
+    "deni-service"
+   ],
+   "id": "bd169d8c7055cdc8",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {},
+   "language": "fr",
+   "level": "Info",
+   "official": true,
+   "published": "2026-11-23T00:00:00Z",
+   "relevance": 39,
+   "reliability": "Vérifié",
+   "sectors": [],
+   "source": "CERT-FR - Avis",
+   "source_country": "FR",
+   "source_language": "fr",
+   "source_type": "officielle",
+   "summary": "De multiples vulnérabilités ont été découvertes dans Roundcube Webmail. Certaines d'entre elles permettent à un attaquant de provoquer une exécution de code arbitraire à distance, un déni de service à distance et une atteinte à la confidentialité des données.",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H4"
+   ],
+   "title": "Multiples vulnérabilités dans Roundcube Webmail (23 novembre 2026)",
+   "translation_steps": 0,
+   "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1602",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": true,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-23T23:58:28Z",
+   "corroboration_orgs": [
+    "ANSSI"
+   ],
+   "corroboration_sources": [
+    "CERT-FR - Avis"
+   ],
+   "criticality": 10,
+   "criticality_reasons": [
+    "source officielle"
+   ],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "www.cert.cyber.gouv.fr",
+   "excerpt": "De multiples vulnérabilités ont été découvertes dans Microsoft Edge. Elles permettent à un attaquant de provoquer un problème de sécurité non spécifié par l'éditeur.",
+   "feed_priority": 1,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "CERT-FR - Avis"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [],
+   "id": "4992185eb05197b0",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {},
+   "language": "fr",
+   "level": "Info",
+   "official": true,
+   "published": "2026-11-23T00:00:00Z",
+   "relevance": 37,
+   "reliability": "Vérifié",
+   "sectors": [],
+   "source": "CERT-FR - Avis",
+   "source_country": "FR",
+   "source_language": "fr",
+   "source_type": "officielle",
+   "summary": "De multiples vulnérabilités ont été découvertes dans Microsoft Edge. Elles permettent à un attaquant de provoquer un problème de sécurité non spécifié par l'éditeur.",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H4"
+   ],
+   "title": "Multiples vulnérabilités dans Microsoft Edge (23 novembre 2026)",
+   "translation_steps": 0,
+   "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1603",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": true,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-23T23:58:28Z",
+   "corroboration_orgs": [
+    "ANSSI"
+   ],
+   "corroboration_sources": [
+    "CERT-FR - Avis"
+   ],
+   "criticality": 20,
+   "criticality_reasons": [
+    "mots-clés : exécution de code arbitraire à distance",
+    "source officielle"
+   ],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "www.cert.cyber.gouv.fr",
+   "excerpt": "Une vulnérabilité a été découverte dans Microsoft Office. Elle permet à un attaquant de provoquer une exécution de code arbitraire à distance.",
+   "feed_priority": 1,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "CERT-FR - Avis"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [
+    "execution-code-distance"
+   ],
+   "id": "2cf05569586469be",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {},
+   "language": "fr",
+   "level": "Info",
+   "official": true,
+   "published": "2026-11-23T00:00:00Z",
+   "relevance": 39,
+   "reliability": "Vérifié",
+   "sectors": [],
+   "source": "CERT-FR - Avis",
+   "source_country": "FR",
+   "source_language": "fr",
+   "source_type": "officielle",
+   "summary": "Une vulnérabilité a été découverte dans Microsoft Office. Elle permet à un attaquant de provoquer une exécution de code arbitraire à distance.",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H4"
+   ],
+   "title": "Vulnérabilité dans Microsoft Office (23 novembre 2026)",
+   "translation_steps": 0,
+   "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1604",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": true,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-23T23:58:28Z",
+   "corroboration_orgs": [
+    "ANSSI"
+   ],
+   "corroboration_sources": [
+    "CERT-FR - Avis"
+   ],
+   "criticality": 10,
+   "criticality_reasons": [
+    "source officielle"
+   ],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "www.cert.cyber.gouv.fr",
+   "excerpt": "Une vulnérabilité a été découverte dans Mattermost Server. Elle permet à un attaquant de provoquer une atteinte à la confidentialité des données.",
+   "feed_priority": 1,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "CERT-FR - Avis"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [],
+   "id": "72d331cd37d1faa2",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {},
+   "language": "fr",
+   "level": "Info",
+   "official": true,
+   "published": "2026-11-23T00:00:00Z",
+   "relevance": 37,
+   "reliability": "Vérifié",
+   "sectors": [],
+   "source": "CERT-FR - Avis",
+   "source_country": "FR",
+   "source_language": "fr",
+   "source_type": "officielle",
+   "summary": "Une vulnérabilité a été découverte dans Mattermost Server. Elle permet à un attaquant de provoquer une atteinte à la confidentialité des données.",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H4"
+   ],
+   "title": "Vulnérabilité dans Mattermost Server (23 novembre 2026)",
+   "translation_steps": 0,
+   "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1605",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": true,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-23T23:58:28Z",
+   "corroboration_orgs": [
+    "ANSSI"
+   ],
+   "corroboration_sources": [
+    "CERT-FR - Avis"
+   ],
+   "criticality": 20,
+   "criticality_reasons": [
+    "mots-clés : exécution de code arbitraire à distance",
+    "source officielle"
+   ],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "www.cert.cyber.gouv.fr",
+   "excerpt": "De multiples vulnérabilités ont été découvertes dans les produits Synology. Certaines d'entre elles permettent à un attaquant de provoquer une exécution de code arbitraire à distance, un déni de service à distance et une atteinte à la confidentialité des données.",
+   "feed_priority": 1,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "CERT-FR - Avis"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [
+    "execution-code-distance",
+    "deni-service"
+   ],
+   "id": "6aa03bb1be6bb4b3",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {},
+   "language": "fr",
+   "level": "Info",
+   "official": true,
+   "published": "2026-11-23T00:00:00Z",
+   "relevance": 39,
+   "reliability": "Vérifié",
+   "sectors": [],
+   "source": "CERT-FR - Avis",
+   "source_country": "FR",
+   "source_language": "fr",
+   "source_type": "officielle",
+   "summary": "De multiples vulnérabilités ont été découvertes dans les produits Synology. Certaines d'entre elles permettent à un attaquant de provoquer une exécution de code arbitraire à distance, un déni de service à distance et une atteinte à la confidentialité des données.",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H4"
+   ],
+   "title": "Multiples vulnérabilités dans les produits Synology (23 novembre 2026)",
+   "translation_steps": 0,
+   "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1607",
    "why": null
   },
   {
@@ -1874,9 +3963,15 @@
    "action": null,
    "action_type": null,
    "ai_tags": [],
+   "also_in": [
+    "Google Cloud - Security & Identity"
+   ],
+   "also_in_published": {
+    "Google Cloud - Security & Identity": "2026-11-23T17:00:00Z"
+   },
    "checks": {
     "approved_domain": true,
-    "corroborated": false,
+    "corroborated": true,
     "cves_confirmed": null,
     "https": true,
     "not_sensational": true,
@@ -1884,9 +3979,11 @@
    },
    "collected": "2026-11-22T20:26:59Z",
    "corroboration_orgs": [
+    "Google",
     "Microsoft"
    ],
    "corroboration_sources": [
+    "Google Cloud - Security & Identity",
     "Microsoft Security Blog"
    ],
    "criticality": 0,
@@ -1915,7 +4012,7 @@
    "official": false,
    "published": "2026-11-20T17:00:00Z",
    "relevance": 40,
-   "reliability": "À recouper",
+   "reliability": "Vérifié",
    "sectors": [],
    "source": "Microsoft Security Blog",
    "source_country": "US",
@@ -3134,6 +5231,7 @@
    "action": null,
    "action_type": null,
    "ai_tags": [],
+   "also_in": [],
    "checks": {
     "approved_domain": true,
     "corroborated": true,
@@ -20623,70 +22721,8 @@
    "translation_steps": 0,
    "url": "https://blog.trailofbits.com/2026/08/26/vms-wont-contain-cyber-capable-agents",
    "why": null
-  },
-  {
-   "action": null,
-   "action_type": null,
-   "ai_tags": [],
-   "checks": {
-    "approved_domain": true,
-    "corroborated": false,
-    "cves_confirmed": null,
-    "https": true,
-    "not_sensational": true,
-    "plausible_date": true
-   },
-   "collected": "2026-11-22T20:26:59Z",
-   "corroboration_orgs": [
-    "Trail of Bits"
-   ],
-   "corroboration_sources": [
-    "Trail of Bits Blog"
-   ],
-   "criticality": 0,
-   "criticality_reasons": [],
-   "cve_details": {},
-   "cves": [],
-   "domain": "blog.trailofbits.com",
-   "excerpt": "We found and reported a bug in Provenance Blockchain, a public proof-of-stake chain built on Cosmos SDK , that lets any user grant themselves admin control over marker accounts without holding a single token. Provenance covers a range of financial services, including on-chain tokenized loans…",
-   "feed_priority": 2,
-   "feed_themes": [
-    "H3"
-   ],
-   "first_publishers": [
-    "Trail of Bits Blog"
-   ],
-   "glossary_axes_added": [],
-   "glossary_concepts": [],
-   "id": "7d73ff38d6c1b3ed",
-   "is_event": false,
-   "kev": false,
-   "kev_ransomware": false,
-   "keyword_hits": {},
-   "language": "en",
-   "level": "Info",
-   "official": false,
-   "published": "2026-08-25T11:00:00Z",
-   "relevance": 25,
-   "reliability": "À recouper",
-   "sectors": [],
-   "source": "Trail of Bits Blog",
-   "source_country": "US",
-   "source_language": "en",
-   "source_type": "recherche",
-   "summary": "We found and reported a bug in Provenance Blockchain, a public proof-of-stake chain built on Cosmos SDK , that lets any user grant themselves admin control over marker accounts without holding a single token. Provenance covers a range of financial services, including on-chain tokenized loans…",
-   "summary_from": "original",
-   "summary_source": "extrait",
-   "tags": [],
-   "themes": [
-    "H3"
-   ],
-   "title": "State divergence enables unauthorized access",
-   "translation_steps": 0,
-   "url": "https://blog.trailofbits.com/2026/08/25/state-divergence-enables-unauthorized-access",
-   "why": null
   }
  ],
- "count": 285,
- "updated": "2026-11-23T10:02:54Z"
+ "count": 313,
+ "updated": "2026-11-23T23:59:04Z"
 }

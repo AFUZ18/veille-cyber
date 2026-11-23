@@ -7,13 +7,13 @@
    "kpi": "D1_utilisations",
    "kpi_nom": "Utilisations de l'information collectée",
    "kpi_status": "rouge",
-   "last_seen": "2026-11-23T10:02:54Z",
+   "last_seen": "2026-11-23T23:59:04Z",
    "periods": 1,
    "status": "ouverte",
    "sujet": null
   }
  ],
- "generated_at": "2026-11-23T10:02:54Z",
+ "generated_at": "2026-11-23T23:59:04Z",
  "kpis": [
   {
    "action": "Axe {sujet} : revoir les mots-clés du thème et les sources peu pertinentes de l'axe.",
@@ -41,13 +41,13 @@
     "H1": [
      [
       "2026-11-23",
-      91.2
+      92.3
      ]
     ],
     "H2": [
      [
       "2026-11-23",
-      76.5
+      72.2
      ]
     ],
     "H3": [
@@ -59,18 +59,18 @@
     "H4": [
      [
       "2026-11-23",
-      67.6
+      65.9
      ]
     ]
    },
    "subs": {
     "H1": {
      "status": "vert",
-     "value": 91.2
+     "value": 92.3
     },
     "H2": {
      "status": "vert",
-     "value": 76.5
+     "value": 72.2
     },
     "H3": {
      "status": "vert",
@@ -78,24 +78,24 @@
     },
     "H4": {
      "status": "vert",
-     "value": 67.6
+     "value": 65.9
     }
    },
    "trend": [
     [
      "2026-11-23",
-     66.7
+     65.4
     ]
    ],
    "unite": "%",
-   "value": 66.7
+   "value": 65.4
   },
   {
    "action": "Axe {sujet} sous-couvert : ajouter au moins une source spécialisée sur cet axe (feeds.yaml).",
    "cible": 100,
    "details": {
     "H1": {
-     "articles_pertinents": 31,
+     "articles_pertinents": 36,
      "cible_hebdo": 10
     },
     "H2": {
@@ -103,11 +103,11 @@
      "cible_hebdo": 4
     },
     "H3": {
-     "articles_pertinents": 15,
+     "articles_pertinents": 20,
      "cible_hebdo": 3
     },
     "H4": {
-     "articles_pertinents": 73,
+     "articles_pertinents": 87,
      "cible_hebdo": 15
     }
    },
@@ -133,7 +133,7 @@
     "H1": [
      [
       "2026-11-23",
-      310.0
+      360.0
      ]
     ],
     "H2": [
@@ -145,20 +145,20 @@
     "H3": [
      [
       "2026-11-23",
-      500.0
+      666.7
      ]
     ],
     "H4": [
      [
       "2026-11-23",
-      486.7
+      580.0
      ]
     ]
    },
    "subs": {
     "H1": {
      "status": "vert",
-     "value": 310.0
+     "value": 360.0
     },
     "H2": {
      "status": "vert",
@@ -166,21 +166,21 @@
     },
     "H3": {
      "status": "vert",
-     "value": 500.0
+     "value": 666.7
     },
     "H4": {
      "status": "vert",
-     "value": 486.7
+     "value": 580.0
     }
    },
    "trend": [
     [
      "2026-11-23",
-     310.0
+     325.0
     ]
    ],
    "unite": "%",
-   "value": 310.0
+   "value": 325.0
   },
   {
    "action": "Trop d'articles hors sujet consultés : renforcer les exclusions (themes.yaml > exclusions).",
@@ -240,11 +240,11 @@
    "trend": [
     [
      "2026-11-23",
-     74.8
+     75.1
     ]
    ],
    "unite": "/100",
-   "value": 74.8
+   "value": 75.1
   },
   {
    "action": "Source « {sujet} » sous le score de qualité cible depuis 4 semaines : la remplacer ou la désactiver (feeds.yaml).",
@@ -275,15 +275,15 @@
     },
     "ANSSI - Actualités": {
      "status": "vert",
-     "value": 98.0
+     "value": 96.6
     },
     "AWS Security Blog": {
      "status": "vert",
-     "value": 89.2
+     "value": 90.8
     },
     "BleepingComputer": {
      "status": "vert",
-     "value": 64.1
+     "value": 63.4
     },
     "CERT-FR - Alertes": {
      "status": "vert",
@@ -291,7 +291,7 @@
     },
     "CERT-FR - Avis": {
      "status": "vert",
-     "value": 96.6
+     "value": 94.3
     },
     "CERT-FR - Menaces et incidents": {
      "status": "vert",
@@ -299,7 +299,7 @@
     },
     "CISA - Cybersecurity Advisories": {
      "status": "vert",
-     "value": 95.9
+     "value": 95.1
     },
     "Cloud Security Alliance": {
      "status": "na",
@@ -315,7 +315,7 @@
     },
     "Google Cloud - Security & Identity": {
      "status": "vert",
-     "value": 83.2
+     "value": 81.4
     },
     "HiddenLayer Blog": {
      "status": "na",
@@ -334,8 +334,8 @@
      "value": 45.6
     },
     "Magnet Forensics Blog": {
-     "status": "rouge",
-     "value": 46.6
+     "status": "orange",
+     "value": 55.3
     },
     "Microsoft Security Blog": {
      "status": "vert",
@@ -375,7 +375,7 @@
     },
     "The Hacker News": {
      "status": "vert",
-     "value": 66.8
+     "value": 65.7
     },
     "Trail of Bits Blog": {
      "status": "vert",
@@ -395,7 +395,7 @@
     },
     "Wiz Blog": {
      "status": "vert",
-     "value": 72.5
+     "value": 76.3
     },
     "ZATAZ": {
      "status": "na",
@@ -441,11 +441,11 @@
    "trend": [
     [
      "2026-11-23",
-     28.6
+     37.5
     ]
    ],
    "unite": "%",
-   "value": 28.6
+   "value": 37.5
   },
   {
    "action": "Des articles pointent vers des domaines non approuvés : vérifier ces domaines et compléter sources_quality.yaml.",
@@ -499,17 +499,17 @@
     "specifique": "Recevoir l'information rapidement après sa publication.",
     "temporel": "Chaque semaine."
    },
-   "status": "vert",
-   "status_label": "Dans la cible",
+   "status": "orange",
+   "status_label": "À surveiller",
    "subs": null,
    "trend": [
     [
      "2026-11-23",
-     1.7
+     8.9
     ]
    ],
    "unite": "h",
-   "value": 1.7
+   "value": 8.9
   },
   {
    "action": "Trop de flux en panne : lancer scripts/check_feeds.py et corriger feeds.yaml.",
@@ -896,21 +896,21 @@
    "subs": {
     "en": {
      "status": "info",
-     "value": 84.1
+     "value": 81.7
     },
     "fr": {
      "status": "info",
-     "value": 15.9
+     "value": 18.3
     }
    },
    "trend": [
     [
      "2026-11-23",
-     84.1
+     81.7
     ]
    ],
    "unite": "%",
-   "value": 84.1
+   "value": 81.7
   },
   {
    "action": "Des articles ont subi plusieurs étapes de traduction : vérifier src/summarize.py.",
@@ -970,11 +970,11 @@
    "trend": [
     [
      "2026-11-23",
-     9.5
+     9.2
     ]
    ],
    "unite": "%",
-   "value": 9.5
+   "value": 9.2
   },
   {
    "action": "Une source pèse trop dans la veille : réduire max_entries_per_feed ou ajouter des sources sur ses sujets.",
@@ -1004,11 +1004,11 @@
    "trend": [
     [
      "2026-11-23",
-     32.5
+     31.4
     ]
    ],
    "unite": "%",
-   "value": 32.5
+   "value": 31.4
   },
   {
    "action": "Veille trop concentrée sur quelques sources : diversifier le panel.",
@@ -1036,11 +1036,11 @@
    "trend": [
     [
      "2026-11-23",
-     1681
+     1712
     ]
    ],
    "unite": "points",
-   "value": 1681
+   "value": 1712
   },
   {
    "action": "",
@@ -1067,37 +1067,37 @@
    "subs": {
     "communauté": {
      "status": "info",
-     "value": 1.6
+     "value": 1.3
     },
     "officielle": {
      "status": "info",
-     "value": 28.6
+     "value": 29.4
     },
     "outil": {
      "status": "info",
-     "value": 0.8
+     "value": 0.7
     },
     "presse": {
      "status": "info",
-     "value": 46.0
+     "value": 47.7
     },
     "recherche": {
      "status": "info",
-     "value": 2.4
+     "value": 1.3
     },
     "éditeur": {
      "status": "info",
-     "value": 20.6
+     "value": 19.6
     }
    },
    "trend": [
     [
      "2026-11-23",
-     20.6
+     19.6
     ]
    ],
    "unite": "%",
-   "value": 20.6
+   "value": 19.6
   },
   {
    "action": "",
@@ -1124,33 +1124,33 @@
    "subs": {
     "CA": {
      "status": "info",
-     "value": 2.4
+     "value": 2.6
     },
     "FR": {
      "status": "info",
-     "value": 15.9
+     "value": 18.3
     },
     "IN": {
      "status": "info",
-     "value": 32.5
+     "value": 31.4
     },
     "INT": {
      "status": "info",
-     "value": 0.8
+     "value": 0.7
     },
     "US": {
      "status": "info",
-     "value": 48.4
+     "value": 47.1
     }
    },
    "trend": [
     [
      "2026-11-23",
-     48.4
+     47.1
     ]
    ],
    "unite": "%",
-   "value": 48.4
+   "value": 47.1
   },
   {
    "action": "Biais géographique : ajouter des sources françaises (presse, CERT sectoriels, CLUSIF…).",
@@ -1178,31 +1178,15 @@
    "trend": [
     [
      "2026-11-23",
-     15.9
+     18.3
     ]
    ],
    "unite": "%",
-   "value": 15.9
+   "value": 18.3
   }
  ],
  "signals": [],
  "sources": [
-  {
-   "articles": 3,
-   "authority": 71.0,
-   "country": "FR",
-   "credibilite": 92.0,
-   "efficacite": 100.0,
-   "nouveaute": 100.0,
-   "org": "ANSSI",
-   "pertinence": 100.0,
-   "referenced": true,
-   "reprise": 0.0,
-   "source": "ANSSI - Actualités",
-   "sqs": 98.0,
-   "ttri_h": null,
-   "type": "officielle"
-  },
   {
    "articles": 2,
    "authority": 71.0,
@@ -1220,40 +1204,24 @@
    "type": "officielle"
   },
   {
-   "articles": 17,
-   "authority": 69.6,
+   "articles": 4,
+   "authority": 71.0,
    "country": "FR",
    "credibilite": 92.0,
-   "efficacite": 100.0,
-   "nouveaute": 94.4,
+   "efficacite": 93.1,
+   "nouveaute": 100.0,
    "org": "ANSSI",
    "pertinence": 100.0,
    "referenced": true,
    "reprise": 0.0,
-   "source": "CERT-FR - Avis",
+   "source": "ANSSI - Actualités",
    "sqs": 96.6,
-   "ttri_h": null,
-   "type": "officielle"
-  },
-  {
-   "articles": 24,
-   "authority": 73.1,
-   "country": "US",
-   "credibilite": 92.0,
-   "efficacite": 100.0,
-   "nouveaute": 91.7,
-   "org": "CISA",
-   "pertinence": 100.0,
-   "referenced": true,
-   "reprise": 16.7,
-   "source": "CISA - Cybersecurity Advisories",
-   "sqs": 95.9,
-   "ttri_h": null,
+   "ttri_h": 15.1,
    "type": "officielle"
   },
   {
    "articles": 10,
-   "authority": 66.0,
+   "authority": 68.5,
    "country": "US",
    "credibilite": 82.0,
    "efficacite": 100.0,
@@ -1261,11 +1229,43 @@
    "org": "Microsoft",
    "pertinence": 100.0,
    "referenced": true,
-   "reprise": 0.0,
+   "reprise": 10.0,
    "source": "Microsoft Security Blog",
    "sqs": 95.5,
    "ttri_h": null,
    "type": "éditeur"
+  },
+  {
+   "articles": 25,
+   "authority": 74.0,
+   "country": "US",
+   "credibilite": 92.0,
+   "efficacite": 95.5,
+   "nouveaute": 92.0,
+   "org": "CISA",
+   "pertinence": 100.0,
+   "referenced": true,
+   "reprise": 20.0,
+   "source": "CISA - Cybersecurity Advisories",
+   "sqs": 95.1,
+   "ttri_h": 12.0,
+   "type": "officielle"
+  },
+  {
+   "articles": 24,
+   "authority": 70.0,
+   "country": "FR",
+   "credibilite": 92.0,
+   "efficacite": 86.3,
+   "nouveaute": 96.0,
+   "org": "ANSSI",
+   "pertinence": 100.0,
+   "referenced": true,
+   "reprise": 0.0,
+   "source": "CERT-FR - Avis",
+   "sqs": 94.3,
+   "ttri_h": 24.0,
+   "type": "officielle"
   },
   {
    "articles": 10,
@@ -1284,6 +1284,22 @@
    "type": "recherche"
   },
   {
+   "articles": 23,
+   "authority": 63.5,
+   "country": "US",
+   "credibilite": 77.0,
+   "efficacite": 95.7,
+   "nouveaute": 100.0,
+   "org": "Amazon",
+   "pertinence": 91.3,
+   "referenced": true,
+   "reprise": 0.0,
+   "source": "AWS Security Blog",
+   "sqs": 90.8,
+   "ttri_h": 3.6,
+   "type": "éditeur"
+  },
+  {
    "articles": 3,
    "authority": 79.3,
    "country": "FR",
@@ -1300,83 +1316,67 @@
    "type": "officielle"
   },
   {
-   "articles": 20,
-   "authority": 63.5,
-   "country": "US",
-   "credibilite": 77.0,
-   "efficacite": 90.0,
-   "nouveaute": 100.0,
-   "org": "Amazon",
-   "pertinence": 90.0,
-   "referenced": true,
-   "reprise": 0.0,
-   "source": "AWS Security Blog",
-   "sqs": 89.2,
-   "ttri_h": null,
-   "type": "éditeur"
-  },
-  {
    "articles": 13,
-   "authority": 68.3,
+   "authority": 66.6,
    "country": "US",
    "credibilite": 79.0,
    "efficacite": 76.9,
-   "nouveaute": 100.0,
+   "nouveaute": 92.9,
    "org": "Google",
    "pertinence": 76.9,
    "referenced": true,
    "reprise": 15.4,
    "source": "Google Cloud - Security & Identity",
-   "sqs": 83.2,
+   "sqs": 81.4,
    "ttri_h": null,
    "type": "éditeur"
   },
   {
-   "articles": 20,
+   "articles": 21,
    "authority": 60.0,
    "country": "US",
    "credibilite": 70.0,
-   "efficacite": 65.0,
-   "nouveaute": 90.0,
+   "efficacite": 80.9,
+   "nouveaute": 90.5,
    "org": "Wiz",
-   "pertinence": 65.0,
+   "pertinence": 66.7,
    "referenced": true,
-   "reprise": 10.0,
+   "reprise": 9.5,
    "source": "Wiz Blog",
-   "sqs": 72.5,
-   "ttri_h": null,
+   "sqs": 76.3,
+   "ttri_h": 9.2,
    "type": "éditeur"
   },
   {
-   "articles": 41,
+   "articles": 48,
    "authority": 53.5,
    "country": "IN",
    "credibilite": 57.0,
-   "efficacite": 76.8,
-   "nouveaute": 90.2,
+   "efficacite": 73.4,
+   "nouveaute": 89.6,
    "org": "The Hacker News",
-   "pertinence": 48.8,
+   "pertinence": 47.9,
    "referenced": true,
-   "reprise": 9.8,
+   "reprise": 10.4,
    "source": "The Hacker News",
-   "sqs": 66.8,
-   "ttri_h": 1.6,
+   "sqs": 65.7,
+   "ttri_h": 10.9,
    "type": "presse"
   },
   {
-   "articles": 17,
+   "articles": 25,
    "authority": 58.5,
    "country": "US",
    "credibilite": 67.0,
-   "efficacite": 67.6,
+   "efficacite": 66.0,
    "nouveaute": 100.0,
    "org": "BleepingComputer",
-   "pertinence": 29.4,
+   "pertinence": 28.0,
    "referenced": true,
    "reprise": 0.0,
    "source": "BleepingComputer",
-   "sqs": 64.1,
-   "ttri_h": 1.7,
+   "sqs": 63.4,
+   "ttri_h": 4.7,
    "type": "presse"
   },
   {
@@ -1412,6 +1412,22 @@
    "type": "officielle"
   },
   {
+   "articles": 11,
+   "authority": 58.2,
+   "country": "CA",
+   "credibilite": 66.5,
+   "efficacite": 54.5,
+   "nouveaute": 100.0,
+   "org": "Magnet Forensics",
+   "pertinence": 9.1,
+   "referenced": true,
+   "reprise": 0.0,
+   "source": "Magnet Forensics Blog",
+   "sqs": 55.3,
+   "ttri_h": 3.1,
+   "type": "éditeur"
+  },
+  {
    "articles": 1,
    "authority": 57.5,
    "country": "INT",
@@ -1426,22 +1442,6 @@
    "sqs": 51.2,
    "ttri_h": 6.5,
    "type": "outil"
-  },
-  {
-   "articles": 10,
-   "authority": 58.2,
-   "country": "CA",
-   "credibilite": 66.5,
-   "efficacite": 10.0,
-   "nouveaute": 100.0,
-   "org": "Magnet Forensics",
-   "pertinence": 10.0,
-   "referenced": true,
-   "reprise": 0.0,
-   "source": "Magnet Forensics Blog",
-   "sqs": 46.6,
-   "ttri_h": null,
-   "type": "éditeur"
   },
   {
    "articles": 2,
