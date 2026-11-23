@@ -12,6 +12,9 @@ site:
   output_dir: "public"          # dossier généré puis publié sur GitHub Pages
   max_articles_on_site: 1500    # limite d'articles envoyés au navigateur
   feed_items: 50                # nombre d'entrées dans feed.xml
+  # Dépôt GitHub (owner/nom) pour les liens « Signaler un usage ». En GitHub Actions,
+  # la variable automatique GITHUB_REPOSITORY est utilisée si elle existe.
+  repository: "AFUZ18/veille-cyber"
 
 collect:
   user_agent: "VeilleCyberBot/1.0 (+https://github.com/; veille interne, contact via le dépôt)"
@@ -130,3 +133,24 @@ newsletter:
       env: "NEWSLETTER_RECIPIENTS_CLIENTS"
       example: []
   unsubscribe_text: "Pour ne plus recevoir cette synthèse, répondez à ce message avec « DÉSINSCRIPTION »."
+
+# ---------------------------------------------------------------------------
+# Qualité des sources et KPI (chantier 2). VALEURS INITIALES À VALIDER.
+# Les définitions, cibles et seuils des KPI sont dans config/kpi.yaml ;
+# les notes AE/IR/PR des sources dans config/sources_quality.yaml.
+# ---------------------------------------------------------------------------
+quality:
+  # Source Quality Score = 30 % pertinence + 25 % crédibilité + 25 % nouveauté + 20 % efficacité
+  sqs_weights: {pertinence: 0.30, credibilite: 0.25, nouveaute: 0.25, efficacite: 0.20}
+  # Crédibilité = 30 % AE + 40 % IR + 30 % PR
+  credibility_weights: {ae: 0.30, ir: 0.40, pr: 0.30}
+  # Efficacité = 50 % rapidité (TTRI) + 50 % ratio d'articles utiles
+  efficiency_weights: {rapidite: 0.5, utilite: 0.5}
+  ttri_good_hours: 6            # médiane <= 6 h  => rapidité 100
+  ttri_bad_hours: 72            # médiane >= 72 h => rapidité 0 (linéaire entre les deux)
+  ttri_ignore_above_hours: 168  # écarts > 7 jours ignorés (rattrapage d'historique au 1er passage)
+  # Source Authority Index = 50 % crédibilité + 25 % taux de reprise + 25 % nouveauté
+  authority_weights: {credibilite: 0.50, reprise: 0.25, nouveaute: 0.25}
+  corroboration_window_days: 4  # deux articles partageant une CVE dans cette fenêtre = même information
+  min_independent_sources: 2    # recoupement : nombre minimal d'organisations indépendantes
+  archive_compress_after_months: 12   # data/archive/AAAA-MM.jsonl compressé en .gz au-delà

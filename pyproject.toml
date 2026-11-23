@@ -14,6 +14,7 @@ ignore = ["S101", "S311", "B905", "UP017"]
 [tool.ruff.lint.per-file-ignores]
 "tests/*" = ["S", "E501"]
 "src/newsletter.py" = ["E501"]  # gabarits HTML e-mail
+"scripts/kpi_doc.py" = ["E501"]  # gabarit de documentation
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

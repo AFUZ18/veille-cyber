@@ -6,7 +6,8 @@ Site de veille cybersécurité **100 % statique**, mis à jour **toutes les 6 he
 - une **criticité** de 0 à 100 (Critique / Élevé / Moyen / Info), calculée à partir de CISA KEV, CVSS (NVD), EPSS (FIRST), de mots-clés et des sources officielles, et une **pertinence** pour vos entreprises ;
 - des **résumés en français par IA** avec « Pourquoi c'est important » et l'action recommandée. Le site fonctionne aussi sans clé d'IA ;
 - une **synthèse hebdomadaire par e-mail**, le lundi à 07:00 (heure de Paris), archivée en Markdown dans `data/weekly/` ;
-- votre propre **flux RSS** (`feed.xml`), à suivre dans Feedly ou Outlook, et l'**export CSV / Markdown** des articles filtrés.
+- votre propre **flux RSS** (`feed.xml`), à suivre dans Feedly ou Outlook, et l'**export CSV / Markdown** des articles filtrés ;
+- un **pilotage de la qualité de la veille** : 22 KPI SMART historisés, un onglet **« KPI & qualité »**, un score de qualité par source, la détection des signaux faibles, un badge de fiabilité sur chaque article, un glossaire bilingue contre le risque de double traduction et un plan d'amélioration continue automatique (§ 12).
 
 Il n'y a aucun serveur, aucune base de données et aucun service tiers appelé depuis le navigateur.
 
@@ -17,6 +18,9 @@ Il n'y a aucun serveur, aucune base de données et aucun service tiers appelé d
             data/articles.json (état versionné)  │    NVD, EPSS  ▼
                                                  └──────────► data/summaries_cache.json
  Lundi 07:00 ──► newsletter.py ──► data/weekly/AAAA-Wxx.md + e-mail (SMTP Gmail)
+
+ Après les résumés : quality.py (fiabilité, recoupement, qualité des sources) ──► signals.py (signaux faibles)
+                     ──► kpi.py (KPI, historique, SLA) ──► archive.py ──► issues.py (issues « Action d'amélioration »)
 ```
 
 ---
@@ -92,6 +96,8 @@ Toute modification poussée sur `main` dans `config/` déclenche automatiquement
     priority: 2          # 1 = prioritaire, 3 = secondaire (influence la pertinence)
     enabled: true        # false pour couper un flux sans le supprimer
 ```
+Ajoutez aussi la source dans `config/sources_quality.yaml` (notes AE/IR/PR, organisation, type, pays et domaines des liens) : sans cela, elle reçoit des notes par défaut et ses articles sont marqués « Source non référencée » (un test le signale).
+
 Pour vérifier les flux : *Actions → « Tests » → Run workflow* (case « Vérifier aussi que chaque flux RSS répond »), ou en local `python scripts/check_feeds.py`. L'état de chaque flux s'affiche aussi en bas du site (« Santé des sources »).
 
 **Chaîne YouTube** : ouvrez la chaîne, affichez le code source de la page et cherchez `channel_id` ou `"externalId"`, une chaîne qui commence par `UC…`. Le flux est alors `https://www.youtube.com/feeds/videos.xml?channel_id=UC…`.
@@ -193,6 +199,9 @@ pip install -r requirements-dev.txt
 pytest -q                                              # tests unitaires et de bout en bout (hors ligne)
 ruff check . && ruff format --check .                  # qualité du code
 python -m src.pipeline                                 # exécution réelle (réseau)
+python -m src.pipeline --no-collect                    # recalcule KPI et site sans collecter (après un changement de config)
+python scripts/export_kpi.py                           # historique des KPI en CSV (Excel, Power BI)
+python scripts/kpi_doc.py                              # régénère docs/KPI.md après une modification de kpi.yaml
 python -m src.newsletter                               # archive et aperçu build/newsletter_preview.html
 cd public && python -m http.server 8000                # puis http://localhost:8000
 ```
@@ -201,15 +210,19 @@ Structure du dépôt :
 
 ```
 config/      feeds.yaml · themes.yaml · events.yaml · settings.yaml
+             kpi.yaml · sources_quality.yaml · glossary.yaml · verification_checklist.yaml · bias.yaml
 src/         collect · classify · score · summarize · build_site · newsletter · pipeline · common
+             quality · signals · kpi · usage · archive · issues
 site/        index.html (modèle unique HTML/CSS/JS vanilla) · favicon.svg
-data/        articles.json · summaries_cache.json · feeds_status.json · cache/cve_cache.json · weekly/
-scripts/     check_feeds.py
-tests/       test_units.py · test_pipeline.py · conftest.py (flux synthétiques)
-.github/     workflows/update.yml · weekly.yml · ci.yml · dependabot.yml
+data/        articles.json · summaries_cache.json · feeds_status.json · cache/ · weekly/
+             kpi_history.jsonl · kpi_latest.json · improvement_actions.md/.json · weak_signals.md · usage.yaml · archive/
+docs/        KPI.md (fiches SMART, générées depuis kpi.yaml)
+scripts/     check_feeds.py · export_kpi.py · kpi_doc.py
+tests/       test_units.py · test_pipeline.py · test_quality.py · conftest.py (flux synthétiques)
+.github/     workflows/update.yml · weekly.yml · ci.yml · dependabot.yml · ISSUE_TEMPLATE/ (usage, signal transformé)
 ```
 
-Le site généré est écrit dans `public/` (non versionné) puis publié par GitHub Pages : `index.html`, `articles.json` et `feed.xml`.
+Le site généré est écrit dans `public/` (non versionné) puis publié par GitHub Pages : `index.html`, `articles.json`, `feed.xml`, `kpi.json` et `kpi_history.csv`.
 
 **Ajouter un fournisseur LLM** : dans `src/summarize.py`, créez une classe qui hérite de `LLMProvider` et implémente `complete(system, user) -> str`, ajoutez-la à `PROVIDERS`, puis indiquez son nom dans `settings.yaml → llm.provider`.
 
@@ -228,6 +241,10 @@ Le site généré est écrit dans `public/` (non versionné) puis publié par Gi
 | Un flux est « Erreur » en bas du site | URL changée ou site indisponible | `python scripts/check_feeds.py`, puis corrigez ou passez `enabled: false` |
 | Trop d'articles hors sujet | Mots-clés trop larges | Ajoutez des motifs dans `exclusions` ou retirez des mots-clés génériques |
 | Exécution trop longue | Beaucoup de nouvelles CVE à enrichir (limite NVD) | Ajoutez le secret `NVD_API_KEY` ou baissez `nvd_max_lookups_per_run` |
+| Un KPI affiche « n.d. » | Données insuffisantes (pas d'usage déclaré, pas d'article important, période d'apprentissage) | Normal au démarrage ; le pipeline continue ; voir § 12 |
+| « Signaux faibles : période d'apprentissage » | Moins d'une semaine d'historique de collecte | Patientez ; la détection compare la semaine aux 4 précédentes |
+| Les usages déclarés ne sont pas comptés | Issue sans étiquette `usage` / `signal-transforme`, ou champ « Identifiant » invalide | Créez l'issue via le lien « Signaler un usage » ; les étiquettes sont créées à la 1re exécution |
+| Trop d'issues « Action d'amélioration » | Cibles trop ambitieuses pour vos sources | Ajustez `cible`, `seuil_alerte` ou `periodes_consecutives` dans `config/kpi.yaml` |
 
 ---
 
@@ -237,3 +254,72 @@ Le site généré est écrit dans `public/` (non versionné) puis publié par Gi
 - Le modèle LLM par défaut est un modèle **Haiku**, rapide et économique (`claude-haiku-5-5`). Vous pouvez le changer dans `settings.yaml`.
 - Le site généré est publié depuis `public/`, et non `site/` qui contient le modèle. Le flux RSS est servi à l'adresse `…/feed.xml`.
 - La période affichée par défaut sur le site est de 7 jours, et les données sont conservées 90 jours.
+
+---
+
+## 12. Qualité de la veille : KPI et pilotage
+
+> **Toutes les cibles, tous les seuils, poids et notes de sources livrés sont des valeurs initiales à valider.** Observez 4 à 8 semaines, puis ajustez-les dans les fichiers YAML (aucun code à modifier).
+
+### Comment ça marche
+À chaque exécution (toutes les 6 heures), après les résumés :
+1. **`quality.py`** contrôle chaque article (domaine approuvé, HTTPS, date plausible, CVE confirmées, recoupement par 2 organisations indépendantes, ton non sensationnaliste) et lui attribue un **badge de fiabilité** : ✔ Vérifié, ⚠ À recouper ou ✖ Source non référencée. Il calcule aussi le **Source Quality Score** et l'**indice d'autorité** de chaque source.
+2. **`signals.py`** détecte les **signaux faibles** : termes (concepts du glossaire, noms de produits, familles de logiciels malveillants) en forte hausse sur la semaine par rapport aux 4 précédentes, mais encore rares. Pendant la première semaine de collecte, la détection est en **période d'apprentissage**.
+3. **`kpi.py`** calcule les **22 KPI** de `config/kpi.yaml` (familles A à F), les compare à leurs cibles, enregistre un instantané dans `data/kpi_history.jsonl` (conservé sans limite) et applique le **SLA** : un KPI orange ou rouge pendant N périodes consécutives ouvre une action dans `data/improvement_actions.md` et **une seule** issue GitHub « Action d'amélioration » (étiquette `amelioration`), fermée automatiquement quand le KPI revient au vert.
+4. **`archive.py`** conserve une archive légère de chaque article au-delà des 90 jours du site (`data/archive/AAAA-MM.jsonl`, sans texte intégral), compressée en `.gz` après 12 mois.
+
+Les fiches SMART de chaque KPI (définition, formule, source des données, fréquence, cible, seuil, responsable, action corrective) sont dans **[docs/KPI.md](docs/KPI.md)**.
+
+### Lire la page « KPI & qualité »
+- **Vue d'ensemble** : chaque KPI avec sa valeur, sa cible et son statut. Le statut est indiqué par un symbole et un texte, pas seulement par une couleur : ✔ Dans la cible, ▲ À surveiller, ✖ Hors seuil, ● Observation, – Non disponible. Cliquez sur « Définition SMART » pour la fiche du KPI.
+- **Tendances** : mini-graphiques sur 4, 12 ou 52 semaines (boutons en haut). Ils se remplissent au fil des exécutions.
+- **Objectifs SMART par axe**, **plan d'amélioration continue**, **classement des sources** (qualité, pertinence, crédibilité, nouveauté, efficacité, délai, autorité), **signaux faibles de la semaine**, **biais** et **checklist de vérification**.
+- **Exporter les KPI (CSV)** : historique complet pour Excel ou Power BI (séparateur `;`). Même fichier en local : `python scripts/export_kpi.py`.
+
+Un KPI qui ne peut pas être calculé (pas encore d'usage déclaré, pas d'article important cette semaine…) s'affiche « non disponible » et ne bloque jamais le pipeline.
+
+### Modifier les cibles, les seuils et les poids
+| Je veux… | Fichier | Clé |
+|---|---|---|
+| Changer la cible ou le seuil d'un KPI | `config/kpi.yaml` | `cible`, `seuil_alerte` |
+| Déclencher une action plus tôt ou plus tard | `config/kpi.yaml` | `periodes_consecutives` |
+| Modifier le texte de l'action proposée | `config/kpi.yaml` | `action` (`{sujet}` = axe ou source) |
+| Changer le seuil de pertinence | `config/kpi.yaml` | `parametres.seuil_pertinence` |
+| Régler la détection des signaux faibles | `config/kpi.yaml` | `signaux_faibles` (croissance, rareté, mots ignorés) |
+| Changer les poids du score de qualité ou de la crédibilité | `config/settings.yaml` | `quality.sqs_weights`, `quality.credibility_weights` |
+| Corriger la note d'une source | `config/sources_quality.yaml` | `ae`, `ir`, `pr`, `type`, `country`, `org`, `domains` |
+| Fixer l'objectif SMART d'un axe | `config/themes.yaml` | `themes.Hx.objectifs` (`smart`, `cible_hebdo`, `echeance`, `horizon`) |
+| Modifier la checklist ou le badge | `config/verification_checklist.yaml` | `criteres`, `credibilite_suffisante`, `formulations_sensationnalistes` |
+| Documenter un biais | `config/bias.yaml` | `biais` |
+
+Après une modification de `kpi.yaml`, lancez `python scripts/kpi_doc.py` pour régénérer `docs/KPI.md` (un test vérifie que la documentation est à jour).
+
+### Ajouter un terme au glossaire bilingue : `config/glossary.yaml`
+```yaml
+  - {id: double-extorsion, label: "Double extorsion", axes: [H4],
+     fr: [double extorsion], en: [double extortion]}
+```
+Le terme sert au classement par axe et aux signaux faibles **dans les deux langues** : un article français et un article anglais sur le même sujet sont traités de la même façon. Le KPI E3 mesure la part d'articles rattachés à un axe grâce au glossaire.
+
+### Risque de double traduction
+Le titre et l'extrait d'origine sont toujours conservés. Le résumé français est produit **en une seule étape, directement depuis l'original**, jamais à partir d'un texte déjà traduit ou résumé. Chaque article enregistre sa langue source et son nombre d'étapes de traduction (KPI E1 et E2), et chaque carte affiche le titre d'origine à côté du résumé.
+
+### Déclarer un usage ou un signal faible transformé
+- **Le plus simple** : sur une carte d'article, cliquez sur **« Signaler un usage »**. Un formulaire GitHub s'ouvre, pré-rempli avec l'identifiant de l'article. Choisissez le type d'usage (alerte envoyée, correctif appliqué, note rédigée, sensibilisation, hypothèse de transformation, ou article écarté comme hors sujet) puis validez.
+- **Signal faible transformé** : *Issues → New issue → « Signal faible transformé »*. La fiche d'hypothèse correspondante (signal, hypothèse, indicateurs, échéance, décision) est préparée automatiquement dans `data/weak_signals.md`.
+- **Sans GitHub** : ajoutez une entrée dans `data/usage.yaml` (exemple dans le fichier).
+
+Le pipeline lit les issues étiquetées `usage` et `signal-transforme` avec le jeton automatique de GitHub Actions, et ne garde que des champs validés (identifiant, type, date, entreprise). Les commentaires ne sont jamais repris sur le site. **Le dépôt étant public, ne saisissez aucune information confidentielle dans une issue.**
+
+### Données produites (dans `data/`)
+| Fichier | Contenu |
+|---|---|
+| `kpi_history.jsonl` | Un instantané des KPI par exécution, sans limite de durée |
+| `kpi_latest.json` | Dernier rapport (site et e-mail) |
+| `improvement_actions.md` / `.json` | Plan d'amélioration continue (actions ouvertes et résolues) |
+| `weak_signals.md` | Fiches d'hypothèse de transformation des signaux faibles (vos ajouts sont conservés) |
+| `usage.yaml` | Journal d'usage manuel |
+| `archive/AAAA-MM.jsonl(.gz)` | Archive légère des articles au-delà de 90 jours |
+
+La synthèse du lundi contient désormais un bloc **« Santé de la veille »** : les KPI hors cible, les signaux faibles de la semaine et les actions proposées.
+

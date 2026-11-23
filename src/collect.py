@@ -137,9 +137,12 @@ def normalise_entry(entry: Any, feed: dict[str, Any], excerpt_chars: int, now: d
     if not raw_summary and entry.get("content"):
         raw_summary = entry["content"][0].get("value", "")
     text = strip_html(raw_summary)
-    published = _entry_date(entry) or now
+    raw_date = _entry_date(entry)
+    published = raw_date or now
+    date_adjusted = raw_date is None
     if published > now + timedelta(hours=1):  # clocks from the future
         published = now
+        date_adjusted = True
     tags = [strip_html(t.get("term", "")) for t in entry.get("tags", []) if t.get("term")][:8]
     canon = canonical_url(link)
     return {
@@ -156,6 +159,9 @@ def normalise_entry(entry: Any, feed: dict[str, Any], excerpt_chars: int, now: d
         "tags": tags,
         # CVEs detected in title + full summary (the full text itself is not stored)
         "cves": extract_cves(f"{title} {text}"),
+        # Quality layer: date missing or in the future (corrected), original language
+        "date_adjusted": date_adjusted,
+        "source_language": feed.get("language", "en"),
     }
 
 
@@ -230,6 +236,8 @@ def deduplicate(existing: list[dict], incoming: list[dict], threshold: float, wi
             also = duplicate.setdefault("also_in", [])
             if art["source"] != duplicate["source"] and art["source"] not in also:
                 also.append(art["source"])
+                # publication date of each echo: used for novelty (first publisher) and corroboration
+                duplicate.setdefault("also_in_published", {})[art["source"]] = art["published"]
             continue
         merged.append(art)
         by_id[art["id"]] = art

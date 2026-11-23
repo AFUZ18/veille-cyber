@@ -1,0 +1,42 @@
+# ---------------------------------------------------------------------------
+# Biais connus de la veille, indicateurs associés et consignes d'analyse
+# ---------------------------------------------------------------------------
+#   indicateur : id d'un KPI de config/kpi.yaml (affiché à côté du biais), ou null
+# ---------------------------------------------------------------------------
+
+biais:
+  - id: langue
+    nom: "Biais de langue"
+    description: "La majorité des sources sont anglophones : les sujets français (réglementation, ANSSI, incidents locaux) sont sous-représentés."
+    indicateur: E1_repartition_langues
+    consigne: "Avant de conclure qu'un sujet est absent en France, chercher dans les sources françaises (CERT-FR, ANSSI, Cybermalveillance, LeMagIT)."
+  - id: geographie
+    nom: "Biais géographique"
+    description: "Les sources américaines dominent : menaces et produits nord-américains surreprésentés, contexte européen moins visible."
+    indicateur: F4_repartition_geographique
+    consigne: "Pondérer l'importance d'une menace selon sa présence réelle en Europe ; vérifier la part des sources françaises (F5)."
+  - id: confirmation
+    nom: "Biais de confirmation"
+    description: "Tendance à retenir les informations qui confirment ce que l'on pense déjà (mots-clés choisis, sources préférées)."
+    indicateur: E3_rattachement_glossaire
+    consigne: "Lire chaque semaine les signaux faibles et au moins un article d'un axe peu suivi ; revoir les mots-clés tous les trimestres."
+  - id: source_commerciale
+    nom: "Biais de source commerciale"
+    description: "Les blogs d'éditeurs mettent en avant les menaces que leurs produits traitent."
+    indicateur: F3_repartition_types
+    consigne: "Recouper toute information d'éditeur avec une source officielle ou de presse indépendante ; voir le badge de fiabilité."
+  - id: nouveaute
+    nom: "Biais de nouveauté"
+    description: "Surpondération du dernier sujet médiatisé au détriment de menaces persistantes moins visibles."
+    indicateur: C1_signaux_faibles
+    consigne: "Comparer avec les tendances sur 12 et 52 semaines (page KPI) avant de réorienter les priorités."
+  - id: survie
+    nom: "Biais de survie"
+    description: "On ne voit que ce qui est publié : attaques non divulguées, sources disparues ou flux en panne échappent à la veille."
+    indicateur: B6_disponibilite_flux
+    consigne: "Surveiller la disponibilité des flux et considérer que l'absence d'information n'est pas l'absence de menace."
+  - id: concentration
+    nom: "Biais de concentration"
+    description: "Quelques sources très prolifiques imposent leur agenda éditorial."
+    indicateur: F2_concentration_hhi
+    consigne: "Surveiller la part maximale d'une source (F1) et l'indice de concentration (F2)."

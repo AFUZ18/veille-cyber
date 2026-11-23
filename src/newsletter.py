@@ -126,7 +126,39 @@ def select_content(articles: list[dict[str, Any]], cfg: Config, now: datetime) -
         "actions": actions[:8],
         "events": events,
         "total_week": len(recent),
+        "health": health_summary(cfg),
     }
+
+
+def health_summary(cfg: Config) -> dict[str, Any] | None:
+    """« Santé de la veille » block from data/kpi_latest.json (None if KPI are not available)."""
+    report = read_json(cfg.data_dir / "kpi_latest.json", None)
+    if not report or not report.get("kpis"):
+        return None
+    order = {"rouge": 0, "orange": 1}
+    off = sorted((k for k in report["kpis"] if k.get("status") in order), key=lambda k: (order[k["status"]], k["id"]))
+    return {
+        "off_target": [
+            {
+                "nom": k["nom"],
+                "value": k["value"],
+                "unite": k.get("unite") or "",
+                "cible": k.get("cible"),
+                "sens": k.get("sens"),
+                "status": k["status_label"],
+            }  # fmt: skip
+            for k in off[:6]
+        ],
+        "off_count": len(off),
+        "signals": [
+            {"term": sg["term"], "axis": sg.get("axis"), "count": sg["count_week"]} for sg in report.get("signals", [])[:5]
+        ],
+        "actions": [a for a in report.get("actions", []) if a.get("status") == "ouverte"][:5],
+    }
+
+
+def _fmt_num(v: Any) -> str:
+    return "n.d." if v is None else f"{v:g}".replace(".", ",")
 
 
 def subject(content: dict[str, Any]) -> str:
@@ -190,6 +222,22 @@ def render_markdown(c: dict[str, Any], site_url: str) -> str:
         )
     if not c["actions"]:
         out.append("_Aucune action spécifique (résumés IA indisponibles ou rien d'urgent)._")
+    h = c.get("health")
+    if h:
+        out += ["", "## Santé de la veille", ""]
+        if h["off_target"]:
+            out.append(f"**KPI hors cible ({h['off_count']})** :")
+            for k in h["off_target"]:
+                comp = "≤" if k["sens"] == "baisse" else "≥"
+                out.append(
+                    f"- {_md(k['nom'])} : {_fmt_num(k['value'])} {k['unite']} (cible {comp} {_fmt_num(k['cible'])}) – {k['status']}"
+                )
+        else:
+            out.append("_Tous les KPI suivis sont dans leur cible._")
+        sig = ", ".join(f"{_md(x['term'])} ({x['axis'] or '—'}, {x['count']})" for x in h["signals"]) or "aucun"
+        out += ["", f"**Signaux faibles de la semaine** : {sig}", ""]
+        out.append("**Actions d'amélioration proposées** :")
+        out += [f"- {_md(a['action'])}" for a in h["actions"]] or ["- _Aucune._"]
     out += ["", "## Prochains salons", ""]
     for e in c["events"]:
         out.append(
@@ -291,6 +339,22 @@ def render_html(c: dict[str, Any], site_url: str, unsubscribe: str) -> str:
         f" – {_fmt_date(e['start'])} au {_fmt_date(e['end'])}, {_e(e['location'])}{'' if e['confirmed'] else ' (à confirmer)'}</td></tr>"
         for e in c["events"]
     )
+    h = c.get("health")
+    if h:
+        rows = "".join(
+            f'<tr><td style="padding:3px 0;{FONT}font-size:14px;color:#222222;">• {_e(k["nom"])} : <b>{_e(_fmt_num(k["value"]))} {_e(k["unite"])}</b>'
+            f" (cible {'≤' if k['sens'] == 'baisse' else '≥'} {_e(_fmt_num(k['cible']))}) – {_e(k['status'])}</td></tr>"
+            for k in h["off_target"]
+        ) or _para("Tous les KPI suivis sont dans leur cible.", True)
+        sig = ", ".join(f"{_e(x['term'])} ({_e(x['axis'] or '—')}, {x['count']})" for x in h["signals"]) or "aucun"
+        rows += (
+            f'<tr><td style="padding:8px 0 3px 0;{FONT}font-size:14px;color:#222222;"><b>Signaux faibles :</b> {sig}</td></tr>'
+        )
+        rows += "".join(
+            f'<tr><td style="padding:3px 0;{FONT}font-size:14px;color:#222222;">→ {_e(a["action"])}</td></tr>'
+            for a in h["actions"]
+        )
+        parts.append(_section("Santé de la veille", rows))
     parts.append(_section("Prochains salons", ev_rows or _para("Aucun salon programmé.", True)))
 
     return f"""<!DOCTYPE html>

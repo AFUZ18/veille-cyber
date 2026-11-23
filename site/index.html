@@ -90,6 +90,42 @@ th,td{text-align:left;padding:5px 6px;border-bottom:1px solid var(--border);vert
 footer{color:var(--muted);font-size:.85rem;padding:24px 0 40px}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .more{display:flex;justify-content:center;margin:16px 0}
+/* ---- reliability badge & card extras ---- */
+.badge.rel-ok{color:var(--info);background:var(--info-bg)}
+.badge.rel-check{color:var(--med);background:var(--med-bg)}
+.badge.rel-unref{color:var(--crit);background:var(--crit-bg)}
+.orig{font-size:.8rem;color:var(--muted);margin:2px 0}
+.card-foot{display:flex;flex-wrap:wrap;gap:4px 14px;justify-content:space-between;font-size:.78rem;color:var(--muted);margin-top:6px}
+.card-foot code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+/* ---- KPI page ---- */
+.kpi-head{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin:14px 0}
+.seg{display:inline-flex;border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.seg button{font:inherit;font-size:.85rem;border:0;background:var(--surface);color:var(--text);padding:6px 10px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-text)}
+.kpi-grid{display:grid;grid-template-columns:1fr;gap:10px}
+@media (min-width:760px){.kpi-grid{grid-template-columns:1fr 1fr}}
+@media (min-width:1100px){.kpi-grid{grid-template-columns:1fr 1fr 1fr}}
+.kpi{background:var(--surface);border:1px solid var(--border);border-left-width:5px;border-radius:var(--radius);padding:10px 12px}
+.kpi.st-vert{border-left-color:var(--info)}.kpi.st-orange{border-left-color:var(--high)}.kpi.st-rouge{border-left-color:var(--crit)}
+.kpi.st-info,.kpi.st-na{border-left-color:var(--border)}
+.kpi h4{margin:0 0 4px;font-size:.92rem;line-height:1.3}
+.kpi .val{font-size:1.5rem;font-weight:700;line-height:1.2}
+.kpi .val small{font-size:.8rem;font-weight:500;color:var(--muted)}
+.kpi .row{display:flex;justify-content:space-between;align-items:flex-end;gap:8px}
+.status{display:inline-block;font-size:.75rem;font-weight:600;padding:1px 8px;border-radius:999px}
+.status.st-vert{color:var(--info);background:var(--info-bg)}.status.st-orange{color:var(--high);background:var(--high-bg)}
+.status.st-rouge{color:var(--crit);background:var(--crit-bg)}.status.st-info,.status.st-na{color:var(--muted);background:var(--surface-2)}
+.subs{list-style:none;padding:0;margin:6px 0 0;display:flex;flex-wrap:wrap;gap:4px 10px;font-size:.8rem;color:var(--muted)}
+.subs b{color:var(--text)}
+.spark{display:block;color:var(--accent)}
+.kpi details{font-size:.8rem;color:var(--muted);margin-top:6px}
+.kpi details summary{cursor:pointer}
+.fam-title{font-size:1rem;margin:20px 0 8px}
+table.data th{font-size:.78rem;color:var(--muted);font-weight:600}
+table.data td.num,table.data th.num{text-align:right;font-variant-numeric:tabular-nums}
+.bar{display:inline-block;height:8px;border-radius:4px;background:var(--accent);vertical-align:middle;margin-right:6px}
+.obj{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:10px 12px;font-size:.9rem}
+.obj h4{margin:0 0 4px}
 @media (prefers-reduced-motion:no-preference){.card{transition:border-color .15s}.card:hover{border-color:var(--accent)}}
 </style>
 </head>
@@ -114,6 +150,7 @@ footer{color:var(--muted);font-size:.85rem;padding:24px 0 40px}
 
 <main id="main" class="wrap" tabindex="-1">
   <div id="panel" role="tabpanel" aria-labelledby="">
+   <div id="articles-view">
     <form class="filters" id="filters" role="search" onsubmit="return false">
       <label>Recherche
         <input type="search" id="f-q" placeholder="Titre, résumé, CVE, éditeur…" autocomplete="off">
@@ -162,6 +199,8 @@ footer{color:var(--muted);font-size:.85rem;padding:24px 0 40px}
       <div class="grid" id="list"></div>
       <div class="more"><button type="button" class="btn primary" id="more" hidden>Afficher plus</button></div>
     </section>
+   </div>
+   <div id="kpi-view" hidden aria-live="polite"><p class="empty">Chargement des indicateurs…</p></div>
   </div>
 
   <details class="health">
@@ -202,7 +241,7 @@ footer{color:var(--muted);font-size:.85rem;padding:24px 0 40px}
   }
 
   const LEVEL_RANK = { "Critique": 3, "Élevé": 2, "Moyen": 1, "Info": 0 };
-  const TABS = [["ALL", "Tout"], ["H1", "H1 Cloud"], ["H2", "H2 Forensique"], ["H3", "H3 IA"], ["H4", "H4 Général"], ["EVENTS", "Salons & événements"]];
+  const TABS = [["ALL", "Tout"], ["H1", "H1 Cloud"], ["H2", "H2 Forensique"], ["H3", "H3 IA"], ["H4", "H4 Général"], ["EVENTS", "Salons & événements"], ["KPI", "KPI & qualité"]];
   const PAGE = 30;
   const rtf = new Intl.RelativeTimeFormat("fr", { numeric: "auto" });
   const dtf = new Intl.DateTimeFormat("fr-FR", { dateStyle: "medium", timeStyle: "short" });
@@ -242,6 +281,28 @@ footer{color:var(--muted);font-size:.85rem;padding:24px 0 40px}
   }
 
   // ---- Rendering ----
+  // ---- Reliability badge (automatic verification checklist) ----
+  const CHECK_LABELS = { approved_domain: "source référencée", https: "lien HTTPS", plausible_date: "date plausible",
+    cves_confirmed: "CVE confirmées (KEV/NVD)", corroborated: "recoupé par 2 sources indépendantes", not_sensational: "ton non sensationnaliste" };
+  function reliabilityBadge(a) {
+    if (!a.reliability) return null;
+    const cls = a.reliability === "Vérifié" ? "rel-ok" : (a.reliability === "À recouper" ? "rel-check" : "rel-unref");
+    const icon = a.reliability === "Vérifié" ? "✔ " : (a.reliability === "À recouper" ? "⚠ " : "✖ ");
+    const checks = Object.entries(a.checks || {}).map(([k, v]) => (v === true ? "✔ " : v === false ? "✖ " : "– ") + (CHECK_LABELS[k] || k));
+    const sources = (a.corroboration_sources || []).length > 1 ? " · Sources : " + a.corroboration_sources.join(", ") : "";
+    return el("span", { class: "badge " + cls, text: icon + a.reliability, title: "Contrôles automatiques : " + checks.join(" ; ") + sources });
+  }
+  function repoUrl() {
+    const r = (state.data.site || {}).repository || "";
+    return /^[\w.-]+\/[\w.-]+$/.test(r) ? "https://github.com/" + r : null;
+  }
+  function usageLink(a) {
+    const base = repoUrl();
+    if (!base) return null;
+    const q = new URLSearchParams({ template: "information-utilisee.yml", article_id: a.id, title: "Usage : " + a.title.slice(0, 80) });
+    return el("a", { href: base + "/issues/new?" + q.toString(), target: "_blank", rel: "noopener noreferrer", text: "Signaler un usage" });
+  }
+
   function card(a, compact) {
     const labels = state.data.theme_labels;
     const badges = el("div", { class: "badges" }, [
@@ -249,6 +310,7 @@ footer{color:var(--muted);font-size:.85rem;padding:24px 0 40px}
       a.kev ? el("span", { class: "badge kev", text: a.kev_ransomware ? "Exploité (KEV) · ransomware" : "Exploité activement (KEV)" }) : null,
       ...(a.themes || []).map(t => el("span", { class: "badge theme", text: t + " " + (labels[t] || "") })),
       ...(a.sectors || []).slice(0, 4).map(s => el("span", { class: "badge sector", text: s })),
+      reliabilityBadge(a),
     ]);
     const src = el("div", { class: "src" }, [
       a.source + " · ",
@@ -256,8 +318,15 @@ footer{color:var(--muted);font-size:.85rem;padding:24px 0 40px}
       a.also_in && a.also_in.length ? " · aussi : " + a.also_in.join(", ") : "",
       a.summary_source === "ia" ? " · résumé IA" : "",
     ]);
-    const body = [badges, el("h3", {}, [extLink(a.url, a.title)]), src];
-    if (a.summary) body.push(el("p", { text: a.summary, lang: a.summary_source === "ia" ? "fr" : (a.language || "en") }));
+    const lang = (a.source_language || a.language || "en");
+    const body = [badges, el("h3", { lang }, [extLink(a.url, a.title)]), src];
+    if (a.summary_source === "ia") {
+      // Original title kept next to the French summary (single translation step)
+      body.push(el("p", { class: "orig" }, ["Titre d'origine (" + lang.toUpperCase() + ") : ", el("span", { lang, text: a.title })]));
+      body.push(el("p", { lang: "fr" }, [el("strong", { text: "Résumé en français" + (lang !== "fr" ? " (traduit en 1 étape depuis l'original)" : "") + " : " }), a.summary]));
+    } else if (a.summary) {
+      body.push(el("p", { lang }, [el("strong", { text: "Extrait d'origine (" + lang.toUpperCase() + ") : " }), a.summary]));
+    }
     if (!compact && a.why) body.push(el("p", { class: "why" }, [el("strong", { text: "Pourquoi c'est important : " }), a.why]));
     if (!compact && a.action) body.push(el("p", { class: "action" }, [el("strong", { text: "Action recommandée" + (a.action_type ? " (" + a.action_type + ")" : "") + " : " }), a.action]));
     if (a.cves && a.cves.length) {
@@ -266,6 +335,13 @@ footer{color:var(--muted);font-size:.85rem;padding:24px 0 40px}
         const extra = [d.cvss ? "CVSS " + d.cvss : "", d.epss ? "EPSS " + Math.round(d.epss * 100) + " %" : ""].filter(Boolean).join(", ");
         return el("span", {}, [extLink("https://nvd.nist.gov/vuln/detail/" + encodeURIComponent(c), c), extra ? " (" + extra + ")" : ""]);
       })));
+    }
+    if (!compact) {
+      const usage = usageLink(a);
+      body.push(el("div", { class: "card-foot" }, [
+        el("span", {}, ["Identifiant : ", el("code", { text: a.id })]),
+        usage,
+      ]));
     }
     return el("article", { class: "card" }, body);
   }
@@ -328,6 +404,10 @@ footer{color:var(--muted);font-size:.85rem;padding:24px 0 40px}
   }
 
   function apply() {
+    const kpiTab = state.tab === "KPI";
+    $("articles-view").hidden = kpiTab;
+    $("kpi-view").hidden = !kpiTab;
+    if (kpiTab) { loadKpi(); return; }
     const f = currentFilters();
     state.filtered = state.data.articles
       .filter(a => matches(a, f, state.tab))
@@ -354,7 +434,8 @@ footer{color:var(--muted);font-size:.85rem;padding:24px 0 40px}
     const tl = $("tabs");
     TABS.forEach(([id, label]) => {
       const count = state.data.counts[id] ?? 0;
-      const b = el("button", { type: "button", role: "tab", class: "tab", id: "tab-" + id, "aria-controls": "panel", "aria-selected": "false", text: label + " (" + count + ")" });
+      const text = id === "KPI" ? label : label + " (" + count + ")";
+      const b = el("button", { type: "button", role: "tab", class: "tab", id: "tab-" + id, "aria-controls": "panel", "aria-selected": "false", text });
       b.dataset.tab = id;
       b.addEventListener("click", () => selectTab(id));
       tl.appendChild(b);
@@ -370,6 +451,180 @@ footer{color:var(--muted);font-size:.85rem;padding:24px 0 40px}
       ev.preventDefault();
       selectTab(ids[i], true);
     });
+  }
+
+  // ---- KPI & qualité ----
+  const FAMILIES = { A: "A. Pertinence", B: "B. Qualité des sources", C: "C. Intérêt : signaux faibles", D: "D. Utilité",
+    E: "E. Risque de double traduction", F: "F. Biais et diversité" };
+  const STATUS_ICON = { vert: "✔", orange: "▲", rouge: "✖", info: "●", na: "–" };
+  const kpiState = { data: null, loading: false, weeks: 12 };
+  const nf = new Intl.NumberFormat("fr-FR", { maximumFractionDigits: 1 });
+  function fmt(v, unit) { return v === null || v === undefined ? "n.d." : nf.format(v) + (unit ? " " + unit : ""); }
+  function statusChip(st, label) { return el("span", { class: "status st-" + st, text: (STATUS_ICON[st] || "") + " " + label }); }
+
+  function loadKpi() {
+    if (kpiState.data) { renderKpi(); return; }
+    if (kpiState.loading) return;
+    kpiState.loading = true;
+    fetch("kpi.json", { cache: "no-cache" })
+      .then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+      .then(d => { kpiState.data = d; renderKpi(); })
+      .catch(err => { $("kpi-view").replaceChildren(el("p", { class: "empty", text: "Indicateurs indisponibles (" + err.message + ")." })); })
+      .finally(() => { kpiState.loading = false; });
+  }
+
+  // Sparkline in inline SVG (no library). points = [[date, value], ...]
+  function sparkline(points, label) {
+    const NS = "http://www.w3.org/2000/svg";
+    const since = Date.now() - kpiState.weeks * 7 * 86400000;
+    const pts = (points || []).filter(p => p[1] !== null && new Date(p[0]).getTime() >= since);
+    const w = 130, h = 34;
+    const svg = document.createElementNS(NS, "svg");
+    svg.setAttribute("viewBox", "0 0 " + w + " " + h); svg.setAttribute("width", w); svg.setAttribute("height", h);
+    svg.setAttribute("class", "spark"); svg.setAttribute("role", "img");
+    const title = document.createElementNS(NS, "title");
+    if (pts.length < 2) {
+      title.textContent = label + " : historique insuffisant sur " + kpiState.weeks + " semaines";
+      svg.appendChild(title);
+      const t = document.createElementNS(NS, "text");
+      t.setAttribute("x", "0"); t.setAttribute("y", "22"); t.setAttribute("font-size", "10"); t.setAttribute("fill", "currentColor");
+      t.textContent = pts.length ? "1 point de mesure" : "pas encore d'historique";
+      svg.appendChild(t);
+      return svg;
+    }
+    const vals = pts.map(p => p[1]);
+    const min = Math.min(...vals), max = Math.max(...vals), span = (max - min) || 1;
+    const coords = pts.map((p, i) => [2 + i * (w - 4) / (pts.length - 1), h - 3 - (p[1] - min) * (h - 6) / span]);
+    title.textContent = label + " sur " + kpiState.weeks + " semaines : de " + nf.format(vals[0]) + " à " + nf.format(vals[vals.length - 1])
+      + " (min " + nf.format(min) + ", max " + nf.format(max) + ")";
+    svg.appendChild(title);
+    const line = document.createElementNS(NS, "polyline");
+    line.setAttribute("points", coords.map(c => c[0].toFixed(1) + "," + c[1].toFixed(1)).join(" "));
+    line.setAttribute("fill", "none"); line.setAttribute("stroke", "currentColor"); line.setAttribute("stroke-width", "2");
+    line.setAttribute("stroke-linejoin", "round"); line.setAttribute("stroke-linecap", "round");
+    svg.appendChild(line);
+    const last = coords[coords.length - 1];
+    const dot = document.createElementNS(NS, "circle");
+    dot.setAttribute("cx", last[0]); dot.setAttribute("cy", last[1]); dot.setAttribute("r", "2.5"); dot.setAttribute("fill", "currentColor");
+    svg.appendChild(dot);
+    return svg;
+  }
+
+  function kpiCard(k) {
+    const target = k.cible === null || k.cible === undefined ? "pas de cible (observation)"
+      : "cible " + (k.sens === "baisse" ? "≤ " : "≥ ") + fmt(k.cible, k.unite) + (k.seuil_alerte !== null ? " · alerte " + (k.sens === "baisse" ? "> " : "< ") + fmt(k.seuil_alerte, k.unite) : "");
+    const subs = k.subs ? Object.entries(k.subs) : [];
+    const subList = subs.length && subs.length <= 12 ? el("ul", { class: "subs", "aria-label": "Détail" }, subs.map(([name, v]) =>
+      el("li", {}, [el("b", { text: name }), " " + fmt(v.value, k.unite) + (v.status !== "info" ? " " + (STATUS_ICON[v.status] || "") : "")]))) : null;
+    const many = subs.length > 12 ? el("p", { class: "small", text: subs.filter(([, v]) => v.status === "rouge" || v.status === "orange").length + " élément(s) hors cible sur " + subs.length + " (voir le classement des sources)." }) : null;
+    const extra = [];
+    if (k.details && k.details.apprentissage) extra.push(el("p", { class: "small", text: "Période d'apprentissage : " + k.details.apprentissage + "." }));
+    if (k.id === "F1_part_max_source" && k.details) extra.push(el("p", { class: "small", text: "Source : " + k.details.source }));
+    if (k.id === "B4_sources_non_referencees" && k.details && k.details.length) extra.push(el("p", { class: "small", text: "Domaines : " + k.details.join(", ") }));
+    if (k.id === "A2_couverture_axe" && k.details) extra.push(el("p", { class: "small", text: Object.entries(k.details).map(([ax, d]) => ax + " " + d.articles_pertinents + "/" + (d.cible_hebdo ?? "?")).join(" · ") + " articles pertinents / cible hebdo" }));
+    const smart = k.smart || {};
+    return el("article", { class: "kpi st-" + k.status }, [
+      el("h4", { text: k.nom }),
+      el("div", { class: "row" }, [
+        el("div", {}, [el("div", { class: "val" }, [fmt(k.value, ""), el("small", { text: " " + (k.value === null ? "" : (k.unite || "")) })]), statusChip(k.status, k.status_label)]),
+        sparkline(k.trend, k.nom),
+      ]),
+      el("p", { class: "small", text: target }),
+      subList, many, ...extra,
+      el("details", {}, [el("summary", { text: "Définition SMART" }),
+        el("p", {}, [el("b", { text: "Formule : " }), k.formule || ""]),
+        ...[["specifique", "Spécifique"], ["mesurable", "Mesurable"], ["atteignable", "Atteignable"], ["realiste", "Réaliste"], ["temporel", "Temporel"]]
+          .map(([f, lbl]) => smart[f] ? el("p", {}, [el("b", { text: lbl + " : " }), smart[f]]) : null),
+        el("p", {}, [el("b", { text: "Responsable : " }), k.responsable || "—", " · ", el("b", { text: "Période : " }), k.periode || ""]),
+        k.action ? el("p", {}, [el("b", { text: "Action (SLA) : " }), k.action.replace("{sujet}", "…")]) : null,
+      ]),
+    ]);
+  }
+
+  function table(head, rows, caption, numCols) {
+    return el("div", { class: "table-scroll" }, [el("table", { class: "data" }, [
+      el("caption", { class: "sr-only", text: caption }),
+      el("thead", {}, [el("tr", {}, head.map((h, i) => el("th", { scope: "col", class: (numCols || []).includes(i) ? "num" : null, text: h })))]),
+      el("tbody", {}, rows.map(r => el("tr", {}, r.map((c, i) => el("td", { class: (numCols || []).includes(i) ? "num" : null }, [c instanceof Node ? c : String(c ?? "—")]))))),
+    ])]);
+  }
+
+  function section(title, children) { return el("section", {}, [el("h2", { text: title }), ...children]); }
+
+  function renderKpi() {
+    const d = kpiState.data, view = $("kpi-view");
+    if (!d || !d.available) { view.replaceChildren(el("p", { class: "empty", text: "Les indicateurs seront disponibles après la prochaine mise à jour." })); return; }
+    const parts = [];
+    const counts = {}; d.kpis.forEach(k => { counts[k.status] = (counts[k.status] || 0) + 1; });
+    const seg = el("div", { class: "seg", role: "group", "aria-label": "Période des tendances" }, [4, 12, 52].map(n => {
+      const b = el("button", { type: "button", "aria-pressed": kpiState.weeks === n ? "true" : "false", text: n + " sem." });
+      b.addEventListener("click", () => { kpiState.weeks = n; renderKpi(); });
+      return b;
+    }));
+    parts.push(el("div", { class: "kpi-head" }, [
+      el("div", {}, [
+        el("p", { class: "small", text: "Calculés le " + dtf.format(new Date(d.generated_at)) + " · " + d.kpis.length + " indicateurs" }),
+        el("div", { class: "badges" }, ["vert", "orange", "rouge", "info", "na"].filter(s => counts[s]).map(s =>
+          statusChip(s, counts[s] + " " + ({ vert: "dans la cible", orange: "à surveiller", rouge: "hors seuil", info: "en observation", na: "non disponible(s)" })[s]))),
+      ]),
+      el("div", {}, [el("span", { class: "small", text: "Tendances : " }), seg, " ",
+        el("a", { class: "btn", href: "kpi_history.csv", download: "kpi_historique.csv", text: "Exporter les KPI (CSV)" })]),
+    ]));
+
+    // KPI overview by family
+    const fams = {};
+    d.kpis.forEach(k => { (fams[k.famille] = fams[k.famille] || []).push(k); });
+    parts.push(el("h2", { text: "Vue d'ensemble des KPI" }));
+    Object.keys(FAMILIES).forEach(f => {
+      if (!fams[f]) return;
+      parts.push(el("h3", { class: "fam-title", text: FAMILIES[f] }), el("div", { class: "kpi-grid" }, fams[f].map(kpiCard)));
+    });
+
+    // SMART objectives per axis
+    parts.push(section("Objectifs SMART par axe", [el("div", { class: "kpi-grid" }, Object.entries(d.objectives || {}).map(([ax, o]) =>
+      el("div", { class: "obj" }, [el("h4", { text: ax + " " + (o.label || "") }), el("p", { text: o.smart || "Objectif à définir dans themes.yaml." }),
+        el("p", { class: "small", text: "Cible : " + (o.cible_hebdo ?? "—") + " articles pertinents / semaine · Échéance : " + (o.echeance || "—") + " · Horizon : " + (o.horizon || "—") + " terme" })])))]));
+
+    // Improvement plan
+    const open = (d.actions || []).filter(a => a.status === "ouverte");
+    parts.push(section("Plan d'amélioration continue", [open.length
+      ? table(["Depuis", "KPI", "Concerne", "Action", "Périodes"], open.map(a => [a.first_seen.slice(0, 10), a.kpi_nom, a.sujet || "—", a.action, a.periods]), "Actions ouvertes", [4])
+      : el("p", { class: "small", text: "Aucune action ouverte : une action est créée quand un KPI reste hors cible plusieurs périodes de suite." })]));
+
+    // Source ranking
+    const rows = (d.sources || []).map((s, i) => [i + 1, s.source, s.type || "—", s.country || "—", fmt(s.sqs), fmt(s.pertinence), fmt(s.credibilite), fmt(s.nouveaute), fmt(s.efficacite), s.ttri_h === null ? "—" : fmt(s.ttri_h, "h"), fmt(s.authority), s.articles]);
+    parts.push(section("Classement des sources (30 jours)", [
+      el("p", { class: "small", text: "Score de qualité (SQS) = 30 % pertinence + 25 % crédibilité + 25 % nouveauté + 20 % efficacité. Indice d'autorité (SAI) = crédibilité, taux de reprise par d'autres sources et nouveauté. « n.d. » : aucun article sur la période." }),
+      table(["#", "Source", "Type", "Pays", "Qualité", "Pertinence", "Crédibilité", "Nouveauté", "Efficacité", "Délai", "Autorité", "Articles"], rows, "Classement des sources par score de qualité", [0, 4, 5, 6, 7, 8, 9, 10, 11]),
+    ]));
+
+    // Weak signals
+    const c1 = d.kpis.find(k => k.id === "C1_signaux_faibles");
+    const sig = d.signals || [];
+    parts.push(section("Signaux faibles de la semaine", [
+      c1 && c1.details && c1.details.apprentissage ? el("p", { class: "small", text: "Période d'apprentissage : la détection démarre après une semaine d'historique (" + c1.details.apprentissage + ")." }) : null,
+      sig.length || (c1 && c1.details && c1.details.apprentissage) ? null : el("p", { class: "small", text: "Aucun signal faible détecté cette semaine." }),
+      sig.length ? el("div", { class: "grid two" }, sig.slice(0, 20).map(s => el("article", { class: "card" }, [
+        el("div", { class: "badges" }, [el("span", { class: "badge theme", text: s.axis || "—" }), el("span", { class: "badge sector", text: s.kind }),
+          el("span", { class: "badge sector", text: s.languages.join(" + ").toUpperCase() })]),
+        el("h3", { text: s.term }),
+        el("p", { class: "small", text: s.count_week + " article(s) cette semaine (moyenne précédente " + nf.format(s.baseline_weekly) + "/sem.) · " + s.sources.join(", ") }),
+        el("ul", { class: "small" }, s.articles.slice(0, 3).map(a => el("li", {}, [extLink(a.url, a.title)]))),
+      ]))) : null,
+      el("p", { class: "small", text: "Fiches d'hypothèse de transformation : data/weak_signals.md. Déclarer une transformation : formulaire GitHub « Signal faible transformé »." }),
+    ]));
+
+    // Biases
+    parts.push(section("Biais de la veille et indicateurs", [table(["Biais", "Indicateur", "Valeur", "Consigne"], (d.biases || []).map(b => [
+      el("span", {}, [el("b", { text: b.nom }), el("br"), el("span", { class: "small", text: b.description })]),
+      b.indicator_name || "—", b.indicator_value === null || b.indicator_value === undefined ? "n.d." : fmt(b.indicator_value, b.indicator_unit), b.consigne]), "Biais connus de la veille")]));
+
+    // Verification checklist
+    parts.push(section("Checklist de vérification", [
+      el("p", { class: "small", text: "Badge sur chaque article : ✔ Vérifié · ⚠ À recouper · ✖ Source non référencée (contrôles automatiques). Les contrôles manuels restent à faire par l'analyste." }),
+      table(["Critère", "Importance", "Méthode", "Description"], (d.checklist || []).map(c => [c.nom, c.importance, c.methode, c.description]), "Checklist de vérification"),
+    ]));
+    view.replaceChildren(...parts.filter(Boolean));
   }
 
   // ---- Export ----

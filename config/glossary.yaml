@@ -1,0 +1,88 @@
+# ---------------------------------------------------------------------------
+# Glossaire bilingue FR / EN (maîtrise du risque de double traduction)
+# ---------------------------------------------------------------------------
+# Chaque concept regroupe ses équivalents français et anglais et leurs synonymes.
+#   id    : identifiant stable (minuscules, tirets), affiché dans les signaux faibles
+#   label : libellé français affiché
+#   axes  : axes H1-H4 auxquels le concept rattache un article
+#   fr/en : termes ; la recherche ignore majuscules et accents et tolère le pluriel
+#
+# Un article en français et un article en anglais sur le même sujet sont ainsi
+# rattachés au même concept, aux mêmes axes, et comptés ensemble pour les
+# signaux faibles. Pré-rempli : à enrichir librement.
+# ---------------------------------------------------------------------------
+
+concepts:
+  # ---------------- H1 Cloud
+  - {id: mauvaise-configuration, label: "Mauvaise configuration", axes: [H1],
+     fr: [mauvaise configuration, erreur de configuration, configuration erronée], en: [misconfiguration, misconfigured, insecure configuration]}
+  - {id: gestion-identites, label: "Gestion des identités et des accès", axes: [H1],
+     fr: [gestion des identités, gestion des accès, fédération d'identité], en: [identity and access management, IAM, identity federation, workload identity]}
+  - {id: conteneurs, label: "Conteneurs et orchestration", axes: [H1],
+     fr: [conteneur, orchestrateur], en: [container, Kubernetes, k8s, Docker, container escape]}
+  - {id: stockage-expose, label: "Stockage exposé", axes: [H1],
+     fr: [stockage exposé, compartiment public, données exposées], en: [exposed bucket, public bucket, S3 bucket, exposed storage, open database]}
+  - {id: cloud-souverain, label: "Cloud souverain", axes: [H1],
+     fr: [cloud souverain, cloud de confiance, souveraineté numérique], en: [sovereign cloud, SecNumCloud, data sovereignty]}
+  - {id: secrets-exposes, label: "Secrets et clés exposés", axes: [H1, H4],
+     fr: [fuite de secrets, clés d'accès exposées, identifiants exposés], en: [leaked secrets, exposed credentials, hardcoded credentials, access keys exposed, secret leakage]}
+
+  # ---------------- H2 Forensique / DFIR
+  - {id: analyse-forensique, label: "Analyse forensique", axes: [H2],
+     fr: [analyse forensique, investigation numérique, criminalistique numérique, forensique], en: [digital forensics, forensic analysis, forensics, DFIR]}
+  - {id: reponse-incident, label: "Réponse à incident", axes: [H2],
+     fr: [réponse à incident, réponse aux incidents, gestion de crise cyber], en: [incident response, incident handling, IR playbook]}
+  - {id: analyse-memoire, label: "Analyse de la mémoire", axes: [H2],
+     fr: [analyse mémoire, analyse de la mémoire, image mémoire], en: [memory forensics, memory analysis, memory dump]}
+  - {id: chasse-menaces, label: "Chasse aux menaces", axes: [H2],
+     fr: [chasse aux menaces, traque des menaces], en: [threat hunting]}
+  - {id: indicateurs-compromission, label: "Indicateurs de compromission", axes: [H2, H4],
+     fr: [indicateurs de compromission, marqueurs de compromission], en: [indicators of compromise, IOC, IoCs]}
+  - {id: mouvement-lateral, label: "Mouvement latéral", axes: [H2],
+     fr: [mouvement latéral, déplacement latéral, latéralisation], en: [lateral movement]}
+  - {id: persistance, label: "Persistance", axes: [H2],
+     fr: [mécanisme de persistance], en: [persistence mechanism, backdoor, web shell, webshell]}
+
+  # ---------------- H3 Sécurité de l'IA
+  - {id: injection-prompt, label: "Injection de prompt", axes: [H3],
+     fr: [injection de prompt, injection d'invite, injection de requête], en: [prompt injection, indirect prompt injection]}
+  - {id: contournement-ia, label: "Contournement des garde-fous (jailbreak)", axes: [H3],
+     fr: [contournement des garde-fous, débridage], en: [jailbreak, jailbreaking, guardrail bypass]}
+  - {id: empoisonnement, label: "Empoisonnement de données ou de modèle", axes: [H3],
+     fr: [empoisonnement de données, empoisonnement de modèle], en: [data poisoning, model poisoning, training data poisoning]}
+  - {id: vol-modele, label: "Vol ou extraction de modèle", axes: [H3],
+     fr: [vol de modèle, extraction de modèle], en: [model theft, model extraction, model stealing]}
+  - {id: ia-generative, label: "IA générative et LLM", axes: [H3],
+     fr: [IA générative, grand modèle de langage, modèle de langage], en: [generative AI, GenAI, large language model, LLM]}
+  - {id: agents-ia, label: "Agents IA", axes: [H3],
+     fr: [agent IA, agents autonomes, IA agentique], en: [AI agent, agentic AI, autonomous agent, MCP server, Model Context Protocol]}
+  - {id: red-team-ia, label: "Red teaming de l'IA", axes: [H3],
+     fr: [red teaming IA, test d'intrusion de l'IA, audit de modèle], en: [AI red teaming, LLM red teaming, AI pentest]}
+  - {id: reglementation-ia, label: "Réglementation de l'IA", axes: [H3],
+     fr: [règlement européen sur l'IA, règlement sur l'intelligence artificielle], en: [AI Act, EU AI Act, AI RMF]}
+
+  # ---------------- H4 Général / Entreprises
+  - {id: rancongiciel, label: "Rançongiciel", axes: [H4],
+     fr: [rançongiciel, logiciel de rançon, cryptolocker], en: [ransomware, ransom attack, extortion]}
+  - {id: hameconnage, label: "Hameçonnage", axes: [H4],
+     fr: [hameçonnage, filoutage, fraude au président], en: [phishing, spear phishing, smishing, business email compromise, BEC]}
+  - {id: fuite-donnees, label: "Fuite de données", axes: [H4],
+     fr: [fuite de données, violation de données, vol de données], en: [data breach, data leak, data theft]}
+  - {id: vulnerabilite-jour-zero, label: "Vulnérabilité jour zéro", axes: [H4],
+     fr: [vulnérabilité jour zéro, faille zero-day, faille non corrigée], en: [zero-day, 0-day, zero day]}
+  - {id: exploitation-active, label: "Exploitation active", axes: [H4],
+     fr: [activement exploitée, exploitée activement, exploitation active], en: [actively exploited, exploited in the wild, in the wild]}
+  - {id: execution-code-distance, label: "Exécution de code à distance", axes: [H4],
+     fr: [exécution de code à distance, exécution de code arbitraire à distance], en: [remote code execution, RCE]}
+  - {id: chaine-approvisionnement, label: "Chaîne d'approvisionnement", axes: [H4, H1],
+     fr: [chaîne d'approvisionnement, attaque par la chaîne logistique], en: [supply chain, supply-chain attack, software supply chain]}
+  - {id: deni-service, label: "Déni de service", axes: [H4],
+     fr: [déni de service, DDoS], en: [denial of service, DDoS]}
+  - {id: correctif, label: "Correctif de sécurité", axes: [H4],
+     fr: [correctif, mise à jour de sécurité], en: [security update, security patch, patch]}
+  - {id: nis2, label: "Directive NIS 2", axes: [H4],
+     fr: [NIS2, NIS 2, directive NIS], en: [NIS2, NIS 2 directive]}
+  - {id: protection-donnees, label: "Protection des données personnelles", axes: [H4],
+     fr: [RGPD, CNIL, données personnelles], en: [GDPR, personal data, data protection]}
+  - {id: logiciel-espion, label: "Logiciel espion et voleur d'informations", axes: [H4, H2],
+     fr: [logiciel espion, voleur d'informations, cheval de Troie], en: [spyware, infostealer, info-stealer, stealer, trojan, RAT]}
