@@ -26,7 +26,7 @@ jobs:
       contents: write          # commit des fichiers JSON de data/
       issues: write            # lecture du journal d'usage (issues) + issues « Action d'amélioration »
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
