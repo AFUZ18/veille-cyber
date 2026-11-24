@@ -1,8 +1,8 @@
 {
- "checked": "2026-11-24T09:59:52Z",
+ "checked": "2026-11-24T22:32:10Z",
  "feeds": [
   {
-   "checked": "2026-11-24T09:59:48Z",
+   "checked": "2026-11-24T22:31:32Z",
    "entries": 0,
    "error": "interdit par robots.txt",
    "name": "13Cubed (YouTube)",
@@ -10,7 +10,7 @@
    "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCy8ntxFEudOCRZYqDm4j3NA"
   },
   {
-   "checked": "2026-11-24T09:59:48Z",
+   "checked": "2026-11-24T22:31:32Z",
    "entries": 20,
    "http_status": 200,
    "latest": "2026-11-23T08:52:00Z",
@@ -19,25 +19,25 @@
    "url": "https://cyber.gouv.fr/actualites/rss/"
   },
   {
-   "checked": "2026-11-24T09:59:48Z",
+   "checked": "2026-11-24T22:31:32Z",
    "entries": 20,
    "http_status": 200,
-   "latest": "2026-11-24T02:52:38Z",
+   "latest": "2026-11-24T21:30:20Z",
    "name": "AWS Security Blog",
    "ok": true,
    "url": "https://aws.amazon.com/blogs/security/feed/"
   },
   {
-   "checked": "2026-11-24T09:59:48Z",
+   "checked": "2026-11-24T22:31:32Z",
    "entries": 15,
    "http_status": 200,
-   "latest": "2026-11-23T20:54:51Z",
+   "latest": "2026-11-24T21:37:30Z",
    "name": "BleepingComputer",
    "ok": true,
    "url": "https://www.bleepingcomputer.com/feed/"
   },
   {
-   "checked": "2026-11-24T09:59:48Z",
+   "checked": "2026-11-24T22:31:32Z",
    "entries": 40,
    "http_status": 200,
    "latest": "2026-11-18T00:00:00Z",
@@ -46,16 +46,16 @@
    "url": "https://www.cert.ssi.gouv.fr/alerte/feed/"
   },
   {
-   "checked": "2026-11-24T09:59:48Z",
+   "checked": "2026-11-24T22:31:32Z",
    "entries": 40,
    "http_status": 200,
-   "latest": "2026-11-23T00:00:00Z",
+   "latest": "2026-11-24T00:00:00Z",
    "name": "CERT-FR - Avis",
    "ok": true,
    "url": "https://www.cert.ssi.gouv.fr/avis/feed/"
   },
   {
-   "checked": "2026-11-24T09:59:48Z",
+   "checked": "2026-11-24T22:31:32Z",
    "entries": 40,
    "http_status": 200,
    "latest": "2026-11-12T00:00:00Z",
@@ -64,16 +64,16 @@
    "url": "https://www.cert.ssi.gouv.fr/cti/feed/"
   },
   {
-   "checked": "2026-11-24T09:59:48Z",
+   "checked": "2026-11-24T22:31:32Z",
    "entries": 30,
    "http_status": 200,
-   "latest": "2026-11-23T12:00:00Z",
+   "latest": "2026-11-24T12:00:00Z",
    "name": "CISA - Cybersecurity Advisories",
    "ok": true,
    "url": "https://www.cisa.gov/cybersecurity-advisories/all.xml"
   },
   {
-   "checked": "2026-11-24T09:59:48Z",
+   "checked": "2026-11-24T22:31:32Z",
    "entries": 0,
    "error": "HTTP 403",
    "http_status": 403,
@@ -82,7 +82,7 @@
    "url": "https://cloudsecurityalliance.org/blog/feed/"
   },
   {
-   "checked": "2026-11-24T09:59:48Z",
+   "checked": "2026-11-24T22:31:32Z",
    "entries": 20,
    "http_status": 200,
    "latest": "2026-11-24T09:46:12Z",
@@ -91,7 +91,7 @@
    "url": "https://www.cybermalveillance.gouv.fr/feed/atom-flux-actualites"
   },
   {
-   "checked": "2026-11-24T09:59:48Z",
+   "checked": "2026-11-24T22:31:32Z",
    "entries": 0,
    "error": "HTTP 403",
    "http_status": 403,
@@ -100,16 +100,16 @@
    "url": "https://www.darkreading.com/rss.xml"
   },
   {
-   "checked": "2026-11-24T09:59:48Z",
+   "checked": "2026-11-24T22:31:32Z",
    "entries": 20,
    "http_status": 200,
-   "latest": "2026-11-23T17:00:00Z",
+   "latest": "2026-11-24T17:00:00Z",
    "name": "Google Cloud - Security & Identity",
    "ok": true,
    "url": "https://cloudblog.withgoogle.com/products/identity-security/rss/"
   },
   {
-   "checked": "2026-11-24T09:59:48Z",
+   "checked": "2026-11-24T22:31:32Z",
    "entries": 0,
    "error": "HTTP 403",
    "http_status": 403,
@@ -118,7 +118,7 @@
    "url": "https://hiddenlayer.com/feed/"
   },
   {
-   "checked": "2026-11-24T09:59:48Z",
+   "checked": "2026-11-24T22:31:32Z",
    "entries": 10,
    "http_status": 200,
    "latest": "2026-11-21T00:36:39Z",
@@ -127,7 +127,7 @@
    "url": "https://krebsonsecurity.com/feed/"
   },
   {
-   "checked": "2026-11-24T09:59:48Z",
+   "checked": "2026-11-24T22:31:32Z",
    "entries": 0,
    "error": "HTTP 403",
    "http_status": 403,
@@ -136,7 +136,7 @@
    "url": "https://www.lemagit.fr/rss/ContentSyndication.xml"
   },
   {
-   "checked": "2026-11-24T09:59:48Z",
+   "checked": "2026-11-24T22:31:32Z",
    "entries": 10,
    "http_status": 200,
    "latest": "2026-10-28T22:55:37Z",
@@ -145,7 +145,7 @@
    "url": "https://github.com/mitre-atlas/atlas-data/releases.atom"
   },
   {
-   "checked": "2026-11-24T09:59:48Z",
+   "checked": "2026-11-24T22:31:32Z",
    "entries": 10,
    "http_status": 200,
    "latest": "2026-11-23T20:54:01Z",
@@ -154,7 +154,7 @@
    "url": "https://www.magnetforensics.com/feed/"
   },
   {
-   "checked": "2026-11-24T09:59:48Z",
+   "checked": "2026-11-24T22:31:32Z",
    "entries": 10,
    "http_status": 200,
    "latest": "2026-11-20T17:00:00Z",
@@ -163,7 +163,7 @@
    "url": "https://www.microsoft.com/en-us/security/blog/feed/"
   },
   {
-   "checked": "2026-11-24T09:59:48Z",
+   "checked": "2026-11-24T22:31:32Z",
    "entries": 0,
    "error": "HTTP 403",
    "http_status": 403,
@@ -172,7 +172,7 @@
    "url": "https://www.nist.gov/news-events/cybersecurity/rss.xml"
   },
   {
-   "checked": "2026-11-24T09:59:48Z",
+   "checked": "2026-11-24T22:31:32Z",
    "entries": 10,
    "http_status": 200,
    "latest": "2026-10-08T12:07:42Z",
@@ -181,7 +181,7 @@
    "url": "https://genai.owasp.org/feed/"
   },
   {
-   "checked": "2026-11-24T09:59:48Z",
+   "checked": "2026-11-24T22:31:32Z",
    "entries": 0,
    "error": "HTTP 403",
    "http_status": 403,
@@ -190,7 +190,7 @@
    "url": "https://orca.security/feed/"
   },
   {
-   "checked": "2026-11-24T09:59:48Z",
+   "checked": "2026-11-24T22:31:32Z",
    "entries": 0,
    "http_status": 200,
    "name": "PyRIT (Microsoft) - releases",
@@ -198,7 +198,7 @@
    "url": "https://github.com/Azure/PyRIT/releases.atom"
   },
   {
-   "checked": "2026-11-24T09:59:48Z",
+   "checked": "2026-11-24T22:31:32Z",
    "entries": 0,
    "error": "HTTP 404",
    "http_status": 404,
@@ -207,7 +207,7 @@
    "url": "https://www.sans.org/blog/feed/"
   },
   {
-   "checked": "2026-11-24T09:59:48Z",
+   "checked": "2026-11-24T22:31:32Z",
    "entries": 0,
    "error": "HTTP 403",
    "http_status": 403,
@@ -216,7 +216,7 @@
    "url": "https://isc.sans.edu/rssfeed_full.xml"
   },
   {
-   "checked": "2026-11-24T09:59:48Z",
+   "checked": "2026-11-24T22:31:32Z",
    "entries": 0,
    "error": "HTTP 403",
    "http_status": 403,
@@ -225,7 +225,7 @@
    "url": "https://sysdig.com/feed/"
   },
   {
-   "checked": "2026-11-24T09:59:48Z",
+   "checked": "2026-11-24T22:31:32Z",
    "entries": 10,
    "http_status": 200,
    "latest": "2026-08-24T14:28:41Z",
@@ -234,16 +234,16 @@
    "url": "https://thedfirreport.com/feed/"
   },
   {
-   "checked": "2026-11-24T09:59:48Z",
+   "checked": "2026-11-24T22:31:32Z",
    "entries": 40,
    "http_status": 200,
-   "latest": "2026-11-24T06:02:57Z",
+   "latest": "2026-11-24T16:54:07Z",
    "name": "The Hacker News",
    "ok": true,
    "url": "https://feeds.feedburner.com/TheHackersNews"
   },
   {
-   "checked": "2026-11-24T09:59:48Z",
+   "checked": "2026-11-24T22:31:32Z",
    "entries": 20,
    "http_status": 200,
    "latest": "2026-11-06T12:00:00Z",
@@ -252,16 +252,16 @@
    "url": "https://blog.trailofbits.com/feed/"
   },
   {
-   "checked": "2026-11-24T09:59:48Z",
+   "checked": "2026-11-24T22:31:32Z",
    "entries": 15,
    "http_status": 200,
-   "latest": "2026-11-20T22:00:25Z",
+   "latest": "2026-11-24T15:00:19Z",
    "name": "Unit 42 (Palo Alto Networks)",
    "ok": true,
    "url": "https://unit42.paloaltonetworks.com/feed/"
   },
   {
-   "checked": "2026-11-24T09:59:48Z",
+   "checked": "2026-11-24T22:31:32Z",
    "entries": 10,
    "http_status": 200,
    "latest": "2026-11-24T00:13:18Z",
@@ -270,7 +270,7 @@
    "url": "https://github.com/Velocidex/velociraptor/releases.atom"
   },
   {
-   "checked": "2026-11-24T09:59:48Z",
+   "checked": "2026-11-24T22:31:32Z",
    "entries": 10,
    "http_status": 200,
    "latest": "2026-09-17T19:47:09Z",
@@ -279,16 +279,16 @@
    "url": "https://github.com/volatilityfoundation/volatility3/releases.atom"
   },
   {
-   "checked": "2026-11-24T09:59:48Z",
+   "checked": "2026-11-24T22:31:32Z",
    "entries": 40,
    "http_status": 200,
-   "latest": "2026-11-23T14:46:19Z",
+   "latest": "2026-11-24T18:36:13Z",
    "name": "Wiz Blog",
    "ok": true,
    "url": "https://www.wiz.io/feed/rss.xml"
   },
   {
-   "checked": "2026-11-24T09:59:48Z",
+   "checked": "2026-11-24T22:31:32Z",
    "entries": 0,
    "error": "HTTP 403",
    "http_status": 403,
@@ -297,7 +297,7 @@
    "url": "https://www.zataz.com/feed/"
   },
   {
-   "checked": "2026-11-24T09:59:48Z",
+   "checked": "2026-11-24T22:31:32Z",
    "entries": 10,
    "http_status": 200,
    "latest": "2026-10-16T20:14:17Z",
