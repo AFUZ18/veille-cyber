@@ -12,6 +12,307 @@
     "not_sensational": true,
     "plausible_date": true
    },
+   "collected": "2026-11-24T09:59:48Z",
+   "corroboration_orgs": [
+    "GIP ACYMA"
+   ],
+   "corroboration_sources": [
+    "Cybermalveillance.gouv.fr - Actualités"
+   ],
+   "criticality": 10,
+   "criticality_reasons": [
+    "source officielle"
+   ],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "www.cybermalveillance.gouv.fr",
+   "excerpt": "À l’occasion de sa participation au Salon des Maires et des Collectivités locales, Cybermalveillance.gouv.fr publie sa quatrième étude* sur la maturité des collectivités en matière de cybersécurité et lance avec l’AMF un mémento sur la cybersécurité pour les communes rurales. 2 ans…",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "Cybermalveillance.gouv.fr - Actualités"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [],
+   "id": "09cdc23050e6d267",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {},
+   "language": "fr",
+   "level": "Info",
+   "official": true,
+   "published": "2026-11-24T09:46:12Z",
+   "relevance": 37,
+   "reliability": "À recouper",
+   "sectors": [
+    "collectivités"
+   ],
+   "source": "Cybermalveillance.gouv.fr - Actualités",
+   "source_country": "FR",
+   "source_language": "fr",
+   "source_type": "officielle",
+   "summary": "À l’occasion de sa participation au Salon des Maires et des Collectivités locales, Cybermalveillance.gouv.fr publie sa quatrième étude* sur la maturité des collectivités en matière de cybersécurité et lance avec l’AMF un mémento sur la cybersécurité pour les communes rurales. 2 ans…",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H4"
+   ],
+   "title": "Cybermalveillance.gouv.fr dévoile sa 4e étude sur la maturité cyber des collectivités et publie avec l’AMF, un memento sur la cybersécurité à destination des communes rurales. Les 2 entités appellent les collectivités à engager les actions prioritaires face à cet enjeu sociétal.",
+   "translation_steps": 0,
+   "url": "https://www.cybermalveillance.gouv.fr/tous-nos-contenus/actualites/cp-etude-2026-cybersecurite-collectivites",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-24T09:59:48Z",
+   "corroboration_orgs": [
+    "The Hacker News"
+   ],
+   "corroboration_sources": [
+    "The Hacker News"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "thehackernews.com",
+   "excerpt": "OpenAI and Cisco have teamed up to launch Shirudo (meaning \"shield\" in Japanese), an open-source Linux runtime that allows artificial intelligence (AI) agents to defend systems without downtime. \"It lets agents write dynamic eBPF controls to shield systems from exploits, giving defenders more time…",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "The Hacker News"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [],
+   "id": "b0d72916ebeceea8",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {},
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-24T06:02:57Z",
+   "relevance": 25,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "The Hacker News",
+   "source_country": "IN",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "OpenAI and Cisco have teamed up to launch Shirudo (meaning \"shield\" in Japanese), an open-source Linux runtime that allows artificial intelligence (AI) agents to defend systems without downtime. \"It lets agents write dynamic eBPF controls to shield systems from exploits, giving defenders more time…",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H4"
+   ],
+   "title": "OpenAI and Cisco Unveil AI-Assisted Linux Security Tool to Block Exploits Before Patching",
+   "translation_steps": 0,
+   "url": "https://thehackernews.com/2026/11/openai-and-cisco-unveil-ai-assisted.html",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": true,
+    "cves_confirmed": true,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-24T09:59:48Z",
+   "corroboration_orgs": [
+    "CISA",
+    "The Hacker News"
+   ],
+   "corroboration_sources": [
+    "CISA - Cybersecurity Advisories",
+    "The Hacker News"
+   ],
+   "criticality": 50,
+   "criticality_reasons": [
+    "CISA KEV (CVE-2026-134624)",
+    "EPSS 0%",
+    "mots-clés : zero-day"
+   ],
+   "cve_details": {
+    "CVE-2026-134624": {
+     "cvss": null,
+     "epss": 0.00354,
+     "kev": true,
+     "nvd_found": null
+    }
+   },
+   "cves": [
+    "CVE-2026-134624"
+   ],
+   "date_adjusted": false,
+   "domain": "thehackernews.com",
+   "excerpt": "The U.S. Cybersecurity and Infrastructure Security Agency (CISA) on Monday added two flaws impacting N-able MailAssure and MONAI Label to its Known Exploited Vulnerabilities (KEV) catalog, citing evidence of active exploitation. The critical vulnerabilities are listed below - CVE-2026-134624 (CVSS…",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "CISA - Cybersecurity Advisories"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [
+    "agents-ia",
+    "vulnerabilite-jour-zero"
+   ],
+   "id": "d70285cdacc0c3a7",
+   "is_event": false,
+   "kev": true,
+   "kev_ransomware": false,
+   "keyword_hits": {
+    "H3": [
+     "AI agent"
+    ],
+    "H4": [
+     "zero-day",
+     "CISA"
+    ]
+   },
+   "language": "en",
+   "level": "Élevé",
+   "official": false,
+   "published": "2026-11-24T06:02:45Z",
+   "relevance": 50,
+   "reliability": "Vérifié",
+   "sectors": [],
+   "source": "The Hacker News",
+   "source_country": "IN",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "The U.S. Cybersecurity and Infrastructure Security Agency (CISA) on Monday added two flaws impacting N-able MailAssure and MONAI Label to its Known Exploited Vulnerabilities (KEV) catalog, citing evidence of active exploitation. The critical vulnerabilities are listed below - CVE-2026-134624 (CVSS…",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H3",
+    "H4"
+   ],
+   "title": "Hackers Exploit N-able MailAssure Flaw While AI Agents Exploit MONAI Label Zero-Day",
+   "translation_steps": 0,
+   "url": "https://thehackernews.com/2026/11/hackers-exploit-n-able-mailassure-flaw.html",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-24T09:59:48Z",
+   "corroboration_orgs": [
+    "Amazon"
+   ],
+   "corroboration_sources": [
+    "AWS Security Blog"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "aws.amazon.com",
+   "excerpt": "Today, AWS is making it easier to grant access and audit activity based on the user or workload (a non-human caller, such as an application, service, or an automated workflow) behind an AWS Identity and Access Management (IAM) role. Trusted identity propagation (TIP) carries the identity of the…",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H1"
+   ],
+   "first_publishers": [
+    "AWS Security Blog"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [
+    "gestion-identites"
+   ],
+   "id": "c77885e10d44b007",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {
+    "H1": [
+     "IAM",
+     "AWS"
+    ]
+   },
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-24T02:52:38Z",
+   "relevance": 35,
+   "reliability": "À recouper",
+   "sectors": [
+    "AWS"
+   ],
+   "source": "AWS Security Blog",
+   "source_country": "US",
+   "source_language": "en",
+   "source_type": "éditeur",
+   "summary": "Today, AWS is making it easier to grant access and audit activity based on the user or workload (a non-human caller, such as an application, service, or an automated workflow) behind an AWS Identity and Access Management (IAM) role. Trusted identity propagation (TIP) carries the identity of the…",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [
+    "AWS IAM Identity Center",
+    "AWS Identity and Access Management (IAM)",
+    "AWS Organizations",
+    "Intermediate (200)",
+    "Security, Identity, & Compliance",
+    "Technical How-to",
+    "IAM",
+    "IAM Identity Center"
+   ],
+   "themes": [
+    "H1"
+   ],
+   "title": "Know the identity behind the role: Authorize and audit with trusted identity propagation",
+   "translation_steps": 0,
+   "url": "https://aws.amazon.com/blogs/security/know-the-identity-behind-the-role-authorize-and-audit-with-trusted-identity-propagation",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
    "collected": "2026-11-23T23:58:28Z",
    "corroboration_orgs": [
     "BleepingComputer"
@@ -1309,6 +1610,7 @@
    "action": null,
    "action_type": null,
    "ai_tags": [],
+   "also_in": [],
    "checks": {
     "approved_domain": true,
     "corroborated": true,
@@ -2297,6 +2599,7 @@
    "action": null,
    "action_type": null,
    "ai_tags": [],
+   "also_in": [],
    "checks": {
     "approved_domain": true,
     "corroborated": true,
@@ -22723,6 +23026,6 @@
    "why": null
   }
  ],
- "count": 313,
- "updated": "2026-11-23T23:59:04Z"
+ "count": 317,
+ "updated": "2026-11-24T09:59:52Z"
 }

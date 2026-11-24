@@ -7,13 +7,13 @@
    "kpi": "D1_utilisations",
    "kpi_nom": "Utilisations de l'information collectée",
    "kpi_status": "rouge",
-   "last_seen": "2026-11-23T23:59:04Z",
+   "last_seen": "2026-11-24T09:59:52Z",
    "periods": 1,
    "status": "ouverte",
    "sujet": null
   }
  ],
- "generated_at": "2026-11-23T23:59:04Z",
+ "generated_at": "2026-11-24T09:59:52Z",
  "kpis": [
   {
    "action": "Axe {sujet} : revoir les mots-clés du thème et les sources peu pertinentes de l'axe.",
@@ -42,17 +42,29 @@
      [
       "2026-11-23",
       92.3
+     ],
+     [
+      "2026-11-24",
+      94.6
      ]
     ],
     "H2": [
      [
       "2026-11-23",
       72.2
+     ],
+     [
+      "2026-11-24",
+      70.6
      ]
     ],
     "H3": [
      [
       "2026-11-23",
+      100.0
+     ],
+     [
+      "2026-11-24",
       100.0
      ]
     ],
@@ -60,17 +72,21 @@
      [
       "2026-11-23",
       65.9
+     ],
+     [
+      "2026-11-24",
+      65.7
      ]
     ]
    },
    "subs": {
     "H1": {
      "status": "vert",
-     "value": 92.3
+     "value": 94.6
     },
     "H2": {
      "status": "vert",
-     "value": 72.2
+     "value": 70.6
     },
     "H3": {
      "status": "vert",
@@ -78,36 +94,40 @@
     },
     "H4": {
      "status": "vert",
-     "value": 65.9
+     "value": 65.7
     }
    },
    "trend": [
     [
      "2026-11-23",
      65.4
+    ],
+    [
+     "2026-11-24",
+     65.6
     ]
    ],
    "unite": "%",
-   "value": 65.4
+   "value": 65.6
   },
   {
    "action": "Axe {sujet} sous-couvert : ajouter au moins une source spécialisée sur cet axe (feeds.yaml).",
    "cible": 100,
    "details": {
     "H1": {
-     "articles_pertinents": 36,
+     "articles_pertinents": 35,
      "cible_hebdo": 10
     },
     "H2": {
-     "articles_pertinents": 13,
+     "articles_pertinents": 12,
      "cible_hebdo": 4
     },
     "H3": {
-     "articles_pertinents": 20,
+     "articles_pertinents": 21,
      "cible_hebdo": 3
     },
     "H4": {
-     "articles_pertinents": 87,
+     "articles_pertinents": 88,
      "cible_hebdo": 15
     }
    },
@@ -134,53 +154,73 @@
      [
       "2026-11-23",
       360.0
+     ],
+     [
+      "2026-11-24",
+      350.0
      ]
     ],
     "H2": [
      [
       "2026-11-23",
       325.0
+     ],
+     [
+      "2026-11-24",
+      300.0
      ]
     ],
     "H3": [
      [
       "2026-11-23",
       666.7
+     ],
+     [
+      "2026-11-24",
+      700.0
      ]
     ],
     "H4": [
      [
       "2026-11-23",
       580.0
+     ],
+     [
+      "2026-11-24",
+      586.7
      ]
     ]
    },
    "subs": {
     "H1": {
      "status": "vert",
-     "value": 360.0
+     "value": 350.0
     },
     "H2": {
      "status": "vert",
-     "value": 325.0
+     "value": 300.0
     },
     "H3": {
      "status": "vert",
-     "value": 666.7
+     "value": 700.0
     },
     "H4": {
      "status": "vert",
-     "value": 580.0
+     "value": 586.7
     }
    },
    "trend": [
     [
      "2026-11-23",
      325.0
+    ],
+    [
+     "2026-11-24",
+     300.0
     ]
    ],
    "unite": "%",
-   "value": 325.0
+   "value": 300.0
   },
   {
    "action": "Trop d'articles hors sujet consultés : renforcer les exclusions (themes.yaml > exclusions).",
@@ -208,6 +248,10 @@
    "trend": [
     [
      "2026-11-23",
+     null
+    ],
+    [
+     "2026-11-24",
      null
     ]
    ],
@@ -241,10 +285,14 @@
     [
      "2026-11-23",
      75.1
+    ],
+    [
+     "2026-11-24",
+     75.9
     ]
    ],
    "unite": "/100",
-   "value": 75.1
+   "value": 75.9
   },
   {
    "action": "Source « {sujet} » sous le score de qualité cible depuis 4 semaines : la remplacer ou la désactiver (feeds.yaml).",
@@ -279,7 +327,7 @@
     },
     "AWS Security Blog": {
      "status": "vert",
-     "value": 90.8
+     "value": 90.9
     },
     "BleepingComputer": {
      "status": "vert",
@@ -306,8 +354,8 @@
      "value": null
     },
     "Cybermalveillance.gouv.fr - Actualités": {
-     "status": "orange",
-     "value": 58.5
+     "status": "vert",
+     "value": 72.0
     },
     "Dark Reading": {
      "status": "na",
@@ -375,7 +423,7 @@
     },
     "The Hacker News": {
      "status": "vert",
-     "value": 65.7
+     "value": 65.5
     },
     "Trail of Bits Blog": {
      "status": "vert",
@@ -410,6 +458,10 @@
     [
      "2026-11-23",
      40.8
+    ],
+    [
+     "2026-11-24",
+     40.8
     ]
    ],
    "unite": "/100",
@@ -442,10 +494,14 @@
     [
      "2026-11-23",
      37.5
+    ],
+    [
+     "2026-11-24",
+     44.4
     ]
    ],
    "unite": "%",
-   "value": 37.5
+   "value": 44.4
   },
   {
    "action": "Des articles pointent vers des domaines non approuvés : vérifier ces domaines et compléter sources_quality.yaml.",
@@ -473,6 +529,10 @@
    "trend": [
     [
      "2026-11-23",
+     0.0
+    ],
+    [
+     "2026-11-24",
      0.0
     ]
    ],
@@ -506,10 +566,14 @@
     [
      "2026-11-23",
      8.9
+    ],
+    [
+     "2026-11-24",
+     7.2
     ]
    ],
    "unite": "h",
-   "value": 8.9
+   "value": 7.2
   },
   {
    "action": "Trop de flux en panne : lancer scripts/check_feeds.py et corriger feeds.yaml.",
@@ -537,6 +601,10 @@
    "trend": [
     [
      "2026-11-23",
+     67.6
+    ],
+    [
+     "2026-11-24",
      67.6
     ]
    ],
@@ -707,6 +775,10 @@
     [
      "2026-11-23",
      67.6
+    ],
+    [
+     "2026-11-24",
+     67.6
     ]
    ],
    "unite": "%",
@@ -741,11 +813,19 @@
      [
       "2026-11-23",
       null
+     ],
+     [
+      "2026-11-24",
+      null
      ]
     ],
     "H2": [
      [
       "2026-11-23",
+      null
+     ],
+     [
+      "2026-11-24",
       null
      ]
     ],
@@ -753,11 +833,19 @@
      [
       "2026-11-23",
       null
+     ],
+     [
+      "2026-11-24",
+      null
      ]
     ],
     "H4": [
      [
       "2026-11-23",
+      null
+     ],
+     [
+      "2026-11-24",
       null
      ]
     ]
@@ -766,6 +854,10 @@
    "trend": [
     [
      "2026-11-23",
+     null
+    ],
+    [
+     "2026-11-24",
      null
     ]
    ],
@@ -799,6 +891,10 @@
     [
      "2026-11-23",
      0.0
+    ],
+    [
+     "2026-11-24",
+     0.0
     ]
    ],
    "unite": "usages",
@@ -830,6 +926,10 @@
    "trend": [
     [
      "2026-11-23",
+     0.0
+    ],
+    [
+     "2026-11-24",
      0.0
     ]
    ],
@@ -866,6 +966,10 @@
     [
      "2026-11-23",
      null
+    ],
+    [
+     "2026-11-24",
+     null
     ]
    ],
    "unite": "%",
@@ -896,21 +1000,25 @@
    "subs": {
     "en": {
      "status": "info",
-     "value": 81.7
+     "value": 81.2
     },
     "fr": {
      "status": "info",
-     "value": 18.3
+     "value": 18.8
     }
    },
    "trend": [
     [
      "2026-11-23",
      81.7
+    ],
+    [
+     "2026-11-24",
+     81.2
     ]
    ],
    "unite": "%",
-   "value": 81.7
+   "value": 81.2
   },
   {
    "action": "Des articles ont subi plusieurs étapes de traduction : vérifier src/summarize.py.",
@@ -938,6 +1046,10 @@
    "trend": [
     [
      "2026-11-23",
+     100.0
+    ],
+    [
+     "2026-11-24",
      100.0
     ]
    ],
@@ -971,10 +1083,14 @@
     [
      "2026-11-23",
      9.2
+    ],
+    [
+     "2026-11-24",
+     9.1
     ]
    ],
    "unite": "%",
-   "value": 9.2
+   "value": 9.1
   },
   {
    "action": "Une source pèse trop dans la veille : réduire max_entries_per_feed ou ajouter des sources sur ses sujets.",
@@ -1005,10 +1121,14 @@
     [
      "2026-11-23",
      31.4
+    ],
+    [
+     "2026-11-24",
+     32.5
     ]
    ],
    "unite": "%",
-   "value": 31.4
+   "value": 32.5
   },
   {
    "action": "Veille trop concentrée sur quelques sources : diversifier le panel.",
@@ -1037,10 +1157,14 @@
     [
      "2026-11-23",
      1712
+    ],
+    [
+     "2026-11-24",
+     1777
     ]
    ],
    "unite": "points",
-   "value": 1712
+   "value": 1777
   },
   {
    "action": "",
@@ -1071,15 +1195,15 @@
     },
     "officielle": {
      "status": "info",
-     "value": 29.4
+     "value": 29.9
     },
     "outil": {
      "status": "info",
-     "value": 0.7
+     "value": 0.6
     },
     "presse": {
      "status": "info",
-     "value": 47.7
+     "value": 48.7
     },
     "recherche": {
      "status": "info",
@@ -1087,17 +1211,21 @@
     },
     "éditeur": {
      "status": "info",
-     "value": 19.6
+     "value": 18.2
     }
    },
    "trend": [
     [
      "2026-11-23",
      19.6
+    ],
+    [
+     "2026-11-24",
+     18.2
     ]
    ],
    "unite": "%",
-   "value": 19.6
+   "value": 18.2
   },
   {
    "action": "",
@@ -1128,29 +1256,33 @@
     },
     "FR": {
      "status": "info",
-     "value": 18.3
+     "value": 18.8
     },
     "IN": {
      "status": "info",
-     "value": 31.4
+     "value": 32.5
     },
     "INT": {
      "status": "info",
-     "value": 0.7
+     "value": 0.6
     },
     "US": {
      "status": "info",
-     "value": 47.1
+     "value": 45.5
     }
    },
    "trend": [
     [
      "2026-11-23",
      47.1
+    ],
+    [
+     "2026-11-24",
+     45.5
     ]
    ],
    "unite": "%",
-   "value": 47.1
+   "value": 45.5
   },
   {
    "action": "Biais géographique : ajouter des sources françaises (presse, CERT sectoriels, CLUSIF…).",
@@ -1179,10 +1311,14 @@
     [
      "2026-11-23",
      18.3
+    ],
+    [
+     "2026-11-24",
+     18.8
     ]
    ],
    "unite": "%",
-   "value": 18.3
+   "value": 18.8
   }
  ],
  "signals": [],
@@ -1284,19 +1420,19 @@
    "type": "recherche"
   },
   {
-   "articles": 23,
+   "articles": 24,
    "authority": 63.5,
    "country": "US",
    "credibilite": 77.0,
-   "efficacite": 95.7,
+   "efficacite": 95.8,
    "nouveaute": 100.0,
    "org": "Amazon",
-   "pertinence": 91.3,
+   "pertinence": 91.7,
    "referenced": true,
    "reprise": 0.0,
    "source": "AWS Security Blog",
-   "sqs": 90.8,
-   "ttri_h": 3.6,
+   "sqs": 90.9,
+   "ttri_h": 5.3,
    "type": "éditeur"
   },
   {
@@ -1348,19 +1484,35 @@
    "type": "éditeur"
   },
   {
-   "articles": 48,
+   "articles": 5,
+   "authority": 67.0,
+   "country": "FR",
+   "credibilite": 84.0,
+   "efficacite": 70.0,
+   "nouveaute": 100.0,
+   "org": "GIP ACYMA",
+   "pertinence": 40.0,
+   "referenced": true,
+   "reprise": 0.0,
+   "source": "Cybermalveillance.gouv.fr - Actualités",
+   "sqs": 72.0,
+   "ttri_h": 0.2,
+   "type": "officielle"
+  },
+  {
+   "articles": 50,
    "authority": 53.5,
    "country": "IN",
    "credibilite": 57.0,
-   "efficacite": 73.4,
-   "nouveaute": 89.6,
+   "efficacite": 74.2,
+   "nouveaute": 88.0,
    "org": "The Hacker News",
-   "pertinence": 47.9,
+   "pertinence": 48.0,
    "referenced": true,
-   "reprise": 10.4,
+   "reprise": 12.0,
    "source": "The Hacker News",
-   "sqs": 65.7,
-   "ttri_h": 10.9,
+   "sqs": 65.5,
+   "ttri_h": 9.7,
    "type": "presse"
   },
   {
@@ -1394,22 +1546,6 @@
    "sqs": 61.6,
    "ttri_h": null,
    "type": "recherche"
-  },
-  {
-   "articles": 4,
-   "authority": 67.0,
-   "country": "FR",
-   "credibilite": 84.0,
-   "efficacite": 25.0,
-   "nouveaute": 100.0,
-   "org": "GIP ACYMA",
-   "pertinence": 25.0,
-   "referenced": true,
-   "reprise": 0.0,
-   "source": "Cybermalveillance.gouv.fr - Actualités",
-   "sqs": 58.5,
-   "ttri_h": null,
-   "type": "officielle"
   },
   {
    "articles": 11,
