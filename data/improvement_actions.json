@@ -1,5 +1,17 @@
 {
  "actions": {
+  "B6_disponibilite_flux|": {
+   "action": "Trop de flux en panne : lancer scripts/check_feeds.py et corriger feeds.yaml.",
+   "first_seen": "2026-11-25T08:44:06Z",
+   "key": "B6_disponibilite_flux|",
+   "kpi": "B6_disponibilite_flux",
+   "kpi_nom": "Disponibilité des flux",
+   "kpi_status": "rouge",
+   "last_seen": "2026-11-25T08:44:06Z",
+   "periods": 3,
+   "status": "ouverte",
+   "sujet": null
+  },
   "D1_utilisations|": {
    "action": "La veille est peu utilisée : présenter la synthèse aux équipes et rappeler le lien « Signaler un usage ».",
    "first_seen": "2026-11-23T10:02:54Z",
@@ -7,11 +19,11 @@
    "kpi": "D1_utilisations",
    "kpi_nom": "Utilisations de l'information collectée",
    "kpi_status": "rouge",
-   "last_seen": "2026-11-24T22:32:10Z",
+   "last_seen": "2026-11-25T08:44:06Z",
    "periods": 1,
    "status": "ouverte",
    "sujet": null
   }
  },
- "updated": "2026-11-24T22:32:10Z"
+ "updated": "2026-11-25T08:44:06Z"
 }

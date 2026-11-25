@@ -7,13 +7,25 @@
    "kpi": "D1_utilisations",
    "kpi_nom": "Utilisations de l'information collectée",
    "kpi_status": "rouge",
-   "last_seen": "2026-11-24T22:32:10Z",
+   "last_seen": "2026-11-25T08:44:06Z",
    "periods": 1,
+   "status": "ouverte",
+   "sujet": null
+  },
+  {
+   "action": "Trop de flux en panne : lancer scripts/check_feeds.py et corriger feeds.yaml.",
+   "first_seen": "2026-11-25T08:44:06Z",
+   "key": "B6_disponibilite_flux|",
+   "kpi": "B6_disponibilite_flux",
+   "kpi_nom": "Disponibilité des flux",
+   "kpi_status": "rouge",
+   "last_seen": "2026-11-25T08:44:06Z",
+   "periods": 3,
    "status": "ouverte",
    "sujet": null
   }
  ],
- "generated_at": "2026-11-24T22:32:10Z",
+ "generated_at": "2026-11-25T08:44:06Z",
  "kpis": [
   {
    "action": "Axe {sujet} : revoir les mots-clés du thème et les sources peu pertinentes de l'axe.",
@@ -46,6 +58,10 @@
      [
       "2026-11-24",
       90.5
+     ],
+     [
+      "2026-11-25",
+      90.7
      ]
     ],
     "H2": [
@@ -55,6 +71,10 @@
      ],
      [
       "2026-11-24",
+      70.6
+     ],
+     [
+      "2026-11-25",
       70.6
      ]
     ],
@@ -66,6 +86,10 @@
      [
       "2026-11-24",
       100.0
+     ],
+     [
+      "2026-11-25",
+      100.0
      ]
     ],
     "H4": [
@@ -76,13 +100,17 @@
      [
       "2026-11-24",
       60.4
+     ],
+     [
+      "2026-11-25",
+      58.3
      ]
     ]
    },
    "subs": {
     "H1": {
      "status": "vert",
-     "value": 90.5
+     "value": 90.7
     },
     "H2": {
      "status": "vert",
@@ -94,7 +122,7 @@
     },
     "H4": {
      "status": "vert",
-     "value": 60.4
+     "value": 58.3
     }
    },
    "trend": [
@@ -105,17 +133,21 @@
     [
      "2026-11-24",
      61.0
+    ],
+    [
+     "2026-11-25",
+     59.5
     ]
    ],
    "unite": "%",
-   "value": 61.0
+   "value": 59.5
   },
   {
    "action": "Axe {sujet} sous-couvert : ajouter au moins une source spécialisée sur cet axe (feeds.yaml).",
    "cible": 100,
    "details": {
     "H1": {
-     "articles_pertinents": 38,
+     "articles_pertinents": 39,
      "cible_hebdo": 10
     },
     "H2": {
@@ -123,11 +155,11 @@
      "cible_hebdo": 4
     },
     "H3": {
-     "articles_pertinents": 21,
+     "articles_pertinents": 20,
      "cible_hebdo": 3
     },
     "H4": {
-     "articles_pertinents": 84,
+     "articles_pertinents": 77,
      "cible_hebdo": 15
     }
    },
@@ -158,6 +190,10 @@
      [
       "2026-11-24",
       380.0
+     ],
+     [
+      "2026-11-25",
+      390.0
      ]
     ],
     "H2": [
@@ -167,6 +203,10 @@
      ],
      [
       "2026-11-24",
+      300.0
+     ],
+     [
+      "2026-11-25",
       300.0
      ]
     ],
@@ -178,6 +218,10 @@
      [
       "2026-11-24",
       700.0
+     ],
+     [
+      "2026-11-25",
+      666.7
      ]
     ],
     "H4": [
@@ -188,13 +232,17 @@
      [
       "2026-11-24",
       560.0
+     ],
+     [
+      "2026-11-25",
+      513.3
      ]
     ]
    },
    "subs": {
     "H1": {
      "status": "vert",
-     "value": 380.0
+     "value": 390.0
     },
     "H2": {
      "status": "vert",
@@ -202,11 +250,11 @@
     },
     "H3": {
      "status": "vert",
-     "value": 700.0
+     "value": 666.7
     },
     "H4": {
      "status": "vert",
-     "value": 560.0
+     "value": 513.3
     }
    },
    "trend": [
@@ -216,6 +264,10 @@
     ],
     [
      "2026-11-24",
+     300.0
+    ],
+    [
+     "2026-11-25",
      300.0
     ]
    ],
@@ -253,6 +305,10 @@
     [
      "2026-11-24",
      null
+    ],
+    [
+     "2026-11-25",
+     null
     ]
    ],
    "unite": "%",
@@ -288,6 +344,10 @@
     ],
     [
      "2026-11-24",
+     76.1
+    ],
+    [
+     "2026-11-25",
      76.1
     ]
    ],
@@ -327,11 +387,11 @@
     },
     "AWS Security Blog": {
      "status": "vert",
-     "value": 91.4
+     "value": 91.6
     },
     "BleepingComputer": {
      "status": "vert",
-     "value": 63.2
+     "value": 62.8
     },
     "CERT-FR - Alertes": {
      "status": "vert",
@@ -423,7 +483,7 @@
     },
     "The Hacker News": {
      "status": "vert",
-     "value": 66.8
+     "value": 67.5
     },
     "Trail of Bits Blog": {
      "status": "vert",
@@ -462,6 +522,10 @@
     [
      "2026-11-24",
      40.8
+    ],
+    [
+     "2026-11-25",
+     40.8
     ]
    ],
    "unite": "/100",
@@ -498,10 +562,14 @@
     [
      "2026-11-24",
      42.9
+    ],
+    [
+     "2026-11-25",
+     33.3
     ]
    ],
    "unite": "%",
-   "value": 42.9
+   "value": 33.3
   },
   {
    "action": "Des articles pointent vers des domaines non approuvés : vérifier ces domaines et compléter sources_quality.yaml.",
@@ -533,6 +601,10 @@
     ],
     [
      "2026-11-24",
+     0.0
+    ],
+    [
+     "2026-11-25",
      0.0
     ]
    ],
@@ -570,10 +642,14 @@
     [
      "2026-11-24",
      7.4
+    ],
+    [
+     "2026-11-25",
+     7.2
     ]
    ],
    "unite": "h",
-   "value": 7.4
+   "value": 7.2
   },
   {
    "action": "Trop de flux en panne : lancer scripts/check_feeds.py et corriger feeds.yaml.",
@@ -605,6 +681,10 @@
     ],
     [
      "2026-11-24",
+     67.6
+    ],
+    [
+     "2026-11-25",
      67.6
     ]
    ],
@@ -779,6 +859,10 @@
     [
      "2026-11-24",
      67.6
+    ],
+    [
+     "2026-11-25",
+     67.6
     ]
    ],
    "unite": "%",
@@ -817,6 +901,10 @@
      [
       "2026-11-24",
       null
+     ],
+     [
+      "2026-11-25",
+      null
      ]
     ],
     "H2": [
@@ -826,6 +914,10 @@
      ],
      [
       "2026-11-24",
+      null
+     ],
+     [
+      "2026-11-25",
       null
      ]
     ],
@@ -837,6 +929,10 @@
      [
       "2026-11-24",
       null
+     ],
+     [
+      "2026-11-25",
+      null
      ]
     ],
     "H4": [
@@ -846,6 +942,10 @@
      ],
      [
       "2026-11-24",
+      null
+     ],
+     [
+      "2026-11-25",
       null
      ]
     ]
@@ -858,6 +958,10 @@
     ],
     [
      "2026-11-24",
+     null
+    ],
+    [
+     "2026-11-25",
      null
     ]
    ],
@@ -895,6 +999,10 @@
     [
      "2026-11-24",
      0.0
+    ],
+    [
+     "2026-11-25",
+     0.0
     ]
    ],
    "unite": "usages",
@@ -930,6 +1038,10 @@
     ],
     [
      "2026-11-24",
+     0.0
+    ],
+    [
+     "2026-11-25",
      0.0
     ]
    ],
@@ -970,6 +1082,10 @@
     [
      "2026-11-24",
      null
+    ],
+    [
+     "2026-11-25",
+     null
     ]
    ],
    "unite": "%",
@@ -1000,11 +1116,11 @@
    "subs": {
     "en": {
      "status": "info",
-     "value": 81.1
+     "value": 84.8
     },
     "fr": {
      "status": "info",
-     "value": 18.9
+     "value": 15.2
     }
    },
    "trend": [
@@ -1015,10 +1131,14 @@
     [
      "2026-11-24",
      81.1
+    ],
+    [
+     "2026-11-25",
+     84.8
     ]
    ],
    "unite": "%",
-   "value": 81.1
+   "value": 84.8
   },
   {
    "action": "Des articles ont subi plusieurs étapes de traduction : vérifier src/summarize.py.",
@@ -1050,6 +1170,10 @@
     ],
     [
      "2026-11-24",
+     100.0
+    ],
+    [
+     "2026-11-25",
      100.0
     ]
    ],
@@ -1087,10 +1211,14 @@
     [
      "2026-11-24",
      7.9
+    ],
+    [
+     "2026-11-25",
+     7.6
     ]
    ],
    "unite": "%",
-   "value": 7.9
+   "value": 7.6
   },
   {
    "action": "Une source pèse trop dans la veille : réduire max_entries_per_feed ou ajouter des sources sur ses sujets.",
@@ -1125,10 +1253,14 @@
     [
      "2026-11-24",
      34.1
+    ],
+    [
+     "2026-11-25",
+     34.8
     ]
    ],
    "unite": "%",
-   "value": 34.1
+   "value": 34.8
   },
   {
    "action": "Veille trop concentrée sur quelques sources : diversifier le panel.",
@@ -1161,10 +1293,14 @@
     [
      "2026-11-24",
      2020
+    ],
+    [
+     "2026-11-25",
+     2099
     ]
    ],
    "unite": "points",
-   "value": 2020
+   "value": 2099
   },
   {
    "action": "",
@@ -1191,11 +1327,11 @@
    "subs": {
     "communauté": {
      "status": "info",
-     "value": 1.2
+     "value": 0.6
     },
     "officielle": {
      "status": "info",
-     "value": 23.2
+     "value": 19.6
     },
     "outil": {
      "status": "info",
@@ -1203,15 +1339,15 @@
     },
     "presse": {
      "status": "info",
-     "value": 56.1
+     "value": 58.2
     },
     "recherche": {
      "status": "info",
-     "value": 1.2
+     "value": 1.9
     },
     "éditeur": {
      "status": "info",
-     "value": 17.7
+     "value": 19.0
     }
    },
    "trend": [
@@ -1222,10 +1358,14 @@
     [
      "2026-11-24",
      17.7
+    ],
+    [
+     "2026-11-25",
+     19.0
     ]
    ],
    "unite": "%",
-   "value": 17.7
+   "value": 19.0
   },
   {
    "action": "",
@@ -1252,15 +1392,15 @@
    "subs": {
     "CA": {
      "status": "info",
-     "value": 2.4
+     "value": 2.5
     },
     "FR": {
      "status": "info",
-     "value": 18.9
+     "value": 15.2
     },
     "IN": {
      "status": "info",
-     "value": 34.1
+     "value": 34.8
     },
     "INT": {
      "status": "info",
@@ -1268,7 +1408,7 @@
     },
     "US": {
      "status": "info",
-     "value": 43.9
+     "value": 46.8
     }
    },
    "trend": [
@@ -1279,10 +1419,14 @@
     [
      "2026-11-24",
      43.9
+    ],
+    [
+     "2026-11-25",
+     46.8
     ]
    ],
    "unite": "%",
-   "value": 43.9
+   "value": 46.8
   },
   {
    "action": "Biais géographique : ajouter des sources françaises (presse, CERT sectoriels, CLUSIF…).",
@@ -1315,10 +1459,14 @@
     [
      "2026-11-24",
      18.9
+    ],
+    [
+     "2026-11-25",
+     15.2
     ]
    ],
    "unite": "%",
-   "value": 18.9
+   "value": 15.2
   }
  ],
  "signals": [],
@@ -1404,35 +1552,35 @@
    "type": "officielle"
   },
   {
-   "articles": 11,
+   "articles": 12,
    "authority": 65.0,
    "country": "US",
    "credibilite": 80.0,
-   "efficacite": 98.8,
-   "nouveaute": 90.9,
+   "efficacite": 98.0,
+   "nouveaute": 91.7,
    "org": "Palo Alto Networks",
    "pertinence": 100.0,
    "referenced": true,
-   "reprise": 9.1,
+   "reprise": 8.3,
    "source": "Unit 42 (Palo Alto Networks)",
    "sqs": 92.5,
-   "ttri_h": 7.5,
+   "ttri_h": 8.6,
    "type": "recherche"
   },
   {
-   "articles": 28,
+   "articles": 30,
    "authority": 63.5,
    "country": "US",
    "credibilite": 77.0,
-   "efficacite": 96.4,
+   "efficacite": 96.7,
    "nouveaute": 100.0,
    "org": "Amazon",
-   "pertinence": 92.9,
+   "pertinence": 93.3,
    "referenced": true,
    "reprise": 0.0,
    "source": "AWS Security Blog",
-   "sqs": 91.4,
-   "ttri_h": 3.8,
+   "sqs": 91.6,
+   "ttri_h": 4.4,
    "type": "éditeur"
   },
   {
@@ -1500,35 +1648,35 @@
    "type": "officielle"
   },
   {
-   "articles": 57,
+   "articles": 60,
    "authority": 53.5,
    "country": "IN",
    "credibilite": 57.0,
-   "efficacite": 74.7,
-   "nouveaute": 89.5,
+   "efficacite": 76.0,
+   "nouveaute": 90.0,
    "org": "The Hacker News",
-   "pertinence": 50.9,
+   "pertinence": 51.7,
    "referenced": true,
-   "reprise": 10.5,
+   "reprise": 10.0,
    "source": "The Hacker News",
-   "sqs": 66.8,
-   "ttri_h": 10.5,
+   "sqs": 67.5,
+   "ttri_h": 9.1,
    "type": "presse"
   },
   {
-   "articles": 36,
+   "articles": 37,
    "authority": 58.5,
    "country": "US",
    "credibilite": 67.0,
-   "efficacite": 65.3,
+   "efficacite": 64.9,
    "nouveaute": 100.0,
    "org": "BleepingComputer",
-   "pertinence": 27.8,
+   "pertinence": 27.0,
    "referenced": true,
    "reprise": 0.0,
    "source": "BleepingComputer",
-   "sqs": 63.2,
-   "ttri_h": 5.3,
+   "sqs": 62.8,
+   "ttri_h": 5.2,
    "type": "presse"
   },
   {

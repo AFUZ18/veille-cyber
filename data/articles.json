@@ -12,6 +12,520 @@
     "not_sensational": true,
     "plausible_date": true
    },
+   "collected": "2026-11-25T08:43:54Z",
+   "corroboration_orgs": [
+    "BleepingComputer"
+   ],
+   "corroboration_sources": [
+    "BleepingComputer"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "www.bleepingcomputer.com",
+   "excerpt": "Unknown attackers have reportedly breached an open-source intelligence analysis system at the US Central Intelligence Agency (CIA) [...]",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "BleepingComputer"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [],
+   "id": "b19d5ed80a7d758b",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {},
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-25T07:45:03Z",
+   "relevance": 25,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "BleepingComputer",
+   "source_country": "US",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "Unknown attackers have reportedly breached an open-source intelligence analysis system at the US Central Intelligence Agency (CIA) [...]",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [
+    "Security"
+   ],
+   "themes": [
+    "H4"
+   ],
+   "title": "Hackers reportedly breached CIA intelligence analysis system",
+   "translation_steps": 0,
+   "url": "https://www.bleepingcomputer.com/news/security/hackers-reportedly-breached-cia-intelligence-analysis-system",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-25T08:43:54Z",
+   "corroboration_orgs": [
+    "The Hacker News"
+   ],
+   "corroboration_sources": [
+    "The Hacker News"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "thehackernews.com",
+   "excerpt": "An unknown threat actor has been using artificial intelligence (AI)-driven offensive tooling in a campaign targeting Check Point Security Management servers, impacting 22 distinct organizations across the world. The intrusion activity, tracked by GreyNoise under the moniker GreyNoise Threat 13…",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "The Hacker News"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [],
+   "id": "d5f3ce6a4d9a56a9",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {
+    "H2": [
+     "intrusion"
+    ]
+   },
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-25T06:50:19Z",
+   "relevance": 40,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "The Hacker News",
+   "source_country": "IN",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "An unknown threat actor has been using artificial intelligence (AI)-driven offensive tooling in a campaign targeting Check Point Security Management servers, impacting 22 distinct organizations across the world. The intrusion activity, tracked by GreyNoise under the moniker GreyNoise Threat 13…",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H2",
+    "H4"
+   ],
+   "title": "Hackers Compromise 24 Check Point Management Servers in Suspected AI-Driven Attack Campaign",
+   "translation_steps": 0,
+   "url": "https://thehackernews.com/2026/11/hackers-compromise-24-check-point.html",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-25T08:43:54Z",
+   "corroboration_orgs": [
+    "The Hacker News"
+   ],
+   "corroboration_sources": [
+    "The Hacker News"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "thehackernews.com",
+   "excerpt": "Palo Alto Networks Unit 42 has disclosed that it's tracking and has responded to \"numerous waves of vishing attacks\" orchestrated by Com-affiliated threat actors since August 2026 that have led to data theft and extortion attempts. The attacks have targeted financial services, healthcare, and…",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "The Hacker News"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [
+    "rancongiciel",
+    "fuite-donnees"
+   ],
+   "id": "da2703c97fc2d132",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {
+    "H1": [
+     "cloud"
+    ]
+   },
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-25T06:37:06Z",
+   "relevance": 50,
+   "reliability": "À recouper",
+   "sectors": [
+    "santé"
+   ],
+   "source": "The Hacker News",
+   "source_country": "IN",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "Palo Alto Networks Unit 42 has disclosed that it's tracking and has responded to \"numerous waves of vishing attacks\" orchestrated by Com-affiliated threat actors since August 2026 that have led to data theft and extortion attempts. The attacks have targeted financial services, healthcare, and…",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H1",
+    "H4"
+   ],
+   "title": "Com-Affiliated Hackers Hijack Cloud Accounts via Vishing for Data Theft and Extortion",
+   "translation_steps": 0,
+   "url": "https://thehackernews.com/2026/11/com-affiliated-hackers-hijack-cloud.html",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-25T08:43:54Z",
+   "corroboration_orgs": [
+    "The Hacker News"
+   ],
+   "corroboration_sources": [
+    "The Hacker News"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "thehackernews.com",
+   "excerpt": "WordPress has removed six WordPress plugins developed by WP Connect after they were backdoored on November 22, 2026, to enable arbitrary code execution on sites that have them installed, following a suspected compromise of the developer's account. The WordPress plugins team has independently…",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "The Hacker News"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [],
+   "id": "da78c9293f40e55b",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {},
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-25T06:21:12Z",
+   "relevance": 25,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "The Hacker News",
+   "source_country": "IN",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "WordPress has removed six WordPress plugins developed by WP Connect after they were backdoored on November 22, 2026, to enable arbitrary code execution on sites that have them installed, following a suspected compromise of the developer's account. The WordPress plugins team has independently…",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H4"
+   ],
+   "title": "WordPress Blocks Six Backdoored WP Connect Plugins Before Malicious Releases Go Live",
+   "translation_steps": 0,
+   "url": "https://thehackernews.com/2026/11/wordpress-blocks-six-backdoored-wp.html",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-25T08:43:54Z",
+   "corroboration_orgs": [
+    "Amazon"
+   ],
+   "corroboration_sources": [
+    "AWS Security Blog"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "aws.amazon.com",
+   "excerpt": "AWS Network Firewall now supports context-aware rules, which match traffic by the AWS resources that send and receive it instead of by IP address. A rule can name a virtual private cloud (VPC), a subnet, a security group, or a transit gateway attachment. Rules that match on IP addresses have to…",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H1"
+   ],
+   "first_publishers": [
+    "AWS Security Blog"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [],
+   "id": "313a8af90fe07647",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {
+    "H1": [
+     "cloud",
+     "AWS"
+    ]
+   },
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-25T01:19:20Z",
+   "relevance": 35,
+   "reliability": "À recouper",
+   "sectors": [
+    "AWS"
+   ],
+   "source": "AWS Security Blog",
+   "source_country": "US",
+   "source_language": "en",
+   "source_type": "éditeur",
+   "summary": "AWS Network Firewall now supports context-aware rules, which match traffic by the AWS resources that send and receive it instead of by IP address. A rule can name a virtual private cloud (VPC), a subnet, a security group, or a transit gateway attachment. Rules that match on IP addresses have to…",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [
+    "Advanced (300)",
+    "Announcements",
+    "AWS Network Firewall",
+    "Launch",
+    "Technical How-to",
+    "New Launch",
+    "Technical How-To"
+   ],
+   "themes": [
+    "H1"
+   ],
+   "title": "Introducing context-aware rules for AWS Network Firewall",
+   "translation_steps": 0,
+   "url": "https://aws.amazon.com/blogs/security/introducing-context-aware-rules-for-aws-network-firewall",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-25T08:43:54Z",
+   "corroboration_orgs": [
+    "Amazon"
+   ],
+   "corroboration_sources": [
+    "AWS Security Blog"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "aws.amazon.com",
+   "excerpt": "When it comes to inspecting network traffic, many security teams want two things from a firewall. They want to allow only the traffic each application needs, and they want each allowed connection checked for known threats. Today, you can do both with AWS Network Firewall, a stateful, managed…",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H1"
+   ],
+   "first_publishers": [
+    "AWS Security Blog"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [],
+   "id": "94113ac6d258a0b7",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {
+    "H1": [
+     "AWS"
+    ]
+   },
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-25T01:11:09Z",
+   "relevance": 45,
+   "reliability": "À recouper",
+   "sectors": [
+    "Microsoft 365",
+    "AWS"
+   ],
+   "source": "AWS Security Blog",
+   "source_country": "US",
+   "source_language": "en",
+   "source_type": "éditeur",
+   "summary": "When it comes to inspecting network traffic, many security teams want two things from a firewall. They want to allow only the traffic each application needs, and they want each allowed connection checked for known threats. Today, you can do both with AWS Network Firewall, a stateful, managed…",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [
+    "Advanced (300)",
+    "Announcements",
+    "AWS Network Firewall",
+    "Security, Identity, & Compliance",
+    "Technical How-to",
+    "Security Blog"
+   ],
+   "themes": [
+    "H1"
+   ],
+   "title": "Introducing AWS Network Firewall Next Generation policy",
+   "translation_steps": 0,
+   "url": "https://aws.amazon.com/blogs/security/introducing-aws-network-firewall-next-generation-policy",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-25T08:43:54Z",
+   "corroboration_orgs": [
+    "Palo Alto Networks"
+   ],
+   "corroboration_sources": [
+    "Unit 42 (Palo Alto Networks)"
+   ],
+   "criticality": 4,
+   "criticality_reasons": [
+    "EPSS 18%"
+   ],
+   "cve_details": {
+    "CVE-2026-123633": {
+     "cvss": null,
+     "epss": 0.17525,
+     "kev": false,
+     "nvd_found": null
+    }
+   },
+   "cves": [
+    "CVE-2026-123633"
+   ],
+   "date_adjusted": false,
+   "domain": "unit42.paloaltonetworks.com",
+   "excerpt": "Technical analysis of CVE-2026-123633, an NGINX HTTP/2 use-after-free flaw, with details on affected versions, sanitizer tests, and patch guidance. The post NGINX HTTP/2 Use-After-Free: CVE-2026-123633 appeared first on Unit 42 .",
+   "feed_priority": 1,
+   "feed_themes": [
+    "H1",
+    "H2"
+   ],
+   "first_publishers": [
+    "Unit 42 (Palo Alto Networks)"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [
+    "correctif"
+   ],
+   "id": "e0ab97020567c10d",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {
+    "H4": [
+     "patch"
+    ]
+   },
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-24T23:00:14Z",
+   "relevance": 51,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "Unit 42 (Palo Alto Networks)",
+   "source_country": "US",
+   "source_language": "en",
+   "source_type": "recherche",
+   "summary": "Technical analysis of CVE-2026-123633, an NGINX HTTP/2 use-after-free flaw, with details on affected versions, sanitizer tests, and patch guidance. The post NGINX HTTP/2 Use-After-Free: CVE-2026-123633 appeared first on Unit 42 .",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [
+    "Threat Research",
+    "Vulnerabilities",
+    "CVE-2026-123633",
+    "memN0ps",
+    "NGINX",
+    "Proxy"
+   ],
+   "themes": [
+    "H1",
+    "H2",
+    "H4"
+   ],
+   "title": "NGINX HTTP/2 Use-After-Free: CVE-2026-123633",
+   "translation_steps": 0,
+   "url": "https://unit42.paloaltonetworks.com/cve-2026-123633-nginx-http2-vulnerability",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
    "collected": "2026-11-24T22:31:32Z",
    "corroboration_orgs": [
     "BleepingComputer"
@@ -25250,6 +25764,6 @@
    "why": null
   }
  ],
- "count": 348,
- "updated": "2026-11-24T22:32:10Z"
+ "count": 355,
+ "updated": "2026-11-25T08:44:06Z"
 }
