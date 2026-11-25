@@ -1,6 +1,6 @@
 # Plan d'amélioration continue de la veille
 
-_Mis à jour automatiquement le 25/11/2026 08:44 UTC à partir des KPI (config/kpi.yaml)._
+_Mis à jour automatiquement le 25/11/2026 21:46 UTC à partir des KPI (config/kpi.yaml)._
 
 ## Actions ouvertes (2)
 

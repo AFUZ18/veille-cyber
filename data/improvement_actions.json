@@ -7,7 +7,7 @@
    "kpi": "B6_disponibilite_flux",
    "kpi_nom": "Disponibilité des flux",
    "kpi_status": "rouge",
-   "last_seen": "2026-11-25T08:44:06Z",
+   "last_seen": "2026-11-25T21:46:36Z",
    "periods": 3,
    "status": "ouverte",
    "sujet": null
@@ -19,11 +19,11 @@
    "kpi": "D1_utilisations",
    "kpi_nom": "Utilisations de l'information collectée",
    "kpi_status": "rouge",
-   "last_seen": "2026-11-25T08:44:06Z",
+   "last_seen": "2026-11-25T21:46:36Z",
    "periods": 1,
    "status": "ouverte",
    "sujet": null
   }
  },
- "updated": "2026-11-25T08:44:06Z"
+ "updated": "2026-11-25T21:46:36Z"
 }

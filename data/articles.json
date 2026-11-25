@@ -12,6 +12,1531 @@
     "not_sensational": true,
     "plausible_date": true
    },
+   "collected": "2026-11-25T21:45:58Z",
+   "corroboration_orgs": [
+    "BleepingComputer"
+   ],
+   "corroboration_sources": [
+    "BleepingComputer"
+   ],
+   "criticality": 10,
+   "criticality_reasons": [
+    "mots-clés : data breach"
+   ],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "www.bleepingcomputer.com",
+   "excerpt": "1Password has disclosed a data breach after a an employee's corporate GitHub account was hacked and used to deploy malicious code to the company's backend services to steal customer data. [...]",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "BleepingComputer"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [
+    "fuite-donnees"
+   ],
+   "id": "1b6ec2368eae77ff",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {
+    "H4": [
+     "data breach"
+    ]
+   },
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-25T21:33:33Z",
+   "relevance": 27,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "BleepingComputer",
+   "source_country": "US",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "1Password has disclosed a data breach after a an employee's corporate GitHub account was hacked and used to deploy malicious code to the company's backend services to steal customer data. [...]",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [
+    "Security"
+   ],
+   "themes": [
+    "H4"
+   ],
+   "title": "1Password customer data stolen after employee GitHub account breach",
+   "translation_steps": 0,
+   "url": "https://www.bleepingcomputer.com/news/security/1password-customer-data-stolen-after-employee-github-account-breach",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-25T21:45:58Z",
+   "corroboration_orgs": [
+    "Amazon"
+   ],
+   "corroboration_sources": [
+    "AWS Security Blog"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "aws.amazon.com",
+   "excerpt": "AWS Sign-In is introducing support for Enterprise-Managed Authorization (EMA) using the Identity Assertion JWT Authorization Grant (ID-JAG), enabling organizations to securely authorize AI agents to access AWS MCP Server through their existing enterprise identity providers (IdPs), such as Okta…",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H1"
+   ],
+   "first_publishers": [
+    "AWS Security Blog"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [
+    "gestion-identites",
+    "agents-ia"
+   ],
+   "id": "16635762805eb650",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {
+    "H1": [
+     "IAM",
+     "AWS"
+    ],
+    "H3": [
+     "AI agent",
+     "agentic",
+     "MCP server"
+    ]
+   },
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-25T21:00:37Z",
+   "relevance": 50,
+   "reliability": "À recouper",
+   "sectors": [
+    "AWS"
+   ],
+   "source": "AWS Security Blog",
+   "source_country": "US",
+   "source_language": "en",
+   "source_type": "éditeur",
+   "summary": "AWS Sign-In is introducing support for Enterprise-Managed Authorization (EMA) using the Identity Assertion JWT Authorization Grant (ID-JAG), enabling organizations to securely authorize AI agents to access AWS MCP Server through their existing enterprise identity providers (IdPs), such as Okta…",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [
+    "Artificial Intelligence",
+    "AWS Identity and Access Management (IAM)",
+    "Developer Tools",
+    "Intermediate (200)",
+    "Security, Identity, & Compliance",
+    "Technical How-to",
+    "artificial intelligence",
+    "AWS IAM"
+   ],
+   "themes": [
+    "H1",
+    "H3"
+   ],
+   "title": "Secure agentic access to AWS with Enterprise-Managed Authorization",
+   "translation_steps": 0,
+   "url": "https://aws.amazon.com/blogs/security/secure-agentic-access-to-aws-with-enterprise-managed-authorization",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-25T21:45:58Z",
+   "corroboration_orgs": [
+    "Amazon"
+   ],
+   "corroboration_sources": [
+    "AWS Security Blog"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "aws.amazon.com",
+   "excerpt": "AWS Key Management Service (AWS KMS) supports the security certifications, algorithms, and performance that most AWS CloudHSM workloads require. Organizations that migrate from AWS CloudHSM to AWS KMS have significantly reduced costs while eliminating hardware security module (HSM) provisioning…",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H1"
+   ],
+   "first_publishers": [
+    "AWS Security Blog"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [],
+   "id": "705080493cb6a2ad",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {
+    "H1": [
+     "AWS"
+    ]
+   },
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-25T19:54:52Z",
+   "relevance": 35,
+   "reliability": "À recouper",
+   "sectors": [
+    "AWS"
+   ],
+   "source": "AWS Security Blog",
+   "source_country": "US",
+   "source_language": "en",
+   "source_type": "éditeur",
+   "summary": "AWS Key Management Service (AWS KMS) supports the security certifications, algorithms, and performance that most AWS CloudHSM workloads require. Organizations that migrate from AWS CloudHSM to AWS KMS have significantly reduced costs while eliminating hardware security module (HSM) provisioning…",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [
+    "AWS CloudHSM",
+    "AWS Key Management Service",
+    "Security, Identity, & Compliance",
+    "Security Blog"
+   ],
+   "themes": [
+    "H1"
+   ],
+   "title": "Reduce operational overhead by migrating from AWS CloudHSM to AWS KMS",
+   "translation_steps": 0,
+   "url": "https://aws.amazon.com/blogs/security/reduce-operational-overhead-by-migrating-from-aws-cloudhsm-to-aws-kms",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-25T21:45:58Z",
+   "corroboration_orgs": [
+    "BleepingComputer"
+   ],
+   "corroboration_sources": [
+    "BleepingComputer"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "www.bleepingcomputer.com",
+   "excerpt": "Swiss and Italian cybersecurity agencies are warning about automated cyberattacks powered by AI agents targeting organizations in the critical infrastructure sector. [...]",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "BleepingComputer"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [
+    "agents-ia"
+   ],
+   "id": "30b9a8b58c82672d",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {
+    "H3": [
+     "AI agent"
+    ]
+   },
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-25T19:39:31Z",
+   "relevance": 40,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "BleepingComputer",
+   "source_country": "US",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "Swiss and Italian cybersecurity agencies are warning about automated cyberattacks powered by AI agents targeting organizations in the critical infrastructure sector. [...]",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [
+    "Security",
+    "Artificial Intelligence"
+   ],
+   "themes": [
+    "H3",
+    "H4"
+   ],
+   "title": "Italy and Switzerland warn of autonomous AI-driven cyberattacks",
+   "translation_steps": 0,
+   "url": "https://www.bleepingcomputer.com/news/security/italy-and-switzerland-warn-of-autonomous-ai-driven-cyberattacks",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-25T21:45:58Z",
+   "corroboration_orgs": [
+    "Microsoft"
+   ],
+   "corroboration_sources": [
+    "Microsoft Security Blog"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "www.microsoft.com",
+   "excerpt": "The AI-powered penetration testing framework ARTEX has been abused by threat actors like Storm-0940, Storm-3358, Onyx Sleet, Pearl Sleet, Crystal Typhoon, and Salt Typhoon to accelerate their existing workflows related to network reconnaissance, credential attacks, and web application…",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H1",
+    "H4"
+   ],
+   "first_publishers": [
+    "Microsoft Security Blog"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [
+    "agents-ia"
+   ],
+   "id": "ae6a9e994b3a32ff",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {
+    "H3": [
+     "agentic"
+    ]
+   },
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-25T18:09:06Z",
+   "relevance": 40,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "Microsoft Security Blog",
+   "source_country": "US",
+   "source_language": "en",
+   "source_type": "éditeur",
+   "summary": "The AI-powered penetration testing framework ARTEX has been abused by threat actors like Storm-0940, Storm-3358, Onyx Sleet, Pearl Sleet, Crystal Typhoon, and Salt Typhoon to accelerate their existing workflows related to network reconnaissance, credential attacks, and web application…",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H1",
+    "H3",
+    "H4"
+   ],
+   "title": "What defenders need to know about ARTEX, the agentic AI framework threat actors abuse",
+   "translation_steps": 0,
+   "url": "https://www.microsoft.com/en-us/security/blog/2026/11/25/what-defenders-need-to-know-artex-agentic-ai-framework-threat-actors-abuse",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-25T21:45:58Z",
+   "corroboration_orgs": [
+    "Amazon"
+   ],
+   "corroboration_sources": [
+    "AWS Security Blog"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "aws.amazon.com",
+   "excerpt": "Amazon Cognito handles sign-in and access control for users, AI agents, and microservices with managed user directories, social and enterprise federation, and passwordless sign-in with passkeys or one-time passwords. Sign-in is the front door to your application. If your customer identity and…",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H1"
+   ],
+   "first_publishers": [
+    "AWS Security Blog"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [
+    "agents-ia"
+   ],
+   "id": "3c9cf5ad08a26a2a",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {
+    "H3": [
+     "AI agent"
+    ]
+   },
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-25T17:50:39Z",
+   "relevance": 40,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "AWS Security Blog",
+   "source_country": "US",
+   "source_language": "en",
+   "source_type": "éditeur",
+   "summary": "Amazon Cognito handles sign-in and access control for users, AI agents, and microservices with managed user directories, social and enterprise federation, and passwordless sign-in with passkeys or one-time passwords. Sign-in is the front door to your application. If your customer identity and…",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [
+    "Amazon Cognito",
+    "Intermediate (200)",
+    "Security, Identity, & Compliance",
+    "Technical How-to",
+    "Security Blog"
+   ],
+   "themes": [
+    "H1",
+    "H3"
+   ],
+   "title": "Planning for 99.99 percent availability with the Amazon Cognito Plus feature plan",
+   "translation_steps": 0,
+   "url": "https://aws.amazon.com/blogs/security/planning-for-99-99-percent-availability-with-the-amazon-cognito-plus-feature-plan",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-25T21:45:58Z",
+   "corroboration_orgs": [
+    "Microsoft"
+   ],
+   "corroboration_sources": [
+    "Microsoft Security Blog"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "www.microsoft.com",
+   "excerpt": "We're honored to share that Microsoft has been named a Leader in the 2026 Gartner® Magic Quadrant™ for Email Security, for the second consecutive year. The post Microsoft named a Leader in the 2026 Gartner® Magic Quadrant™ for Email Security appeared first on Microsoft Security Blog .",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H1",
+    "H4"
+   ],
+   "first_publishers": [
+    "Microsoft Security Blog"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [],
+   "id": "c214a6735dcf3078",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {},
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-25T17:15:00Z",
+   "relevance": 40,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "Microsoft Security Blog",
+   "source_country": "US",
+   "source_language": "en",
+   "source_type": "éditeur",
+   "summary": "We're honored to share that Microsoft has been named a Leader in the 2026 Gartner® Magic Quadrant™ for Email Security, for the second consecutive year. The post Microsoft named a Leader in the 2026 Gartner® Magic Quadrant™ for Email Security appeared first on Microsoft Security Blog .",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [
+    "Gartner Magic Quadrant"
+   ],
+   "themes": [
+    "H1",
+    "H4"
+   ],
+   "title": "Microsoft named a Leader in the 2026 Gartner® Magic Quadrant™ for Email Security",
+   "translation_steps": 0,
+   "url": "https://www.microsoft.com/en-us/security/blog/2026/11/25/microsoft-named-a-leader-in-the-2026-gartner-magic-quadrant-for-email-security",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-25T21:45:58Z",
+   "corroboration_orgs": [
+    "BleepingComputer"
+   ],
+   "corroboration_sources": [
+    "BleepingComputer"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "www.bleepingcomputer.com",
+   "excerpt": "The U.S. Cybersecurity and Infrastructure Security Agency (CISA) is warning about a critical vulnerability in Danfoss AK-SM 8xxA Series controllers used by food retailers to manage commercial refrigeration, HVAC, and lighting systems. [...]",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "BleepingComputer"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [],
+   "id": "e20b3a711d4dae60",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {
+    "H4": [
+     "critical vulnerability",
+     "CISA"
+    ]
+   },
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-25T16:13:40Z",
+   "relevance": 25,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "BleepingComputer",
+   "source_country": "US",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "The U.S. Cybersecurity and Infrastructure Security Agency (CISA) is warning about a critical vulnerability in Danfoss AK-SM 8xxA Series controllers used by food retailers to manage commercial refrigeration, HVAC, and lighting systems. [...]",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [
+    "Security"
+   ],
+   "themes": [
+    "H4"
+   ],
+   "title": "CISA warns of critical unpatched flaw in Danfoss refrigeration controllers",
+   "translation_steps": 0,
+   "url": "https://www.bleepingcomputer.com/news/security/cisa-warns-of-critical-unpatched-flaw-in-danfoss-refrigeration-controllers",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-25T21:45:58Z",
+   "corroboration_orgs": [
+    "BleepingComputer"
+   ],
+   "corroboration_sources": [
+    "BleepingComputer"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "www.bleepingcomputer.com",
+   "excerpt": "Penetration testers spend a significant portion of their engagements on documentation, reporting, and other tasks outside of testing. PentestPad explains how AI can reduce this workload, help teams handle more engagements, and keep sensitive client data within their own infrastructure. [...]",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "BleepingComputer"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [],
+   "id": "fc7746296b2bdb02",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {},
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-25T15:00:10Z",
+   "relevance": 35,
+   "reliability": "À recouper",
+   "sectors": [
+    "Microsoft 365"
+   ],
+   "source": "BleepingComputer",
+   "source_country": "US",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "Penetration testers spend a significant portion of their engagements on documentation, reporting, and other tasks outside of testing. PentestPad explains how AI can reduce this workload, help teams handle more engagements, and keep sensitive client data within their own infrastructure. [...]",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [
+    "Security"
+   ],
+   "themes": [
+    "H4"
+   ],
+   "title": "More Pentests Without More Pentesters: Where AI Safely Helps",
+   "translation_steps": 0,
+   "url": "https://www.bleepingcomputer.com/news/security/more-pentests-without-more-pentesters-where-ai-safely-helps",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-25T21:45:58Z",
+   "corroboration_orgs": [
+    "Palo Alto Networks"
+   ],
+   "corroboration_sources": [
+    "Unit 42 (Palo Alto Networks)"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "unit42.paloaltonetworks.com",
+   "excerpt": "Unit 42 examines the evolution of AI-driven cyberattacks and outlines proactive defense strategies for security teams. The post The AI Threat Horizon: Why Speed, Edge AI and Baselines Are Our Best Defense appeared first on Unit 42 .",
+   "feed_priority": 1,
+   "feed_themes": [
+    "H1",
+    "H2"
+   ],
+   "first_publishers": [
+    "Unit 42 (Palo Alto Networks)"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [
+    "agents-ia"
+   ],
+   "id": "a91b47f6b68f80ba",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {
+    "H3": [
+     "agentic"
+    ]
+   },
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-25T15:00:09Z",
+   "relevance": 60,
+   "reliability": "À recouper",
+   "sectors": [
+    "Microsoft 365"
+   ],
+   "source": "Unit 42 (Palo Alto Networks)",
+   "source_country": "US",
+   "source_language": "en",
+   "source_type": "recherche",
+   "summary": "Unit 42 examines the evolution of AI-driven cyberattacks and outlines proactive defense strategies for security teams. The post The AI Threat Horizon: Why Speed, Edge AI and Baselines Are Our Best Defense appeared first on Unit 42 .",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [
+    "General",
+    "Insights",
+    "Agentic AI",
+    "AI",
+    "endpoint",
+    "real-time detection"
+   ],
+   "themes": [
+    "H1",
+    "H2",
+    "H3"
+   ],
+   "title": "The AI Threat Horizon: Why Speed, Edge AI and Baselines Are Our Best Defense",
+   "translation_steps": 0,
+   "url": "https://unit42.paloaltonetworks.com/ai-threat-horizon",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-25T21:45:58Z",
+   "corroboration_orgs": [
+    "BleepingComputer"
+   ],
+   "corroboration_sources": [
+    "BleepingComputer"
+   ],
+   "criticality": 10,
+   "criticality_reasons": [
+    "mots-clés : supply chain"
+   ],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "www.bleepingcomputer.com",
+   "excerpt": "Eclypsium's November InfraTrust report warns that most infrastructure security advisories addressing exploited vulnerabilities over the past month involve flaws in third-party software bundled into products rather than code developed by the vendors themselves. [...]",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "BleepingComputer"
+   ],
+   "glossary_axes_added": [
+    "H1"
+   ],
+   "glossary_concepts": [
+    "chaine-approvisionnement"
+   ],
+   "id": "8318524db78437fc",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {},
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-25T15:00:00Z",
+   "relevance": 42,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "BleepingComputer",
+   "source_country": "US",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "Eclypsium's November InfraTrust report warns that most infrastructure security advisories addressing exploited vulnerabilities over the past month involve flaws in third-party software bundled into products rather than code developed by the vendors themselves. [...]",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [
+    "Security"
+   ],
+   "themes": [
+    "H1",
+    "H4"
+   ],
+   "title": "InfraTrust warns of exploited supply chain flaws in network appliances",
+   "translation_steps": 0,
+   "url": "https://www.bleepingcomputer.com/news/security/infratrust-warns-of-exploited-supply-chain-flaws-in-network-appliances",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-25T21:45:58Z",
+   "corroboration_orgs": [
+    "Wiz"
+   ],
+   "corroboration_sources": [
+    "Wiz Blog"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "www.wiz.io",
+   "excerpt": "Intent IDs (iNNNN) from agentic offensive frameworks like ARTEX and Cairn are leaking into victim logs. We break down how these counters work in code, how defenders can use them to pace and deconflict attacker activity, and where the signal breaks down.",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H1"
+   ],
+   "first_publishers": [
+    "Wiz Blog"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [],
+   "id": "09ea7345d4961906",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {
+    "H3": [
+     "agentic"
+    ]
+   },
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-25T14:27:03Z",
+   "relevance": 40,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "Wiz Blog",
+   "source_country": "US",
+   "source_language": "en",
+   "source_type": "éditeur",
+   "summary": "Intent IDs (iNNNN) from agentic offensive frameworks like ARTEX and Cairn are leaking into victim logs. We break down how these counters work in code, how defenders can use them to pace and deconflict attacker activity, and where the signal breaks down.",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H1",
+    "H3"
+   ],
+   "title": "Inside Agentic Offensive Frameworks: Intent IDs",
+   "translation_steps": 0,
+   "url": "https://www.wiz.io/blog/agentic-offensive-frameworks-intent-ids-artex-cairn",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-25T21:45:58Z",
+   "corroboration_orgs": [
+    "The Hacker News"
+   ],
+   "corroboration_sources": [
+    "The Hacker News"
+   ],
+   "criticality": 10,
+   "criticality_reasons": [
+    "mots-clés : rce"
+   ],
+   "cve_details": {
+    "CVE-2026-120705": {
+     "cvss": null,
+     "epss": null,
+     "kev": false,
+     "nvd_found": null
+    },
+    "CVE-2026-129243": {
+     "cvss": null,
+     "epss": null,
+     "kev": false,
+     "nvd_found": null
+    }
+   },
+   "cves": [
+    "CVE-2026-120705",
+    "CVE-2026-129243"
+   ],
+   "date_adjusted": false,
+   "domain": "thehackernews.com",
+   "excerpt": "Threat actors are actively exploiting two newly patched security flaws in GeoServer, according to watchTowr. The vulnerabilities in question are CVE-2026-120705 and CVE-2026-129243, details of which are below - CVE-2026-120705 (CVSS score: 8.6) - An arbitrary file read vulnerability that could…",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "The Hacker News"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [
+    "execution-code-distance"
+   ],
+   "id": "27873297949c895b",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {},
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-25T12:48:54Z",
+   "relevance": 27,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "The Hacker News",
+   "source_country": "IN",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "Threat actors are actively exploiting two newly patched security flaws in GeoServer, according to watchTowr. The vulnerabilities in question are CVE-2026-120705 and CVE-2026-129243, details of which are below - CVE-2026-120705 (CVSS score: 8.6) - An arbitrary file read vulnerability that could…",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H4"
+   ],
+   "title": "Hackers Exploit Two GeoServer Flaws as Researchers Warn of Unauthenticated RCE Chains",
+   "translation_steps": 0,
+   "url": "https://thehackernews.com/2026/11/hackers-exploit-two-geoserver-flaws-as.html",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-25T21:45:58Z",
+   "corroboration_orgs": [
+    "The Hacker News"
+   ],
+   "corroboration_sources": [
+    "The Hacker News"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "thehackernews.com",
+   "excerpt": "The U.S. Treasury Department's Financial Crimes Enforcement Network (FinCEN) has been hit by a cybersecurity incident that resulted in \"unauthorized access to a limited subset of its systems,\" the bureau said on Tuesday. As a precaution, it has taken some systems offline. The bureau collects…",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "The Hacker News"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [],
+   "id": "b72d4a699599c9ac",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {
+    "H2": [
+     "intrusion"
+    ]
+   },
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-25T12:30:08Z",
+   "relevance": 40,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "The Hacker News",
+   "source_country": "IN",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "The U.S. Treasury Department's Financial Crimes Enforcement Network (FinCEN) has been hit by a cybersecurity incident that resulted in \"unauthorized access to a limited subset of its systems,\" the bureau said on Tuesday. As a precaution, it has taken some systems offline. The bureau collects…",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H2",
+    "H4"
+   ],
+   "title": "U.S. Treasury's Financial Crimes Agency Takes Some Systems Offline After Cyber Intrusion",
+   "translation_steps": 0,
+   "url": "https://thehackernews.com/2026/11/us-treasurys-fincen-takes-some-systems.html",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-25T21:45:58Z",
+   "corroboration_orgs": [
+    "The Hacker News"
+   ],
+   "corroboration_sources": [
+    "The Hacker News"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "thehackernews.com",
+   "excerpt": "TL;DR More than 64% still valid after four years: GitGuardian’s State of Secrets Sprawl 2026 found that most valid secrets discovered in 2022 still worked in January 2026, because teams stall on what a revoke will break. Validity-only triage misses 46% of critical secrets: Prioritize by impact…",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "The Hacker News"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [],
+   "id": "2d3fe69c638a5cda",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {
+    "H2": [
+     "triage"
+    ]
+   },
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-25T11:51:48Z",
+   "relevance": 50,
+   "reliability": "À recouper",
+   "sectors": [
+    "Microsoft 365"
+   ],
+   "source": "The Hacker News",
+   "source_country": "IN",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "TL;DR More than 64% still valid after four years: GitGuardian’s State of Secrets Sprawl 2026 found that most valid secrets discovered in 2022 still worked in January 2026, because teams stall on what a revoke will break. Validity-only triage misses 46% of critical secrets: Prioritize by impact…",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H2",
+    "H4"
+   ],
+   "title": "Credential Remediation Is Slow When You Don’t Know What Will Break",
+   "translation_steps": 0,
+   "url": "https://thehackernews.com/2026/11/credential-remediation-is-slow-when-you.html",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": true,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-25T21:45:58Z",
+   "corroboration_orgs": [
+    "The Hacker News"
+   ],
+   "corroboration_sources": [
+    "The Hacker News"
+   ],
+   "criticality": 50,
+   "criticality_reasons": [
+    "CISA KEV (CVE-2026-132165)",
+    "mots-clés : rce"
+   ],
+   "cve_details": {
+    "CVE-2026-132165": {
+     "cvss": null,
+     "epss": null,
+     "kev": true,
+     "nvd_found": null
+    }
+   },
+   "cves": [
+    "CVE-2026-132165"
+   ],
+   "date_adjusted": false,
+   "domain": "thehackernews.com",
+   "excerpt": "The U.S. Cybersecurity and Infrastructure Security Agency (CISA) on Tuesday added a critical flaw impacting Drupal to its Known Exploited Vulnerabilities (KEV) catalog, requiring federal agencies to apply the fixes by November 27, 2026. The vulnerability, tracked as CVE-2026-132165 aka…",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "The Hacker News"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [
+    "execution-code-distance"
+   ],
+   "id": "f8d0d1935ac4bbfb",
+   "is_event": false,
+   "kev": true,
+   "kev_ransomware": false,
+   "keyword_hits": {
+    "H4": [
+     "CISA"
+    ]
+   },
+   "language": "en",
+   "level": "Élevé",
+   "official": false,
+   "published": "2026-11-25T11:23:26Z",
+   "relevance": 35,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "The Hacker News",
+   "source_country": "IN",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "The U.S. Cybersecurity and Infrastructure Security Agency (CISA) on Tuesday added a critical flaw impacting Drupal to its Known Exploited Vulnerabilities (KEV) catalog, requiring federal agencies to apply the fixes by November 27, 2026. The vulnerability, tracked as CVE-2026-132165 aka…",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H4"
+   ],
+   "title": "Drupal Fail2Install Exploit Details Emerge as Critical RCE Flaw Faces Active Exploitation",
+   "translation_steps": 0,
+   "url": "https://thehackernews.com/2026/11/drupal-fail2install-exploit-details.html",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-25T21:45:58Z",
+   "corroboration_orgs": [
+    "BleepingComputer"
+   ],
+   "corroboration_sources": [
+    "BleepingComputer"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "www.bleepingcomputer.com",
+   "excerpt": "Earlier this week, Microsoft resolved a known issue that was preventing some Microsoft 365 customers from accessing Office applications. [...]",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "BleepingComputer"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [],
+   "id": "ed35acea853028e5",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {},
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-25T11:16:32Z",
+   "relevance": 35,
+   "reliability": "À recouper",
+   "sectors": [
+    "Microsoft 365"
+   ],
+   "source": "BleepingComputer",
+   "source_country": "US",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "Earlier this week, Microsoft resolved a known issue that was preventing some Microsoft 365 customers from accessing Office applications. [...]",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [
+    "Microsoft"
+   ],
+   "themes": [
+    "H4"
+   ],
+   "title": "Microsoft fixes Microsoft 365 bug blocking access to Office apps",
+   "translation_steps": 0,
+   "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-fixes-blank-dialog-that-made-microsoft-365-office-apps-unusable",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-25T21:45:58Z",
+   "corroboration_orgs": [
+    "The Hacker News"
+   ],
+   "corroboration_sources": [
+    "The Hacker News"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "thehackernews.com",
+   "excerpt": "A former OpenAI employee accused of concealing a covert recording device at the company's San Francisco offices will be allowed to be released from jail on a $1 million bond, a San Francisco federal court judge ruled Tuesday. Abdulrahman Alfozan, a 35-year-old Saudi national, was arrested on…",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "The Hacker News"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [],
+   "id": "df7e6d35b0bf706d",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {},
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-25T10:43:07Z",
+   "relevance": 25,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "The Hacker News",
+   "source_country": "IN",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "A former OpenAI employee accused of concealing a covert recording device at the company's San Francisco offices will be allowed to be released from jail on a $1 million bond, a San Francisco federal court judge ruled Tuesday. Abdulrahman Alfozan, a 35-year-old Saudi national, was arrested on…",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H4"
+   ],
+   "title": "Ex-OpenAI Employee Accused of Bugging Company Offices Granted $1 Million Bail",
+   "translation_steps": 0,
+   "url": "https://thehackernews.com/2026/11/ex-openai-employee-accused-of-bugging.html",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-25T21:45:58Z",
+   "corroboration_orgs": [
+    "BleepingComputer"
+   ],
+   "corroboration_sources": [
+    "BleepingComputer"
+   ],
+   "criticality": 20,
+   "criticality_reasons": [
+    "mots-clés : actively exploited, rce"
+   ],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "www.bleepingcomputer.com",
+   "excerpt": "The Drupal security team has confirmed that a critical vulnerability that lets attackers hijack unpatched sites has been actively exploited since at least Thursday. [...]",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "BleepingComputer"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [
+    "exploitation-active",
+    "execution-code-distance"
+   ],
+   "id": "21a19dccacb58acd",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {
+    "H4": [
+     "critical vulnerability"
+    ]
+   },
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-25T10:10:20Z",
+   "relevance": 29,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "BleepingComputer",
+   "source_country": "US",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "The Drupal security team has confirmed that a critical vulnerability that lets attackers hijack unpatched sites has been actively exploited since at least Thursday. [...]",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [
+    "Security"
+   ],
+   "themes": [
+    "H4"
+   ],
+   "title": "Hackers now exploit critical Drupal RCE flaw to hijack sites",
+   "translation_steps": 0,
+   "url": "https://www.bleepingcomputer.com/news/security/hackers-now-exploit-critical-drupal-rce-flaw-to-hijack-sites",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-25T21:45:58Z",
+   "corroboration_orgs": [
+    "The Hacker News"
+   ],
+   "corroboration_sources": [
+    "The Hacker News"
+   ],
+   "criticality": 10,
+   "criticality_reasons": [
+    "mots-clés : rce"
+   ],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "thehackernews.com",
+   "excerpt": "An attacker ran operating system commands on Monday on six production servers of Hex.pm, the package registry that Elixir and Erlang developers fetch their dependencies from. The flaw used in the attack had been in the registry's code since February 2016, and the team that maintains the service…",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "The Hacker News"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [
+    "execution-code-distance"
+   ],
+   "id": "c4aa0fb847865c57",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {},
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-25T09:06:59Z",
+   "relevance": 27,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "The Hacker News",
+   "source_country": "IN",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "An attacker ran operating system commands on Monday on six production servers of Hex.pm, the package registry that Elixir and Erlang developers fetch their dependencies from. The flaw used in the attack had been in the registry's code since February 2016, and the team that maintains the service…",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H4"
+   ],
+   "title": "Hackers Exploited CVSS 10.0 Hex.pm RCE Flaw to Compromise 6 Package Registry Servers",
+   "translation_steps": 0,
+   "url": "https://thehackernews.com/2026/11/hackers-exploited-cvss-100-hexpm-rce.html",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-25T21:45:58Z",
+   "corroboration_orgs": [
+    "BleepingComputer"
+   ],
+   "corroboration_sources": [
+    "BleepingComputer"
+   ],
+   "criticality": 10,
+   "criticality_reasons": [
+    "mots-clés : remote code execution"
+   ],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "www.bleepingcomputer.com",
+   "excerpt": "Microsoft has confirmed that customers may experience authentication issues after installing November security updates that address a high-severity remote code execution vulnerability. [...]",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "BleepingComputer"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [
+    "execution-code-distance",
+    "correctif"
+   ],
+   "id": "e322e54857532fe9",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {},
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-25T09:02:57Z",
+   "relevance": 27,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "BleepingComputer",
+   "source_country": "US",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "Microsoft has confirmed that customers may experience authentication issues after installing November security updates that address a high-severity remote code execution vulnerability. [...]",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [
+    "Microsoft",
+    "Security"
+   ],
+   "themes": [
+    "H4"
+   ],
+   "title": "Microsoft confirms authentication issues after November updates",
+   "translation_steps": 0,
+   "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-confirms-authentication-issues-after-november-updates",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
    "collected": "2026-11-25T08:43:54Z",
    "corroboration_orgs": [
     "BleepingComputer"
@@ -422,6 +1947,221 @@
    "title": "Introducing AWS Network Firewall Next Generation policy",
    "translation_steps": 0,
    "url": "https://aws.amazon.com/blogs/security/introducing-aws-network-firewall-next-generation-policy",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": true,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-25T21:45:58Z",
+   "corroboration_orgs": [
+    "ANSSI"
+   ],
+   "corroboration_sources": [
+    "CERT-FR - Avis"
+   ],
+   "criticality": 20,
+   "criticality_reasons": [
+    "mots-clés : exécution de code arbitraire à distance",
+    "source officielle"
+   ],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "www.cert.cyber.gouv.fr",
+   "excerpt": "De multiples vulnérabilités ont été découvertes dans Tenable Enclave Security. Certaines d'entre elles permettent à un attaquant de provoquer une exécution de code arbitraire à distance, une élévation de privilèges et un déni de service à distance.",
+   "feed_priority": 1,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "CERT-FR - Avis"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [
+    "execution-code-distance",
+    "deni-service"
+   ],
+   "id": "ba772e0d45b04650",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {},
+   "language": "fr",
+   "level": "Info",
+   "official": true,
+   "published": "2026-11-25T00:00:00Z",
+   "relevance": 39,
+   "reliability": "Vérifié",
+   "sectors": [],
+   "source": "CERT-FR - Avis",
+   "source_country": "FR",
+   "source_language": "fr",
+   "source_type": "officielle",
+   "summary": "De multiples vulnérabilités ont été découvertes dans Tenable Enclave Security. Certaines d'entre elles permettent à un attaquant de provoquer une exécution de code arbitraire à distance, une élévation de privilèges et un déni de service à distance.",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H4"
+   ],
+   "title": "Multiples vulnérabilités dans Tenable Enclave Security (25 novembre 2026)",
+   "translation_steps": 0,
+   "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1615",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": true,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-25T21:45:58Z",
+   "corroboration_orgs": [
+    "ANSSI"
+   ],
+   "corroboration_sources": [
+    "CERT-FR - Avis"
+   ],
+   "criticality": 20,
+   "criticality_reasons": [
+    "mots-clés : exécution de code arbitraire à distance",
+    "source officielle"
+   ],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "www.cert.cyber.gouv.fr",
+   "excerpt": "Une vulnérabilité a été découverte dans les produits Schneider Electric. Elle permet à un attaquant de provoquer une exécution de code arbitraire à distance et un déni de service à distance.",
+   "feed_priority": 1,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "CERT-FR - Avis"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [
+    "execution-code-distance",
+    "deni-service"
+   ],
+   "id": "a21814183d2d558d",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {},
+   "language": "fr",
+   "level": "Info",
+   "official": true,
+   "published": "2026-11-25T00:00:00Z",
+   "relevance": 39,
+   "reliability": "Vérifié",
+   "sectors": [],
+   "source": "CERT-FR - Avis",
+   "source_country": "FR",
+   "source_language": "fr",
+   "source_type": "officielle",
+   "summary": "Une vulnérabilité a été découverte dans les produits Schneider Electric. Elle permet à un attaquant de provoquer une exécution de code arbitraire à distance et un déni de service à distance.",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H4"
+   ],
+   "title": "Vulnérabilité dans les produits Schneider Electric (25 novembre 2026)",
+   "translation_steps": 0,
+   "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1618",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": true,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-25T21:45:58Z",
+   "corroboration_orgs": [
+    "ANSSI"
+   ],
+   "corroboration_sources": [
+    "CERT-FR - Avis"
+   ],
+   "criticality": 20,
+   "criticality_reasons": [
+    "mots-clés : activement exploitée",
+    "source officielle"
+   ],
+   "cve_details": {
+    "CVE-2026-43600": {
+     "cvss": null,
+     "epss": null,
+     "kev": false,
+     "nvd_found": null
+    }
+   },
+   "cves": [
+    "CVE-2026-43600"
+   ],
+   "date_adjusted": false,
+   "domain": "www.cert.cyber.gouv.fr",
+   "excerpt": "Une vulnérabilité a été découverte dans Palo Alto Networks PAN-OS. Elle permet à un attaquant de provoquer une élévation de privilèges. Palo Alto Networks indique que la vulnérabilité CVE-2026-43600 est activement exploitée.",
+   "feed_priority": 1,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "CERT-FR - Avis"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [
+    "exploitation-active"
+   ],
+   "id": "ae20ff93795fdc22",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {},
+   "language": "fr",
+   "level": "Info",
+   "official": true,
+   "published": "2026-11-25T00:00:00Z",
+   "relevance": 39,
+   "reliability": "Vérifié",
+   "sectors": [],
+   "source": "CERT-FR - Avis",
+   "source_country": "FR",
+   "source_language": "fr",
+   "source_type": "officielle",
+   "summary": "Une vulnérabilité a été découverte dans Palo Alto Networks PAN-OS. Elle permet à un attaquant de provoquer une élévation de privilèges. Palo Alto Networks indique que la vulnérabilité CVE-2026-43600 est activement exploitée.",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H4"
+   ],
+   "title": "Vulnérabilité dans Palo Alto Networks PAN-OS (25 novembre 2026)",
+   "translation_steps": 0,
+   "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1621",
    "why": null
   },
   {
@@ -5220,6 +6960,7 @@
    "action": null,
    "action_type": null,
    "ai_tags": [],
+   "also_in": [],
    "checks": {
     "approved_domain": true,
     "corroborated": true,
@@ -25634,136 +27375,8 @@
    "translation_steps": 0,
    "url": "https://github.com/mitre-atlas/atlas-data/releases/tag/v2026.08",
    "why": null
-  },
-  {
-   "action": null,
-   "action_type": null,
-   "ai_tags": [],
-   "checks": {
-    "approved_domain": true,
-    "corroborated": false,
-    "cves_confirmed": null,
-    "https": true,
-    "not_sensational": true,
-    "plausible_date": true
-   },
-   "collected": "2026-11-22T20:26:59Z",
-   "corroboration_orgs": [
-    "GIP ACYMA"
-   ],
-   "corroboration_sources": [
-    "Cybermalveillance.gouv.fr - Actualités"
-   ],
-   "criticality": 10,
-   "criticality_reasons": [
-    "source officielle"
-   ],
-   "cve_details": {},
-   "cves": [],
-   "domain": "www.cybermalveillance.gouv.fr",
-   "excerpt": "Cybermalveillance.gouv.fr déclenche ce jour une nouvelle AlerteCyber concernant des failles de sécurité critiques dans les produits Microsoft. Il est primordial de les corriger le plus rapidement possible en mettant à jour les systèmes concernés pour réduire les risques d’une cyberattaque.…",
-   "feed_priority": 2,
-   "feed_themes": [
-    "H4"
-   ],
-   "first_publishers": [
-    "Cybermalveillance.gouv.fr - Actualités"
-   ],
-   "glossary_axes_added": [],
-   "glossary_concepts": [],
-   "id": "d6d5e4bda43d202c",
-   "is_event": false,
-   "kev": false,
-   "kev_ransomware": false,
-   "keyword_hits": {},
-   "language": "fr",
-   "level": "Info",
-   "official": true,
-   "published": "2026-08-27T15:16:34Z",
-   "relevance": 27,
-   "reliability": "À recouper",
-   "sectors": [],
-   "source": "Cybermalveillance.gouv.fr - Actualités",
-   "source_country": "FR",
-   "source_language": "fr",
-   "source_type": "officielle",
-   "summary": "Cybermalveillance.gouv.fr déclenche ce jour une nouvelle AlerteCyber concernant des failles de sécurité critiques dans les produits Microsoft. Il est primordial de les corriger le plus rapidement possible en mettant à jour les systèmes concernés pour réduire les risques d’une cyberattaque.…",
-   "summary_from": "original",
-   "summary_source": "extrait",
-   "tags": [],
-   "themes": [
-    "H4"
-   ],
-   "title": "Cybermalveillance.gouv.fr lance une AlerteCyber concernant une faille de sécurité critique dans SPIP",
-   "translation_steps": 0,
-   "url": "https://www.cybermalveillance.gouv.fr/tous-nos-contenus/actualites/alertecyber-faille-securite-critique-spip",
-   "why": null
-  },
-  {
-   "action": null,
-   "action_type": null,
-   "ai_tags": [],
-   "checks": {
-    "approved_domain": true,
-    "corroborated": false,
-    "cves_confirmed": null,
-    "https": true,
-    "not_sensational": true,
-    "plausible_date": true
-   },
-   "collected": "2026-11-22T20:26:59Z",
-   "corroboration_orgs": [
-    "GIP ACYMA"
-   ],
-   "corroboration_sources": [
-    "Cybermalveillance.gouv.fr - Actualités"
-   ],
-   "criticality": 10,
-   "criticality_reasons": [
-    "source officielle"
-   ],
-   "cve_details": {},
-   "cves": [],
-   "domain": "www.cybermalveillance.gouv.fr",
-   "excerpt": "Faille de sécurité critique dans SPIP Date de l’alerte : 27/08/2026 Risques Espionnage, vol, voire destruction de vos données suite à la prise de contrôle à distance de vos équipements concernés. Description…",
-   "feed_priority": 2,
-   "feed_themes": [
-    "H4"
-   ],
-   "first_publishers": [
-    "Cybermalveillance.gouv.fr - Actualités"
-   ],
-   "glossary_axes_added": [],
-   "glossary_concepts": [],
-   "id": "761407c6980217bd",
-   "is_event": false,
-   "kev": false,
-   "kev_ransomware": false,
-   "keyword_hits": {},
-   "language": "fr",
-   "level": "Info",
-   "official": true,
-   "published": "2026-08-27T14:24:06Z",
-   "relevance": 27,
-   "reliability": "À recouper",
-   "sectors": [],
-   "source": "Cybermalveillance.gouv.fr - Actualités",
-   "source_country": "FR",
-   "source_language": "fr",
-   "source_type": "officielle",
-   "summary": "Faille de sécurité critique dans SPIP Date de l’alerte : 27/08/2026 Risques Espionnage, vol, voire destruction de vos données suite à la prise de contrôle à distance de vos équipements concernés. Description…",
-   "summary_from": "original",
-   "summary_source": "extrait",
-   "tags": [],
-   "themes": [
-    "H4"
-   ],
-   "title": "AlerteCyber : Faille de sécurité critique dans SPIP",
-   "translation_steps": 0,
-   "url": "https://www.cybermalveillance.gouv.fr/tous-nos-contenus/actualites/alertecyber-faille-de-securite-critique-dans-spip-202608",
-   "why": null
   }
  ],
- "count": 355,
- "updated": "2026-11-25T08:44:06Z"
+ "count": 377,
+ "updated": "2026-11-25T21:46:36Z"
 }
