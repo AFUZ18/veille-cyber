@@ -12,6 +12,649 @@
     "not_sensational": true,
     "plausible_date": true
    },
+   "collected": "2026-11-26T08:29:11Z",
+   "corroboration_orgs": [
+    "The Hacker News"
+   ],
+   "corroboration_sources": [
+    "The Hacker News"
+   ],
+   "criticality": 50,
+   "criticality_reasons": [
+    "CISA KEV (CVE-2026-132165)",
+    "mots-clés : in the wild"
+   ],
+   "cve_details": {
+    "CVE-2026-132165": {
+     "cvss": null,
+     "epss": null,
+     "kev": true,
+     "nvd_found": null
+    },
+    "CVE-2026-136716": {
+     "cvss": null,
+     "epss": null,
+     "kev": false,
+     "nvd_found": null
+    }
+   },
+   "cves": [
+    "CVE-2026-132165",
+    "CVE-2026-136716"
+   ],
+   "date_adjusted": false,
+   "domain": "thehackernews.com",
+   "excerpt": "Drupal has warned of a new \"highly critical\" security flaw impacting Drupal core that it said has been exploited in the wild. The vulnerability, tracked as CVE-2026-136716 (CVSS score: N/A), has been described as a case of improper checking for unusual or exceptional conditions. It also relates to…",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "The Hacker News"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [
+    "exploitation-active"
+   ],
+   "id": "61e3be14c2b6cad9",
+   "is_event": false,
+   "kev": true,
+   "kev_ransomware": false,
+   "keyword_hits": {},
+   "language": "en",
+   "level": "Élevé",
+   "official": false,
+   "published": "2026-11-26T07:02:34Z",
+   "relevance": 35,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "The Hacker News",
+   "source_country": "IN",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "Drupal has warned of a new \"highly critical\" security flaw impacting Drupal core that it said has been exploited in the wild. The vulnerability, tracked as CVE-2026-136716 (CVSS score: N/A), has been described as a case of improper checking for unusual or exceptional conditions. It also relates to…",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H4"
+   ],
+   "title": "Drupal Warns of New Highly Critical Site Takeover Vulnerability Under Active Exploitation",
+   "translation_steps": 0,
+   "url": "https://thehackernews.com/2026/11/drupal-warns-of-new-highly-critical.html",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": true,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-26T08:29:11Z",
+   "corroboration_orgs": [
+    "The Hacker News"
+   ],
+   "corroboration_sources": [
+    "The Hacker News"
+   ],
+   "criticality": 40,
+   "criticality_reasons": [
+    "CISA KEV (CVE-2026-133275)",
+    "EPSS 0%"
+   ],
+   "cve_details": {
+    "CVE-2026-133275": {
+     "cvss": null,
+     "epss": 0.00315,
+     "kev": true,
+     "nvd_found": null
+    }
+   },
+   "cves": [
+    "CVE-2026-133275"
+   ],
+   "date_adjusted": false,
+   "domain": "thehackernews.com",
+   "excerpt": "The U.S. Cybersecurity and Infrastructure Security Agency (CISA) on Wednesday added 10 security flaws to its Known Exploited Vulnerabilities (KEV) catalog, including five vulnerabilities impacting Mitel MiCollab that were disclosed last week. The Mitel MiCollab vulnerabilities are listed below -…",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "The Hacker News"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [],
+   "id": "451f3a785e324bf1",
+   "is_event": false,
+   "kev": true,
+   "kev_ransomware": false,
+   "keyword_hits": {
+    "H4": [
+     "CISA"
+    ]
+   },
+   "language": "en",
+   "level": "Moyen",
+   "official": false,
+   "published": "2026-11-26T06:44:46Z",
+   "relevance": 33,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "The Hacker News",
+   "source_country": "IN",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "The U.S. Cybersecurity and Infrastructure Security Agency (CISA) on Wednesday added 10 security flaws to its Known Exploited Vulnerabilities (KEV) catalog, including five vulnerabilities impacting Mitel MiCollab that were disclosed last week. The Mitel MiCollab vulnerabilities are listed below -…",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H4"
+   ],
+   "title": "Hackers Exploit 10 Vulnerabilities Across Mitel, Juniper, Vates, and Danfoss Products",
+   "translation_steps": 0,
+   "url": "https://thehackernews.com/2026/11/hackers-exploit-10-vulnerabilities.html",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-26T08:29:11Z",
+   "corroboration_orgs": [
+    "The Hacker News"
+   ],
+   "corroboration_sources": [
+    "The Hacker News"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "thehackernews.com",
+   "excerpt": "Popular password management software 1Password on Wednesday disclosed a security incident involving its backend systems that led to the unauthorized access of some customer information, but emphasized that customer password vaults and other secrets were not accessed. \"While we took immediate steps…",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "The Hacker News"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [],
+   "id": "5e5b0d3bb248d414",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {},
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-26T04:20:22Z",
+   "relevance": 25,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "The Hacker News",
+   "source_country": "IN",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "Popular password management software 1Password on Wednesday disclosed a security incident involving its backend systems that led to the unauthorized access of some customer information, but emphasized that customer password vaults and other secrets were not accessed. \"While we took immediate steps…",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H4"
+   ],
+   "title": "1Password Hacked, Customer Data and Source Code Stolen in GitHub Account Breach",
+   "translation_steps": 0,
+   "url": "https://thehackernews.com/2026/11/1password-hacked-customer-data-and.html",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-26T08:29:11Z",
+   "corroboration_orgs": [
+    "The Hacker News"
+   ],
+   "corroboration_sources": [
+    "The Hacker News"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "thehackernews.com",
+   "excerpt": "Cybersecurity researchers have discovered 13 malicious NuGet packages that are designed to target Windows .NET developers under the guise of a fake take-home job assessment. \"Most of the packages pose as WinUI 3 and WPF [Windows Presentation Foundation] button controls,\" Socket security researcher…",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "The Hacker News"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [],
+   "id": "8720d53f46442204",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {},
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-26T03:48:52Z",
+   "relevance": 25,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "The Hacker News",
+   "source_country": "IN",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "Cybersecurity researchers have discovered 13 malicious NuGet packages that are designed to target Windows .NET developers under the guise of a fake take-home job assessment. \"Most of the packages pose as WinUI 3 and WPF [Windows Presentation Foundation] button controls,\" Socket security researcher…",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H4"
+   ],
+   "title": "13 Malicious NuGet Packages Turn Fake .NET Job Assessments Into Malware Delivery Traps",
+   "translation_steps": 0,
+   "url": "https://thehackernews.com/2026/11/13-malicious-nuget-packages-turn-fake.html",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-26T08:29:11Z",
+   "corroboration_orgs": [
+    "Wiz"
+   ],
+   "corroboration_sources": [
+    "Wiz Blog"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "www.wiz.io",
+   "excerpt": "See which functions in your code triggered a runtime alert, use agentic investigation to cut false positives, and automate response down to the exact file and line to fix.",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H1"
+   ],
+   "first_publishers": [
+    "Wiz Blog"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [],
+   "id": "48bb2d7b9874f00a",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {
+    "H1": [
+     "cloud"
+    ],
+    "H3": [
+     "agentic"
+    ]
+   },
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-26T02:26:16Z",
+   "relevance": 50,
+   "reliability": "À recouper",
+   "sectors": [
+    "industrie"
+   ],
+   "source": "Wiz Blog",
+   "source_country": "US",
+   "source_language": "en",
+   "source_type": "éditeur",
+   "summary": "See which functions in your code triggered a runtime alert, use agentic investigation to cut false positives, and automate response down to the exact file and line to fix.",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H1",
+    "H3"
+   ],
+   "title": "Introducing Wiz ADR: Strengthening Cloud and AI Detection and Response with Application Context",
+   "translation_steps": 0,
+   "url": "https://www.wiz.io/blog/introducing-wiz-adr",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-26T08:29:11Z",
+   "corroboration_orgs": [
+    "Wiz"
+   ],
+   "corroboration_sources": [
+    "Wiz Blog"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "www.wiz.io",
+   "excerpt": "Grab a slice of Data Pie and pull up a chair. Here’s how Wiz’s Red, Green, and Blue Agents celebrate a quieter, smarter security season.",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H1"
+   ],
+   "first_publishers": [
+    "Wiz Blog"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [],
+   "id": "9d81269bcb72391d",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {},
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-26T02:10:58Z",
+   "relevance": 25,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "Wiz Blog",
+   "source_country": "US",
+   "source_language": "en",
+   "source_type": "éditeur",
+   "summary": "Grab a slice of Data Pie and pull up a chair. Here’s how Wiz’s Red, Green, and Blue Agents celebrate a quieter, smarter security season.",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H1"
+   ],
+   "title": "A Feast for AI: What Wiz Agents are Thankful For",
+   "translation_steps": 0,
+   "url": "https://www.wiz.io/blog/what-wiz-agents-are-thankful-for",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-26T08:29:11Z",
+   "corroboration_orgs": [
+    "Amazon"
+   ],
+   "corroboration_sources": [
+    "AWS Security Blog"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "aws.amazon.com",
+   "excerpt": "As your organization plans upgrades to post-quantum cryptography (PQC), you should also think about cryptographic agility to more easily update algorithms used to protect your data. Changes to cryptography and related protocols aren’t new, but PQC is accelerating the pace at which organizations…",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H1"
+   ],
+   "first_publishers": [
+    "AWS Security Blog"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [],
+   "id": "341e849122c293d9",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {
+    "H1": [
+     "AWS"
+    ]
+   },
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-26T00:15:29Z",
+   "relevance": 35,
+   "reliability": "À recouper",
+   "sectors": [
+    "AWS"
+   ],
+   "source": "AWS Security Blog",
+   "source_country": "US",
+   "source_language": "en",
+   "source_type": "éditeur",
+   "summary": "As your organization plans upgrades to post-quantum cryptography (PQC), you should also think about cryptographic agility to more easily update algorithms used to protect your data. Changes to cryptography and related protocols aren’t new, but PQC is accelerating the pace at which organizations…",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [
+    "Expert (400)",
+    "Security, Identity, & Compliance",
+    "Technical How-to",
+    "post-quantum cryptography",
+    "Security Blog"
+   ],
+   "themes": [
+    "H1"
+   ],
+   "title": "Make post-quantum cryptography updates routine with AWS-LC",
+   "translation_steps": 0,
+   "url": "https://aws.amazon.com/blogs/security/make-post-quantum-cryptography-updates-routine-with-aws-lc",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-26T08:29:11Z",
+   "corroboration_orgs": [
+    "Amazon"
+   ],
+   "corroboration_sources": [
+    "AWS Security Blog"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "aws.amazon.com",
+   "excerpt": "Welcome to this month’s AWS Security news! Organizations need current information about AWS Security developments to maintain their cloud security. This monthly digest covers key AWS Security updates. Each month, we compile new announcements, features, and resources to help you improve your…",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H1"
+   ],
+   "first_publishers": [
+    "AWS Security Blog"
+   ],
+   "glossary_axes_added": [
+    "H4"
+   ],
+   "glossary_concepts": [
+    "correctif"
+   ],
+   "id": "1a8270d7e7fdbef2",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {
+    "H1": [
+     "cloud",
+     "AWS"
+    ]
+   },
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-25T23:04:26Z",
+   "relevance": 50,
+   "reliability": "À recouper",
+   "sectors": [
+    "AWS"
+   ],
+   "source": "AWS Security Blog",
+   "source_country": "US",
+   "source_language": "en",
+   "source_type": "éditeur",
+   "summary": "Welcome to this month’s AWS Security news! Organizations need current information about AWS Security developments to maintain their cloud security. This monthly digest covers key AWS Security updates. Each month, we compile new announcements, features, and resources to help you improve your…",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [
+    "Security, Identity, & Compliance",
+    "Security Blog"
+   ],
+   "themes": [
+    "H1",
+    "H4"
+   ],
+   "title": "ICYMI: October 2026 @AWS Security",
+   "translation_steps": 0,
+   "url": "https://aws.amazon.com/blogs/security/icymi-october-2026-aws-security",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-26T08:29:11Z",
+   "corroboration_orgs": [
+    "BleepingComputer"
+   ],
+   "corroboration_sources": [
+    "BleepingComputer"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "www.bleepingcomputer.com",
+   "excerpt": "Threat actors are chaining exploits for the PHP2Shell and Fragnesia vulnerabilities to target Palo Alto Networks devices with management interfaces exposed to the internet. [...]",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "BleepingComputer"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [],
+   "id": "3668d7ed9e523305",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {},
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-25T22:05:09Z",
+   "relevance": 25,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "BleepingComputer",
+   "source_country": "US",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "Threat actors are chaining exploits for the PHP2Shell and Fragnesia vulnerabilities to target Palo Alto Networks devices with management interfaces exposed to the internet. [...]",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [
+    "Security"
+   ],
+   "themes": [
+    "H4"
+   ],
+   "title": "Palo Alto Networks warns of Fragnesia flaw exploited in PAN-OS attacks",
+   "translation_steps": 0,
+   "url": "https://www.bleepingcomputer.com/news/security/palo-alto-networks-warns-of-fragnesia-flaw-exploited-in-pan-os-attacks",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
    "collected": "2026-11-25T21:45:58Z",
    "corroboration_orgs": [
     "BleepingComputer"
@@ -27377,6 +28020,6 @@
    "why": null
   }
  ],
- "count": 377,
- "updated": "2026-11-25T21:46:36Z"
+ "count": 386,
+ "updated": "2026-11-26T08:30:02Z"
 }
