@@ -7,7 +7,7 @@
    "kpi": "D1_utilisations",
    "kpi_nom": "Utilisations de l'information collectée",
    "kpi_status": "rouge",
-   "last_seen": "2026-11-26T08:30:02Z",
+   "last_seen": "2026-11-26T21:40:13Z",
    "periods": 1,
    "status": "ouverte",
    "sujet": null
@@ -19,13 +19,145 @@
    "kpi": "B6_disponibilite_flux",
    "kpi_nom": "Disponibilité des flux",
    "kpi_status": "rouge",
-   "last_seen": "2026-11-26T08:30:02Z",
+   "last_seen": "2026-11-26T21:40:13Z",
    "periods": 4,
    "status": "ouverte",
    "sujet": null
+  },
+  {
+   "action": "Le flux « 13Cubed (YouTube) » est en erreur depuis 2 jours : corriger son URL, le remplacer ou le désactiver (feeds.yaml).",
+   "first_seen": "2026-11-26T21:40:13Z",
+   "key": "B7_flux_en_erreur|13Cubed (YouTube)",
+   "kpi": "B7_flux_en_erreur",
+   "kpi_nom": "Disponibilité par flux",
+   "kpi_status": "rouge",
+   "last_seen": "2026-11-26T21:40:13Z",
+   "periods": 8,
+   "status": "ouverte",
+   "sujet": "13Cubed (YouTube)"
+  },
+  {
+   "action": "Le flux « Cloud Security Alliance » est en erreur depuis 2 jours : corriger son URL, le remplacer ou le désactiver (feeds.yaml).",
+   "first_seen": "2026-11-26T21:40:13Z",
+   "key": "B7_flux_en_erreur|Cloud Security Alliance",
+   "kpi": "B7_flux_en_erreur",
+   "kpi_nom": "Disponibilité par flux",
+   "kpi_status": "rouge",
+   "last_seen": "2026-11-26T21:40:13Z",
+   "periods": 8,
+   "status": "ouverte",
+   "sujet": "Cloud Security Alliance"
+  },
+  {
+   "action": "Le flux « Dark Reading » est en erreur depuis 2 jours : corriger son URL, le remplacer ou le désactiver (feeds.yaml).",
+   "first_seen": "2026-11-26T21:40:13Z",
+   "key": "B7_flux_en_erreur|Dark Reading",
+   "kpi": "B7_flux_en_erreur",
+   "kpi_nom": "Disponibilité par flux",
+   "kpi_status": "rouge",
+   "last_seen": "2026-11-26T21:40:13Z",
+   "periods": 8,
+   "status": "ouverte",
+   "sujet": "Dark Reading"
+  },
+  {
+   "action": "Le flux « HiddenLayer Blog » est en erreur depuis 2 jours : corriger son URL, le remplacer ou le désactiver (feeds.yaml).",
+   "first_seen": "2026-11-26T21:40:13Z",
+   "key": "B7_flux_en_erreur|HiddenLayer Blog",
+   "kpi": "B7_flux_en_erreur",
+   "kpi_nom": "Disponibilité par flux",
+   "kpi_status": "rouge",
+   "last_seen": "2026-11-26T21:40:13Z",
+   "periods": 8,
+   "status": "ouverte",
+   "sujet": "HiddenLayer Blog"
+  },
+  {
+   "action": "Le flux « LeMagIT » est en erreur depuis 2 jours : corriger son URL, le remplacer ou le désactiver (feeds.yaml).",
+   "first_seen": "2026-11-26T21:40:13Z",
+   "key": "B7_flux_en_erreur|LeMagIT",
+   "kpi": "B7_flux_en_erreur",
+   "kpi_nom": "Disponibilité par flux",
+   "kpi_status": "rouge",
+   "last_seen": "2026-11-26T21:40:13Z",
+   "periods": 8,
+   "status": "ouverte",
+   "sujet": "LeMagIT"
+  },
+  {
+   "action": "Le flux « NIST - Cybersecurity news » est en erreur depuis 2 jours : corriger son URL, le remplacer ou le désactiver (feeds.yaml).",
+   "first_seen": "2026-11-26T21:40:13Z",
+   "key": "B7_flux_en_erreur|NIST - Cybersecurity news",
+   "kpi": "B7_flux_en_erreur",
+   "kpi_nom": "Disponibilité par flux",
+   "kpi_status": "rouge",
+   "last_seen": "2026-11-26T21:40:13Z",
+   "periods": 8,
+   "status": "ouverte",
+   "sujet": "NIST - Cybersecurity news"
+  },
+  {
+   "action": "Le flux « Orca Security Blog » est en erreur depuis 2 jours : corriger son URL, le remplacer ou le désactiver (feeds.yaml).",
+   "first_seen": "2026-11-26T21:40:13Z",
+   "key": "B7_flux_en_erreur|Orca Security Blog",
+   "kpi": "B7_flux_en_erreur",
+   "kpi_nom": "Disponibilité par flux",
+   "kpi_status": "rouge",
+   "last_seen": "2026-11-26T21:40:13Z",
+   "periods": 8,
+   "status": "ouverte",
+   "sujet": "Orca Security Blog"
+  },
+  {
+   "action": "Le flux « SANS Blog (DFIR) » est en erreur depuis 2 jours : corriger son URL, le remplacer ou le désactiver (feeds.yaml).",
+   "first_seen": "2026-11-26T21:40:13Z",
+   "key": "B7_flux_en_erreur|SANS Blog (DFIR)",
+   "kpi": "B7_flux_en_erreur",
+   "kpi_nom": "Disponibilité par flux",
+   "kpi_status": "rouge",
+   "last_seen": "2026-11-26T21:40:13Z",
+   "periods": 8,
+   "status": "ouverte",
+   "sujet": "SANS Blog (DFIR)"
+  },
+  {
+   "action": "Le flux « SANS Internet Storm Center » est en erreur depuis 2 jours : corriger son URL, le remplacer ou le désactiver (feeds.yaml).",
+   "first_seen": "2026-11-26T21:40:13Z",
+   "key": "B7_flux_en_erreur|SANS Internet Storm Center",
+   "kpi": "B7_flux_en_erreur",
+   "kpi_nom": "Disponibilité par flux",
+   "kpi_status": "rouge",
+   "last_seen": "2026-11-26T21:40:13Z",
+   "periods": 8,
+   "status": "ouverte",
+   "sujet": "SANS Internet Storm Center"
+  },
+  {
+   "action": "Le flux « Sysdig Blog » est en erreur depuis 2 jours : corriger son URL, le remplacer ou le désactiver (feeds.yaml).",
+   "first_seen": "2026-11-26T21:40:13Z",
+   "key": "B7_flux_en_erreur|Sysdig Blog",
+   "kpi": "B7_flux_en_erreur",
+   "kpi_nom": "Disponibilité par flux",
+   "kpi_status": "rouge",
+   "last_seen": "2026-11-26T21:40:13Z",
+   "periods": 8,
+   "status": "ouverte",
+   "sujet": "Sysdig Blog"
+  },
+  {
+   "action": "Le flux « ZATAZ » est en erreur depuis 2 jours : corriger son URL, le remplacer ou le désactiver (feeds.yaml).",
+   "first_seen": "2026-11-26T21:40:13Z",
+   "key": "B7_flux_en_erreur|ZATAZ",
+   "kpi": "B7_flux_en_erreur",
+   "kpi_nom": "Disponibilité par flux",
+   "kpi_status": "rouge",
+   "last_seen": "2026-11-26T21:40:13Z",
+   "periods": 8,
+   "status": "ouverte",
+   "sujet": "ZATAZ"
   }
  ],
- "generated_at": "2026-11-26T08:30:02Z",
+ "generated_at": "2026-11-26T21:40:13Z",
  "kpis": [
   {
    "action": "Axe {sujet} : revoir les mots-clés du thème et les sources peu pertinentes de l'axe.",
@@ -65,7 +197,7 @@
      ],
      [
       "2026-11-26",
-      92.3
+      91.8
      ]
     ],
     "H2": [
@@ -83,7 +215,7 @@
      ],
      [
       "2026-11-26",
-      73.7
+      82.4
      ]
     ],
     "H3": [
@@ -119,18 +251,18 @@
      ],
      [
       "2026-11-26",
-      59.3
+      57.7
      ]
     ]
    },
    "subs": {
     "H1": {
      "status": "vert",
-     "value": 92.3
+     "value": 91.8
     },
     "H2": {
      "status": "vert",
-     "value": 73.7
+     "value": 82.4
     },
     "H3": {
      "status": "vert",
@@ -138,7 +270,7 @@
     },
     "H4": {
      "status": "vert",
-     "value": 59.3
+     "value": 57.7
     }
    },
    "trend": [
@@ -156,18 +288,18 @@
     ],
     [
      "2026-11-26",
-     61.6
+     60.6
     ]
    ],
    "unite": "%",
-   "value": 61.6
+   "value": 60.6
   },
   {
    "action": "Axe {sujet} sous-couvert : ajouter au moins une source spécialisée sur cet axe (feeds.yaml).",
    "cible": 100,
    "details": {
     "H1": {
-     "articles_pertinents": 48,
+     "articles_pertinents": 45,
      "cible_hebdo": 10
     },
     "H2": {
@@ -175,11 +307,11 @@
      "cible_hebdo": 4
     },
     "H3": {
-     "articles_pertinents": 27,
+     "articles_pertinents": 26,
      "cible_hebdo": 3
     },
     "H4": {
-     "articles_pertinents": 83,
+     "articles_pertinents": 79,
      "cible_hebdo": 15
     }
    },
@@ -217,7 +349,7 @@
      ],
      [
       "2026-11-26",
-      480.0
+      450.0
      ]
     ],
     "H2": [
@@ -253,7 +385,7 @@
      ],
      [
       "2026-11-26",
-      900.0
+      866.7
      ]
     ],
     "H4": [
@@ -271,14 +403,14 @@
      ],
      [
       "2026-11-26",
-      553.3
+      526.7
      ]
     ]
    },
    "subs": {
     "H1": {
      "status": "vert",
-     "value": 480.0
+     "value": 450.0
     },
     "H2": {
      "status": "vert",
@@ -286,11 +418,11 @@
     },
     "H3": {
      "status": "vert",
-     "value": 900.0
+     "value": 866.7
     },
     "H4": {
      "status": "vert",
-     "value": 553.3
+     "value": 526.7
     }
    },
    "trend": [
@@ -396,11 +528,11 @@
     ],
     [
      "2026-11-26",
-     76.3
+     76.5
     ]
    ],
    "unite": "/100",
-   "value": 76.3
+   "value": 76.5
   },
   {
    "action": "Source « {sujet} » sous le score de qualité cible depuis 4 semaines : la remplacer ou la désactiver (feeds.yaml).",
@@ -439,7 +571,7 @@
     },
     "BleepingComputer": {
      "status": "vert",
-     "value": 64.1
+     "value": 64.8
     },
     "CERT-FR - Alertes": {
      "status": "vert",
@@ -447,7 +579,7 @@
     },
     "CERT-FR - Avis": {
      "status": "vert",
-     "value": 94.5
+     "value": 93.9
     },
     "CERT-FR - Menaces et incidents": {
      "status": "vert",
@@ -463,7 +595,7 @@
     },
     "Cybermalveillance.gouv.fr - Actualités": {
      "status": "vert",
-     "value": 72.0
+     "value": 76.0
     },
     "Dark Reading": {
      "status": "na",
@@ -471,7 +603,7 @@
     },
     "Google Cloud - Security & Identity": {
      "status": "vert",
-     "value": 84.5
+     "value": 83.7
     },
     "HiddenLayer Blog": {
      "status": "na",
@@ -531,7 +663,7 @@
     },
     "The Hacker News": {
      "status": "vert",
-     "value": 67.2
+     "value": 67.0
     },
     "Trail of Bits Blog": {
      "status": "vert",
@@ -551,7 +683,7 @@
     },
     "Wiz Blog": {
      "status": "vert",
-     "value": 76.3
+     "value": 77.4
     },
     "ZATAZ": {
      "status": "na",
@@ -603,8 +735,8 @@
     "specifique": "S'assurer que les informations Élevé/Critique sont confirmées.",
     "temporel": "Chaque semaine."
    },
-   "status": "orange",
-   "status_label": "À surveiller",
+   "status": "vert",
+   "status_label": "Dans la cible",
    "subs": null,
    "trend": [
     [
@@ -621,11 +753,11 @@
     ],
     [
      "2026-11-26",
-     28.6
+     66.7
     ]
    ],
    "unite": "%",
-   "value": 28.6
+   "value": 66.7
   },
   {
    "action": "Des articles pointent vers des domaines non approuvés : vérifier ces domaines et compléter sources_quality.yaml.",
@@ -709,11 +841,11 @@
     ],
     [
      "2026-11-26",
-     7.2
+     7.1
     ]
    ],
    "unite": "h",
-   "value": 7.2
+   "value": 7.1
   },
   {
    "action": "Trop de flux en panne : lancer scripts/check_feeds.py et corriger feeds.yaml.",
@@ -1220,11 +1352,11 @@
    "subs": {
     "en": {
      "status": "info",
-     "value": 87.2
+     "value": 86.1
     },
     "fr": {
      "status": "info",
-     "value": 12.8
+     "value": 13.9
     }
    },
    "trend": [
@@ -1242,11 +1374,11 @@
     ],
     [
      "2026-11-26",
-     87.2
+     86.1
     ]
    ],
    "unite": "%",
-   "value": 87.2
+   "value": 86.1
   },
   {
    "action": "Des articles ont subi plusieurs étapes de traduction : vérifier src/summarize.py.",
@@ -1330,17 +1462,17 @@
     ],
     [
      "2026-11-26",
-     7.0
+     7.9
     ]
    ],
    "unite": "%",
-   "value": 7.0
+   "value": 7.9
   },
   {
    "action": "Une source pèse trop dans la veille : réduire max_entries_per_feed ou ajouter des sources sur ses sujets.",
    "cible": 30,
    "details": {
-    "source": "The Hacker News"
+    "source": "BleepingComputer"
    },
    "famille": "F",
    "formule": "max(articles d'une source) / total × 100",
@@ -1376,11 +1508,11 @@
     ],
     [
      "2026-11-26",
-     31.4
+     30.3
     ]
    ],
    "unite": "%",
-   "value": 31.4
+   "value": 30.3
   },
   {
    "action": "Veille trop concentrée sur quelques sources : diversifier le panel.",
@@ -1420,11 +1552,11 @@
     ],
     [
      "2026-11-26",
-     2011
+     2120
     ]
    ],
    "unite": "points",
-   "value": 2011
+   "value": 2120
   },
   {
    "action": "",
@@ -1455,7 +1587,7 @@
     },
     "officielle": {
      "status": "info",
-     "value": 16.9
+     "value": 16.4
     },
     "outil": {
      "status": "info",
@@ -1463,15 +1595,15 @@
     },
     "presse": {
      "status": "info",
-     "value": 58.1
+     "value": 60.0
     },
     "recherche": {
      "status": "info",
-     "value": 2.3
+     "value": 2.4
     },
     "éditeur": {
      "status": "info",
-     "value": 21.5
+     "value": 20.0
     }
    },
    "trend": [
@@ -1489,11 +1621,11 @@
     ],
     [
      "2026-11-26",
-     21.5
+     20.0
     ]
    ],
    "unite": "%",
-   "value": 21.5
+   "value": 20.0
   },
   {
    "action": "",
@@ -1520,15 +1652,15 @@
    "subs": {
     "CA": {
      "status": "info",
-     "value": 2.3
+     "value": 1.2
     },
     "FR": {
      "status": "info",
-     "value": 12.8
+     "value": 13.9
     },
     "IN": {
      "status": "info",
-     "value": 31.4
+     "value": 29.7
     },
     "INT": {
      "status": "info",
@@ -1536,7 +1668,7 @@
     },
     "US": {
      "status": "info",
-     "value": 52.9
+     "value": 54.5
     }
    },
    "trend": [
@@ -1554,11 +1686,11 @@
     ],
     [
      "2026-11-26",
-     52.9
+     54.5
     ]
    ],
    "unite": "%",
-   "value": 52.9
+   "value": 54.5
   },
   {
    "action": "Biais géographique : ajouter des sources françaises (presse, CERT sectoriels, CLUSIF…).",
@@ -1598,11 +1730,11 @@
     ],
     [
      "2026-11-26",
-     12.8
+     13.9
     ]
    ],
    "unite": "%",
-   "value": 12.8
+   "value": 13.9
   }
  ],
  "signals": [],
@@ -1672,19 +1804,19 @@
    "type": "officielle"
   },
   {
-   "articles": 30,
+   "articles": 32,
    "authority": 70.2,
    "country": "FR",
    "credibilite": 92.0,
-   "efficacite": 86.3,
-   "nouveaute": 96.8,
+   "efficacite": 87.0,
+   "nouveaute": 93.9,
    "org": "ANSSI",
    "pertinence": 100.0,
    "referenced": true,
-   "reprise": 0.0,
+   "reprise": 3.1,
    "source": "CERT-FR - Avis",
-   "sqs": 94.5,
-   "ttri_h": 24.0,
+   "sqs": 93.9,
+   "ttri_h": 23.2,
    "type": "officielle"
   },
   {
@@ -1736,82 +1868,82 @@
    "type": "officielle"
   },
   {
-   "articles": 14,
-   "authority": 66.4,
+   "articles": 13,
+   "authority": 66.6,
    "country": "US",
    "credibilite": 79.0,
-   "efficacite": 89.3,
-   "nouveaute": 93.3,
+   "efficacite": 88.5,
+   "nouveaute": 92.9,
    "org": "Google",
-   "pertinence": 78.6,
+   "pertinence": 76.9,
    "referenced": true,
-   "reprise": 14.3,
+   "reprise": 15.4,
    "source": "Google Cloud - Security & Identity",
-   "sqs": 84.5,
+   "sqs": 83.7,
    "ttri_h": 5.5,
    "type": "éditeur"
   },
   {
-   "articles": 23,
+   "articles": 22,
    "authority": 60.0,
    "country": "US",
    "credibilite": 70.0,
-   "efficacite": 82.0,
-   "nouveaute": 91.3,
+   "efficacite": 83.5,
+   "nouveaute": 90.9,
    "org": "Wiz",
-   "pertinence": 65.2,
+   "pertinence": 68.2,
    "referenced": true,
-   "reprise": 8.7,
+   "reprise": 9.1,
    "source": "Wiz Blog",
-   "sqs": 76.3,
+   "sqs": 77.4,
    "ttri_h": 6.8,
    "type": "éditeur"
   },
   {
-   "articles": 5,
+   "articles": 4,
    "authority": 67.0,
    "country": "FR",
    "credibilite": 84.0,
-   "efficacite": 70.0,
+   "efficacite": 75.0,
    "nouveaute": 100.0,
    "org": "GIP ACYMA",
-   "pertinence": 40.0,
+   "pertinence": 50.0,
    "referenced": true,
    "reprise": 0.0,
    "source": "Cybermalveillance.gouv.fr - Actualités",
-   "sqs": 72.0,
+   "sqs": 76.0,
    "ttri_h": 0.2,
    "type": "officielle"
   },
   {
-   "articles": 70,
-   "authority": 53.5,
+   "articles": 73,
+   "authority": 54.2,
    "country": "IN",
    "credibilite": 57.0,
-   "efficacite": 75.5,
-   "nouveaute": 91.4,
+   "efficacite": 75.0,
+   "nouveaute": 91.8,
    "org": "The Hacker News",
-   "pertinence": 50.0,
+   "pertinence": 49.3,
    "referenced": true,
-   "reprise": 8.6,
+   "reprise": 11.0,
    "source": "The Hacker News",
-   "sqs": 67.2,
+   "sqs": 67.0,
    "ttri_h": 9.1,
    "type": "presse"
   },
   {
-   "articles": 46,
+   "articles": 50,
    "authority": 58.5,
    "country": "US",
    "credibilite": 67.0,
-   "efficacite": 66.3,
+   "efficacite": 67.0,
    "nouveaute": 100.0,
    "org": "BleepingComputer",
-   "pertinence": 30.4,
+   "pertinence": 32.0,
    "referenced": true,
    "reprise": 0.0,
    "source": "BleepingComputer",
-   "sqs": 64.1,
+   "sqs": 64.8,
    "ttri_h": 5.8,
    "type": "presse"
   },

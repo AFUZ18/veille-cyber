@@ -7,10 +7,142 @@
    "kpi": "B6_disponibilite_flux",
    "kpi_nom": "Disponibilité des flux",
    "kpi_status": "rouge",
-   "last_seen": "2026-11-26T08:30:02Z",
+   "last_seen": "2026-11-26T21:40:13Z",
    "periods": 4,
    "status": "ouverte",
    "sujet": null
+  },
+  "B7_flux_en_erreur|13Cubed (YouTube)": {
+   "action": "Le flux « 13Cubed (YouTube) » est en erreur depuis 2 jours : corriger son URL, le remplacer ou le désactiver (feeds.yaml).",
+   "first_seen": "2026-11-26T21:40:13Z",
+   "key": "B7_flux_en_erreur|13Cubed (YouTube)",
+   "kpi": "B7_flux_en_erreur",
+   "kpi_nom": "Disponibilité par flux",
+   "kpi_status": "rouge",
+   "last_seen": "2026-11-26T21:40:13Z",
+   "periods": 8,
+   "status": "ouverte",
+   "sujet": "13Cubed (YouTube)"
+  },
+  "B7_flux_en_erreur|Cloud Security Alliance": {
+   "action": "Le flux « Cloud Security Alliance » est en erreur depuis 2 jours : corriger son URL, le remplacer ou le désactiver (feeds.yaml).",
+   "first_seen": "2026-11-26T21:40:13Z",
+   "key": "B7_flux_en_erreur|Cloud Security Alliance",
+   "kpi": "B7_flux_en_erreur",
+   "kpi_nom": "Disponibilité par flux",
+   "kpi_status": "rouge",
+   "last_seen": "2026-11-26T21:40:13Z",
+   "periods": 8,
+   "status": "ouverte",
+   "sujet": "Cloud Security Alliance"
+  },
+  "B7_flux_en_erreur|Dark Reading": {
+   "action": "Le flux « Dark Reading » est en erreur depuis 2 jours : corriger son URL, le remplacer ou le désactiver (feeds.yaml).",
+   "first_seen": "2026-11-26T21:40:13Z",
+   "key": "B7_flux_en_erreur|Dark Reading",
+   "kpi": "B7_flux_en_erreur",
+   "kpi_nom": "Disponibilité par flux",
+   "kpi_status": "rouge",
+   "last_seen": "2026-11-26T21:40:13Z",
+   "periods": 8,
+   "status": "ouverte",
+   "sujet": "Dark Reading"
+  },
+  "B7_flux_en_erreur|HiddenLayer Blog": {
+   "action": "Le flux « HiddenLayer Blog » est en erreur depuis 2 jours : corriger son URL, le remplacer ou le désactiver (feeds.yaml).",
+   "first_seen": "2026-11-26T21:40:13Z",
+   "key": "B7_flux_en_erreur|HiddenLayer Blog",
+   "kpi": "B7_flux_en_erreur",
+   "kpi_nom": "Disponibilité par flux",
+   "kpi_status": "rouge",
+   "last_seen": "2026-11-26T21:40:13Z",
+   "periods": 8,
+   "status": "ouverte",
+   "sujet": "HiddenLayer Blog"
+  },
+  "B7_flux_en_erreur|LeMagIT": {
+   "action": "Le flux « LeMagIT » est en erreur depuis 2 jours : corriger son URL, le remplacer ou le désactiver (feeds.yaml).",
+   "first_seen": "2026-11-26T21:40:13Z",
+   "key": "B7_flux_en_erreur|LeMagIT",
+   "kpi": "B7_flux_en_erreur",
+   "kpi_nom": "Disponibilité par flux",
+   "kpi_status": "rouge",
+   "last_seen": "2026-11-26T21:40:13Z",
+   "periods": 8,
+   "status": "ouverte",
+   "sujet": "LeMagIT"
+  },
+  "B7_flux_en_erreur|NIST - Cybersecurity news": {
+   "action": "Le flux « NIST - Cybersecurity news » est en erreur depuis 2 jours : corriger son URL, le remplacer ou le désactiver (feeds.yaml).",
+   "first_seen": "2026-11-26T21:40:13Z",
+   "key": "B7_flux_en_erreur|NIST - Cybersecurity news",
+   "kpi": "B7_flux_en_erreur",
+   "kpi_nom": "Disponibilité par flux",
+   "kpi_status": "rouge",
+   "last_seen": "2026-11-26T21:40:13Z",
+   "periods": 8,
+   "status": "ouverte",
+   "sujet": "NIST - Cybersecurity news"
+  },
+  "B7_flux_en_erreur|Orca Security Blog": {
+   "action": "Le flux « Orca Security Blog » est en erreur depuis 2 jours : corriger son URL, le remplacer ou le désactiver (feeds.yaml).",
+   "first_seen": "2026-11-26T21:40:13Z",
+   "key": "B7_flux_en_erreur|Orca Security Blog",
+   "kpi": "B7_flux_en_erreur",
+   "kpi_nom": "Disponibilité par flux",
+   "kpi_status": "rouge",
+   "last_seen": "2026-11-26T21:40:13Z",
+   "periods": 8,
+   "status": "ouverte",
+   "sujet": "Orca Security Blog"
+  },
+  "B7_flux_en_erreur|SANS Blog (DFIR)": {
+   "action": "Le flux « SANS Blog (DFIR) » est en erreur depuis 2 jours : corriger son URL, le remplacer ou le désactiver (feeds.yaml).",
+   "first_seen": "2026-11-26T21:40:13Z",
+   "key": "B7_flux_en_erreur|SANS Blog (DFIR)",
+   "kpi": "B7_flux_en_erreur",
+   "kpi_nom": "Disponibilité par flux",
+   "kpi_status": "rouge",
+   "last_seen": "2026-11-26T21:40:13Z",
+   "periods": 8,
+   "status": "ouverte",
+   "sujet": "SANS Blog (DFIR)"
+  },
+  "B7_flux_en_erreur|SANS Internet Storm Center": {
+   "action": "Le flux « SANS Internet Storm Center » est en erreur depuis 2 jours : corriger son URL, le remplacer ou le désactiver (feeds.yaml).",
+   "first_seen": "2026-11-26T21:40:13Z",
+   "key": "B7_flux_en_erreur|SANS Internet Storm Center",
+   "kpi": "B7_flux_en_erreur",
+   "kpi_nom": "Disponibilité par flux",
+   "kpi_status": "rouge",
+   "last_seen": "2026-11-26T21:40:13Z",
+   "periods": 8,
+   "status": "ouverte",
+   "sujet": "SANS Internet Storm Center"
+  },
+  "B7_flux_en_erreur|Sysdig Blog": {
+   "action": "Le flux « Sysdig Blog » est en erreur depuis 2 jours : corriger son URL, le remplacer ou le désactiver (feeds.yaml).",
+   "first_seen": "2026-11-26T21:40:13Z",
+   "key": "B7_flux_en_erreur|Sysdig Blog",
+   "kpi": "B7_flux_en_erreur",
+   "kpi_nom": "Disponibilité par flux",
+   "kpi_status": "rouge",
+   "last_seen": "2026-11-26T21:40:13Z",
+   "periods": 8,
+   "status": "ouverte",
+   "sujet": "Sysdig Blog"
+  },
+  "B7_flux_en_erreur|ZATAZ": {
+   "action": "Le flux « ZATAZ » est en erreur depuis 2 jours : corriger son URL, le remplacer ou le désactiver (feeds.yaml).",
+   "first_seen": "2026-11-26T21:40:13Z",
+   "key": "B7_flux_en_erreur|ZATAZ",
+   "kpi": "B7_flux_en_erreur",
+   "kpi_nom": "Disponibilité par flux",
+   "kpi_status": "rouge",
+   "last_seen": "2026-11-26T21:40:13Z",
+   "periods": 8,
+   "status": "ouverte",
+   "sujet": "ZATAZ"
   },
   "D1_utilisations|": {
    "action": "La veille est peu utilisée : présenter la synthèse aux équipes et rappeler le lien « Signaler un usage ».",
@@ -19,11 +151,11 @@
    "kpi": "D1_utilisations",
    "kpi_nom": "Utilisations de l'information collectée",
    "kpi_status": "rouge",
-   "last_seen": "2026-11-26T08:30:02Z",
+   "last_seen": "2026-11-26T21:40:13Z",
    "periods": 1,
    "status": "ouverte",
    "sujet": null
   }
  },
- "updated": "2026-11-26T08:30:02Z"
+ "updated": "2026-11-26T21:40:13Z"
 }

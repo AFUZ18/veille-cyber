@@ -12,28 +12,514 @@
     "not_sensational": true,
     "plausible_date": true
    },
-   "collected": "2026-11-26T08:29:11Z",
+   "collected": "2026-11-26T21:39:29Z",
+   "corroboration_orgs": [
+    "BleepingComputer"
+   ],
+   "corroboration_sources": [
+    "BleepingComputer"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "www.bleepingcomputer.com",
+   "excerpt": "OpenAI confirmed that it fixed a 'bug' that incorrectly discounted GPT-6.2 usage, which means you'll now hit GPT usage limits 40% faster than before. [...]",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "BleepingComputer"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [],
+   "id": "15cc3a3798f8b369",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {},
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-26T21:06:22Z",
+   "relevance": 25,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "BleepingComputer",
+   "source_country": "US",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "OpenAI confirmed that it fixed a 'bug' that incorrectly discounted GPT-6.2 usage, which means you'll now hit GPT usage limits 40% faster than before. [...]",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [
+    "Artificial Intelligence",
+    "Software"
+   ],
+   "themes": [
+    "H4"
+   ],
+   "title": "OpenAI warns GPT-6.2 Astra will hit usage limits 40% faster because it fixed a bug",
+   "translation_steps": 0,
+   "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-warns-gpt-62-astra-will-hit-usage-limits-40-percent-faster-because-it-fixed-a-bug",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-26T21:39:29Z",
    "corroboration_orgs": [
     "The Hacker News"
    ],
    "corroboration_sources": [
     "The Hacker News"
    ],
-   "criticality": 50,
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "thehackernews.com",
+   "excerpt": "A website can look perfectly fine to the person running it. Log out, visit the same page, and things might look different. Something similar is happening with browser extensions, where even the way you find and install one can change what it does. Checking whether software works as expected only…",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "The Hacker News"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [],
+   "id": "0b75246ced860331",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {},
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-26T19:39:57Z",
+   "relevance": 25,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "The Hacker News",
+   "source_country": "IN",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "A website can look perfectly fine to the person running it. Log out, visit the same page, and things might look different. Something similar is happening with browser extensions, where even the way you find and install one can change what it does. Checking whether software works as expected only…",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H4"
+   ],
+   "title": "ThreatsDay: 10M NGINX Services at Risk, 250+ Malicious Extensions, AI Server Hijacking + 17 More Stories",
+   "translation_steps": 0,
+   "url": "https://thehackernews.com/2026/11/threatsday-250-rogue-extensions-10m.html",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-26T21:39:29Z",
+   "corroboration_orgs": [
+    "BleepingComputer"
+   ],
+   "corroboration_sources": [
+    "BleepingComputer"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "www.bleepingcomputer.com",
+   "excerpt": "An ongoing phishing campaign dubbed \"GoodGuys\" impersonates major brands, including Google, Nvidia, Accenture, and SpaceX, to steal corporate Google and Okta credentials using fake invitations to paid expert interviews and webinars. [...]",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "BleepingComputer"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [
+    "hameconnage"
+   ],
+   "id": "08c326dd24dcd490",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {
+    "H4": [
+     "phishing"
+    ]
+   },
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-26T17:15:27Z",
+   "relevance": 25,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "BleepingComputer",
+   "source_country": "US",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "An ongoing phishing campaign dubbed \"GoodGuys\" impersonates major brands, including Google, Nvidia, Accenture, and SpaceX, to steal corporate Google and Okta credentials using fake invitations to paid expert interviews and webinars. [...]",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [
+    "Apple"
+   ],
+   "themes": [
+    "H4"
+   ],
+   "title": "Fake paid expert interviews impersonate brands to steal Google logins",
+   "translation_steps": 0,
+   "url": "https://www.bleepingcomputer.com/news/apple/fake-paid-expert-interviews-impersonate-brands-to-steal-google-logins",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-26T21:39:29Z",
+   "corroboration_orgs": [
+    "BleepingComputer"
+   ],
+   "corroboration_sources": [
+    "BleepingComputer"
+   ],
+   "criticality": 10,
+   "criticality_reasons": [
+    "mots-clés : zero-day"
+   ],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "www.bleepingcomputer.com",
+   "excerpt": "The Remus infostealer is stealing Gmail messages through a stealthy malicious Chrome extension, a capability the malware operators marketed as a zero-day exploit in Google's email service. [...]",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "BleepingComputer"
+   ],
+   "glossary_axes_added": [
+    "H2"
+   ],
+   "glossary_concepts": [
+    "vulnerabilite-jour-zero",
+    "logiciel-espion"
+   ],
+   "id": "928a41a9b2193962",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {
+    "H4": [
+     "zero-day"
+    ]
+   },
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-26T15:23:28Z",
+   "relevance": 42,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "BleepingComputer",
+   "source_country": "US",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "The Remus infostealer is stealing Gmail messages through a stealthy malicious Chrome extension, a capability the malware operators marketed as a zero-day exploit in Google's email service. [...]",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [
+    "Security"
+   ],
+   "themes": [
+    "H2",
+    "H4"
+   ],
+   "title": "Remus malware steals Gmail messages via fake Google Sheets extension",
+   "translation_steps": 0,
+   "url": "https://www.bleepingcomputer.com/news/security/remus-malware-steals-gmail-messages-via-fake-google-sheets-extension",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-26T21:39:29Z",
+   "corroboration_orgs": [
+    "The Hacker News"
+   ],
+   "corroboration_sources": [
+    "The Hacker News"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "thehackernews.com",
+   "excerpt": "The threat actors behind the PolinRider campaign have been observed planting a Python loader in GitHub repositories, as evidence emerges that the activity may have started as far back as February 2025. \"The loader hides in a small utils package or in conftest.py,\" SafeDep said in a report…",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "The Hacker News"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [],
+   "id": "0574110d7d17666e",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {},
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-26T15:13:41Z",
+   "relevance": 25,
+   "reliability": "À recouper",
+   "sectors": [],
+   "source": "The Hacker News",
+   "source_country": "IN",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "The threat actors behind the PolinRider campaign have been observed planting a Python loader in GitHub repositories, as evidence emerges that the activity may have started as far back as February 2025. \"The loader hides in a small utils package or in conftest.py,\" SafeDep said in a report…",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H4"
+   ],
+   "title": "North Korea-Linked PolinRider Poisons Over 7,600 GitHub Repositories to Spread Malware",
+   "translation_steps": 0,
+   "url": "https://thehackernews.com/2026/11/north-korea-linked-polinrider-poisons.html",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-26T21:39:29Z",
+   "corroboration_orgs": [
+    "BleepingComputer"
+   ],
+   "corroboration_sources": [
+    "BleepingComputer"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "www.bleepingcomputer.com",
+   "excerpt": "A new version of the SYS01 infostealer malware delivered through Meta ads is enrolling browsers into enterprise-style management to force the installation of an extension that steals sensitive data, including Gmail and Outlook emails. [...]",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "BleepingComputer"
+   ],
+   "glossary_axes_added": [
+    "H2"
+   ],
+   "glossary_concepts": [
+    "logiciel-espion"
+   ],
+   "id": "92401dca047c23f9",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {},
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-26T11:50:17Z",
+   "relevance": 50,
+   "reliability": "À recouper",
+   "sectors": [
+    "Microsoft 365"
+   ],
+   "source": "BleepingComputer",
+   "source_country": "US",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "A new version of the SYS01 infostealer malware delivered through Meta ads is enrolling browsers into enterprise-style management to force the installation of an extension that steals sensitive data, including Gmail and Outlook emails. [...]",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [
+    "Security"
+   ],
+   "themes": [
+    "H2",
+    "H4"
+   ],
+   "title": "SYS010 malware abuses browser management to spy on Gmail, Outlook",
+   "translation_steps": 0,
+   "url": "https://www.bleepingcomputer.com/news/security/sys010-malware-abuses-browser-management-to-spy-on-gmail-outlook",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": false,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-26T21:39:29Z",
+   "corroboration_orgs": [
+    "The Hacker News"
+   ],
+   "corroboration_sources": [
+    "The Hacker News"
+   ],
+   "criticality": 0,
+   "criticality_reasons": [],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "thehackernews.com",
+   "excerpt": "Every phishing attack has to get past email security, web filtering, and safe browsing before it reaches an employee. Some kits manage that far more often than others, and those are the kits that security teams need to know about. At Push Security, we measure this as breakthrough rate: The share…",
+   "feed_priority": 2,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "The Hacker News"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [
+    "hameconnage"
+   ],
+   "id": "54cc21ceab246c65",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {
+    "H4": [
+     "phishing"
+    ]
+   },
+   "language": "en",
+   "level": "Info",
+   "official": false,
+   "published": "2026-11-26T10:57:55Z",
+   "relevance": 35,
+   "reliability": "À recouper",
+   "sectors": [
+    "Microsoft 365"
+   ],
+   "source": "The Hacker News",
+   "source_country": "IN",
+   "source_language": "en",
+   "source_type": "presse",
+   "summary": "Every phishing attack has to get past email security, web filtering, and safe browsing before it reaches an employee. Some kits manage that far more often than others, and those are the kits that security teams need to know about. At Push Security, we measure this as breakthrough rate: The share…",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H4"
+   ],
+   "title": "Most Wanted: The Phishing Kits and Techniques Getting Past Security Controls",
+   "translation_steps": 0,
+   "url": "https://thehackernews.com/2026/11/most-wanted-phishing-kits-and.html",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": true,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-26T08:29:11Z",
+   "corroboration_orgs": [
+    "ANSSI",
+    "The Hacker News"
+   ],
+   "corroboration_sources": [
+    "CERT-FR - Avis",
+    "The Hacker News"
+   ],
+   "criticality": 52,
    "criticality_reasons": [
     "CISA KEV (CVE-2026-132165)",
+    "EPSS 11%",
     "mots-clés : in the wild"
    ],
    "cve_details": {
     "CVE-2026-132165": {
      "cvss": null,
-     "epss": null,
+     "epss": 0.11053,
      "kev": true,
      "nvd_found": null
     },
     "CVE-2026-136716": {
      "cvss": null,
-     "epss": null,
+     "epss": 0.01014,
      "kev": false,
      "nvd_found": null
     }
@@ -66,7 +552,7 @@
    "official": false,
    "published": "2026-11-26T07:02:34Z",
    "relevance": 35,
-   "reliability": "À recouper",
+   "reliability": "Vérifié",
    "sectors": [],
    "source": "The Hacker News",
    "source_country": "IN",
@@ -498,6 +984,155 @@
    "title": "Make post-quantum cryptography updates routine with AWS-LC",
    "translation_steps": 0,
    "url": "https://aws.amazon.com/blogs/security/make-post-quantum-cryptography-updates-routine-with-aws-lc",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": true,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-26T21:39:29Z",
+   "corroboration_orgs": [
+    "ANSSI",
+    "The Hacker News"
+   ],
+   "corroboration_sources": [
+    "CERT-FR - Avis",
+    "The Hacker News"
+   ],
+   "criticality": 20,
+   "criticality_reasons": [
+    "EPSS 1%",
+    "mots-clés : activement exploitée",
+    "source officielle"
+   ],
+   "cve_details": {
+    "CVE-2026-136716": {
+     "cvss": null,
+     "epss": 0.01014,
+     "kev": false,
+     "nvd_found": null
+    }
+   },
+   "cves": [
+    "CVE-2026-136716"
+   ],
+   "date_adjusted": false,
+   "domain": "www.cert.cyber.gouv.fr",
+   "excerpt": "Une vulnérabilité a été découverte dans Drupal. Elle permet à un attaquant de provoquer un contournement de la politique de sécurité. Drupal indique que la vulnérabilité CVE-2026-136716 est activement exploitée.",
+   "feed_priority": 1,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "The Hacker News"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [
+    "exploitation-active"
+   ],
+   "id": "943b18471921e44c",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {},
+   "language": "fr",
+   "level": "Info",
+   "official": true,
+   "published": "2026-11-26T00:00:00Z",
+   "relevance": 39,
+   "reliability": "Vérifié",
+   "sectors": [],
+   "source": "CERT-FR - Avis",
+   "source_country": "FR",
+   "source_language": "fr",
+   "source_type": "officielle",
+   "summary": "Une vulnérabilité a été découverte dans Drupal. Elle permet à un attaquant de provoquer un contournement de la politique de sécurité. Drupal indique que la vulnérabilité CVE-2026-136716 est activement exploitée.",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H4"
+   ],
+   "title": "Vulnérabilité dans Drupal (26 novembre 2026)",
+   "translation_steps": 0,
+   "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1623",
+   "why": null
+  },
+  {
+   "action": null,
+   "action_type": null,
+   "ai_tags": [],
+   "checks": {
+    "approved_domain": true,
+    "corroborated": true,
+    "cves_confirmed": null,
+    "https": true,
+    "not_sensational": true,
+    "plausible_date": true
+   },
+   "collected": "2026-11-26T21:39:29Z",
+   "corroboration_orgs": [
+    "ANSSI"
+   ],
+   "corroboration_sources": [
+    "CERT-FR - Avis"
+   ],
+   "criticality": 20,
+   "criticality_reasons": [
+    "mots-clés : exécution de code arbitraire à distance",
+    "source officielle"
+   ],
+   "cve_details": {},
+   "cves": [],
+   "date_adjusted": false,
+   "domain": "www.cert.cyber.gouv.fr",
+   "excerpt": "De multiples vulnérabilités ont été découvertes dans HPE Aruba Networking Airwave. Certaines d'entre elles permettent à un attaquant de provoquer une exécution de code arbitraire à distance, une élévation de privilèges et un déni de service à distance.",
+   "feed_priority": 1,
+   "feed_themes": [
+    "H4"
+   ],
+   "first_publishers": [
+    "CERT-FR - Avis"
+   ],
+   "glossary_axes_added": [],
+   "glossary_concepts": [
+    "execution-code-distance",
+    "deni-service"
+   ],
+   "id": "dada567cd40c5463",
+   "is_event": false,
+   "kev": false,
+   "kev_ransomware": false,
+   "keyword_hits": {},
+   "language": "fr",
+   "level": "Info",
+   "official": true,
+   "published": "2026-11-26T00:00:00Z",
+   "relevance": 39,
+   "reliability": "Vérifié",
+   "sectors": [],
+   "source": "CERT-FR - Avis",
+   "source_country": "FR",
+   "source_language": "fr",
+   "source_type": "officielle",
+   "summary": "De multiples vulnérabilités ont été découvertes dans HPE Aruba Networking Airwave. Certaines d'entre elles permettent à un attaquant de provoquer une exécution de code arbitraire à distance, une élévation de privilèges et un déni de service à distance.",
+   "summary_from": "original",
+   "summary_source": "extrait",
+   "tags": [],
+   "themes": [
+    "H4"
+   ],
+   "title": "Multiples vulnérabilités dans HPE Aruba Networking Airwave (26 novembre 2026)",
+   "translation_steps": 0,
+   "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1628",
    "why": null
   },
   {
@@ -1751,7 +2386,7 @@
    "ai_tags": [],
    "checks": {
     "approved_domain": true,
-    "corroborated": false,
+    "corroborated": true,
     "cves_confirmed": true,
     "https": true,
     "not_sensational": true,
@@ -1759,20 +2394,23 @@
    },
    "collected": "2026-11-25T21:45:58Z",
    "corroboration_orgs": [
+    "ANSSI",
     "The Hacker News"
    ],
    "corroboration_sources": [
+    "CERT-FR - Avis",
     "The Hacker News"
    ],
-   "criticality": 50,
+   "criticality": 52,
    "criticality_reasons": [
     "CISA KEV (CVE-2026-132165)",
+    "EPSS 11%",
     "mots-clés : rce"
    ],
    "cve_details": {
     "CVE-2026-132165": {
      "cvss": null,
-     "epss": null,
+     "epss": 0.11053,
      "kev": true,
      "nvd_found": null
     }
@@ -1808,7 +2446,7 @@
    "official": false,
    "published": "2026-11-25T11:23:26Z",
    "relevance": 35,
-   "reliability": "À recouper",
+   "reliability": "Vérifié",
    "sectors": [],
    "source": "The Hacker News",
    "source_country": "IN",
@@ -4295,12 +4933,13 @@
    ],
    "criticality": 10,
    "criticality_reasons": [
+    "EPSS 1%",
     "mots-clés : zero-day"
    ],
    "cve_details": {
     "CVE-2026-123903": {
      "cvss": null,
-     "epss": null,
+     "epss": 0.00614,
      "kev": false,
      "nvd_found": null
     }
@@ -4814,12 +5453,13 @@
    ],
    "criticality": 10,
    "criticality_reasons": [
+    "EPSS 0%",
     "source officielle"
    ],
    "cve_details": {
     "CVE-2026-127280": {
      "cvss": null,
-     "epss": null,
+     "epss": 0.00306,
      "kev": false,
      "nvd_found": null
     }
@@ -7672,6 +8312,7 @@
    "action": null,
    "action_type": null,
    "ai_tags": [],
+   "also_in": [],
    "checks": {
     "approved_domain": true,
     "corroborated": true,
@@ -28020,6 +28661,6 @@
    "why": null
   }
  ],
- "count": 386,
- "updated": "2026-11-26T08:30:02Z"
+ "count": 395,
+ "updated": "2026-11-26T21:40:13Z"
 }
