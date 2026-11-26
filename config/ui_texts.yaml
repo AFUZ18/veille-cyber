@@ -1,0 +1,282 @@
+# ---------------------------------------------------------------------------
+# Textes du site et de l'e-mail (chantier 3 : site clair)
+# ---------------------------------------------------------------------------
+# Tout texte affiché se règle ici, sans toucher au code.
+# Règles de rédaction : français simple, phrases courtes, verbes d'action.
+# Les sigles (KEV, CVSS, EPSS, SQS, TTRI, HHI) sont INTERDITS hors des clés
+# « details » et du glossaire (un test automatique le vérifie).
+# Variables entre accolades : {n}, {urgent}… remplacées automatiquement.
+# ---------------------------------------------------------------------------
+
+navigation:
+  aller_au_contenu: "Aller au contenu"
+  libelle: "Navigation principale"
+  sujets_libelle: "Sujets"
+  actualites: "Actualités"
+  sante: "Santé de la veille"
+  aide: "Aide"
+
+# Niveaux de criticité : libellé simple, icône et couleur (rouge | orange | gris | neutre)
+niveaux:
+  Critique: {libelle: "Urgent", icone: "⚠", couleur: rouge}
+  Élevé: {libelle: "Important", icone: "●", couleur: orange}
+  Moyen: {libelle: "À suivre", icone: "◐", couleur: gris}
+  Info: {libelle: "Pour info", icone: "○", couleur: neutre}
+
+# Sujets (les codes H1 à H4 n'apparaissent que dans les détails)
+sujets:
+  ALL: "Tout"
+  H1: "Cloud"
+  H2: "Forensique"
+  H3: "IA"
+  H4: "Général"
+  EVENTS: "Salons"
+
+accueil:
+  titre_page: "Veille cyber"
+  sous_titre: "Ce qui compte cette semaine en cybersécurité, expliqué simplement."
+  mise_a_jour: "Mis à jour {quand}"
+  # Phrase de résumé (7 derniers jours)
+  resume_rien: "Cette semaine : rien d'urgent. {total} articles à parcourir si vous avez le temps."
+  resume: "Cette semaine : {urgent_txt}, {important_txt}."
+  urgent_1: "1 alerte urgente"
+  urgent_n: "{n} alertes urgentes"
+  urgent_0: "aucune alerte urgente"
+  important_1: "1 sujet important"
+  important_n: "{n} sujets importants"
+  important_0: "aucun sujet important"
+  priorite_titre: "À lire en priorité"
+  priorite_vide: "Rien d'urgent cette semaine. Bonne nouvelle !"
+  liste_titre: "Tous les articles"
+  recherche: "Rechercher"
+  recherche_aide: "Un mot, un produit, une marque…"
+  urgent_seulement: "Urgent seulement"
+  periode: "Période"
+  periode_7: "7 derniers jours"
+  periode_tout: "Tout (3 mois)"
+  plus_de_filtres: "Plus de filtres"
+  filtre_source: "Source"
+  filtre_toutes_sources: "Toutes les sources"
+  filtre_fiabilite: "Fiabilité"
+  filtre_toutes: "Toutes"
+  filtre_periode_precise: "Période précise"
+  filtre_24h: "24 heures"
+  filtre_30j: "30 jours"
+  filtre_pirates: "Déjà utilisée par des pirates"
+  filtre_niveau: "Niveau minimum"
+  filtre_tous_niveaux: "Tous les niveaux"
+  reinitialiser: "Effacer les filtres"
+  nb_articles_1: "1 article"
+  nb_articles_n: "{n} articles"
+  liste_vide: "Aucun article ne correspond. Essayez d'élargir la période ou d'effacer les filtres."
+  afficher_plus: "Afficher plus d'articles"
+  outils: "Exporter et s'abonner"
+  export_csv: "Télécharger la liste (tableur)"
+  export_md: "Télécharger la liste (texte)"
+  flux_rss: "S'abonner au flux d'actualités"
+  prochain_salon: "Prochain salon : {nom}, dans {jours} jours"
+  agenda_titre: "Agenda des salons"
+  agenda_vide: "Aucun salon à venir pour le moment."
+  dates_a_confirmer: "dates à confirmer"
+  jours: "jours"
+  en_cours: "en cours"
+  chargement: "Chargement…"
+  erreur_chargement: "Impossible de charger les actualités. Réessayez dans quelques minutes."
+
+carte_article:
+  pourquoi: "Pourquoi c'est important"
+  que_faire: "Que faire"
+  details_libelle: "Détails"
+  pirates: "Déjà utilisée par des pirates"
+  aussi_dans: "Aussi publié par : {sources}"
+  resume_ia: "Résumé rédigé par une IA à partir de l'article : vérifiez la source avant d'agir."
+  # Contenu de la zone « Détails » (les sigles y sont autorisés)
+  details:
+    titre_origine: "Titre d'origine ({langue})"
+    extrait: "Extrait de l'article (langue d'origine)"
+    sujets: "Sujets"
+    failles: "Failles citées (CVE)"
+    scores: "Scores"
+    criticite: "Criticité"
+    pertinence: "Pertinence pour vos entreprises"
+    fiabilite: "Fiabilité"
+    controles: "Contrôles automatiques"
+    identifiant: "Identifiant"
+    signaler: "Signaler un usage"
+    titre_usage: "Usage : "
+    raisons: "Raisons du niveau"
+    cvss: "gravité CVSS"
+    epss: "probabilité d'exploitation EPSS"
+    kev: "listée KEV (déjà exploitée)"
+
+fiabilite:
+  "Vérifié": {libelle: "Vérifiée", icone: "✔"}
+  "À recouper": {libelle: "À recouper", icone: "?"}
+  "Source non référencée": {libelle: "Source inconnue", icone: "✖"}
+
+controles:
+  approved_domain: "source connue"
+  https: "lien sécurisé"
+  plausible_date: "date plausible"
+  cves_confirmed: "failles confirmées"
+  corroborated: "confirmée par 2 sources indépendantes"
+  not_sensational: "ton non sensationnaliste"
+
+# Phrases « pourquoi / que faire » utilisées quand aucun résumé IA n'est disponible.
+# La première règle qui s'applique est retenue (ordre de la liste).
+raisons_auto:
+  - condition: pirates            # faille déjà exploitée (catalogue CISA)
+    pourquoi: "Cette faille est déjà utilisée par des pirates."
+    que_faire: "Vérifiez si vous utilisez ce produit et appliquez le correctif sans attendre."
+  - condition: rancongiciel
+    pourquoi: "Il s'agit d'une attaque par rançongiciel, qui peut bloquer toute une entreprise."
+    que_faire: "Vérifiez vos sauvegardes et les accès à distance de vos clients."
+  - condition: faille_grave       # niveau Urgent ou Important avec une faille citée
+    pourquoi: "Faille grave dans un logiciel répandu."
+    que_faire: "Vérifiez si vous êtes concerné et planifiez la mise à jour."
+  - condition: source_officielle
+    pourquoi: "Alerte publiée par une autorité officielle."
+    que_faire: "Lisez l'avis et vérifiez les produits concernés."
+  - condition: urgent
+    pourquoi: "Sujet classé urgent par la veille."
+    que_faire: "Lisez l'article et vérifiez si vos clients sont exposés."
+  - condition: important
+    pourquoi: "Sujet important pour les entreprises."
+    que_faire: "Lisez l'article quand vous avez un moment."
+
+sante:
+  titre: "Santé de la veille"
+  intro: "La veille fonctionne-t-elle bien ? 9 questions, une réponse simple chacune."
+  apprentissage: "Les objectifs sont provisoires : nous observons d'abord la réalité (jusqu'au {date})."
+  apprentissage_fin: "Période d'observation terminée : des objectifs ajustés vous sont proposés (fichier data/kpi_calibration.md), à valider."
+  verdict: "{bon} {bon_txt}, {surveiller} {surveiller_txt}, {probleme} {probleme_txt}, {sans} {sans_txt}."
+  verdict_bon_1: "point fonctionne"
+  verdict_bon_n: "points fonctionnent"
+  verdict_surveiller_1: "est à surveiller"
+  verdict_surveiller_n: "sont à surveiller"
+  verdict_probleme_1: "pose problème"
+  verdict_probleme_n: "posent problème"
+  verdict_sans_1: "n'est pas encore mesurable"
+  verdict_sans_n: "ne sont pas encore mesurables"
+  a_traiter: "À traiter en premier"
+  a_traiter_vide: "Rien à traiter en priorité. Continuez comme ça !"
+  pourquoi: "Pourquoi c'est important"
+  que_faire: "Que faire"
+  tendance_hausse: "↑ en hausse par rapport à la semaine dernière ({ecart})"
+  tendance_baisse: "↓ en baisse par rapport à la semaine dernière ({ecart})"
+  tendance_stable: "→ stable par rapport à la semaine dernière"
+  tendance_aucune: "Tendance disponible après une semaine de mesures."
+  estimation: "Estimation"
+  estimation_aide: "Valeur fondée sur des notes saisies à la main, pas sur une mesure."
+  disponible_le: "Mesurable à partir du {date}."
+  en_detail: "En détail"
+  barre: "{n} articles · objectif {cible}"
+  barre_legende: "Le trait vertical indique l'objectif de la semaine."
+  details_techniques: "Détails techniques (22 indicateurs, sources, signaux)"
+  details_techniques_intro: "Le référentiel complet des indicateurs, pour les spécialistes."
+  fiches_kpi: "Fiches détaillées des indicateurs"
+  sante_sources: "État de chaque source"
+  chargement: "Chargement des indicateurs…"
+  indisponible: "Les indicateurs seront disponibles après la prochaine mise à jour."
+  reponses:
+    bon: {libelle: "Bon", icone: "✔", couleur: vert}
+    surveiller: {libelle: "À surveiller", icone: "▲", couleur: orange}
+    probleme: {libelle: "Problème", icone: "✖", couleur: rouge}
+    sans_donnees: {libelle: "Pas encore de données", icone: "…", couleur: gris}
+
+aide:
+  titre: "Aide"
+  lire_accueil_titre: "Lire la page d'accueil en 1 minute"
+  lire_accueil:
+    - "La phrase en haut résume la semaine : combien d'alertes urgentes et de sujets importants."
+    - "« À lire en priorité » : les 3 à 5 articles à ne pas manquer, avec pourquoi et quoi faire."
+    - "Les onglets Cloud, Forensique, IA, Général et Salons trient les articles par sujet."
+    - "« Urgent seulement » masque tout le reste ; « Plus de filtres » propose des tris détaillés."
+    - "Cliquez sur « Détails » sous un article pour voir les failles citées, les scores et la fiabilité."
+  niveaux_titre: "Que veulent dire les niveaux ?"
+  niveaux:
+    - "⚠ Urgent : à traiter aujourd'hui (faille grave, souvent déjà exploitée)."
+    - "● Important : à lire cette semaine."
+    - "◐ À suivre : utile pour rester informé."
+    - "○ Pour info : contexte général, aucune action attendue."
+  sante_titre: "Lire la santé de la veille"
+  sante:
+    - "Chaque carte répond à une question : Bon, À surveiller, Problème ou Pas encore de données."
+    - "« Pas encore de données » n'est pas une erreur : il faut plus d'historique ou une saisie de votre part."
+    - "« Estimation » signale une valeur fondée sur des notes saisies à la main."
+  glossaire_titre: "Petit glossaire"
+  limites_titre: "Limites de l'outil"
+  limites:
+    - "Les résumés sont rédigés par une IA à partir de l'article : vérifiez toujours la source avant d'agir."
+    - "Les sources sont surtout anglophones et américaines : les sujets français sont moins visibles."
+    - "Certaines sources bloquent les robots : elles peuvent manquer temporairement."
+    - "Les objectifs chiffrés sont provisoires pendant les premières semaines."
+  contact: "Une question ou une erreur ? Ouvrez une demande sur le dépôt GitHub du projet."
+
+pied_de_page: "Les contenus restent la propriété de leurs auteurs : seuls le titre, le lien et un court extrait sont repris."
+
+email:
+  sante_titre: "Santé de la veille"
+  sante_verdict: "Bilan"
+  sante_a_traiter: "À traiter en premier"
+  sante_pas_encore: "Pas encore mesurable"
+  sante_rien: "rien"
+  apprentissage: "(objectifs provisoires : période d'observation)"
+
+# Zone « Détails techniques » de la vue Santé (référentiel complet du chantier 2 ; sigles autorisés)
+technique:
+  details:
+    calcule_le: "Calculés le {date} · {n} indicateurs"
+    familles:
+      A: "A. Pertinence"
+      B: "B. Qualité des sources"
+      C: "C. Intérêt : signaux faibles"
+      D: "D. Utilité"
+      E: "E. Risque de double traduction"
+      F: "F. Biais et diversité"
+    statuts:
+      vert: "Dans la cible"
+      orange: "À surveiller"
+      rouge: "Hors seuil"
+      info: "Observation"
+      na: "Non disponible"
+    tendances: "Tendances :"
+    semaines: "{n} sem."
+    export: "Exporter les indicateurs (tableur)"
+    cible: "cible {op} {valeur}"
+    alerte: "alerte {op} {valeur}"
+    sans_cible: "pas de cible (observation)"
+    pas_historique: "pas encore d'historique"
+    un_point: "1 point de mesure"
+    hors_cible: "{n} élément(s) hors cible sur {total}"
+    definition: "Définition SMART"
+    formule: "Formule"
+    responsable: "Responsable"
+    periode: "Période"
+    action_sla: "Action (SLA)"
+    smart:
+      specifique: "Spécifique"
+      mesurable: "Mesurable"
+      atteignable: "Atteignable"
+      realiste: "Réaliste"
+      temporel: "Temporel"
+    vue_ensemble: "Les 22 indicateurs"
+    objectifs: "Objectifs SMART par sujet"
+    objectif_ligne: "Objectif : {cible} articles utiles par semaine · échéance {echeance} · horizon {horizon} terme"
+    plan: "Plan d'amélioration (historique)"
+    plan_vide: "Aucune action ouverte."
+    plan_colonnes: ["Depuis", "Indicateur", "Concerne", "Action", "Périodes"]
+    classement: "Classement des sources (30 jours)"
+    classement_aide: "Note de qualité (SQS) = 30 % utilité + 25 % fiabilité + 25 % nouveauté + 20 % rapidité. « n.d. » : aucun article sur la période."
+    classement_colonnes: ["#", "Source", "Type", "Pays", "Qualité", "Utilité", "Fiabilité", "Nouveauté", "Rapidité", "Délai", "Autorité", "Articles"]
+    signaux: "Sujets émergents (signaux faibles)"
+    signaux_vide: "Aucun sujet émergent pour l'instant."
+    signaux_ligne: "{n} article(s) cette semaine (moyenne précédente {moy}/sem.) · {sources}"
+    biais: "Biais de la veille"
+    biais_colonnes: ["Biais", "Indicateur", "Valeur", "Consigne"]
+    checklist: "Grille de vérification des informations"
+    checklist_colonnes: ["Critère", "Importance", "Méthode", "Description"]
+    sources_colonnes: ["Source", "État", "Articles", "Dernier article"]
+    source_ok: "OK"
+    source_erreur: "Erreur : {erreur}"
+    nd: "n.d."

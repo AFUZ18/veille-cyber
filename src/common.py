@@ -63,6 +63,9 @@ class Config:
     sources_quality: dict[str, Any] = field(default_factory=dict)
     checklist: dict[str, Any] = field(default_factory=dict)
     bias: dict[str, Any] = field(default_factory=dict)
+    # Plain-language layer (chantier 3)
+    ui: dict[str, Any] = field(default_factory=dict)
+    glossary_ui: dict[str, Any] = field(default_factory=dict)
 
     @property
     def site_url(self) -> str:
@@ -94,6 +97,8 @@ def load_config(config_dir: Path | None = None, data_dir: Path | None = None) ->
         sources_quality=load_optional_yaml(cdir / "sources_quality.yaml"),
         checklist=load_optional_yaml(cdir / "verification_checklist.yaml"),
         bias=load_optional_yaml(cdir / "bias.yaml"),
+        ui=load_optional_yaml(cdir / "ui_texts.yaml"),
+        glossary_ui=load_optional_yaml(cdir / "glossary_ui.yaml"),
     )
 
 

@@ -10,215 +10,212 @@
 <link rel="alternate" type="application/rss+xml" title="{{SITE_TITLE}}" href="feed.xml">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <style>
+/* Palette réduite : vert, orange, rouge, gris (statuts) + neutre. Jamais la couleur seule : toujours un mot et une icône. */
 :root{
-  --bg:#f6f7f9;--surface:#fff;--surface-2:#eef0f4;--text:#14171f;--muted:#545b6a;--border:#d9dde5;
-  --accent:#1b4fd6;--accent-text:#fff;--focus:#1b4fd6;
-  --crit:#b3261e;--crit-bg:#fde7e5;--high:#9a4a00;--high-bg:#ffedd9;--med:#6b5800;--med-bg:#fff6c7;--info:#2f5d50;--info-bg:#e1f2ec;
-  --kev:#7a0f5c;--kev-bg:#fbe3f3;--radius:10px;--shadow:0 1px 2px rgba(16,24,40,.06);
+  --bg:#f7f7f8;--surface:#fff;--surface-2:#eff1f4;--text:#111318;--muted:#4a5160;--border:#d5d9e0;
+  --accent:#1a47c2;--accent-text:#fff;--focus:#1a47c2;
+  --green:#1d6b3a;--green-bg:#e3f3e8;--orange:#8a4500;--orange-bg:#fdecd8;--red:#a4231c;--red-bg:#fbe3e1;
+  --grey:#4a5160;--grey-bg:#eceef2;--radius:12px;
 }
 @media (prefers-color-scheme:dark){:root{
-  --bg:#0f1218;--surface:#171b23;--surface-2:#202631;--text:#e8ebf1;--muted:#a3abba;--border:#2e3544;
-  --accent:#7ea2ff;--accent-text:#0b0f17;--focus:#9fb9ff;
-  --crit:#ffb4ab;--crit-bg:#4a1512;--high:#ffc58f;--high-bg:#43290c;--med:#f2dd73;--med-bg:#3a3209;--info:#9fdcc6;--info-bg:#143229;
-  --kev:#ffb0e4;--kev-bg:#45123a;--shadow:none;
+  --bg:#0e1117;--surface:#161a22;--surface-2:#1f2430;--text:#eef0f4;--muted:#b1b8c6;--border:#313848;
+  --accent:#8fb0ff;--accent-text:#0b0f17;--focus:#a9c2ff;
+  --green:#8fdcab;--green-bg:#143523;--orange:#ffc48a;--orange-bg:#40280c;--red:#ffaba4;--red-bg:#4a1714;
+  --grey:#c3c9d5;--grey-bg:#262c38;
 }}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--text);font:15px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
-a{color:var(--accent)}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+a{color:var(--accent);text-underline-offset:2px}
 :focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:4px}
 .skip{position:absolute;left:-9999px}.skip:focus{left:12px;top:12px;background:var(--surface);padding:8px 12px;z-index:10}
-.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
-header.top{background:var(--surface);border-bottom:1px solid var(--border)}
-header.top .wrap{padding-top:18px;padding-bottom:14px}
-h1{font-size:1.45rem;margin:0}
-.subtitle{color:var(--muted);margin:2px 0 10px}
-.meta{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;color:var(--muted);font-size:.9rem}
-.counters{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;padding:0;list-style:none}
-.counters li{background:var(--surface-2);border-radius:999px;padding:2px 10px;font-size:.85rem}
-.counters b{color:var(--text)}
-nav.tabs{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--border)}
-.tablist{display:flex;gap:4px;overflow-x:auto;padding:8px 0;scrollbar-width:thin}
-.tab{flex:0 0 auto;border:1px solid var(--border);background:var(--surface);color:var(--text);padding:7px 12px;border-radius:999px;font:inherit;font-size:.9rem;cursor:pointer;white-space:nowrap}
-.tab[aria-selected="true"]{background:var(--accent);color:var(--accent-text);border-color:var(--accent)}
-.filters{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px 0}
-.filters label:first-child{grid-column:1/-1}
-@media (min-width:720px){.filters{grid-template-columns:2fr 1fr 1fr 1fr auto}.filters label:first-child{grid-column:auto}}
-.filters label{display:flex;flex-direction:column;font-size:.78rem;color:var(--muted);gap:3px;min-width:0;width:100%}
-.filters input[type=search],.filters select{font:inherit;font-size:.93rem;padding:8px 10px;border:1px solid var(--border);border-radius:8px;background:var(--surface);color:var(--text);min-width:0;width:100%}
-.filters .check{flex-direction:row;align-items:center;gap:6px;font-size:.9rem;color:var(--text);padding-top:16px}
-@media (max-width:719px){.filters .check{padding-top:0;grid-column:1/-1}}
-.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;margin-bottom:10px;color:var(--muted);font-size:.9rem}
-.btn{font:inherit;font-size:.88rem;border:1px solid var(--border);background:var(--surface);color:var(--text);padding:6px 12px;border-radius:8px;cursor:pointer;text-decoration:none;display:inline-block}
-.btn:hover{border-color:var(--accent)}
-.btn.primary{background:var(--accent);color:var(--accent-text);border-color:var(--accent)}
-section h2{font-size:1.1rem;margin:22px 0 10px}
-.grid{display:grid;grid-template-columns:1fr;gap:12px}
-@media (min-width:900px){.grid.two{grid-template-columns:1fr 1fr}}
-.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;box-shadow:var(--shadow)}
-.card h3{font-size:1rem;margin:6px 0 6px;line-height:1.35}
-.card h3 a{color:var(--text);text-decoration:none}
-.card h3 a:hover{text-decoration:underline;color:var(--accent)}
-.card .src{color:var(--muted);font-size:.83rem}
-.card p{margin:6px 0}
-.why{background:var(--surface-2);border-radius:8px;padding:7px 10px;font-size:.92rem}
-.why strong,.action strong{font-weight:600}
-.action{font-size:.92rem;border-left:3px solid var(--accent);padding-left:9px}
-.badges{display:flex;flex-wrap:wrap;gap:5px;align-items:center}
-.badge{display:inline-block;font-size:.74rem;font-weight:600;padding:1px 8px;border-radius:999px;border:1px solid transparent;white-space:nowrap}
-.lvl-Critique{color:var(--crit);background:var(--crit-bg)}
-.lvl-Élevé{color:var(--high);background:var(--high-bg)}
-.lvl-Moyen{color:var(--med);background:var(--med-bg)}
-.lvl-Info{color:var(--info);background:var(--info-bg)}
-.badge.kev{color:var(--kev);background:var(--kev-bg)}
-.badge.theme{background:var(--surface-2);color:var(--text);font-weight:500}
-.badge.sector{border-color:var(--border);color:var(--muted);font-weight:500}
-.cves{font-size:.83rem;display:flex;flex-wrap:wrap;gap:4px 10px}
-.cves a{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
-.small{font-size:.8rem;color:var(--muted)}
-.empty{padding:30px;text-align:center;color:var(--muted)}
-.event{display:flex;gap:14px;align-items:flex-start}
-.countdown{flex:0 0 74px;text-align:center;background:var(--surface-2);border-radius:8px;padding:8px 4px}
-.countdown b{display:block;font-size:1.4rem;line-height:1.1}
-.countdown span{font-size:.72rem;color:var(--muted)}
-details.health{margin:26px 0;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:10px 14px}
-details.health summary{cursor:pointer;font-weight:600}
-table{border-collapse:collapse;width:100%;font-size:.85rem}
-th,td{text-align:left;padding:5px 6px;border-bottom:1px solid var(--border);vertical-align:top}
-.ok{color:var(--info)}.ko{color:var(--crit)}
-.table-scroll{overflow-x:auto}
-footer{color:var(--muted);font-size:.85rem;padding:24px 0 40px}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.more{display:flex;justify-content:center;margin:16px 0}
-/* ---- reliability badge & card extras ---- */
-.badge.rel-ok{color:var(--info);background:var(--info-bg)}
-.badge.rel-check{color:var(--med);background:var(--med-bg)}
-.badge.rel-unref{color:var(--crit);background:var(--crit-bg)}
-.orig{font-size:.8rem;color:var(--muted);margin:2px 0}
-.card-foot{display:flex;flex-wrap:wrap;gap:4px 14px;justify-content:space-between;font-size:.78rem;color:var(--muted);margin-top:6px}
-.card-foot code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
-/* ---- KPI page ---- */
-.kpi-head{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin:14px 0}
-.seg{display:inline-flex;border:1px solid var(--border);border-radius:8px;overflow:hidden}
-.seg button{font:inherit;font-size:.85rem;border:0;background:var(--surface);color:var(--text);padding:6px 10px;cursor:pointer}
-.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-text)}
-.kpi-grid{display:grid;grid-template-columns:1fr;gap:10px}
-@media (min-width:760px){.kpi-grid{grid-template-columns:1fr 1fr}}
-@media (min-width:1100px){.kpi-grid{grid-template-columns:1fr 1fr 1fr}}
-.kpi{background:var(--surface);border:1px solid var(--border);border-left-width:5px;border-radius:var(--radius);padding:10px 12px}
-.kpi.st-vert{border-left-color:var(--info)}.kpi.st-orange{border-left-color:var(--high)}.kpi.st-rouge{border-left-color:var(--crit)}
-.kpi.st-info,.kpi.st-na{border-left-color:var(--border)}
-.kpi h4{margin:0 0 4px;font-size:.92rem;line-height:1.3}
-.kpi .val{font-size:1.5rem;font-weight:700;line-height:1.2}
-.kpi .val small{font-size:.8rem;font-weight:500;color:var(--muted)}
+.reading{max-width:760px;margin:0 auto;padding:0 16px}
+.wide{max-width:1120px;margin:0 auto;padding:0 16px}
+header.top{background:var(--surface);border-bottom:1px solid var(--border)}
+header.top .reading{padding-top:16px;padding-bottom:6px}
+h1{font-size:1.5rem;margin:0;line-height:1.3}
+.subtitle{color:var(--muted);margin:2px 0 4px}
+.updated{color:var(--muted);font-size:.9rem;margin:0}
+nav.main{display:flex;gap:6px;margin:10px 0 0;flex-wrap:wrap}
+nav.main button{font:inherit;font-size:1rem;border:0;border-bottom:3px solid transparent;background:none;color:var(--text);padding:8px 10px;cursor:pointer}
+nav.main button[aria-current="page"]{border-bottom-color:var(--accent);font-weight:700}
+h2{font-size:1.25rem;margin:28px 0 12px;line-height:1.3}
+h3{font-size:1.06rem;margin:6px 0;line-height:1.35}
+.summary{font-size:1.2rem;font-weight:600;margin:20px 0 4px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;margin:0 0 12px}
+.card h3 a{color:var(--text);text-decoration:none}.card h3 a:hover{text-decoration:underline;color:var(--accent)}
+.meta{color:var(--muted);font-size:.9rem}
+.clamp{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin:6px 0}
+.why,.todo{margin:6px 0}
+.why strong,.todo strong{font-weight:650}
+.todo{border-left:4px solid var(--accent);padding-left:10px}
+.chip{display:inline-flex;align-items:center;gap:5px;font-size:.85rem;font-weight:650;padding:2px 10px;border-radius:999px;white-space:nowrap}
+.c-rouge{color:var(--red);background:var(--red-bg)}.c-orange{color:var(--orange);background:var(--orange-bg)}
+.c-vert{color:var(--green);background:var(--green-bg)}.c-gris{color:var(--grey);background:var(--grey-bg)}
+.c-neutre{color:var(--muted);background:transparent;border:1px solid var(--border)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+details.more{margin-top:8px}
+details.more>summary{cursor:pointer;color:var(--accent);font-size:.95rem}
+details.more .inner{font-size:.92rem;color:var(--text);padding:8px 0 2px;border-top:1px dashed var(--border);margin-top:6px}
+details.more dl{margin:0;display:grid;grid-template-columns:max-content 1fr;gap:4px 12px}
+details.more dt{color:var(--muted)}details.more dd{margin:0}
+details.def{display:inline}
+details.def>summary{display:inline-flex;justify-content:center;align-items:center;width:1.4em;height:1.4em;border-radius:50%;border:1px solid var(--border);font-size:.75rem;cursor:pointer;list-style:none;margin-left:3px;vertical-align:middle}
+details.def>summary::-webkit-details-marker{display:none}
+details.def[open]>span{display:block;background:var(--surface-2);border-radius:8px;padding:6px 10px;margin:4px 0;font-size:.88rem}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:4px 0 8px}
+.tab{flex:0 0 auto;font:inherit;font-size:.95rem;border:1px solid var(--border);background:var(--surface);color:var(--text);padding:6px 14px;border-radius:999px;cursor:pointer}
+.tab[aria-selected="true"]{background:var(--accent);color:var(--accent-text);border-color:var(--accent)}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:8px 0}
+.controls input[type=search]{flex:1 1 220px;font:inherit;padding:9px 12px;border:1px solid var(--border);border-radius:10px;background:var(--surface);color:var(--text);min-width:0}
+.controls select,.morebox select{font:inherit;font-size:.95rem;padding:8px 10px;border:1px solid var(--border);border-radius:10px;background:var(--surface);color:var(--text)}
+.switch{display:inline-flex;align-items:center;gap:8px;font:inherit;background:none;border:0;color:var(--text);cursor:pointer;padding:4px}
+.switch .track{width:42px;height:24px;border-radius:12px;background:var(--grey-bg);border:1px solid var(--border);position:relative;flex:0 0 auto}
+.switch .track::after{content:"";position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;background:var(--muted);transition:left .15s}
+.switch[aria-checked="true"] .track{background:var(--red-bg);border-color:var(--red)}
+.switch[aria-checked="true"] .track::after{left:20px;background:var(--red)}
+.btn{font:inherit;font-size:.95rem;border:1px solid var(--border);background:var(--surface);color:var(--text);padding:7px 14px;border-radius:10px;cursor:pointer;text-decoration:none;display:inline-block}
+.btn.primary{background:var(--accent);color:var(--accent-text);border-color:var(--accent)}
+.morebox{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:12px;display:grid;grid-template-columns:1fr;gap:10px;margin:6px 0 12px}
+@media (min-width:640px){.morebox{grid-template-columns:1fr 1fr}}
+.morebox label{display:flex;flex-direction:column;gap:3px;font-size:.88rem;color:var(--muted)}
+.morebox label.inline{flex-direction:row;align-items:center;gap:8px;color:var(--text);font-size:.95rem}
+.count{color:var(--muted);font-size:.92rem;margin:4px 0 10px}
+.empty{padding:22px;text-align:center;color:var(--muted);background:var(--surface);border:1px dashed var(--border);border-radius:var(--radius)}
+.center{display:flex;justify-content:center;margin:14px 0}
+.priority li{margin-bottom:0}
+ol.plain,ul.plain{list-style:none;padding:0;margin:0}
+.event{display:flex;gap:14px;align-items:flex-start}
+.countdown{flex:0 0 74px;text-align:center;background:var(--surface-2);border-radius:10px;padding:8px 4px}
+.countdown b{display:block;font-size:1.4rem;line-height:1.1}
+.countdown span{font-size:.75rem;color:var(--muted)}
+/* Santé */
+.banner{background:var(--orange-bg);color:var(--text);border-left:5px solid var(--orange);border-radius:10px;padding:10px 14px;margin:18px 0 0}
+.verdict{font-size:1.15rem;font-weight:650;margin:16px 0 6px}
+.groups{font-size:.92rem;color:var(--muted);margin:0 0 6px;padding-left:18px}
+.todo-list{counter-reset:t;list-style:none;padding:0;margin:0}
+.todo-list li{counter-increment:t;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 14px 10px 48px;margin-bottom:8px;position:relative}
+.todo-list li::before{content:counter(t);position:absolute;left:14px;top:10px;font-weight:700;color:var(--accent);font-size:1.1rem}
+.hgrid{display:grid;grid-template-columns:1fr;gap:12px}
+@media (min-width:860px){.hgrid{grid-template-columns:1fr 1fr}}
+@media (min-width:1100px){.hgrid{grid-template-columns:1fr 1fr 1fr}}
+.hcard{background:var(--surface);border:1px solid var(--border);border-top:6px solid var(--grey);border-radius:var(--radius);padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+.hcard.a-vert{border-top-color:var(--green)}.hcard.a-orange{border-top-color:var(--orange)}.hcard.a-rouge{border-top-color:var(--red)}
+.hcard h3{margin:0}
+.big{font-size:1.12rem;font-weight:650;line-height:1.4;margin:6px 0 2px}
+.small{font-size:.9rem;color:var(--muted)}
+.hcard p{margin:2px 0}
+.bars{list-style:none;padding:0;margin:6px 0}
+.bars li{display:grid;grid-template-columns:6.5em 1fr 9.5em;gap:8px;align-items:center;font-size:.9rem;margin:3px 0}
+.bar{height:10px;border-radius:5px;background:var(--grey-bg);position:relative}
+@media (max-width:520px){.bars li{grid-template-columns:6.5em 1fr}.bars li>.small{grid-column:1/-1;margin:-2px 0 4px}}
+.bar .target{position:absolute;top:-3px;width:2px;height:16px;background:var(--text)}
+.bar>span{display:block;height:100%;border-radius:5px;background:var(--accent)}
+details.tech{margin:30px 0;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:12px 16px}
+details.tech>summary{cursor:pointer;font-weight:650}
+.kgrid{display:grid;grid-template-columns:1fr;gap:10px}
+@media (min-width:860px){.kgrid{grid-template-columns:1fr 1fr}}
+.kpi{border:1px solid var(--border);border-left-width:5px;border-radius:10px;padding:10px 12px;font-size:.92rem}
+.kpi.st-vert{border-left-color:var(--green)}.kpi.st-orange{border-left-color:var(--orange)}.kpi.st-rouge{border-left-color:var(--red)}
+.kpi h4{margin:0 0 4px;font-size:.95rem}
 .kpi .row{display:flex;justify-content:space-between;align-items:flex-end;gap:8px}
-.status{display:inline-block;font-size:.75rem;font-weight:600;padding:1px 8px;border-radius:999px}
-.status.st-vert{color:var(--info);background:var(--info-bg)}.status.st-orange{color:var(--high);background:var(--high-bg)}
-.status.st-rouge{color:var(--crit);background:var(--crit-bg)}.status.st-info,.status.st-na{color:var(--muted);background:var(--surface-2)}
-.subs{list-style:none;padding:0;margin:6px 0 0;display:flex;flex-wrap:wrap;gap:4px 10px;font-size:.8rem;color:var(--muted)}
-.subs b{color:var(--text)}
+.kpi .val{font-size:1.3rem;font-weight:700}
 .spark{display:block;color:var(--accent)}
-.kpi details{font-size:.8rem;color:var(--muted);margin-top:6px}
-.kpi details summary{cursor:pointer}
-.fam-title{font-size:1rem;margin:20px 0 8px}
-table.data th{font-size:.78rem;color:var(--muted);font-weight:600}
-table.data td.num,table.data th.num{text-align:right;font-variant-numeric:tabular-nums}
-.bar{display:inline-block;height:8px;border-radius:4px;background:var(--accent);vertical-align:middle;margin-right:6px}
-.obj{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:10px 12px;font-size:.9rem}
-.obj h4{margin:0 0 4px}
-@media (prefers-reduced-motion:no-preference){.card{transition:border-color .15s}.card:hover{border-color:var(--accent)}}
+.seg{display:inline-flex;border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.seg button{font:inherit;font-size:.85rem;border:0;background:var(--surface);color:var(--text);padding:5px 9px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-text)}
+.table-scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.86rem}
+th,td{text-align:left;padding:5px 6px;border-bottom:1px solid var(--border);vertical-align:top}
+th{color:var(--muted);font-weight:600}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+footer{color:var(--muted);font-size:.88rem;padding:30px 0 40px}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){.switch .track::after{transition:none}}
 </style>
 </head>
 <body>
-<a class="skip" href="#main">Aller au contenu</a>
+<a class="skip" href="#main">{{ui.navigation.aller_au_contenu}}</a>
 <header class="top">
-  <div class="wrap">
+  <div class="reading">
     <h1>{{SITE_TITLE}}</h1>
-    <p class="subtitle">{{SITE_SUBTITLE}}</p>
-    <div class="meta">
-      <span id="updated">Chargement…</span>
-      <span id="next-event"></span>
-      <a href="feed.xml">S'abonner au flux RSS</a>
-    </div>
-    <ul class="counters" id="counters" aria-label="Nombre d'articles par thème"></ul>
+    <p class="subtitle">{{ui.accueil.sous_titre}}</p>
+    <p class="updated" id="updated">{{ui.accueil.chargement}}</p>
+    <nav class="main" aria-label="{{ui.navigation.libelle}}">
+      <button type="button" data-view="actualites" aria-current="page">{{ui.navigation.actualites}}</button>
+      <button type="button" data-view="sante">{{ui.navigation.sante}}</button>
+      <button type="button" data-view="aide">{{ui.navigation.aide}}</button>
+    </nav>
   </div>
 </header>
 
-<nav class="tabs" aria-label="Thèmes">
-  <div class="wrap"><div class="tablist" role="tablist" id="tabs"></div></div>
-</nav>
+<main id="main" tabindex="-1">
+  <!-- ======================= Actualités ======================= -->
+  <section id="view-actualites" class="reading" aria-labelledby="summary">
+    <p class="summary" id="summary" aria-live="polite"></p>
+    <p class="small" id="next-event"></p>
 
-<main id="main" class="wrap" tabindex="-1">
-  <div id="panel" role="tabpanel" aria-labelledby="">
-   <div id="articles-view">
-    <form class="filters" id="filters" role="search" onsubmit="return false">
-      <label>Recherche
-        <input type="search" id="f-q" placeholder="Titre, résumé, CVE, éditeur…" autocomplete="off">
-      </label>
-      <label>Criticité
-        <select id="f-level">
-          <option value="">Toutes</option>
-          <option value="Critique">Critique</option>
-          <option value="Élevé">Élevé et +</option>
-          <option value="Moyen">Moyen et +</option>
-        </select>
-      </label>
-      <label>Source
-        <select id="f-source"><option value="">Toutes</option></select>
-      </label>
-      <label>Période
-        <select id="f-period">
-          <option value="1">24 heures</option>
-          <option value="7" selected>7 jours</option>
-          <option value="30">30 jours</option>
-          <option value="0">Tout (90 j)</option>
-        </select>
-      </label>
-      <label class="check"><input type="checkbox" id="f-kev"> Exploité activement (KEV)</label>
-    </form>
-
-    <section id="featured-section" aria-labelledby="featured-title">
-      <h2 id="featured-title">À la une cette semaine</h2>
-      <div class="grid two" id="featured"></div>
-    </section>
-
-    <section id="events-section" aria-labelledby="events-title" hidden>
-      <h2 id="events-title">Agenda des salons</h2>
-      <div class="grid two" id="events"></div>
+    <section aria-labelledby="prio-title">
+      <h2 id="prio-title">{{ui.accueil.priorite_titre}}</h2>
+      <ol class="plain priority" id="priority"></ol>
     </section>
 
     <section aria-labelledby="list-title">
-      <h2 id="list-title">Articles</h2>
-      <div class="toolbar">
-        <span id="result-count" aria-live="polite"></span>
-        <span>
-          <button type="button" class="btn" id="export-csv">Exporter CSV</button>
-          <button type="button" class="btn" id="export-md">Exporter Markdown</button>
-        </span>
+      <h2 id="list-title">{{ui.accueil.liste_titre}}</h2>
+      <div class="tabs" role="tablist" aria-label="{{ui.navigation.sujets_libelle}}" id="topics"></div>
+      <div class="controls" role="search">
+        <label class="sr-only" for="q">{{ui.accueil.recherche}}</label>
+        <input type="search" id="q" placeholder="{{ui.accueil.recherche_aide}}" autocomplete="off">
+        <button type="button" class="switch" role="switch" aria-checked="false" id="urgent-only"><span class="track" aria-hidden="true"></span><span>{{ui.accueil.urgent_seulement}}</span></button>
+        <label class="sr-only" for="period">{{ui.accueil.periode}}</label>
+        <select id="period">
+          <option value="7" selected>{{ui.accueil.periode_7}}</option>
+          <option value="0">{{ui.accueil.periode_tout}}</option>
+        </select>
       </div>
-      <div class="grid" id="list"></div>
-      <div class="more"><button type="button" class="btn primary" id="more" hidden>Afficher plus</button></div>
+      <button type="button" class="btn" id="more-btn" aria-expanded="false" aria-controls="morebox">{{ui.accueil.plus_de_filtres}}</button>
+      <div class="morebox" id="morebox" hidden>
+        <label>{{ui.accueil.filtre_source}}<select id="f-source"><option value="">{{ui.accueil.filtre_toutes_sources}}</option></select></label>
+        <label>{{ui.accueil.filtre_fiabilite}}<select id="f-rel"><option value="">{{ui.accueil.filtre_toutes}}</option></select></label>
+        <label>{{ui.accueil.filtre_periode_precise}}<select id="f-period"><option value="">—</option><option value="1">{{ui.accueil.filtre_24h}}</option><option value="30">{{ui.accueil.filtre_30j}}</option></select></label>
+        <label>{{ui.accueil.filtre_niveau}}<select id="f-level"><option value="">{{ui.accueil.filtre_tous_niveaux}}</option></select></label>
+        <label class="inline"><input type="checkbox" id="f-kev"> {{ui.accueil.filtre_pirates}}</label>
+        <div><button type="button" class="btn" id="reset">{{ui.accueil.reinitialiser}}</button></div>
+      </div>
+      <p class="count" id="count" aria-live="polite"></p>
+      <div id="agenda" hidden></div>
+      <div id="list"></div>
+      <div class="center"><button type="button" class="btn primary" id="show-more" hidden>{{ui.accueil.afficher_plus}}</button></div>
+      <details class="more">
+        <summary>{{ui.accueil.outils}}</summary>
+        <div class="inner chips">
+          <button type="button" class="btn" id="export-csv">{{ui.accueil.export_csv}}</button>
+          <button type="button" class="btn" id="export-md">{{ui.accueil.export_md}}</button>
+          <a class="btn" href="feed.xml">{{ui.accueil.flux_rss}}</a>
+        </div>
+      </details>
     </section>
-   </div>
-   <div id="kpi-view" hidden aria-live="polite"><p class="empty">Chargement des indicateurs…</p></div>
-  </div>
+  </section>
 
-  <details class="health">
-    <summary>Santé des sources</summary>
-    <div class="table-scroll"><table id="health"><caption class="sr-only">État de chaque flux lors de la dernière collecte</caption>
-      <thead><tr><th scope="col">Source</th><th scope="col">État</th><th scope="col">Entrées</th><th scope="col">Dernier article</th></tr></thead>
-      <tbody></tbody></table></div>
-  </details>
+  <!-- ======================= Santé de la veille ======================= -->
+  <section id="view-sante" class="wide" hidden aria-labelledby="sante-title">
+    <h2 id="sante-title">{{ui.sante.titre}}</h2>
+    <div id="sante"><p class="empty">{{ui.sante.chargement}}</p></div>
+  </section>
+
+  <!-- ======================= Aide ======================= -->
+  <section id="view-aide" class="reading" hidden aria-labelledby="aide-title">
+    <h2 id="aide-title">{{ui.aide.titre}}</h2>
+    <div id="aide"></div>
+  </section>
 </main>
-<footer class="wrap">
-  Résumés générés par IA à partir du titre et de l'extrait publics : vérifiez toujours la source originale avant d'agir.
-  Les contenus restent la propriété de leurs auteurs ; seuls le titre, le lien et un court extrait sont repris.
-</footer>
+<footer class="reading">{{ui.pied_de_page}}</footer>
 
 <script>
 "use strict";
 (function () {
-  // ---- Safe DOM helpers: feed content is untrusted, never use innerHTML with it ----
+  // ---------- Safe DOM helpers: feed content is untrusted, never innerHTML ----------
   function el(tag, attrs, children) {
     const node = document.createElement(tag);
     if (attrs) for (const [k, v] of Object.entries(attrs)) {
@@ -227,464 +224,424 @@ table.data td.num,table.data th.num{text-align:right;font-variant-numeric:tabula
       else if (k === "class") node.className = v;
       else node.setAttribute(k, v === true ? "" : String(v));
     }
-    (children || []).forEach(c => { if (c) node.appendChild(typeof c === "string" ? document.createTextNode(c) : c); });
+    (children || []).forEach(c => { if (c !== null && c !== undefined && c !== false && c !== "") node.appendChild(typeof c === "string" || typeof c === "number" ? document.createTextNode(String(c)) : c); });
     return node;
   }
-  function safeUrl(u) {
-    try { const p = new URL(u); return (p.protocol === "https:" || p.protocol === "http:") ? p.href : null; }
-    catch (e) { return null; }
-  }
-  function extLink(href, text, cls) {
+  function safeUrl(u) { try { const p = new URL(u); return (p.protocol === "https:" || p.protocol === "http:") ? p.href : null; } catch (e) { return null; } }
+  function extLink(href, text, attrs) {
     const url = safeUrl(href);
     if (!url) return el("span", { text });
-    return el("a", { href: url, target: "_blank", rel: "noopener noreferrer", class: cls, text });
+    return el("a", Object.assign({ href: url, target: "_blank", rel: "noopener noreferrer", text }, attrs || {}));
+  }
+  const $ = id => document.getElementById(id);
+
+  // ---------- Texts (config/ui_texts.yaml, served in articles.json) ----------
+  let UI = {}, GLOSSARY = {};
+  function t(path, vars) {
+    let v = path.split(".").reduce((o, k) => (o && o[k] !== undefined ? o[k] : undefined), UI);
+    if (typeof v !== "string") return "";
+    return v.replace(/\{(\w+)\}/g, (m, k) => (vars && vars[k] !== undefined ? String(vars[k]) : m));
+  }
+  function plural(base, n, vars) { return t(base + (n === 1 ? "_1" : "_n"), Object.assign({ n }, vars || {})); }
+  // A term with a small « ? » that opens a one-sentence definition (only used inside « Détails »)
+  function term(word) {
+    const def = GLOSSARY[word];
+    if (!def) return el("span", { text: word });
+    return el("span", {}, [word, el("details", { class: "def" }, [el("summary", { "aria-label": word + " : ?", text: "?" }), el("span", { text: def })])]);
   }
 
-  const LEVEL_RANK = { "Critique": 3, "Élevé": 2, "Moyen": 1, "Info": 0 };
-  const TABS = [["ALL", "Tout"], ["H1", "H1 Cloud"], ["H2", "H2 Forensique"], ["H3", "H3 IA"], ["H4", "H4 Général"], ["EVENTS", "Salons & événements"], ["KPI", "KPI & qualité"]];
-  const PAGE = 30;
   const rtf = new Intl.RelativeTimeFormat("fr", { numeric: "auto" });
   const dtf = new Intl.DateTimeFormat("fr-FR", { dateStyle: "medium", timeStyle: "short" });
   const dfmt = new Intl.DateTimeFormat("fr-FR", { day: "numeric", month: "long", year: "numeric" });
-
-  const state = { data: null, tab: "ALL", shown: PAGE, filtered: [] };
-  const $ = id => document.getElementById(id);
-
+  const nf = new Intl.NumberFormat("fr-FR", { maximumFractionDigits: 1 });
   function relative(iso) {
     const diff = (new Date(iso) - Date.now()) / 1000;
-    const units = [["year", 31536000], ["month", 2592000], ["week", 604800], ["day", 86400], ["hour", 3600], ["minute", 60]];
-    for (const [u, s] of units) if (Math.abs(diff) >= s) return rtf.format(Math.round(diff / s), u);
-    return "à l'instant";
+    for (const [u, s] of [["year", 31536000], ["month", 2592000], ["week", 604800], ["day", 86400], ["hour", 3600], ["minute", 60]])
+      if (Math.abs(diff) >= s) return rtf.format(Math.round(diff / s), u);
+    return rtf.format(0, "minute");
+  }
+  function frDate(iso) { return iso ? new Intl.DateTimeFormat("fr-FR").format(new Date(iso + (iso.length === 10 ? "T00:00:00" : ""))) : ""; }
+
+  const LEVEL_RANK = { "Critique": 3, "Élevé": 2, "Moyen": 1, "Info": 0 };
+  const TOPICS = ["ALL", "H1", "H2", "H3", "H4", "EVENTS"];
+  const PAGE = 20;
+  const state = { data: null, topic: "ALL", shown: PAGE, filtered: [], view: "actualites", kpi: null, kpiLoading: false, weeks: 12 };
+
+  function levelChip(level) {
+    const n = (UI.niveaux || {})[level] || { libelle: level, icone: "", couleur: "neutre" };
+    return el("span", { class: "chip c-" + n.couleur }, [el("span", { "aria-hidden": "true", text: n.icone }), n.libelle]);
   }
 
-  // ---- Filtering ----
-  function currentFilters() {
+  // ---------- Article card ----------
+  function articleCard(a, opts) {
+    const o = opts || {};
+    const lang = a.source_language || a.language || "en";
+    const chips = [levelChip(a.level)];
+    if (a.kev) chips.push(el("span", { class: "chip c-rouge" }, [el("span", { "aria-hidden": "true", text: "⚠" }), t("carte_article.pirates")]));
+    const body = [
+      el("div", { class: "chips" }, chips),
+      el("h3", { lang }, [extLink(a.url, a.title)]),
+      el("div", { class: "meta" }, [a.source + " · ", el("time", { datetime: a.published, title: dtf.format(new Date(a.published)), text: relative(a.published) })]),
+    ];
+    // Only a French AI summary is shown on the card; the original excerpt (often English) lives in « Détails »
+    if (a.summary && a.summary_source === "ia" && !o.compact) body.push(el("p", { class: "clamp", lang: "fr", text: a.summary }));
+    if (a.why_simple) body.push(el("p", { class: "why" }, [el("strong", { text: t("carte_article.pourquoi") + " : " }), a.why_simple]));
+    if (a.todo_simple) body.push(el("p", { class: "todo" }, [el("strong", { text: t("carte_article.que_faire") + " : " }), a.todo_simple]));
+    if (!o.compact) body.push(articleDetails(a, lang));
+    return el(o.tag || "article", { class: "card" }, body);
+  }
+
+  function articleDetails(a, lang) {
+    const rows = [];
+    const add = (label, value) => { if (value) rows.push(el("dt", { text: label }), el("dd", {}, Array.isArray(value) ? value : [value])); };
+    add(t("carte_article.details.titre_origine", { langue: lang.toUpperCase() }), el("span", { lang, text: a.title }));
+    if (a.excerpt) add(t("carte_article.details.extrait"), el("span", { lang, text: a.excerpt }));
+    add(t("carte_article.details.sujets"), (a.themes || []).map(x => t("sujets." + x) + " (" + x + ")").join(", "));
+    if (a.cves && a.cves.length) {
+      const items = a.cves.slice(0, 12).map(c => {
+        const d = (a.cve_details || {})[c] || {};
+        const extra = [];
+        if (d.cvss) extra.push(t("carte_article.details.cvss") + " " + d.cvss);
+        if (d.epss) extra.push(t("carte_article.details.epss") + " " + Math.round(d.epss * 100) + " %");
+        if (d.kev) extra.push(t("carte_article.details.kev"));
+        return el("li", {}, [extLink("https://nvd.nist.gov/vuln/detail/" + encodeURIComponent(c), c), extra.length ? " — " + extra.join(", ") : ""]);
+      });
+      add(t("carte_article.details.failles"), [el("span", {}, [term("CVE"), " ", term("CVSS"), " ", term("EPSS"), " ", term("KEV")]), el("ul", {}, items)]);
+    }
+    add(t("carte_article.details.scores"), t("carte_article.details.criticite") + " " + a.criticality + "/100 · " + t("carte_article.details.pertinence") + " " + a.relevance + "/100");
+    if (a.criticality_reasons && a.criticality_reasons.length) add(t("carte_article.details.raisons"), a.criticality_reasons.join(" ; "));
+    if (a.reliability) {
+      const r = (UI.fiabilite || {})[a.reliability] || { libelle: a.reliability, icone: "" };
+      const checks = Object.entries(a.checks || {}).map(([k, v]) => (v === true ? "✔ " : v === false ? "✖ " : "– ") + t("controles." + k));
+      add(t("carte_article.details.fiabilite"), r.icone + " " + r.libelle);
+      add(t("carte_article.details.controles"), checks.join(" · "));
+    }
+    if ((a.also_in || []).length) add("", t("carte_article.aussi_dans", { sources: a.also_in.join(", ") }));
+    if (a.summary_source === "ia") add("", t("carte_article.resume_ia"));
+    add(t("carte_article.details.identifiant"), el("code", { text: a.id }));
+    const repo = (state.data.site || {}).repository || "";
+    if (/^[\w.-]+\/[\w.-]+$/.test(repo)) {
+      const q = new URLSearchParams({ template: "information-utilisee.yml", article_id: a.id, title: t("carte_article.details.titre_usage") + a.title.slice(0, 80) });
+      add("", extLink("https://github.com/" + repo + "/issues/new?" + q.toString(), t("carte_article.details.signaler")));
+    }
+    return el("details", { class: "more" }, [el("summary", { text: t("carte_article.details_libelle") }), el("div", { class: "inner" }, [el("dl", {}, rows)])]);
+  }
+
+  // ---------- Home ----------
+  function renderHome() {
+    const d = state.data;
+    $("summary").textContent = d.home.summary;
+    const prio = $("priority");
+    prio.replaceChildren();
+    const byId = Object.fromEntries(d.articles.map(a => [a.id, a]));
+    const items = (d.home.priority || []).map(id => byId[id]).filter(Boolean);
+    if (!items.length) prio.appendChild(el("li", { class: "empty", text: t("accueil.priorite_vide") }));
+    items.forEach(a => prio.appendChild(el("li", {}, [articleCard(a, { compact: true, tag: "div" })])));
+    const next = (d.events || []).find(e => !e.past);
+    $("next-event").textContent = next ? t("accueil.prochain_salon", { nom: next.name, jours: Math.max(daysUntil(next.start), 0) }) : "";
+  }
+
+  function filters() {
+    const precise = $("f-period").value;
     return {
-      q: $("f-q").value.trim().toLowerCase(),
-      level: $("f-level").value,
-      source: $("f-source").value,
-      period: parseInt($("f-period").value, 10),
-      kev: $("f-kev").checked,
+      q: $("q").value.trim().toLowerCase(),
+      urgent: $("urgent-only").getAttribute("aria-checked") === "true",
+      days: precise ? parseInt(precise, 10) : parseInt($("period").value, 10),
+      source: $("f-source").value, rel: $("f-rel").value, level: $("f-level").value, kev: $("f-kev").checked,
     };
   }
-  function matches(a, f, tab) {
-    if (tab === "EVENTS" ? !a.is_event : (tab !== "ALL" && !(a.themes || []).includes(tab))) return false;
+  function matches(a, f) {
+    if (state.topic === "EVENTS" ? !a.is_event : (state.topic !== "ALL" && !(a.themes || []).includes(state.topic))) return false;
+    if (f.urgent && a.level !== "Critique") return false;
     if (f.level && LEVEL_RANK[a.level] < LEVEL_RANK[f.level]) return false;
     if (f.source && a.source !== f.source) return false;
+    if (f.rel && a.reliability !== f.rel) return false;
     if (f.kev && !a.kev) return false;
-    if (f.period && (Date.now() - new Date(a.published)) > f.period * 86400000) return false;
+    if (f.days && (Date.now() - new Date(a.published)) > f.days * 86400000) return false;
     if (f.q) {
-      const hay = [a.title, a.summary, a.excerpt, a.why, a.source, (a.cves || []).join(" "), (a.sectors || []).join(" "), (a.ai_tags || []).join(" ")].join(" ").toLowerCase();
-      if (!f.q.split(/\s+/).every(t => hay.includes(t))) return false;
+      const hay = [a.title, a.summary, a.why_simple, a.source, (a.cves || []).join(" "), (a.sectors || []).join(" ")].join(" ").toLowerCase();
+      if (!f.q.split(/\s+/).every(w => hay.includes(w))) return false;
     }
     return true;
   }
-
-  // ---- Rendering ----
-  // ---- Reliability badge (automatic verification checklist) ----
-  const CHECK_LABELS = { approved_domain: "source référencée", https: "lien HTTPS", plausible_date: "date plausible",
-    cves_confirmed: "CVE confirmées (KEV/NVD)", corroborated: "recoupé par 2 sources indépendantes", not_sensational: "ton non sensationnaliste" };
-  function reliabilityBadge(a) {
-    if (!a.reliability) return null;
-    const cls = a.reliability === "Vérifié" ? "rel-ok" : (a.reliability === "À recouper" ? "rel-check" : "rel-unref");
-    const icon = a.reliability === "Vérifié" ? "✔ " : (a.reliability === "À recouper" ? "⚠ " : "✖ ");
-    const checks = Object.entries(a.checks || {}).map(([k, v]) => (v === true ? "✔ " : v === false ? "✖ " : "– ") + (CHECK_LABELS[k] || k));
-    const sources = (a.corroboration_sources || []).length > 1 ? " · Sources : " + a.corroboration_sources.join(", ") : "";
-    return el("span", { class: "badge " + cls, text: icon + a.reliability, title: "Contrôles automatiques : " + checks.join(" ; ") + sources });
+  function applyFilters() {
+    const f = filters();
+    state.filtered = state.data.articles.filter(a => matches(a, f)).sort((x, y) => (LEVEL_RANK[y.level] - LEVEL_RANK[x.level]) || y.published.localeCompare(x.published));
+    state.shown = PAGE;
+    $("agenda").hidden = state.topic !== "EVENTS";
+    renderList();
   }
-  function repoUrl() {
-    const r = (state.data.site || {}).repository || "";
-    return /^[\w.-]+\/[\w.-]+$/.test(r) ? "https://github.com/" + r : null;
-  }
-  function usageLink(a) {
-    const base = repoUrl();
-    if (!base) return null;
-    const q = new URLSearchParams({ template: "information-utilisee.yml", article_id: a.id, title: "Usage : " + a.title.slice(0, 80) });
-    return el("a", { href: base + "/issues/new?" + q.toString(), target: "_blank", rel: "noopener noreferrer", text: "Signaler un usage" });
-  }
-
-  function card(a, compact) {
-    const labels = state.data.theme_labels;
-    const badges = el("div", { class: "badges" }, [
-      el("span", { class: "badge lvl-" + a.level, text: a.level + " · " + a.criticality, title: (a.criticality_reasons || []).join(" ; ") || "Score de criticité" }),
-      a.kev ? el("span", { class: "badge kev", text: a.kev_ransomware ? "Exploité (KEV) · ransomware" : "Exploité activement (KEV)" }) : null,
-      ...(a.themes || []).map(t => el("span", { class: "badge theme", text: t + " " + (labels[t] || "") })),
-      ...(a.sectors || []).slice(0, 4).map(s => el("span", { class: "badge sector", text: s })),
-      reliabilityBadge(a),
-    ]);
-    const src = el("div", { class: "src" }, [
-      a.source + " · ",
-      el("time", { datetime: a.published, title: dtf.format(new Date(a.published)), text: relative(a.published) }),
-      a.also_in && a.also_in.length ? " · aussi : " + a.also_in.join(", ") : "",
-      a.summary_source === "ia" ? " · résumé IA" : "",
-    ]);
-    const lang = (a.source_language || a.language || "en");
-    const body = [badges, el("h3", { lang }, [extLink(a.url, a.title)]), src];
-    if (a.summary_source === "ia") {
-      // Original title kept next to the French summary (single translation step)
-      body.push(el("p", { class: "orig" }, ["Titre d'origine (" + lang.toUpperCase() + ") : ", el("span", { lang, text: a.title })]));
-      body.push(el("p", { lang: "fr" }, [el("strong", { text: "Résumé en français" + (lang !== "fr" ? " (traduit en 1 étape depuis l'original)" : "") + " : " }), a.summary]));
-    } else if (a.summary) {
-      body.push(el("p", { lang }, [el("strong", { text: "Extrait d'origine (" + lang.toUpperCase() + ") : " }), a.summary]));
-    }
-    if (!compact && a.why) body.push(el("p", { class: "why" }, [el("strong", { text: "Pourquoi c'est important : " }), a.why]));
-    if (!compact && a.action) body.push(el("p", { class: "action" }, [el("strong", { text: "Action recommandée" + (a.action_type ? " (" + a.action_type + ")" : "") + " : " }), a.action]));
-    if (a.cves && a.cves.length) {
-      body.push(el("div", { class: "cves", "aria-label": "CVE citées" }, a.cves.slice(0, compact ? 4 : 12).map(c => {
-        const d = (a.cve_details || {})[c] || {};
-        const extra = [d.cvss ? "CVSS " + d.cvss : "", d.epss ? "EPSS " + Math.round(d.epss * 100) + " %" : ""].filter(Boolean).join(", ");
-        return el("span", {}, [extLink("https://nvd.nist.gov/vuln/detail/" + encodeURIComponent(c), c), extra ? " (" + extra + ")" : ""]);
-      })));
-    }
-    if (!compact) {
-      const usage = usageLink(a);
-      body.push(el("div", { class: "card-foot" }, [
-        el("span", {}, ["Identifiant : ", el("code", { text: a.id })]),
-        usage,
-      ]));
-    }
-    return el("article", { class: "card" }, body);
-  }
-
   function renderList() {
     const list = $("list");
     list.replaceChildren();
-    const items = state.filtered.slice(0, state.shown);
-    if (!items.length) list.appendChild(el("p", { class: "empty", text: "Aucun article ne correspond à ces filtres." }));
-    items.forEach(a => list.appendChild(card(a, false)));
-    $("more").hidden = state.filtered.length <= state.shown;
-    $("result-count").textContent = state.filtered.length + " article(s)";
+    const n = state.filtered.length;
+    $("count").textContent = plural("accueil.nb_articles", n);
+    if (!n) list.appendChild(el("p", { class: "empty", text: t("accueil.liste_vide") }));
+    state.filtered.slice(0, state.shown).forEach(a => list.appendChild(articleCard(a)));
+    $("show-more").hidden = n <= state.shown;
   }
-
-  function renderFeatured() {
-    const weekAgo = Date.now() - 7 * 86400000;
-    const pool = state.data.articles.filter(a => new Date(a.published) >= weekAgo && matches(a, { q: "", level: "", source: "", period: 0, kev: false }, state.tab));
-    pool.sort((x, y) => (y.criticality + y.relevance) - (x.criticality + x.relevance));
-    const box = $("featured");
-    box.replaceChildren();
-    pool.slice(0, 5).forEach(a => box.appendChild(card(a, true)));
-    $("featured-section").hidden = state.tab === "EVENTS" || !pool.length;
-  }
-
   function daysUntil(iso) { return Math.ceil((new Date(iso + "T00:00:00") - Date.now()) / 86400000); }
-
-  function renderEvents() {
-    const box = $("events");
-    box.replaceChildren();
-    const upcoming = state.data.events.filter(e => !e.past);
-    upcoming.forEach(e => {
+  function renderAgenda() {
+    const box = $("agenda");
+    box.replaceChildren(el("h3", { text: t("accueil.agenda_titre") }));
+    const up = (state.data.events || []).filter(e => !e.past);
+    if (!up.length) box.appendChild(el("p", { class: "empty", text: t("accueil.agenda_vide") }));
+    up.forEach(e => {
       const d = daysUntil(e.start);
-      const ongoing = d <= 0;
-      const when = e.start === e.end ? dfmt.format(new Date(e.start)) : "du " + dfmt.format(new Date(e.start)) + " au " + dfmt.format(new Date(e.end));
       box.appendChild(el("article", { class: "card event" }, [
-        el("div", { class: "countdown", "aria-label": ongoing ? "En cours" : "Dans " + d + " jours" }, ongoing
-          ? [el("b", { text: "●" }), el("span", { text: "en cours" })]
-          : [el("b", { text: String(d) }), el("span", { text: d > 1 ? "jours" : "jour" })]),
-        el("div", {}, [
-          el("h3", {}, [extLink(e.url, e.name)]),
-          el("div", { class: "src", text: when + " · " + e.location + (e.confirmed ? "" : " · dates à confirmer") }),
-          e.description ? el("p", { class: "small", text: e.description }) : null,
-        ]),
+        el("div", { class: "countdown" }, d <= 0 ? [el("b", { text: "●" }), el("span", { text: t("accueil.en_cours") })] : [el("b", { text: String(d) }), el("span", { text: t("accueil.jours") })]),
+        el("div", {}, [el("h3", {}, [extLink(e.url, e.name)]),
+          el("div", { class: "meta", text: frDate(e.start) + " → " + frDate(e.end) + " · " + e.location + (e.confirmed ? "" : " · " + t("accueil.dates_a_confirmer")) })]),
       ]));
     });
-    if (!upcoming.length) box.appendChild(el("p", { class: "empty", text: "Aucun salon à venir dans config/events.yaml." }));
-    const next = upcoming[0];
-    $("next-event").textContent = next ? "Prochain salon : " + next.name + " (J-" + Math.max(daysUntil(next.start), 0) + ")" : "";
   }
-
-  function renderHealth() {
-    const tb = $("health").querySelector("tbody");
-    tb.replaceChildren();
-    state.data.feeds_status.forEach(s => tb.appendChild(el("tr", {}, [
-      el("td", { text: s.name }),
-      el("td", { class: s.ok ? "ok" : "ko", text: s.ok ? "OK" : "Erreur : " + (s.error || "inconnue") }),
-      el("td", { text: String(s.entries || 0) }),
-      el("td", { text: s.latest ? relative(s.latest) : "—" }),
-    ])));
-  }
-
-  function apply() {
-    const kpiTab = state.tab === "KPI";
-    $("articles-view").hidden = kpiTab;
-    $("kpi-view").hidden = !kpiTab;
-    if (kpiTab) { loadKpi(); return; }
-    const f = currentFilters();
-    state.filtered = state.data.articles
-      .filter(a => matches(a, f, state.tab))
-      .sort((x, y) => y.published.localeCompare(x.published));
-    state.shown = PAGE;
-    $("events-section").hidden = state.tab !== "EVENTS";
-    renderFeatured();
-    renderList();
-  }
-
-  function selectTab(id, focus) {
-    state.tab = id;
-    document.querySelectorAll(".tab").forEach(b => {
-      const on = b.dataset.tab === id;
-      b.setAttribute("aria-selected", on ? "true" : "false");
-      b.tabIndex = on ? 0 : -1;
-      if (on) { $("panel").setAttribute("aria-labelledby", b.id); if (focus) b.focus(); }
+  function buildTopics() {
+    const box = $("topics");
+    TOPICS.forEach(id => {
+      const b = el("button", { type: "button", role: "tab", class: "tab", id: "topic-" + id, "aria-selected": id === "ALL" ? "true" : "false", tabindex: id === "ALL" ? "0" : "-1", text: t("sujets." + id) });
+      b.addEventListener("click", () => selectTopic(id));
+      box.appendChild(b);
     });
-    try { history.replaceState(null, "", "#" + id); } catch (e) { /* ignore */ }
-    apply();
-  }
-
-  function buildTabs() {
-    const tl = $("tabs");
-    TABS.forEach(([id, label]) => {
-      const count = state.data.counts[id] ?? 0;
-      const text = id === "KPI" ? label : label + " (" + count + ")";
-      const b = el("button", { type: "button", role: "tab", class: "tab", id: "tab-" + id, "aria-controls": "panel", "aria-selected": "false", text });
-      b.dataset.tab = id;
-      b.addEventListener("click", () => selectTab(id));
-      tl.appendChild(b);
-    });
-    tl.addEventListener("keydown", ev => {
-      const ids = TABS.map(t => t[0]);
-      let i = ids.indexOf(state.tab);
-      if (ev.key === "ArrowRight") i = (i + 1) % ids.length;
-      else if (ev.key === "ArrowLeft") i = (i - 1 + ids.length) % ids.length;
-      else if (ev.key === "Home") i = 0;
-      else if (ev.key === "End") i = ids.length - 1;
-      else return;
-      ev.preventDefault();
-      selectTab(ids[i], true);
+    box.addEventListener("keydown", ev => {
+      let i = TOPICS.indexOf(state.topic);
+      if (ev.key === "ArrowRight") i = (i + 1) % TOPICS.length; else if (ev.key === "ArrowLeft") i = (i - 1 + TOPICS.length) % TOPICS.length;
+      else if (ev.key === "Home") i = 0; else if (ev.key === "End") i = TOPICS.length - 1; else return;
+      ev.preventDefault(); selectTopic(TOPICS[i], true);
     });
   }
-
-  // ---- KPI & qualité ----
-  const FAMILIES = { A: "A. Pertinence", B: "B. Qualité des sources", C: "C. Intérêt : signaux faibles", D: "D. Utilité",
-    E: "E. Risque de double traduction", F: "F. Biais et diversité" };
-  const STATUS_ICON = { vert: "✔", orange: "▲", rouge: "✖", info: "●", na: "–" };
-  const kpiState = { data: null, loading: false, weeks: 12 };
-  const nf = new Intl.NumberFormat("fr-FR", { maximumFractionDigits: 1 });
-  function fmt(v, unit) { return v === null || v === undefined ? "n.d." : nf.format(v) + (unit ? " " + unit : ""); }
-  function statusChip(st, label) { return el("span", { class: "status st-" + st, text: (STATUS_ICON[st] || "") + " " + label }); }
-
-  function loadKpi() {
-    if (kpiState.data) { renderKpi(); return; }
-    if (kpiState.loading) return;
-    kpiState.loading = true;
-    fetch("kpi.json", { cache: "no-cache" })
-      .then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
-      .then(d => { kpiState.data = d; renderKpi(); })
-      .catch(err => { $("kpi-view").replaceChildren(el("p", { class: "empty", text: "Indicateurs indisponibles (" + err.message + ")." })); })
-      .finally(() => { kpiState.loading = false; });
+  function selectTopic(id, focus) {
+    state.topic = id;
+    document.querySelectorAll("#topics .tab").forEach(b => {
+      const on = b.id === "topic-" + id;
+      b.setAttribute("aria-selected", on ? "true" : "false"); b.tabIndex = on ? 0 : -1;
+      if (on && focus) b.focus();
+    });
+    applyFilters();
   }
 
-  // Sparkline in inline SVG (no library). points = [[date, value], ...]
-  function sparkline(points, label) {
-    const NS = "http://www.w3.org/2000/svg";
-    const since = Date.now() - kpiState.weeks * 7 * 86400000;
-    const pts = (points || []).filter(p => p[1] !== null && new Date(p[0]).getTime() >= since);
-    const w = 130, h = 34;
-    const svg = document.createElementNS(NS, "svg");
-    svg.setAttribute("viewBox", "0 0 " + w + " " + h); svg.setAttribute("width", w); svg.setAttribute("height", h);
-    svg.setAttribute("class", "spark"); svg.setAttribute("role", "img");
-    const title = document.createElementNS(NS, "title");
-    if (pts.length < 2) {
-      title.textContent = label + " : historique insuffisant sur " + kpiState.weeks + " semaines";
-      svg.appendChild(title);
-      const t = document.createElementNS(NS, "text");
-      t.setAttribute("x", "0"); t.setAttribute("y", "22"); t.setAttribute("font-size", "10"); t.setAttribute("fill", "currentColor");
-      t.textContent = pts.length ? "1 point de mesure" : "pas encore d'historique";
-      svg.appendChild(t);
-      return svg;
+  // ---------- Views ----------
+  function showView(view, focus) {
+    if (!["actualites", "sante", "aide"].includes(view)) view = "actualites";
+    state.view = view;
+    ["actualites", "sante", "aide"].forEach(v => { $("view-" + v).hidden = v !== view; });
+    document.querySelectorAll("nav.main button").forEach(b => { if (b.dataset.view === view) b.setAttribute("aria-current", "page"); else b.removeAttribute("aria-current"); });
+    try { history.replaceState(null, "", "#" + view); } catch (e) { /* ignore */ }
+    if (view === "sante") loadHealth();
+    if (view === "aide") renderHelp();
+    if (focus) $("main").focus();
+  }
+
+  // ---------- Health (Santé de la veille) ----------
+  function loadHealth() {
+    if (state.kpi) { renderHealth(); return; }
+    if (state.kpiLoading) return;
+    state.kpiLoading = true;
+    fetch("kpi.json", { cache: "no-cache" }).then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+      .then(d => { state.kpi = d; renderHealth(); })
+      .catch(() => { $("sante").replaceChildren(el("p", { class: "empty", text: t("sante.indisponible") })); })
+      .finally(() => { state.kpiLoading = false; });
+  }
+  function answerChip(c) { return el("span", { class: "chip c-" + c.color }, [el("span", { "aria-hidden": "true", text: c.icon }), c.answer_label]); }
+  function healthCard(c) {
+    const colorClass = { vert: "a-vert", orange: "a-orange", rouge: "a-rouge" }[c.color] || "";
+    const top = [answerChip(c)];
+    if (c.estimation) top.push(el("span", { class: "chip c-neutre", title: t("sante.estimation_aide") }, [t("sante.estimation")]));
+    const parts = [el("h3", { text: c.question }), el("div", { class: "chips" }, top)];
+    if (c.answer === "sans_donnees") {
+      parts.push(el("p", { class: "big", text: c.reason || "" }));
+      if (c.available_from) parts.push(el("p", { class: "small", text: t("sante.disponible_le", { date: frDate(c.available_from) }) }));
+    } else {
+      parts.push(el("p", { class: "big", text: c.chiffre }));
+      if (c.message) parts.push(el("p", { text: c.message }));
+      if (c.bars) parts.push(el("ul", { class: "bars" }, c.bars.map(b => el("li", {}, [
+        el("span", { text: b.nom }),
+        el("span", { class: "bar", role: "img", "aria-label": t("sante.barre", { n: b.n, cible: b.cible ?? "?" }) }, [
+          el("span", { style: "width:" + Math.min(100, b.width || 0) + "%" }),
+          el("i", { class: "target", style: "left:" + Math.min(100, b.target_pos || 0) + "%", "aria-hidden": "true" })]),
+        el("span", { class: "small", text: t("sante.barre", { n: b.n, cible: b.cible ?? "?" }) + " " + ({ bon: "✔", surveiller: "▲", probleme: "✖" }[b.reponse] || "") }),
+      ]))));
+      if (c.bars) parts.push(el("p", { class: "small", text: t("sante.barre_legende") }));
+      if (c.trend) parts.push(el("p", { class: "small", text: c.trend }));
     }
-    const vals = pts.map(p => p[1]);
-    const min = Math.min(...vals), max = Math.max(...vals), span = (max - min) || 1;
-    const coords = pts.map((p, i) => [2 + i * (w - 4) / (pts.length - 1), h - 3 - (p[1] - min) * (h - 6) / span]);
-    title.textContent = label + " sur " + kpiState.weeks + " semaines : de " + nf.format(vals[0]) + " à " + nf.format(vals[vals.length - 1])
-      + " (min " + nf.format(min) + ", max " + nf.format(max) + ")";
-    svg.appendChild(title);
-    const line = document.createElementNS(NS, "polyline");
-    line.setAttribute("points", coords.map(c => c[0].toFixed(1) + "," + c[1].toFixed(1)).join(" "));
-    line.setAttribute("fill", "none"); line.setAttribute("stroke", "currentColor"); line.setAttribute("stroke-width", "2");
-    line.setAttribute("stroke-linejoin", "round"); line.setAttribute("stroke-linecap", "round");
-    svg.appendChild(line);
-    const last = coords[coords.length - 1];
-    const dot = document.createElementNS(NS, "circle");
-    dot.setAttribute("cx", last[0]); dot.setAttribute("cy", last[1]); dot.setAttribute("r", "2.5"); dot.setAttribute("fill", "currentColor");
-    svg.appendChild(dot);
-    return svg;
+    parts.push(el("p", {}, [el("strong", { text: t("sante.pourquoi") + " : " }), c.pourquoi]));
+    parts.push(el("p", {}, [el("strong", { text: t("sante.que_faire") + " : " }), c.que_faire]));
+    if (c.details && c.details.length) parts.push(el("details", { class: "more" }, [el("summary", { text: t("sante.en_detail") }), el("ul", { class: "inner" }, c.details.map(x => el("li", { text: x })))]));
+    return el("article", { class: "hcard " + colorClass }, parts);
+  }
+  function renderHealth() {
+    const d = state.kpi, box = $("sante");
+    if (!d || !d.available || !d.sante) { box.replaceChildren(el("p", { class: "empty", text: t("sante.indisponible") })); return; }
+    const s = d.sante, parts = [];
+    if (s.learning && s.learning.active) parts.push(el("p", { class: "banner", role: "note", text: t("sante.apprentissage", { date: frDate(s.learning.until) }) }));
+    else parts.push(el("p", { class: "banner", role: "note", text: t("sante.apprentissage_fin") }));
+    parts.push(el("p", { class: "small", text: t("sante.intro") }));
+    parts.push(el("p", { class: "verdict", text: s.verdict.sentence }));
+    const order = [["bon", "✔"], ["surveiller", "▲"], ["probleme", "✖"], ["sans_donnees", "…"]];
+    parts.push(el("ul", { class: "groups" }, order.filter(([k]) => s.verdict.groups[k].length).map(([k, icon]) =>
+      el("li", { text: icon + " " + ((UI.sante.reponses || {})[k] || {}).libelle + " : " + s.verdict.groups[k].join(" · ") }))));
+    parts.push(el("h3", { text: t("sante.a_traiter") }));
+    parts.push(s.priorities.length ? el("ol", { class: "todo-list" }, s.priorities.map(p => el("li", {}, [el("strong", { text: p.icon + " " + p.answer_label + " · " }), p.text])))
+      : el("p", { class: "empty", text: t("sante.a_traiter_vide") }));
+    parts.push(el("div", { class: "hgrid", style: "margin-top:18px" }, s.cards.map(healthCard)));
+    parts.push(techDetails(d));
+    box.replaceChildren(...parts);
   }
 
-  function kpiCard(k) {
-    const target = k.cible === null || k.cible === undefined ? "pas de cible (observation)"
-      : "cible " + (k.sens === "baisse" ? "≤ " : "≥ ") + fmt(k.cible, k.unite) + (k.seuil_alerte !== null ? " · alerte " + (k.sens === "baisse" ? "> " : "< ") + fmt(k.seuil_alerte, k.unite) : "");
-    const subs = k.subs ? Object.entries(k.subs) : [];
-    const subList = subs.length && subs.length <= 12 ? el("ul", { class: "subs", "aria-label": "Détail" }, subs.map(([name, v]) =>
-      el("li", {}, [el("b", { text: name }), " " + fmt(v.value, k.unite) + (v.status !== "info" ? " " + (STATUS_ICON[v.status] || "") : "")]))) : null;
-    const many = subs.length > 12 ? el("p", { class: "small", text: subs.filter(([, v]) => v.status === "rouge" || v.status === "orange").length + " élément(s) hors cible sur " + subs.length + " (voir le classement des sources)." }) : null;
-    const extra = [];
-    if (k.details && k.details.apprentissage) extra.push(el("p", { class: "small", text: "Période d'apprentissage : " + k.details.apprentissage + "." }));
-    if (k.id === "F1_part_max_source" && k.details) extra.push(el("p", { class: "small", text: "Source : " + k.details.source }));
-    if (k.id === "B4_sources_non_referencees" && k.details && k.details.length) extra.push(el("p", { class: "small", text: "Domaines : " + k.details.join(", ") }));
-    if (k.id === "A2_couverture_axe" && k.details) extra.push(el("p", { class: "small", text: Object.entries(k.details).map(([ax, d]) => ax + " " + d.articles_pertinents + "/" + (d.cible_hebdo ?? "?")).join(" · ") + " articles pertinents / cible hebdo" }));
-    const smart = k.smart || {};
-    return el("article", { class: "kpi st-" + k.status }, [
-      el("h4", { text: k.nom }),
-      el("div", { class: "row" }, [
-        el("div", {}, [el("div", { class: "val" }, [fmt(k.value, ""), el("small", { text: " " + (k.value === null ? "" : (k.unite || "")) })]), statusChip(k.status, k.status_label)]),
-        sparkline(k.trend, k.nom),
-      ]),
-      el("p", { class: "small", text: target }),
-      subList, many, ...extra,
-      el("details", {}, [el("summary", { text: "Définition SMART" }),
-        el("p", {}, [el("b", { text: "Formule : " }), k.formule || ""]),
-        ...[["specifique", "Spécifique"], ["mesurable", "Mesurable"], ["atteignable", "Atteignable"], ["realiste", "Réaliste"], ["temporel", "Temporel"]]
-          .map(([f, lbl]) => smart[f] ? el("p", {}, [el("b", { text: lbl + " : " }), smart[f]]) : null),
-        el("p", {}, [el("b", { text: "Responsable : " }), k.responsable || "—", " · ", el("b", { text: "Période : " }), k.periode || ""]),
-        k.action ? el("p", {}, [el("b", { text: "Action (SLA) : " }), k.action.replace("{sujet}", "…")]) : null,
-      ]),
-    ]);
-  }
-
+  // ---------- Health › technical details (full referential, sigles allowed) ----------
+  function fmt(v, unit) { return v === null || v === undefined ? t("technique.details.nd") : nf.format(v) + (unit ? " " + unit : ""); }
   function table(head, rows, caption, numCols) {
-    return el("div", { class: "table-scroll" }, [el("table", { class: "data" }, [
+    return el("div", { class: "table-scroll" }, [el("table", {}, [
       el("caption", { class: "sr-only", text: caption }),
       el("thead", {}, [el("tr", {}, head.map((h, i) => el("th", { scope: "col", class: (numCols || []).includes(i) ? "num" : null, text: h })))]),
       el("tbody", {}, rows.map(r => el("tr", {}, r.map((c, i) => el("td", { class: (numCols || []).includes(i) ? "num" : null }, [c instanceof Node ? c : String(c ?? "—")]))))),
     ])]);
   }
-
-  function section(title, children) { return el("section", {}, [el("h2", { text: title }), ...children]); }
-
-  function renderKpi() {
-    const d = kpiState.data, view = $("kpi-view");
-    if (!d || !d.available) { view.replaceChildren(el("p", { class: "empty", text: "Les indicateurs seront disponibles après la prochaine mise à jour." })); return; }
-    const parts = [];
-    const counts = {}; d.kpis.forEach(k => { counts[k.status] = (counts[k.status] || 0) + 1; });
-    const seg = el("div", { class: "seg", role: "group", "aria-label": "Période des tendances" }, [4, 12, 52].map(n => {
-      const b = el("button", { type: "button", "aria-pressed": kpiState.weeks === n ? "true" : "false", text: n + " sem." });
-      b.addEventListener("click", () => { kpiState.weeks = n; renderKpi(); });
+  function sparkline(points, label) {
+    const NS = "http://www.w3.org/2000/svg", w = 120, h = 30;
+    const since = Date.now() - state.weeks * 7 * 86400000;
+    const pts = (points || []).filter(p => p[1] !== null && new Date(p[0]).getTime() >= since);
+    const svg = document.createElementNS(NS, "svg");
+    svg.setAttribute("viewBox", "0 0 " + w + " " + h); svg.setAttribute("width", w); svg.setAttribute("height", h);
+    svg.setAttribute("class", "spark"); svg.setAttribute("role", "img");
+    const title = document.createElementNS(NS, "title");
+    title.textContent = label; svg.appendChild(title);
+    if (pts.length < 2) {
+      const tx = document.createElementNS(NS, "text");
+      tx.setAttribute("x", "0"); tx.setAttribute("y", "20"); tx.setAttribute("font-size", "10"); tx.setAttribute("fill", "currentColor");
+      tx.textContent = pts.length ? t("technique.details.un_point") : t("technique.details.pas_historique");
+      svg.appendChild(tx); return svg;
+    }
+    const vals = pts.map(p => p[1]), min = Math.min(...vals), max = Math.max(...vals), span = (max - min) || 1;
+    const line = document.createElementNS(NS, "polyline");
+    line.setAttribute("points", pts.map((p, i) => (2 + i * (w - 4) / (pts.length - 1)).toFixed(1) + "," + (h - 3 - (p[1] - min) * (h - 6) / span).toFixed(1)).join(" "));
+    line.setAttribute("fill", "none"); line.setAttribute("stroke", "currentColor"); line.setAttribute("stroke-width", "2");
+    svg.appendChild(line); return svg;
+  }
+  function kpiBox(k) {
+    const T = "technique.details.";
+    const op = k.sens === "baisse" ? "≤" : "≥";
+    const target = k.cible === null || k.cible === undefined ? t(T + "sans_cible")
+      : t(T + "cible", { op, valeur: fmt(k.cible, k.unite) }) + (k.seuil_alerte !== null ? " · " + t(T + "alerte", { op: k.sens === "baisse" ? ">" : "<", valeur: fmt(k.seuil_alerte, k.unite) }) : "");
+    const subs = k.subs ? Object.entries(k.subs) : [];
+    const smart = k.smart || {};
+    return el("div", { class: "kpi st-" + k.status }, [
+      el("h4", { text: k.id.split("_")[0] + " · " + k.nom }),
+      el("div", { class: "row" }, [
+        el("div", {}, [el("div", { class: "val", text: fmt(k.value, k.unite) }), el("span", { class: "small", text: t(T + "statuts." + k.status) })]),
+        sparkline(k.trend, k.nom),
+      ]),
+      el("p", { class: "small", text: target }),
+      subs.length && subs.length <= 12 ? el("p", { class: "small", text: subs.map(([n, v]) => n + " " + fmt(v.value, k.unite)).join(" · ") }) : null,
+      subs.length > 12 ? el("p", { class: "small", text: t(T + "hors_cible", { n: subs.filter(([, v]) => v.status === "rouge" || v.status === "orange").length, total: subs.length }) }) : null,
+      k.reason ? el("p", { class: "small", text: k.reason }) : null,
+      el("details", { class: "more" }, [el("summary", { text: t(T + "definition") }), el("div", { class: "inner" }, [
+        el("p", {}, [el("strong", { text: t(T + "formule") + " : " }), k.formule || ""]),
+        ...["specifique", "mesurable", "atteignable", "realiste", "temporel"].map(f => smart[f] ? el("p", {}, [el("strong", { text: t(T + "smart." + f) + " : " }), smart[f]]) : null),
+        el("p", {}, [el("strong", { text: t(T + "responsable") + " : " }), k.responsable || "—", " · ", el("strong", { text: t(T + "periode") + " : " }), k.periode || ""]),
+        k.action ? el("p", {}, [el("strong", { text: t(T + "action_sla") + " : " }), k.action.replace("{sujet}", "…")]) : null,
+      ])]),
+    ]);
+  }
+  function techDetails(d) {
+    const T = "technique.details.";
+    const parts = [el("summary", { text: t("sante.details_techniques") }), el("p", { class: "small", text: t("sante.details_techniques_intro") })];
+    const repo = (state.data.site || {}).repository || "";
+    if (/^[\w.-]+\/[\w.-]+$/.test(repo)) parts.push(el("p", {}, [extLink("https://github.com/" + repo + "/blob/main/docs/KPI.md", t("sante.fiches_kpi"))]));
+    const seg = el("div", { class: "seg", role: "group" }, [4, 12, 52].map(n => {
+      const b = el("button", { type: "button", "aria-pressed": state.weeks === n ? "true" : "false", text: t(T + "semaines", { n }) });
+      b.addEventListener("click", () => { state.weeks = n; renderHealth(); const tech = document.querySelector("details.tech"); if (tech) tech.open = true; });
       return b;
     }));
-    parts.push(el("div", { class: "kpi-head" }, [
-      el("div", {}, [
-        el("p", { class: "small", text: "Calculés le " + dtf.format(new Date(d.generated_at)) + " · " + d.kpis.length + " indicateurs" }),
-        el("div", { class: "badges" }, ["vert", "orange", "rouge", "info", "na"].filter(s => counts[s]).map(s =>
-          statusChip(s, counts[s] + " " + ({ vert: "dans la cible", orange: "à surveiller", rouge: "hors seuil", info: "en observation", na: "non disponible(s)" })[s]))),
-      ]),
-      el("div", {}, [el("span", { class: "small", text: "Tendances : " }), seg, " ",
-        el("a", { class: "btn", href: "kpi_history.csv", download: "kpi_historique.csv", text: "Exporter les KPI (CSV)" })]),
-    ]));
-
-    // KPI overview by family
+    parts.push(el("p", { class: "chips" }, [el("span", { class: "small", text: t(T + "calcule_le", { date: dtf.format(new Date(d.generated_at)), n: d.kpis.length }) }), el("span", { class: "small", text: t(T + "tendances") }), seg,
+      el("a", { class: "btn", href: "kpi_history.csv", download: "kpi_historique.csv", text: t(T + "export") })]));
+    parts.push(el("h3", { text: t(T + "vue_ensemble") }));
     const fams = {};
     d.kpis.forEach(k => { (fams[k.famille] = fams[k.famille] || []).push(k); });
-    parts.push(el("h2", { text: "Vue d'ensemble des KPI" }));
-    Object.keys(FAMILIES).forEach(f => {
-      if (!fams[f]) return;
-      parts.push(el("h3", { class: "fam-title", text: FAMILIES[f] }), el("div", { class: "kpi-grid" }, fams[f].map(kpiCard)));
-    });
-
-    // SMART objectives per axis
-    parts.push(section("Objectifs SMART par axe", [el("div", { class: "kpi-grid" }, Object.entries(d.objectives || {}).map(([ax, o]) =>
-      el("div", { class: "obj" }, [el("h4", { text: ax + " " + (o.label || "") }), el("p", { text: o.smart || "Objectif à définir dans themes.yaml." }),
-        el("p", { class: "small", text: "Cible : " + (o.cible_hebdo ?? "—") + " articles pertinents / semaine · Échéance : " + (o.echeance || "—") + " · Horizon : " + (o.horizon || "—") + " terme" })])))]));
-
-    // Improvement plan
+    Object.keys(fams).sort().forEach(f => parts.push(el("h4", { text: t(T + "familles." + f) }), el("div", { class: "kgrid" }, fams[f].map(kpiBox))));
+    parts.push(el("h3", { text: t(T + "objectifs") }));
+    parts.push(el("ul", {}, Object.entries(d.objectives || {}).map(([ax, o]) => el("li", {}, [el("strong", { text: t("sujets." + ax) + " (" + ax + ") : " }), o.smart || "", " ",
+      el("span", { class: "small", text: t(T + "objectif_ligne", { cible: o.cible_hebdo ?? "—", echeance: o.echeance || "—", horizon: o.horizon || "—" }) })]))));
+    parts.push(el("h3", { text: t(T + "classement") }), el("p", { class: "small", text: t(T + "classement_aide") }));
+    parts.push(table(UI.technique.details.classement_colonnes, (d.sources || []).map((s, i) => [i + 1, s.source, s.type || "—", s.country || "—", fmt(s.sqs), fmt(s.pertinence), fmt(s.credibilite), fmt(s.nouveaute), fmt(s.efficacite), s.ttri_h === null ? "—" : fmt(s.ttri_h, "h"), fmt(s.authority), s.articles]), t(T + "classement"), [0, 4, 5, 6, 7, 8, 9, 10, 11]));
+    parts.push(el("h3", { text: t(T + "signaux") }));
+    parts.push((d.signals || []).length ? el("ul", {}, d.signals.slice(0, 20).map(s => el("li", {}, [el("strong", { text: s.term + " " }), t(T + "signaux_ligne", { n: s.count_week, moy: nf.format(s.baseline_weekly), sources: s.sources.join(", ") })]))) : el("p", { class: "small", text: t(T + "signaux_vide") }));
     const open = (d.actions || []).filter(a => a.status === "ouverte");
-    parts.push(section("Plan d'amélioration continue", [open.length
-      ? table(["Depuis", "KPI", "Concerne", "Action", "Périodes"], open.map(a => [a.first_seen.slice(0, 10), a.kpi_nom, a.sujet || "—", a.action, a.periods]), "Actions ouvertes", [4])
-      : el("p", { class: "small", text: "Aucune action ouverte : une action est créée quand un KPI reste hors cible plusieurs périodes de suite." })]));
-
-    // Source ranking
-    const rows = (d.sources || []).map((s, i) => [i + 1, s.source, s.type || "—", s.country || "—", fmt(s.sqs), fmt(s.pertinence), fmt(s.credibilite), fmt(s.nouveaute), fmt(s.efficacite), s.ttri_h === null ? "—" : fmt(s.ttri_h, "h"), fmt(s.authority), s.articles]);
-    parts.push(section("Classement des sources (30 jours)", [
-      el("p", { class: "small", text: "Score de qualité (SQS) = 30 % pertinence + 25 % crédibilité + 25 % nouveauté + 20 % efficacité. Indice d'autorité (SAI) = crédibilité, taux de reprise par d'autres sources et nouveauté. « n.d. » : aucun article sur la période." }),
-      table(["#", "Source", "Type", "Pays", "Qualité", "Pertinence", "Crédibilité", "Nouveauté", "Efficacité", "Délai", "Autorité", "Articles"], rows, "Classement des sources par score de qualité", [0, 4, 5, 6, 7, 8, 9, 10, 11]),
-    ]));
-
-    // Weak signals
-    const c1 = d.kpis.find(k => k.id === "C1_signaux_faibles");
-    const sig = d.signals || [];
-    parts.push(section("Signaux faibles de la semaine", [
-      c1 && c1.details && c1.details.apprentissage ? el("p", { class: "small", text: "Période d'apprentissage : la détection démarre après une semaine d'historique (" + c1.details.apprentissage + ")." }) : null,
-      sig.length || (c1 && c1.details && c1.details.apprentissage) ? null : el("p", { class: "small", text: "Aucun signal faible détecté cette semaine." }),
-      sig.length ? el("div", { class: "grid two" }, sig.slice(0, 20).map(s => el("article", { class: "card" }, [
-        el("div", { class: "badges" }, [el("span", { class: "badge theme", text: s.axis || "—" }), el("span", { class: "badge sector", text: s.kind }),
-          el("span", { class: "badge sector", text: s.languages.join(" + ").toUpperCase() })]),
-        el("h3", { text: s.term }),
-        el("p", { class: "small", text: s.count_week + " article(s) cette semaine (moyenne précédente " + nf.format(s.baseline_weekly) + "/sem.) · " + s.sources.join(", ") }),
-        el("ul", { class: "small" }, s.articles.slice(0, 3).map(a => el("li", {}, [extLink(a.url, a.title)]))),
-      ]))) : null,
-      el("p", { class: "small", text: "Fiches d'hypothèse de transformation : data/weak_signals.md. Déclarer une transformation : formulaire GitHub « Signal faible transformé »." }),
-    ]));
-
-    // Biases
-    parts.push(section("Biais de la veille et indicateurs", [table(["Biais", "Indicateur", "Valeur", "Consigne"], (d.biases || []).map(b => [
-      el("span", {}, [el("b", { text: b.nom }), el("br"), el("span", { class: "small", text: b.description })]),
-      b.indicator_name || "—", b.indicator_value === null || b.indicator_value === undefined ? "n.d." : fmt(b.indicator_value, b.indicator_unit), b.consigne]), "Biais connus de la veille")]));
-
-    // Verification checklist
-    parts.push(section("Checklist de vérification", [
-      el("p", { class: "small", text: "Badge sur chaque article : ✔ Vérifié · ⚠ À recouper · ✖ Source non référencée (contrôles automatiques). Les contrôles manuels restent à faire par l'analyste." }),
-      table(["Critère", "Importance", "Méthode", "Description"], (d.checklist || []).map(c => [c.nom, c.importance, c.methode, c.description]), "Checklist de vérification"),
-    ]));
-    view.replaceChildren(...parts.filter(Boolean));
+    parts.push(el("h3", { text: t(T + "plan") }));
+    parts.push(open.length ? table(UI.technique.details.plan_colonnes, open.map(a => [a.first_seen.slice(0, 10), a.kpi_nom, a.sujet || "—", a.action, a.periods]), t(T + "plan"), [4]) : el("p", { class: "small", text: t(T + "plan_vide") }));
+    parts.push(el("h3", { text: t(T + "biais") }));
+    parts.push(table(UI.technique.details.biais_colonnes, (d.biases || []).map(b => [el("span", {}, [el("strong", { text: b.nom }), el("br"), el("span", { class: "small", text: b.description })]), b.indicator_name || "—", b.indicator_value === null || b.indicator_value === undefined ? t(T + "nd") : fmt(b.indicator_value, b.indicator_unit), b.consigne]), t(T + "biais")));
+    parts.push(el("h3", { text: t(T + "checklist") }));
+    parts.push(table(UI.technique.details.checklist_colonnes, (d.checklist || []).map(c => [c.nom, c.importance, c.methode, c.description]), t(T + "checklist")));
+    parts.push(el("h3", { text: t("sante.sante_sources") }));
+    parts.push(table(UI.technique.details.sources_colonnes, (state.data.feeds_status || []).map(s => [s.name, s.ok ? t(T + "source_ok") : t(T + "source_erreur", { erreur: s.error || "?" }), String(s.entries || 0), s.latest ? relative(s.latest) : "—"]), t("sante.sante_sources")));
+    return el("details", { class: "tech" }, parts);
   }
 
-  // ---- Export ----
+  // ---------- Help ----------
+  function renderHelp() {
+    const box = $("aide");
+    if (box.childNodes.length) return;
+    const A = UI.aide || {};
+    const list = items => el("ul", {}, (items || []).map(x => el("li", { text: x })));
+    box.append(
+      el("h3", { text: A.lire_accueil_titre }), list(A.lire_accueil),
+      el("h3", { text: A.niveaux_titre }), list(A.niveaux),
+      el("h3", { text: A.sante_titre }), list(A.sante),
+      el("h3", { text: A.glossaire_titre }),
+      el("dl", {}, Object.entries(GLOSSARY).flatMap(([k, v]) => [el("dt", {}, [el("strong", { text: k })]), el("dd", { text: v })])),
+      el("h3", { text: A.limites_titre }), list(A.limites),
+      el("p", { class: "small", text: A.contact }),
+    );
+  }
+
+  // ---------- Export ----------
   function download(name, mime, text) {
-    const blob = new Blob([text], { type: mime + ";charset=utf-8" });
-    const a = el("a", { href: URL.createObjectURL(blob), download: name });
-    document.body.appendChild(a); a.click(); a.remove();
-    setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+    const a = el("a", { href: URL.createObjectURL(new Blob([text], { type: mime + ";charset=utf-8" })), download: name });
+    document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 2000);
   }
-  function csvCell(v) {
-    let s = String(v ?? "");
-    if (/^[=+\-@\t\r]/.test(s)) s = "'" + s; // spreadsheet formula injection guard
-    return '"' + s.replace(/"/g, '""') + '"';
-  }
+  function csvCell(v) { let s = String(v ?? ""); if (/^[=+\-@\t\r]/.test(s)) s = "'" + s; return '"' + s.replace(/"/g, '""') + '"'; }
+  function levelLabel(l) { return ((UI.niveaux || {})[l] || {}).libelle || l; }
   function exportCsv() {
-    const head = ["date", "criticite", "score", "kev", "themes", "source", "titre", "url", "cve", "resume", "pourquoi", "action"];
-    const rows = state.filtered.map(a => [a.published, a.level, a.criticality, a.kev ? "oui" : "non", (a.themes || []).join(" "), a.source, a.title, a.url, (a.cves || []).join(" "), a.summary, a.why, a.action]);
+    const rows = state.filtered.map(a => [a.published, levelLabel(a.level), (a.themes || []).map(x => t("sujets." + x)).join(" "), a.source, a.title, a.url, (a.cves || []).join(" "), a.summary, a.why_simple, a.todo_simple]);
+    const head = ["date", "niveau", "sujets", "source", "titre", "lien", "failles", "resume", "pourquoi", "que_faire"];
     download("veille-cyber-" + new Date().toISOString().slice(0, 10) + ".csv", "text/csv", "﻿" + [head, ...rows].map(r => r.map(csvCell).join(";")).join("\r\n"));
   }
   function mdEscape(s) { return String(s ?? "").replace(/([\\`*_{}\[\]()#+!|<>])/g, "\\$1"); }
   function exportMd() {
-    const lines = ["# Veille cyber - export du " + dfmt.format(new Date()), ""];
+    const lines = ["# " + document.title + " - " + dfmt.format(new Date()), ""];
     state.filtered.forEach(a => {
-      const url = safeUrl(a.url) || "";
-      lines.push("## [" + mdEscape(a.title) + "](" + url.replace(/\)/g, "%29") + ")", "",
-        "*" + mdEscape(a.source) + " - " + a.published.slice(0, 10) + " - " + a.level + (a.kev ? " - KEV" : "") + " - " + (a.themes || []).join(", ") + "*", "");
+      lines.push("## [" + mdEscape(a.title) + "](" + (safeUrl(a.url) || "").replace(/\)/g, "%29") + ")", "", "*" + mdEscape(a.source) + " - " + a.published.slice(0, 10) + " - " + levelLabel(a.level) + "*", "");
       if (a.summary) lines.push(mdEscape(a.summary), "");
-      if (a.why) lines.push("**Pourquoi c'est important :** " + mdEscape(a.why), "");
-      if (a.action) lines.push("**Action :** " + mdEscape(a.action), "");
-      if (a.cves && a.cves.length) lines.push("CVE : " + a.cves.join(", "), "");
+      if (a.why_simple) lines.push("**" + t("carte_article.pourquoi") + " :** " + mdEscape(a.why_simple), "");
+      if (a.todo_simple) lines.push("**" + t("carte_article.que_faire") + " :** " + mdEscape(a.todo_simple), "");
     });
     download("veille-cyber-" + new Date().toISOString().slice(0, 10) + ".md", "text/markdown", lines.join("\n"));
   }
 
-  // ---- Init ----
+  // ---------- Init ----------
   function init(data) {
-    state.data = data;
-    $("updated").textContent = "Mise à jour : " + dtf.format(new Date(data.generated_at)) + " (" + relative(data.generated_at) + ")";
-    const c = $("counters");
-    ["H1", "H2", "H3", "H4"].forEach(t => c.appendChild(el("li", {}, [el("b", { text: String(data.counts[t] || 0) }), " " + t + " " + data.theme_labels[t]])));
-    const crit = data.articles.filter(a => a.level === "Critique" && Date.now() - new Date(a.published) < 7 * 86400000).length;
-    c.appendChild(el("li", {}, [el("b", { text: String(crit) }), " critiques (7 j)"]));
-    const sel = $("f-source");
-    [...new Set(data.articles.map(a => a.source))].sort((x, y) => x.localeCompare(y, "fr")).forEach(s => sel.appendChild(el("option", { value: s, text: s })));
-    buildTabs();
-    renderEvents();
-    renderHealth();
-    ["f-level", "f-source", "f-period", "f-kev"].forEach(id => $(id).addEventListener("change", apply));
-    let t; $("f-q").addEventListener("input", () => { clearTimeout(t); t = setTimeout(apply, 180); });
-    $("more").addEventListener("click", () => { state.shown += PAGE; renderList(); });
+    state.data = data; UI = data.ui || {}; GLOSSARY = data.glossary || {};
+    $("updated").textContent = t("accueil.mise_a_jour", { quand: relative(data.generated_at) }) + " (" + dtf.format(new Date(data.generated_at)) + ")";
+    const src = $("f-source");
+    [...new Set(data.articles.map(a => a.source))].sort((x, y) => x.localeCompare(y, "fr")).forEach(s => src.appendChild(el("option", { value: s, text: s })));
+    Object.entries(UI.fiabilite || {}).forEach(([k, v]) => $("f-rel").appendChild(el("option", { value: k, text: v.libelle })));
+    ["Critique", "Élevé", "Moyen"].forEach(l => $("f-level").appendChild(el("option", { value: l, text: levelLabel(l) })));
+    buildTopics(); renderHome(); renderAgenda();
+    ["period", "f-source", "f-rel", "f-period", "f-level", "f-kev"].forEach(id => $(id).addEventListener("change", applyFilters));
+    let timer; $("q").addEventListener("input", () => { clearTimeout(timer); timer = setTimeout(applyFilters, 180); });
+    $("urgent-only").addEventListener("click", ev => { const b = ev.currentTarget; b.setAttribute("aria-checked", b.getAttribute("aria-checked") === "true" ? "false" : "true"); applyFilters(); });
+    $("more-btn").addEventListener("click", ev => { const b = ev.currentTarget, open = b.getAttribute("aria-expanded") !== "true"; b.setAttribute("aria-expanded", open ? "true" : "false"); $("morebox").hidden = !open; });
+    $("reset").addEventListener("click", () => { ["f-source", "f-rel", "f-period", "f-level"].forEach(id => { $(id).value = ""; }); $("f-kev").checked = false; $("q").value = ""; $("urgent-only").setAttribute("aria-checked", "false"); $("period").value = "7"; applyFilters(); });
+    $("show-more").addEventListener("click", () => { state.shown += PAGE; renderList(); });
     $("export-csv").addEventListener("click", exportCsv);
     $("export-md").addEventListener("click", exportMd);
-    const initial = (location.hash || "").slice(1);
-    selectTab(TABS.some(x => x[0] === initial) ? initial : "ALL");
+    document.querySelectorAll("nav.main button").forEach(b => b.addEventListener("click", () => showView(b.dataset.view, true)));
+    applyFilters();
+    const h = (location.hash || "").slice(1).toLowerCase();
+    showView(h === "kpi" ? "sante" : h);
   }
-
-  fetch("articles.json", { cache: "no-cache" })
-    .then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
-    .then(init)
-    .catch(err => { $("updated").textContent = "Impossible de charger les données (" + err.message + ")."; });
+  fetch("articles.json", { cache: "no-cache" }).then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); }).then(init)
+    .catch(() => { $("updated").textContent = {{json:ui.accueil.erreur_chargement}}; });
 })();
 </script>
 </body>

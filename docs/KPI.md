@@ -12,6 +12,25 @@
 - **Source Quality Score (SQS)** = 30% pertinence + 25% crédibilité + 25% nouveauté + 20% efficacité (`settings.yaml > quality`).
 - **Crédibilité** = 30% AE (expertise des auteurs) + 40% IR (réputation de l'institution) + 30% PR (rigueur éditoriale) ; notes dans `config/sources_quality.yaml`.
 - **Nouveauté** : part des informations qu'une source publie en premier. **Efficacité** : rapidité (délai médian de réception, TTRI) et part d'articles utiles. **Source Authority Index** : crédibilité, taux de reprise par d'autres organisations et nouveauté.
+- **Mode apprentissage** : pendant les 4 premières semaines, les objectifs sont provisoires, aucune issue n'est ouverte et le bloc santé de l'e-mail reste informatif ; ensuite `data/kpi_calibration.md` propose des objectifs recalés (à valider).
+- **« Pas encore de données »** : un indicateur qui exige une saisie humaine ou un historique minimal (champ `disponibilite`) n'est jamais orange ni rouge et ne déclenche aucune action tant qu'il n'est pas mesurable.
+- **Alerte unique** : une seule issue « Revue de la veille » liste les cartes en « Problème » (remplace les issues par action du chantier 2).
+
+## Les 9 cartes de la vue « Santé de la veille »
+
+| # | Question | Indicateurs utilisés | Pourquoi | Que faire | Estimation |
+|---|---|---|---|---|---|
+| 1 | Mes sources fonctionnent-elles ? | B6_disponibilite_flux, B7_flux_en_erreur | Une source en panne, ce sont des alertes que vous ne recevez pas. | Corriger l'adresse des sources en panne ou les désactiver dans la configuration. | non |
+| 2 | Reçoit-on les informations assez vite ? | B5_delai_reception | Une alerte reçue tard laisse moins de temps pour réagir. | Vérifier que la mise à jour automatique tourne bien toutes les 6 heures. | non |
+| 3 | Les articles sont-ils utiles ? | A1_pertinence_axe | Moins d'articles inutiles, c'est moins de temps perdu. | Retirer les sources ou mots-clés qui apportent surtout du bruit. | non |
+| 4 | Chaque sujet est-il bien couvert ? | A2_couverture_axe | Un sujet peu couvert, ce sont des risques que l'on ne voit pas. | Ajouter une source spécialisée sur le sujet le moins couvert. | non |
+| 5 | Les infos importantes sont-elles confirmées ? | B3_taux_recoupement | Une alerte confirmée par plusieurs sources est plus sûre. | Recouper les alertes isolées avec l'avis officiel (CERT-FR, éditeur). | non |
+| 6 | Les sources sont-elles fiables ? | B1_qualite_moyenne, B2_qualite_source | Des sources fiables évitent de relayer de fausses alertes. | Remplacer les sources les moins bien notées si elles restent faibles. | oui |
+| 7 | La veille est-elle variée ? | F1_part_max_source, F5_part_sources_francaises, E1_repartition_langues, F2_concentration_hhi, F4_repartition_geographique | Une veille peu variée voit moins bien les sujets français et européens. | Ajouter des sources françaises et européennes. | non |
+| 8 | La veille sert-elle à quelque chose ? | D1_utilisations, D2_signaux_transformes, D3_taux_transformation, A3_temps_hors_sujet | Une veille qui ne sert pas doit être réorientée. | Cliquez sur « Signaler un usage » (dans les détails d'un article) dès qu'une information vous sert. | non |
+| 9 | Repère-t-on des sujets émergents ? | C1_signaux_faibles | Repérer tôt un sujet laisse le temps de s'y préparer. | Lire les sujets émergents et noter une hypothèse pour chacun. | non |
+
+## Référentiel complet des 22 indicateurs
 
 ## A. Pertinence par rapport aux objectifs
 
@@ -19,6 +38,10 @@
 
 | Champ | Valeur |
 |---|---|
+| **Version simple** | Les articles sont-ils utiles ? — « {dixiemes} articles sur 10 correspondent à vos sujets » (essentiel) |
+| Pourquoi (simple) | Moins d'articles inutiles, c'est moins de temps perdu. |
+| Que faire (simple) | Retirer les sources ou mots-clés qui apportent surtout du bruit. |
+| Disponibilité | toujours mesurable ; sinon : « Pas encore assez d'articles cette semaine. » |
 | Objectif (spécifique) | Mesurer la part des articles collectés qui servent réellement les objectifs de chaque axe. |
 | Définition (mesurable) | Pourcentage d'articles dont la pertinence >= seuil_pertinence, sur 7 jours. |
 | Atteignable | Ajustement des sources et des mots-clés. |
@@ -37,6 +60,10 @@
 
 | Champ | Valeur |
 |---|---|
+| **Version simple** | Chaque sujet est-il bien couvert ? — « Le sujet le moins couvert atteint {valeur} % de son objectif » (essentiel) |
+| Pourquoi (simple) | Un sujet peu couvert, ce sont des risques que l'on ne voit pas. |
+| Que faire (simple) | Ajouter une source spécialisée sur le sujet le moins couvert. |
+| Disponibilité | toujours mesurable ; sinon : « Pas encore assez d'articles cette semaine. » |
 | Objectif (spécifique) | Vérifier que chaque axe reçoit assez d'articles pertinents chaque semaine. |
 | Définition (mesurable) | Articles pertinents de la semaine / cible hebdomadaire de l'axe (themes.yaml) × 100. |
 | Atteignable | Cibles hebdomadaires réalistes par axe (themes.yaml > objectifs). |
@@ -55,6 +82,10 @@
 
 | Champ | Valeur |
 |---|---|
+| **Version simple** | Perd-on du temps sur des articles hors sujet ? — « {valeur} % des articles consultés étaient hors sujet » (avance) |
+| Pourquoi (simple) | Indique si le tri automatique laisse passer trop de bruit. |
+| Que faire (simple) | Renforcer les exclusions de mots-clés. |
+| Disponibilité | saisie humaine requise ; sinon : « Aucun usage déclaré pour l'instant : utilisez le lien « Signaler un usage ». » |
 | Objectif (spécifique) | Limiter le temps perdu sur des articles finalement écartés. |
 | Définition (mesurable) | Usages « article écarté (hors sujet) » / tous les usages déclarés (30 jours). |
 | Atteignable | Dépend de la saisie du journal d'usage. |
@@ -75,6 +106,10 @@
 
 | Champ | Valeur |
 |---|---|
+| **Version simple** | Les sources sont-elles fiables ? — « Note moyenne des sources : {valeur} sur 100 » (essentiel) |
+| Pourquoi (simple) | Des sources fiables évitent de relayer de fausses alertes. |
+| Que faire (simple) | Remplacer les sources les moins bien notées. |
+| Disponibilité | toujours mesurable ; sinon : « Aucune source n'a publié sur la période. » |
 | Objectif (spécifique) | Suivre la qualité globale du panel de sources. |
 | Définition (mesurable) | Moyenne du Source Quality Score des sources actives ayant publié sur 30 jours. |
 | Atteignable | Remplacement progressif des sources faibles. |
@@ -93,6 +128,10 @@
 
 | Champ | Valeur |
 |---|---|
+| **Version simple** | Quelles sources sont les plus faibles ? — « La source la plus faible a {valeur} sur 100 » (avance) |
+| Pourquoi (simple) | Une source faible durablement doit être remplacée. |
+| Que faire (simple) | Remplacer ou désactiver les sources sous 50 depuis 4 semaines. |
+| Disponibilité | toujours mesurable ; sinon : « Aucune source n'a publié sur la période. » |
 | Objectif (spécifique) | Repérer les sources qui n'apportent pas assez de valeur. |
 | Définition (mesurable) | Source Quality Score de chaque source (30 jours glissants). |
 | Atteignable | Remplacer ou désactiver une source durablement faible. |
@@ -111,6 +150,10 @@
 
 | Champ | Valeur |
 |---|---|
+| **Version simple** | Les infos importantes sont-elles confirmées ? — « {dixiemes} alertes importantes sur 10 sont confirmées par au moins 2 sources » (essentiel) |
+| Pourquoi (simple) | Une alerte confirmée par plusieurs sources est plus sûre. |
+| Que faire (simple) | Ajouter une source officielle ou de presse indépendante. |
+| Disponibilité | toujours mesurable ; sinon : « Aucune alerte importante cette semaine. » |
 | Objectif (spécifique) | S'assurer que les informations Élevé/Critique sont confirmées. |
 | Définition (mesurable) | Part des articles de criticité Élevé ou Critique confirmés par >= 2 sources indépendantes (7 jours). |
 | Atteignable | Diversifier les sources H4. |
@@ -129,6 +172,10 @@
 
 | Champ | Valeur |
 |---|---|
+| **Version simple** | Des articles viennent-ils de sources inconnues ? — « {valeur} article(s) de source inconnue » (avance) |
+| Pourquoi (simple) | Une source inconnue peut diffuser de fausses informations. |
+| Que faire (simple) | Vérifier ces sites et les ajouter à la liste ou les écarter. |
+| Disponibilité | toujours mesurable ; sinon : « Pas encore assez d'articles cette semaine. » |
 | Objectif (spécifique) | Détecter les liens qui pointent hors des domaines approuvés. |
 | Définition (mesurable) | Nombre d'articles dont le domaine n'est pas dans sources_quality.yaml (7 jours). |
 | Atteignable | Compléter la liste des domaines approuvés. |
@@ -147,6 +194,10 @@
 
 | Champ | Valeur |
 |---|---|
+| **Version simple** | Reçoit-on les informations assez vite ? — « La moitié des articles arrive en moins de {valeur} heures » (essentiel) |
+| Pourquoi (simple) | Une alerte reçue tard laisse moins de temps pour réagir. |
+| Que faire (simple) | Vérifier que la mise à jour automatique tourne bien toutes les 6 heures. |
+| Disponibilité | 1 jour(s) d'historique minimum ; sinon : « Il faut au moins une journée de collecte. » |
 | Objectif (spécifique) | Recevoir l'information rapidement après sa publication. |
 | Définition (mesurable) | Médiane (en heures) de collecte - publication, sur 7 jours. |
 | Atteignable | Collecte toutes les 6 heures. |
@@ -165,6 +216,10 @@
 
 | Champ | Valeur |
 |---|---|
+| **Version simple** | Mes sources fonctionnent-elles ? — « {ok} sources sur {total} répondent » (essentiel) |
+| Pourquoi (simple) | Une source en panne, ce sont des alertes que vous ne recevez pas. |
+| Que faire (simple) | Corriger l'adresse des sources en panne ou les désactiver. |
+| Disponibilité | toujours mesurable ; sinon : « Aucune collecte enregistrée. » |
 | Objectif (spécifique) | S'assurer que les sources répondent. |
 | Définition (mesurable) | Part des flux actifs collectés sans erreur lors de la dernière exécution. |
 | Atteignable | Correction ou remplacement des flux en panne. |
@@ -183,6 +238,10 @@
 
 | Champ | Valeur |
 |---|---|
+| **Version simple** | Quelles sources sont en panne ? — « {valeur} % des sources répondent » (avance) |
+| Pourquoi (simple) | Permet de savoir précisément quelle source corriger. |
+| Que faire (simple) | Corriger ou désactiver chaque source en panne. |
+| Disponibilité | toujours mesurable ; sinon : « Aucune collecte enregistrée. » |
 | Objectif (spécifique) | Repérer chaque flux durablement en panne. |
 | Définition (mesurable) | 100 si le flux répond, 0 sinon, à chaque exécution. |
 | Atteignable | Corriger l'URL ou désactiver le flux. |
@@ -203,6 +262,10 @@
 
 | Champ | Valeur |
 |---|---|
+| **Version simple** | Repère-t-on des sujets émergents ? — « {valeur} sujet(s) émergent(s) repéré(s) cette semaine » (essentiel) |
+| Pourquoi (simple) | Repérer tôt un sujet laisse le temps de s'y préparer. |
+| Que faire (simple) | Lire les sujets émergents et noter une hypothèse pour chacun. |
+| Disponibilité | 7 jour(s) d'historique minimum ; sinon : « La détection compare la semaine aux précédentes : il faut d'abord une semaine d'historique. » |
 | Objectif (spécifique) | Repérer tôt les sujets émergents. |
 | Définition (mesurable) | Nombre de termes en forte hausse mais encore rares (semaine vs 4 semaines). |
 | Atteignable | Détection automatique, glossaire FR/EN. |
@@ -223,6 +286,10 @@
 
 | Champ | Valeur |
 |---|---|
+| **Version simple** | La veille sert-elle à quelque chose ? — « {valeur} utilisation(s) déclarée(s) en 30 jours » (essentiel) |
+| Pourquoi (simple) | Une veille qui ne sert pas doit être réorientée. |
+| Que faire (simple) | Déclarer chaque usage avec le lien « Signaler un usage ». |
+| Disponibilité | saisie humaine requise ; sinon : « Aucun usage déclaré pour l'instant : utilisez le lien « Signaler un usage » sous un article. » |
 | Objectif (spécifique) | Mesurer l'usage réel de la veille (alertes, correctifs, notes, sensibilisation). |
 | Définition (mesurable) | Nombre d'usages déclarés (issues « Information utilisée » + data/usage.yaml) sur 30 jours. |
 | Atteignable | Saisie d'un usage en 1 minute depuis chaque carte. |
@@ -241,6 +308,10 @@
 
 | Champ | Valeur |
 |---|---|
+| **Version simple** | Les sujets émergents mènent-ils à des actions ? — « {valeur} sujet(s) émergent(s) transformé(s) en action » (avance) |
+| Pourquoi (simple) | Montre si la veille aide à anticiper. |
+| Que faire (simple) | Faire une revue mensuelle des sujets émergents. |
+| Disponibilité | saisie humaine requise ; sinon : « Aucune déclaration pour l'instant. » |
 | Objectif (spécifique) | Suivre la transformation des signaux faibles en décisions. |
 | Définition (mesurable) | Nombre d'issues « Signal faible transformé » sur 30 jours. |
 | Atteignable | Revue mensuelle des signaux (data/weak_signals.md). |
@@ -259,6 +330,10 @@
 
 | Champ | Valeur |
 |---|---|
+| **Version simple** | Quelle part des sujets émergents est exploitée ? — « {valeur} % des sujets émergents ont mené à une action » (avance) |
+| Pourquoi (simple) | Mesure l'intérêt réel des sujets repérés. |
+| Que faire (simple) | Prioriser les sujets émergents lors de la revue. |
+| Disponibilité | saisie humaine requise, 7 jour(s) d'historique minimum ; sinon : « Il faut des sujets émergents et des déclarations d'usage. » |
 | Objectif (spécifique) | Mesurer la part des signaux faibles exploités. |
 | Définition (mesurable) | Signaux transformés / signaux détectés sur 30 jours. |
 | Atteignable | Revue mensuelle. |
@@ -279,6 +354,10 @@
 
 | Champ | Valeur |
 |---|---|
+| **Version simple** | Dans quelles langues sont les articles ? — « {valeur} % des articles sont en langue étrangère » (essentiel) |
+| Pourquoi (simple) | Une veille très anglophone voit moins les sujets français. |
+| Que faire (simple) | Ajouter des sources françaises. |
+| Disponibilité | toujours mesurable ; sinon : « Pas encore assez d'articles cette semaine. » |
 | Objectif (spécifique) | Connaître l'exposition au risque de traduction. |
 | Définition (mesurable) | Part de chaque langue d'origine (7 jours). |
 | Atteignable | Observation. |
@@ -297,6 +376,10 @@
 
 | Champ | Valeur |
 |---|---|
+| **Version simple** | Les résumés sont-ils faits depuis l'original ? — « {valeur} % des articles résumés directement depuis l'original » (avance) |
+| Pourquoi (simple) | Traduire plusieurs fois déforme le sens. |
+| Que faire (simple) | Aucune action : garanti par le fonctionnement de l'outil. |
+| Disponibilité | toujours mesurable ; sinon : « Pas encore assez d'articles cette semaine. » |
 | Objectif (spécifique) | Éviter toute double traduction (résumé d'un texte déjà traduit ou résumé). |
 | Définition (mesurable) | Part des articles avec <= 1 étape de traduction, résumé produit depuis l'original. |
 | Atteignable | Garanti par conception du pipeline. |
@@ -315,6 +398,10 @@
 
 | Champ | Valeur |
 |---|---|
+| **Version simple** | Le dictionnaire français-anglais aide-t-il ? — « {valeur} % des articles classés grâce au dictionnaire » (avance) |
+| Pourquoi (simple) | Montre les articles qui auraient été mal classés sans lui. |
+| Que faire (simple) | Enrichir le dictionnaire (config/glossary.yaml). |
+| Disponibilité | toujours mesurable ; sinon : « Pas encore assez d'articles cette semaine. » |
 | Objectif (spécifique) | Mesurer les signaux qui auraient été manqués sans le glossaire bilingue. |
 | Définition (mesurable) | Part des articles dont au moins un axe provient uniquement du glossaire. |
 | Atteignable | Enrichir config/glossary.yaml. |
@@ -335,6 +422,10 @@
 
 | Champ | Valeur |
 |---|---|
+| **Version simple** | Une source domine-t-elle ? — « La source la plus présente fournit {valeur} % des articles » (essentiel) |
+| Pourquoi (simple) | Dépendre d'une seule source donne une vision partielle. |
+| Que faire (simple) | Ajouter des sources sur les mêmes sujets. |
+| Disponibilité | toujours mesurable ; sinon : « Pas encore assez d'articles cette semaine. » |
 | Objectif (spécifique) | Éviter la dépendance à une seule source. |
 | Définition (mesurable) | Part de la première source dans le total des articles (7 jours). |
 | Atteignable | Plafonner ou compléter les sources. |
@@ -353,6 +444,10 @@
 
 | Champ | Valeur |
 |---|---|
+| **Version simple** | La veille dépend-elle de peu de sources ? — « Indice de concentration : {valeur} » (avance) |
+| Pourquoi (simple) | Plus il est haut, plus la veille dépend de quelques sources. |
+| Que faire (simple) | Diversifier les sources. |
+| Disponibilité | toujours mesurable ; sinon : « Pas encore assez d'articles cette semaine. » |
 | Objectif (spécifique) | Mesurer la diversité globale des sources. |
 | Définition (mesurable) | Somme des carrés des parts (en %) de chaque source, 0-10 000 (7 jours). |
 | Atteignable | Diversification des sources. |
@@ -371,6 +466,10 @@
 
 | Champ | Valeur |
 |---|---|
+| **Version simple** | Quels types de sources lit-on ? — « {valeur} % des articles viennent de blogs d'éditeurs » (avance) |
+| Pourquoi (simple) | Un éditeur met en avant les menaces que ses produits traitent. |
+| Que faire (simple) | Recouper avec des sources officielles ou de presse. |
+| Disponibilité | toujours mesurable ; sinon : « Pas encore assez d'articles cette semaine. » |
 | Objectif (spécifique) | Équilibrer sources officielles, éditeurs, presse et communauté. |
 | Définition (mesurable) | Part des articles par type de source (7 jours). |
 | Atteignable | Observation. |
@@ -389,6 +488,10 @@
 
 | Champ | Valeur |
 |---|---|
+| **Version simple** | D'où viennent les sources ? — « {valeur} % des articles viennent du premier pays » (essentiel) |
+| Pourquoi (simple) | Une veille dominée par un pays voit moins les autres contextes. |
+| Que faire (simple) | Ajouter des sources européennes et françaises. |
+| Disponibilité | toujours mesurable ; sinon : « Pas encore assez d'articles cette semaine. » |
 | Objectif (spécifique) | Mesurer le biais géographique (sources américaines dominantes). |
 | Définition (mesurable) | Part des articles par pays d'origine de la source (7 jours). |
 | Atteignable | Observation. |
@@ -407,6 +510,10 @@
 
 | Champ | Valeur |
 |---|---|
+| **Version simple** | Lit-on assez de sources françaises ? — « {valeur} % des articles viennent de sources françaises » (essentiel) |
+| Pourquoi (simple) | Les règles et alertes françaises (ANSSI) comptent pour vos clients. |
+| Que faire (simple) | Ajouter des sources françaises. |
+| Disponibilité | toujours mesurable ; sinon : « Pas encore assez d'articles cette semaine. » |
 | Objectif (spécifique) | Garder une vision adaptée au contexte français (réglementation, ANSSI). |
 | Définition (mesurable) | Part des articles issus de sources françaises (7 jours). |
 | Atteignable | Ajout de sources FR. |

@@ -9,6 +9,8 @@ Site de veille cybersécurité **100 % statique**, mis à jour **toutes les 6 he
 - votre propre **flux RSS** (`feed.xml`), à suivre dans Feedly ou Outlook, et l'**export CSV / Markdown** des articles filtrés ;
 - un **pilotage de la qualité de la veille** : 22 KPI SMART historisés, un onglet **« KPI & qualité »**, un score de qualité par source, la détection des signaux faibles, un badge de fiabilité sur chaque article, un glossaire bilingue contre le risque de double traduction et un plan d'amélioration continue automatique (§ 12).
 
+Le site se lit en trois pages, en français simple : **Actualités** (l'essentiel de la semaine), **Santé de la veille** (9 questions, réponses honnêtes) et **Aide**. Mode d'emploi pour les lecteurs : **[docs/GUIDE_LECTURE.md](docs/GUIDE_LECTURE.md)** ; réglages : § 13.
+
 Il n'y a aucun serveur, aucune base de données et aucun service tiers appelé depuis le navigateur.
 
 ```
@@ -265,12 +267,12 @@ Le site généré est écrit dans `public/` (non versionné) puis publié par Gi
 À chaque exécution (toutes les 6 heures), après les résumés :
 1. **`quality.py`** contrôle chaque article (domaine approuvé, HTTPS, date plausible, CVE confirmées, recoupement par 2 organisations indépendantes, ton non sensationnaliste) et lui attribue un **badge de fiabilité** : ✔ Vérifié, ⚠ À recouper ou ✖ Source non référencée. Il calcule aussi le **Source Quality Score** et l'**indice d'autorité** de chaque source.
 2. **`signals.py`** détecte les **signaux faibles** : termes (concepts du glossaire, noms de produits, familles de logiciels malveillants) en forte hausse sur la semaine par rapport aux 4 précédentes, mais encore rares. Pendant la première semaine de collecte, la détection est en **période d'apprentissage**.
-3. **`kpi.py`** calcule les **22 KPI** de `config/kpi.yaml` (familles A à F), les compare à leurs cibles, enregistre un instantané dans `data/kpi_history.jsonl` (conservé sans limite) et applique le **SLA** : un KPI orange ou rouge pendant N périodes consécutives ouvre une action dans `data/improvement_actions.md` et **une seule** issue GitHub « Action d'amélioration » (étiquette `amelioration`), fermée automatiquement quand le KPI revient au vert.
+3. **`kpi.py`** calcule les **22 KPI** de `config/kpi.yaml` (familles A à F), les compare à leurs cibles, enregistre un instantané dans `data/kpi_history.jsonl` (conservé sans limite) et applique le **SLA** : un KPI orange ou rouge pendant N périodes consécutives ouvre une action dans `data/improvement_actions.md`. Depuis le chantier 3, les alertes GitHub sont regroupées dans **une seule** issue hebdomadaire « Revue de la veille » (§ 13).
 4. **`archive.py`** conserve une archive légère de chaque article au-delà des 90 jours du site (`data/archive/AAAA-MM.jsonl`, sans texte intégral), compressée en `.gz` après 12 mois.
 
 Les fiches SMART de chaque KPI (définition, formule, source des données, fréquence, cible, seuil, responsable, action corrective) sont dans **[docs/KPI.md](docs/KPI.md)**.
 
-### Lire la page « KPI & qualité »
+### Lire les « Détails techniques » de la vue Santé (ancienne page « KPI & qualité »)
 - **Vue d'ensemble** : chaque KPI avec sa valeur, sa cible et son statut. Le statut est indiqué par un symbole et un texte, pas seulement par une couleur : ✔ Dans la cible, ▲ À surveiller, ✖ Hors seuil, ● Observation, – Non disponible. Cliquez sur « Définition SMART » pour la fiche du KPI.
 - **Tendances** : mini-graphiques sur 4, 12 ou 52 semaines (boutons en haut). Ils se remplissent au fil des exécutions.
 - **Objectifs SMART par axe**, **plan d'amélioration continue**, **classement des sources** (qualité, pertinence, crédibilité, nouveauté, efficacité, délai, autorité), **signaux faibles de la semaine**, **biais** et **checklist de vérification**.
@@ -322,4 +324,46 @@ Le pipeline lit les issues étiquetées `usage` et `signal-transforme` avec le j
 | `archive/AAAA-MM.jsonl(.gz)` | Archive légère des articles au-delà de 90 jours |
 
 La synthèse du lundi contient désormais un bloc **« Santé de la veille »** : les KPI hors cible, les signaux faibles de la semaine et les actions proposées.
+
+---
+
+## 13. Site clair et KPI honnêtes (chantier 3)
+
+### Ce qui a changé
+- **Trois pages** : Actualités, Santé de la veille, Aide. L'ancienne adresse `#KPI` mène à la vue Santé.
+- **Mots simples** : Urgent, Important, À suivre, Pour info ; « Déjà utilisée par des pirates » au lieu de « KEV ». Les sigles (CVE, CVSS, EPSS, KEV, SQS…) n'apparaissent que dans les zones « Détails », avec un **?** qui ouvre leur définition.
+- **Accueil** : une phrase de résumé de la semaine, « À lire en priorité » (3 à 5 articles avec pourquoi et quoi faire, même sans clé d'IA grâce à des règles simples), et trois réglages visibles : recherche, « Urgent seulement », période. Tout le reste est dans « Plus de filtres ».
+- **Santé de la veille** : un bilan honnête, « À traiter en premier » (3 actions maximum) et **9 cartes-questions**. Quatre réponses : Bon, À surveiller, Problème, **Pas encore de données**. Les 22 indicateurs restent dans « Détails techniques ».
+- **Mode apprentissage** de 4 semaines depuis la première mesure (23/11/2026, donc jusqu'au 21/12/2026) : objectifs provisoires, aucune issue ouverte.
+- **Alerte unique** : une seule issue « Revue de la veille ». Les anciennes issues « Action d'amélioration » sont fermées automatiquement à la première exécution.
+
+### Modifier un texte affiché
+Tous les textes du site et de l'e-mail sont dans **`config/ui_texts.yaml`**. Les définitions des sigles sont dans **`config/glossary_ui.yaml`**. Les textes des 9 cartes (question, chiffre, pourquoi, que faire, message « pas encore de données ») sont dans **`config/kpi.yaml` > `cartes`**. Exemple :
+```yaml
+# config/ui_texts.yaml
+accueil:
+  priorite_titre: "À lire en priorité"   # modifiez le texte entre guillemets
+```
+Règles : phrases courtes, aucun sigle hors des clés `details`, aucun mot anglais (des tests le vérifient). Les variables entre accolades (`{n}`, `{date}`…) doivent être conservées.
+
+### Modifier une cible ou un seuil
+Dans `config/kpi.yaml`, changez `cible` et `seuil_alerte` du KPI concerné (par exemple `B6_disponibilite_flux`, qui alimente la carte « Mes sources fonctionnent-elles ? »). Puis lancez `python scripts/kpi_doc.py` pour mettre à jour `docs/KPI.md`.
+
+### Modifier la durée d'apprentissage
+```yaml
+# config/kpi.yaml
+mode_apprentissage_semaines: 4   # par exemple 6 pour observer plus longtemps
+```
+
+### Valider le recalibrage des objectifs
+À la fin de la période d'apprentissage, le pipeline écrit **`data/kpi_calibration.md`**. Ce fichier propose, pour chaque indicateur, la médiane observée et une cible et un seuil recalés. **Rien n'est modifié automatiquement.** Pour valider :
+1. Ouvrez `data/kpi_calibration.md` sur GitHub et lisez les propositions.
+2. Recopiez les valeurs retenues dans `config/kpi.yaml` (`cible`, `seuil_alerte`).
+3. Lancez `python scripts/kpi_doc.py`, puis faites un commit et un push.
+
+Vous pouvez aussi générer les propositions à tout moment avec `python scripts/calibrate_kpi.py`.
+
+### Rendre une carte mesurable
+- **« La veille sert-elle à quelque chose ? »** : déclarez un usage avec le lien « Signaler un usage », dans les Détails d'un article.
+- **« Repère-t-on des sujets émergents ? »** : la détection démarre automatiquement après une semaine d'historique, et devient fiable après quatre.
 

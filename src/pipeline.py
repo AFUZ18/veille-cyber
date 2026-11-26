@@ -15,7 +15,7 @@ from pathlib import Path
 
 import feedparser
 
-from . import archive, issues, kpi, quality, signals, usage
+from . import archive, calibration, issues, kpi, quality, signals, usage
 from .build_site import build_site
 from .classify import classify
 from .collect import apply_retention, collect, deduplicate, normalise_entry
@@ -68,7 +68,8 @@ def quality_layer(articles: list[dict], cfg: Config, statuses: list[dict], now) 
                              signals=weak, source_scores=scores, signals_warmup=warmup)  # fmt: skip
         report = kpi.run(ctx)
         archive.update_archive(articles, cfg, now)
-        issues.maybe_sync({a["key"]: a for a in report["actions"]}, cfg.site_url)
+        issues.maybe_sync(report["sante"], cfg.site_url, f"{year}-W{week:02d}")
+        calibration.maybe_write(cfg, report["sante"]["learning"], now)
         return report
     except Exception:
         log.exception("Couche qualité / KPI en échec : le site est publié sans mise à jour des KPI")

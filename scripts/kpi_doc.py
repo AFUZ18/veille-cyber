@@ -60,6 +60,22 @@ def render(cfg) -> str:
         f"+ {c.get('pr', 0.3):.0%} PR (rigueur éditoriale) ; notes dans `config/sources_quality.yaml`.",
         "- **Nouveauté** : part des informations qu'une source publie en premier. **Efficacité** : rapidité (délai médian de réception, TTRI) "
         "et part d'articles utiles. **Source Authority Index** : crédibilité, taux de reprise par d'autres organisations et nouveauté.",
+        f"- **Mode apprentissage** : pendant les {cfg.kpi.get('mode_apprentissage_semaines', 4)} premières semaines, les objectifs sont provisoires, "
+        "aucune issue n'est ouverte et le bloc santé de l'e-mail reste informatif ; ensuite `data/kpi_calibration.md` propose des objectifs recalés (à valider).",
+        "- **« Pas encore de données »** : un indicateur qui exige une saisie humaine ou un historique minimal (champ `disponibilite`) n'est jamais orange ni rouge "
+        "et ne déclenche aucune action tant qu'il n'est pas mesurable.",
+        "- **Alerte unique** : une seule issue « Revue de la veille » liste les cartes en « Problème » (remplace les issues par action du chantier 2).",
+        "",
+        "## Les 9 cartes de la vue « Santé de la veille »",
+        "",
+        "| # | Question | Indicateurs utilisés | Pourquoi | Que faire | Estimation |",
+        "|---|---|---|---|---|---|",
+        *[
+            f"| {c['ordre']} | {c['question']} | {', '.join(c['kpis'])} | {c['pourquoi']} | {c['que_faire']} | {'oui' if c.get('estimation') else 'non'} |"
+            for c in sorted(cfg.kpi.get("cartes", []), key=lambda c: c["ordre"])
+        ],
+        "",
+        "## Référentiel complet des 22 indicateurs",
         "",
     ]
     by_family: dict[str, list[dict]] = {}
@@ -78,11 +94,29 @@ def render(cfg) -> str:
             )
             per = {"axe": " (par axe H1 à H4)", "source": " (par source)", "langue": " (par langue)", "type": " (par type de source)",
                    "pays": " (par pays)"}.get(k.get("par") or "", "")  # fmt: skip
+            dispo = k.get("disponibilite") or {}
+            dispo_txt = (
+                ", ".join(
+                    x
+                    for x in (
+                        "saisie humaine requise" if dispo.get("saisie_requise") else "",
+                        f"{dispo['historique_min_jours']} jour(s) d'historique minimum"
+                        if dispo.get("historique_min_jours")
+                        else "",
+                    )
+                    if x
+                )
+                or "toujours mesurable"
+            )
             lines += [
                 f"### {k['id']} · {k['nom']}{per}",
                 "",
                 "| Champ | Valeur |",
                 "|---|---|",
+                f"| **Version simple** | {k.get('question', '')} — « {k.get('phrase_resultat', '')} » ({k.get('affichage', '')}) |",
+                f"| Pourquoi (simple) | {k.get('pourquoi', '')} |",
+                f"| Que faire (simple) | {k.get('que_faire', '')} |",
+                f"| Disponibilité | {dispo_txt} ; sinon : « {k.get('message_sans_donnees', '')} » |",
                 f"| Objectif (spécifique) | {smart.get('specifique', '')} |",
                 f"| Définition (mesurable) | {smart.get('mesurable', '')} |",
                 f"| Atteignable | {smart.get('atteignable', '')} |",

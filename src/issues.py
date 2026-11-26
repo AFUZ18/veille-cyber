@@ -1,4 +1,12 @@
-"""One GitHub issue « Action d'amélioration » per open SLA action, without duplicates.
+"""GitHub issues of the quality layer.
+
+Chantier 3: a SINGLE weekly issue « Revue de la veille » (created or updated, never
+duplicated) lists the health cards in « Problème », with one action per line and the
+failing sources grouped in one list. Nothing is opened during the learning period, and
+cards without data never produce an action. The per-action issues of chantier 2
+(label `amelioration`) are closed automatically, as they are replaced by the review.
+
+Legacy (chantier 2) — one GitHub issue « Action d'amélioration » per open SLA action:
 
 Same mechanism as the existing failure alert (one issue per problem, updated rather
 than duplicated), but in Python so it is testable. Each issue carries a hidden marker
@@ -19,6 +27,9 @@ import requests
 log = logging.getLogger("veille.issues")
 
 LABEL = "amelioration"
+REVIEW_LABEL = "revue-veille"
+REVIEW_TITLE = "Revue de la veille"
+REVIEW_MARKER = "<!-- revue-veille -->"
 MARKER_RE = re.compile(r"<!-- action-key: (.+?) -->")
 API = "https://api.github.com"
 
@@ -42,6 +53,22 @@ class GitHub:
         )
         if r.status_code not in (201, 422):  # 422 = already exists
             r.raise_for_status()
+
+    def list_issues(self, label: str) -> list[dict[str, Any]]:
+        out: list[dict[str, Any]] = []
+        for page in range(1, 6):
+            r = self.s.get(
+                self._url("/issues"), params={"labels": label, "state": "all", "per_page": 100, "page": page}, timeout=20
+            )
+            r.raise_for_status()
+            items = [i for i in r.json() if "pull_request" not in i]
+            out += items
+            if len(items) < 100:
+                break
+        return out
+
+    def create_labeled(self, title: str, body: str, label: str) -> None:
+        self.s.post(self._url("/issues"), json={"title": title, "body": body, "labels": [label]}, timeout=20).raise_for_status()
 
     def list_action_issues(self) -> dict[str, dict[str, Any]]:
         out: dict[str, dict[str, Any]] = {}
@@ -114,7 +141,74 @@ def sync_actions(actions: dict[str, dict[str, Any]], gh: GitHub, site_url: str) 
     return stats
 
 
-def maybe_sync(actions: dict[str, dict[str, Any]], site_url: str) -> None:
+# --------------------------------------------------------------------------- chantier 3: weekly review
+
+
+def review_body(health: dict[str, Any], week_label: str, site_url: str) -> str | None:
+    """Markdown body of the review, or None when no card is in « Problème »."""
+    problems = [c for c in health.get("cards", []) if c.get("answer") == "probleme"]
+    if not problems:
+        return None
+    lines = [
+        f"## Revue de la veille · semaine {week_label}",
+        "",
+        f"**Bilan :** {health.get('verdict', {}).get('sentence', '')}",
+        "",
+        "### Points en « Problème » (une action par ligne)",
+        "",
+    ]
+    for c in sorted(problems, key=lambda c: c.get("importance", 9)):
+        lines.append(f"- [ ] **{c['question']}** {c.get('chiffre') or ''} → {c.get('action') or c.get('que_faire', '')}")
+    failing = sorted({s for c in problems for s in c.get("failing_sources", [])})
+    if failing:
+        lines += ["", "### Sources en panne", "", *[f"- {name}" for name in failing]]
+    lines += [
+        "",
+        f"Vue complète : {site_url}#sante",
+        "",
+        "Cette issue est unique : elle est mise à jour automatiquement et fermée quand plus aucun point n'est en « Problème ».",
+        "",
+        REVIEW_MARKER,
+    ]
+    return "\n".join(lines)
+
+
+def sync_review(health: dict[str, Any], gh: Any, site_url: str, week_label: str) -> str:
+    """Create, update, reopen or close THE review issue. Returns what was done."""
+    learning = (health.get("learning") or {}).get("active", False)
+    existing = [i for i in gh.list_issues(REVIEW_LABEL) if REVIEW_MARKER in (i.get("body") or "")]
+    issue = next((i for i in existing if i.get("state") == "open"), None) or (existing[0] if existing else None)
+    body = None if learning else review_body(health, week_label, site_url)
+    if body is None:
+        if issue is not None and issue.get("state") == "open":
+            gh.comment(issue["number"], "Plus aucun point en « Problème » (ou période d'observation) : revue close.")
+            gh.update(issue["number"], state="closed")
+            return "closed"
+        return "none"
+    if issue is None:
+        gh.create_labeled(REVIEW_TITLE, body, REVIEW_LABEL)
+        return "created"
+    if issue.get("state") == "closed":
+        gh.update(issue["number"], state="open", body=body)
+        return "reopened"
+    if (issue.get("body") or "") != body:
+        gh.update(issue["number"], body=body)
+        return "updated"
+    return "unchanged"
+
+
+def close_legacy_action_issues(gh: Any) -> int:
+    """Close the per-action issues of chantier 2: they are replaced by the weekly review."""
+    closed = 0
+    for issue in gh.list_issues(LABEL):
+        if issue.get("state") == "open" and MARKER_RE.search(issue.get("body") or ""):
+            gh.comment(issue["number"], "Remplacée par l'issue unique « Revue de la veille » (une seule alerte hebdomadaire).")
+            gh.update(issue["number"], state="closed")
+            closed += 1
+    return closed
+
+
+def maybe_sync(health: dict[str, Any], site_url: str, week_label: str) -> None:
     """Called by the pipeline: only in GitHub Actions with ISSUES_SYNC=1 and a token."""
     token, repo = os.environ.get("GITHUB_TOKEN", ""), os.environ.get("GITHUB_REPOSITORY", "")
     if os.environ.get("ISSUES_SYNC") != "1" or not token or not repo:
@@ -122,7 +216,9 @@ def maybe_sync(actions: dict[str, dict[str, Any]], site_url: str) -> None:
     try:
         gh = GitHub(repo, token)
         gh.ensure_usage_labels()
-        stats = sync_actions(actions, gh, site_url)
-        log.info("Issues d'amélioration : %s", stats)
+        gh.ensure_label(REVIEW_LABEL, "b3261e", "Revue hebdomadaire de la veille (issue unique)")
+        legacy = close_legacy_action_issues(gh)
+        result = sync_review(health, gh, site_url, week_label)
+        log.info("Revue de la veille : %s ; anciennes issues fermées : %d", result, legacy)
     except Exception as exc:  # never break the pipeline for this
         log.warning("Synchronisation des issues impossible : %s", exc)

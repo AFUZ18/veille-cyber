@@ -7,7 +7,6 @@ articles.json, served from the same origin. All feed-derived text is escaped
 
 from __future__ import annotations
 
-import html
 import json
 import logging
 import shutil
@@ -18,6 +17,7 @@ from typing import Any
 from xml.sax.saxutils import escape as xml_escape
 
 from .common import ROOT, THEME_IDS, Config, iso, parse_iso, utcnow
+from .simple import home_payload, render_template, simple_reasons
 
 log = logging.getLogger("veille.build")
 
@@ -30,6 +30,8 @@ PUBLIC_FIELDS = (
     # quality layer
     "reliability", "checks", "source_language", "translation_steps", "summary_from", "glossary_concepts",
     "corroboration_sources", "domain",
+    # plain-language layer
+    "why_simple", "todo_simple", "official",
 )  # fmt: skip
 
 
@@ -109,6 +111,8 @@ def kpi_payload(report: dict[str, Any] | None, cfg: Config) -> dict[str, Any]:
 def site_payload(articles: list[dict[str, Any]], cfg: Config, feeds_status: list[dict], now: datetime) -> dict:
     limit = cfg.settings["site"]["max_articles_on_site"]
     ordered = sorted(articles, key=lambda a: a["published"], reverse=True)[:limit]
+    for a in ordered:
+        a["why_simple"], a["todo_simple"] = simple_reasons(a, cfg.ui or {})
     public = [{k: a.get(k) for k in PUBLIC_FIELDS} for a in ordered]
     labels = {t: cfg.themes["themes"][t]["label"] for t in THEME_IDS}
     return {
@@ -125,6 +129,9 @@ def site_payload(articles: list[dict[str, Any]], cfg: Config, feeds_status: list
         "events": events_payload(cfg.events, now.date()),
         "feeds_status": [{k: s.get(k) for k in ("name", "ok", "entries", "error", "latest", "checked")} for s in feeds_status],
         "articles": public,
+        "home": home_payload(ordered, cfg, now),
+        "ui": cfg.ui or {},
+        "glossary": (cfg.glossary_ui or {}).get("termes", {}),
     }
 
 
@@ -184,9 +191,7 @@ def build_site(
 
     (out / "articles.json").write_text(json.dumps(payload, ensure_ascii=False, separators=(",", ":")), "utf-8")
     template = (TEMPLATE_DIR / "index.html").read_text("utf-8")
-    page = template.replace("{{SITE_TITLE}}", html.escape(cfg.settings["site"]["title"])).replace(
-        "{{SITE_SUBTITLE}}", html.escape(cfg.settings["site"]["subtitle"])
-    )
+    page = render_template(template, cfg)
     (out / "index.html").write_text(page, "utf-8")
     (out / "feed.xml").write_text(build_rss(articles, cfg, now), "utf-8")
     (out / "kpi.json").write_text(json.dumps(kpi_payload(kpi_report, cfg), ensure_ascii=False, separators=(",", ":")), "utf-8")

@@ -19,6 +19,12 @@
 #   calcul       : nom de la fonction de calcul dans src/kpi.py (ne pas modifier)
 # ---------------------------------------------------------------------------
 
+# Mode apprentissage (chantier 3) : pendant N semaines depuis la première mesure,
+# les objectifs sont provisoires : aucune issue GitHub n'est ouverte et le bloc
+# santé de l'e-mail reste informatif. À la fin, data/kpi_calibration.md propose
+# des objectifs recalés (médiane observée), à valider à la main.
+mode_apprentissage_semaines: 4
+
 parametres:
   seuil_pertinence: 35          # un article est « pertinent » si sa pertinence (0-100) >= ce seuil
   fenetre_sources_jours: 30     # fenêtre de calcul des scores de qualité des sources
@@ -65,6 +71,15 @@ kpis:
     responsable: "Analyste veille"
     action: "Axe {sujet} : revoir les mots-clés du thème et les sources peu pertinentes de l'axe."
     calcul: relevance_share_by_axis
+    # --- Version simple (chantier 3) ---
+    question: Les articles sont-ils utiles ?
+    libelle_simple: Articles utiles
+    phrase_resultat: '{dixiemes} articles sur 10 correspondent à vos sujets'
+    pourquoi: Moins d'articles inutiles, c'est moins de temps perdu.
+    que_faire: Retirer les sources ou mots-clés qui apportent surtout du bruit.
+    affichage: essentiel
+    disponibilite: {}
+    message_sans_donnees: Pas encore assez d'articles cette semaine.
 
   - id: A2_couverture_axe
     nom: "Couverture hebdomadaire par axe"
@@ -86,6 +101,15 @@ kpis:
     responsable: "Responsable veille"
     action: "Axe {sujet} sous-couvert : ajouter au moins une source spécialisée sur cet axe (feeds.yaml)."
     calcul: weekly_coverage_by_axis
+    # --- Version simple (chantier 3) ---
+    question: Chaque sujet est-il bien couvert ?
+    libelle_simple: Couverture des sujets
+    phrase_resultat: Le sujet le moins couvert atteint {valeur} % de son objectif
+    pourquoi: Un sujet peu couvert, ce sont des risques que l'on ne voit pas.
+    que_faire: Ajouter une source spécialisée sur le sujet le moins couvert.
+    affichage: essentiel
+    disponibilite: {}
+    message_sans_donnees: Pas encore assez d'articles cette semaine.
 
   - id: A3_temps_hors_sujet
     nom: "Part du temps passé sur des articles hors sujet"
@@ -107,6 +131,15 @@ kpis:
     responsable: "Analyste veille"
     action: "Trop d'articles hors sujet consultés : renforcer les exclusions (themes.yaml > exclusions)."
     calcul: offtopic_time_share
+    # --- Version simple (chantier 3) ---
+    question: Perd-on du temps sur des articles hors sujet ?
+    libelle_simple: Temps perdu
+    phrase_resultat: '{valeur} % des articles consultés étaient hors sujet'
+    pourquoi: Indique si le tri automatique laisse passer trop de bruit.
+    que_faire: Renforcer les exclusions de mots-clés.
+    affichage: avance
+    disponibilite: {saisie_requise: true}
+    message_sans_donnees: 'Aucun usage déclaré pour l''instant : utilisez le lien « Signaler un usage ».'
 
   # ======================================================== B. Qualité des sources
   - id: B1_qualite_moyenne
@@ -129,6 +162,15 @@ kpis:
     responsable: "Responsable veille"
     action: "Qualité moyenne des sources insuffisante : revoir le panel de sources."
     calcul: average_source_quality
+    # --- Version simple (chantier 3) ---
+    question: Les sources sont-elles fiables ?
+    libelle_simple: Fiabilité moyenne des sources
+    phrase_resultat: 'Note moyenne des sources : {valeur} sur 100'
+    pourquoi: Des sources fiables évitent de relayer de fausses alertes.
+    que_faire: Remplacer les sources les moins bien notées.
+    affichage: essentiel
+    disponibilite: {}
+    message_sans_donnees: Aucune source n'a publié sur la période.
 
   - id: B2_qualite_source
     nom: "Score de qualité par source"
@@ -150,6 +192,15 @@ kpis:
     responsable: "Responsable veille"
     action: "Source « {sujet} » sous le score de qualité cible depuis 4 semaines : la remplacer ou la désactiver (feeds.yaml)."
     calcul: source_quality_by_source
+    # --- Version simple (chantier 3) ---
+    question: Quelles sources sont les plus faibles ?
+    libelle_simple: Note de chaque source
+    phrase_resultat: La source la plus faible a {valeur} sur 100
+    pourquoi: Une source faible durablement doit être remplacée.
+    que_faire: Remplacer ou désactiver les sources sous 50 depuis 4 semaines.
+    affichage: avance
+    disponibilite: {}
+    message_sans_donnees: Aucune source n'a publié sur la période.
 
   - id: B3_taux_recoupement
     nom: "Taux de recoupement des informations importantes"
@@ -171,6 +222,15 @@ kpis:
     responsable: "Analyste veille"
     action: "Trop d'informations importantes non recoupées : ajouter une source officielle ou de presse indépendante."
     calcul: corroboration_rate
+    # --- Version simple (chantier 3) ---
+    question: Les infos importantes sont-elles confirmées ?
+    libelle_simple: Alertes confirmées
+    phrase_resultat: '{dixiemes} alertes importantes sur 10 sont confirmées par au moins 2 sources'
+    pourquoi: Une alerte confirmée par plusieurs sources est plus sûre.
+    que_faire: Ajouter une source officielle ou de presse indépendante.
+    affichage: essentiel
+    disponibilite: {}
+    message_sans_donnees: Aucune alerte importante cette semaine.
 
   - id: B4_sources_non_referencees
     nom: "Articles de sources non référencées"
@@ -192,6 +252,15 @@ kpis:
     responsable: "Analyste veille"
     action: "Des articles pointent vers des domaines non approuvés : vérifier ces domaines et compléter sources_quality.yaml."
     calcul: unreferenced_articles
+    # --- Version simple (chantier 3) ---
+    question: Des articles viennent-ils de sources inconnues ?
+    libelle_simple: Sources inconnues
+    phrase_resultat: '{valeur} article(s) de source inconnue'
+    pourquoi: Une source inconnue peut diffuser de fausses informations.
+    que_faire: Vérifier ces sites et les ajouter à la liste ou les écarter.
+    affichage: avance
+    disponibilite: {}
+    message_sans_donnees: Pas encore assez d'articles cette semaine.
 
   - id: B5_delai_reception
     nom: "Délai de réception de l'information (TTRI)"
@@ -213,6 +282,15 @@ kpis:
     responsable: "Administrateur"
     action: "Délai de réception trop long : vérifier la fréquence d'exécution du workflow et les flux lents."
     calcul: time_to_receive
+    # --- Version simple (chantier 3) ---
+    question: Reçoit-on les informations assez vite ?
+    libelle_simple: Rapidité
+    phrase_resultat: La moitié des articles arrive en moins de {valeur} heures
+    pourquoi: Une alerte reçue tard laisse moins de temps pour réagir.
+    que_faire: Vérifier que la mise à jour automatique tourne bien toutes les 6 heures.
+    affichage: essentiel
+    disponibilite: {historique_min_jours: 1}
+    message_sans_donnees: Il faut au moins une journée de collecte.
 
   - id: B6_disponibilite_flux
     nom: "Disponibilité des flux"
@@ -234,6 +312,15 @@ kpis:
     responsable: "Administrateur"
     action: "Trop de flux en panne : lancer scripts/check_feeds.py et corriger feeds.yaml."
     calcul: feed_availability
+    # --- Version simple (chantier 3) ---
+    question: Mes sources fonctionnent-elles ?
+    libelle_simple: Sources qui répondent
+    phrase_resultat: '{ok} sources sur {total} répondent'
+    pourquoi: Une source en panne, ce sont des alertes que vous ne recevez pas.
+    que_faire: Corriger l'adresse des sources en panne ou les désactiver.
+    affichage: essentiel
+    disponibilite: {}
+    message_sans_donnees: Aucune collecte enregistrée.
 
   - id: B7_flux_en_erreur
     nom: "Disponibilité par flux"
@@ -255,6 +342,15 @@ kpis:
     responsable: "Administrateur"
     action: "Le flux « {sujet} » est en erreur depuis 2 jours : corriger son URL, le remplacer ou le désactiver (feeds.yaml)."
     calcul: feed_availability_by_source
+    # --- Version simple (chantier 3) ---
+    question: Quelles sources sont en panne ?
+    libelle_simple: Panne par source
+    phrase_resultat: '{valeur} % des sources répondent'
+    pourquoi: Permet de savoir précisément quelle source corriger.
+    que_faire: Corriger ou désactiver chaque source en panne.
+    affichage: avance
+    disponibilite: {}
+    message_sans_donnees: Aucune collecte enregistrée.
 
   # ======================================================== C. Intérêt (signaux faibles)
   - id: C1_signaux_faibles
@@ -277,6 +373,15 @@ kpis:
     responsable: "Analyste veille"
     action: ""
     calcul: weak_signals_count
+    # --- Version simple (chantier 3) ---
+    question: Repère-t-on des sujets émergents ?
+    libelle_simple: Sujets émergents
+    phrase_resultat: '{valeur} sujet(s) émergent(s) repéré(s) cette semaine'
+    pourquoi: Repérer tôt un sujet laisse le temps de s'y préparer.
+    que_faire: Lire les sujets émergents et noter une hypothèse pour chacun.
+    affichage: essentiel
+    disponibilite: {historique_min_jours: 7, historique_fiable_jours: 28}
+    message_sans_donnees: 'La détection compare la semaine aux précédentes : il faut d''abord une semaine d''historique.'
 
   # ======================================================== D. Utilité
   - id: D1_utilisations
@@ -299,6 +404,15 @@ kpis:
     responsable: "Responsable veille"
     action: "La veille est peu utilisée : présenter la synthèse aux équipes et rappeler le lien « Signaler un usage »."
     calcul: usage_count
+    # --- Version simple (chantier 3) ---
+    question: La veille sert-elle à quelque chose ?
+    libelle_simple: Utilisations
+    phrase_resultat: '{valeur} utilisation(s) déclarée(s) en 30 jours'
+    pourquoi: Une veille qui ne sert pas doit être réorientée.
+    que_faire: Déclarer chaque usage avec le lien « Signaler un usage ».
+    affichage: essentiel
+    disponibilite: {saisie_requise: true}
+    message_sans_donnees: 'Aucun usage déclaré pour l''instant : utilisez le lien « Signaler un usage » sous un article.'
 
   - id: D2_signaux_transformes
     nom: "Signaux faibles transformés en action ou hypothèse"
@@ -320,6 +434,15 @@ kpis:
     responsable: "Responsable veille"
     action: "Aucun signal faible transformé : organiser la revue mensuelle des signaux (data/weak_signals.md)."
     calcul: transformed_signals_count
+    # --- Version simple (chantier 3) ---
+    question: Les sujets émergents mènent-ils à des actions ?
+    libelle_simple: Sujets émergents exploités
+    phrase_resultat: '{valeur} sujet(s) émergent(s) transformé(s) en action'
+    pourquoi: Montre si la veille aide à anticiper.
+    que_faire: Faire une revue mensuelle des sujets émergents.
+    affichage: avance
+    disponibilite: {saisie_requise: true}
+    message_sans_donnees: Aucune déclaration pour l'instant.
 
   - id: D3_taux_transformation
     nom: "Taux de transformation des signaux faibles"
@@ -341,6 +464,15 @@ kpis:
     responsable: "Responsable veille"
     action: "Taux de transformation faible : prioriser les signaux faibles en revue et formuler des hypothèses."
     calcul: transformation_rate
+    # --- Version simple (chantier 3) ---
+    question: Quelle part des sujets émergents est exploitée ?
+    libelle_simple: Taux d'exploitation
+    phrase_resultat: '{valeur} % des sujets émergents ont mené à une action'
+    pourquoi: Mesure l'intérêt réel des sujets repérés.
+    que_faire: Prioriser les sujets émergents lors de la revue.
+    affichage: avance
+    disponibilite: {saisie_requise: true, historique_min_jours: 7}
+    message_sans_donnees: Il faut des sujets émergents et des déclarations d'usage.
 
   # ======================================================== E. Double traduction
   - id: E1_repartition_langues
@@ -363,6 +495,15 @@ kpis:
     responsable: "Analyste veille"
     action: ""
     calcul: language_distribution
+    # --- Version simple (chantier 3) ---
+    question: Dans quelles langues sont les articles ?
+    libelle_simple: Langues
+    phrase_resultat: '{valeur} % des articles sont en langue étrangère'
+    pourquoi: Une veille très anglophone voit moins les sujets français.
+    que_faire: Ajouter des sources françaises.
+    affichage: essentiel
+    disponibilite: {}
+    message_sans_donnees: Pas encore assez d'articles cette semaine.
 
   - id: E2_traduction_une_etape
     nom: "Articles traités en une seule étape de traduction"
@@ -384,6 +525,15 @@ kpis:
     responsable: "Administrateur"
     action: "Des articles ont subi plusieurs étapes de traduction : vérifier src/summarize.py."
     calcul: single_translation_share
+    # --- Version simple (chantier 3) ---
+    question: Les résumés sont-ils faits depuis l'original ?
+    libelle_simple: Traduction directe
+    phrase_resultat: '{valeur} % des articles résumés directement depuis l''original'
+    pourquoi: Traduire plusieurs fois déforme le sens.
+    que_faire: 'Aucune action : garanti par le fonctionnement de l''outil.'
+    affichage: avance
+    disponibilite: {}
+    message_sans_donnees: Pas encore assez d'articles cette semaine.
 
   - id: E3_rattachement_glossaire
     nom: "Articles rattachés à un axe grâce au glossaire"
@@ -405,6 +555,15 @@ kpis:
     responsable: "Analyste veille"
     action: ""
     calcul: glossary_assisted_share
+    # --- Version simple (chantier 3) ---
+    question: Le dictionnaire français-anglais aide-t-il ?
+    libelle_simple: Apport du dictionnaire
+    phrase_resultat: '{valeur} % des articles classés grâce au dictionnaire'
+    pourquoi: Montre les articles qui auraient été mal classés sans lui.
+    que_faire: Enrichir le dictionnaire (config/glossary.yaml).
+    affichage: avance
+    disponibilite: {}
+    message_sans_donnees: Pas encore assez d'articles cette semaine.
 
   # ======================================================== F. Biais et diversité
   - id: F1_part_max_source
@@ -427,6 +586,15 @@ kpis:
     responsable: "Responsable veille"
     action: "Une source pèse trop dans la veille : réduire max_entries_per_feed ou ajouter des sources sur ses sujets."
     calcul: max_source_share
+    # --- Version simple (chantier 3) ---
+    question: Une source domine-t-elle ?
+    libelle_simple: Source la plus présente
+    phrase_resultat: La source la plus présente fournit {valeur} % des articles
+    pourquoi: Dépendre d'une seule source donne une vision partielle.
+    que_faire: Ajouter des sources sur les mêmes sujets.
+    affichage: essentiel
+    disponibilite: {}
+    message_sans_donnees: Pas encore assez d'articles cette semaine.
 
   - id: F2_concentration_hhi
     nom: "Indice de concentration des sources (Herfindahl)"
@@ -448,6 +616,15 @@ kpis:
     responsable: "Responsable veille"
     action: "Veille trop concentrée sur quelques sources : diversifier le panel."
     calcul: herfindahl_index
+    # --- Version simple (chantier 3) ---
+    question: La veille dépend-elle de peu de sources ?
+    libelle_simple: Concentration
+    phrase_resultat: 'Indice de concentration : {valeur}'
+    pourquoi: Plus il est haut, plus la veille dépend de quelques sources.
+    que_faire: Diversifier les sources.
+    affichage: avance
+    disponibilite: {}
+    message_sans_donnees: Pas encore assez d'articles cette semaine.
 
   - id: F3_repartition_types
     nom: "Répartition par type de source"
@@ -469,6 +646,15 @@ kpis:
     responsable: "Analyste veille"
     action: ""
     calcul: source_type_distribution
+    # --- Version simple (chantier 3) ---
+    question: Quels types de sources lit-on ?
+    libelle_simple: Types de sources
+    phrase_resultat: '{valeur} % des articles viennent de blogs d''éditeurs'
+    pourquoi: Un éditeur met en avant les menaces que ses produits traitent.
+    que_faire: Recouper avec des sources officielles ou de presse.
+    affichage: avance
+    disponibilite: {}
+    message_sans_donnees: Pas encore assez d'articles cette semaine.
 
   - id: F4_repartition_geographique
     nom: "Répartition par origine géographique"
@@ -490,6 +676,15 @@ kpis:
     responsable: "Analyste veille"
     action: ""
     calcul: geo_distribution
+    # --- Version simple (chantier 3) ---
+    question: D'où viennent les sources ?
+    libelle_simple: Origine des sources
+    phrase_resultat: '{valeur} % des articles viennent du premier pays'
+    pourquoi: Une veille dominée par un pays voit moins les autres contextes.
+    que_faire: Ajouter des sources européennes et françaises.
+    affichage: essentiel
+    disponibilite: {}
+    message_sans_donnees: Pas encore assez d'articles cette semaine.
 
   - id: F5_part_sources_francaises
     nom: "Part des sources françaises"
@@ -511,3 +706,138 @@ kpis:
     responsable: "Responsable veille"
     action: "Biais géographique : ajouter des sources françaises (presse, CERT sectoriels, CLUSIF…)."
     calcul: french_share
+    # --- Version simple (chantier 3) ---
+    question: Lit-on assez de sources françaises ?
+    libelle_simple: Sources françaises
+    phrase_resultat: '{valeur} % des articles viennent de sources françaises'
+    pourquoi: Les règles et alertes françaises (ANSSI) comptent pour vos clients.
+    que_faire: Ajouter des sources françaises.
+    affichage: essentiel
+    disponibilite: {}
+    message_sans_donnees: Pas encore assez d'articles cette semaine.
+
+# ---------------------------------------------------------------------------
+# Les 9 cartes de la vue « Santé de la veille » (chantier 3)
+# ---------------------------------------------------------------------------
+#   id          : identifiant stable (ne pas modifier)
+#   ordre       : position sur la page ; importance : 1 = le plus important
+#                 (sert à classer le bloc « À traiter en premier »)
+#   question    : question affichée
+#   kpis        : KPI du référentiel utilisés (le premier donne la réponse)
+#   pourquoi / que_faire : une ligne chacun
+#   action_probleme : ligne utilisée dans « À traiter en premier » et l'issue de revue
+#                     ({variables} remplies automatiquement)
+#   estimation  : true si la valeur repose sur des notes saisies à la main
+#   sans_donnees: phrase affichée quand la carte n'est pas encore mesurable
+# Une carte « Pas encore de données » n'est jamais rouge ni orange et ne crée aucune action.
+# ---------------------------------------------------------------------------
+cartes:
+  - id: sources
+    ordre: 1
+    importance: 1
+    question: "Mes sources fonctionnent-elles ?"
+    kpis: [B6_disponibilite_flux, B7_flux_en_erreur]
+    chiffre: "{ok} sources sur {total} répondent"
+    pourquoi: "Une source en panne, ce sont des alertes que vous ne recevez pas."
+    que_faire: "Corriger l'adresse des sources en panne ou les désactiver dans la configuration."
+    action_probleme: "Corriger ou désactiver les {ko} sources en panne (liste dans « En détail » de la carte)."
+    estimation: false
+    sans_donnees: "Aucune collecte n'a encore été enregistrée."
+
+  - id: rapidite
+    ordre: 2
+    importance: 4
+    question: "Reçoit-on les informations assez vite ?"
+    kpis: [B5_delai_reception]
+    chiffre: "La moitié des articles arrive en moins de {heures} heures"
+    pourquoi: "Une alerte reçue tard laisse moins de temps pour réagir."
+    que_faire: "Vérifier que la mise à jour automatique tourne bien toutes les 6 heures."
+    action_probleme: "Les articles arrivent en {heures} h : vérifier la fréquence de mise à jour automatique."
+    estimation: false
+    sans_donnees: "Il faut au moins une journée de collecte pour mesurer la rapidité."
+
+  - id: utilite_articles
+    ordre: 3
+    importance: 3
+    question: "Les articles sont-ils utiles ?"
+    kpis: [A1_pertinence_axe]
+    chiffre: "{dixiemes} articles sur 10 correspondent à vos sujets"
+    pourquoi: "Moins d'articles inutiles, c'est moins de temps perdu."
+    que_faire: "Retirer les sources ou mots-clés qui apportent surtout du bruit."
+    action_probleme: "Seulement {dixiemes} articles sur 10 sont utiles : retirer les sources qui apportent du bruit."
+    estimation: false
+    sans_donnees: "Pas encore assez d'articles cette semaine."
+
+  - id: couverture
+    ordre: 4
+    importance: 5
+    question: "Chaque sujet est-il bien couvert ?"
+    kpis: [A2_couverture_axe]
+    chiffre: "{faible_nom} est le sujet le moins couvert ({faible_n} articles pour un objectif de {faible_cible})"
+    chiffre_ok: "Tous les sujets atteignent leur objectif de la semaine"
+    pourquoi: "Un sujet peu couvert, ce sont des risques que l'on ne voit pas."
+    que_faire: "Ajouter une source spécialisée sur le sujet le moins couvert."
+    action_probleme: "Le sujet {faible_nom} est sous-couvert : ajouter une source spécialisée."
+    estimation: false
+    sans_donnees: "Pas encore assez d'articles cette semaine."
+
+  - id: confirmation
+    ordre: 5
+    importance: 6
+    question: "Les infos importantes sont-elles confirmées ?"
+    kpis: [B3_taux_recoupement]
+    chiffre: "{dixiemes} alertes importantes sur 10 sont confirmées par au moins 2 sources"
+    pourquoi: "Une alerte confirmée par plusieurs sources est plus sûre."
+    que_faire: "Recouper les alertes isolées avec l'avis officiel (CERT-FR, éditeur)."
+    action_probleme: "Trop d'alertes non confirmées : ajouter une source officielle ou de presse indépendante."
+    estimation: false
+    sans_donnees: "Aucune alerte importante cette semaine : rien à confirmer."
+
+  - id: fiabilite_sources
+    ordre: 6
+    importance: 7
+    question: "Les sources sont-elles fiables ?"
+    kpis: [B1_qualite_moyenne, B2_qualite_source]
+    chiffre: "Note moyenne des sources : {moyenne} sur 100"
+    pourquoi: "Des sources fiables évitent de relayer de fausses alertes."
+    que_faire: "Remplacer les sources les moins bien notées si elles restent faibles."
+    action_probleme: "Sources peu fiables : remplacer {faibles}."
+    estimation: true
+    sans_donnees: "Aucune source n'a publié sur la période."
+
+  - id: diversite
+    ordre: 7
+    importance: 8
+    question: "La veille est-elle variée ?"
+    kpis: [F1_part_max_source, F5_part_sources_francaises, E1_repartition_langues, F2_concentration_hhi, F4_repartition_geographique]
+    chiffre: "{anglais} % d'articles en anglais, {francais} % de sources françaises, {top} % pour la source la plus présente"
+    message: "Veille très anglophone et surtout américaine ({pays_top} % des articles)."
+    pourquoi: "Une veille peu variée voit moins bien les sujets français et européens."
+    que_faire: "Ajouter des sources françaises et européennes."
+    action_probleme: "Veille peu variée : ajouter des sources françaises et limiter la source dominante ({top_nom})."
+    estimation: false
+    sans_donnees: "Pas encore assez d'articles cette semaine."
+
+  - id: usage
+    ordre: 8
+    importance: 2
+    question: "La veille sert-elle à quelque chose ?"
+    kpis: [D1_utilisations, D2_signaux_transformes, D3_taux_transformation, A3_temps_hors_sujet]
+    chiffre: "{n} utilisation(s) déclarée(s) en 30 jours"
+    pourquoi: "Une veille qui ne sert pas doit être réorientée."
+    que_faire: "Cliquez sur « Signaler un usage » (dans les détails d'un article) dès qu'une information vous sert."
+    action_probleme: "La veille est peu utilisée : la présenter aux équipes et déclarer chaque usage."
+    estimation: false
+    sans_donnees: "Personne n'a encore déclaré d'usage. Dès qu'un article vous sert (alerte, correctif, note), cliquez sur « Signaler un usage » dans ses détails."
+
+  - id: emergents
+    ordre: 9
+    importance: 9
+    question: "Repère-t-on des sujets émergents ?"
+    kpis: [C1_signaux_faibles]
+    chiffre: "{n} sujet(s) émergent(s) repéré(s) cette semaine"
+    pourquoi: "Repérer tôt un sujet laisse le temps de s'y préparer."
+    que_faire: "Lire les sujets émergents et noter une hypothèse pour chacun."
+    action_probleme: ""
+    estimation: false
+    sans_donnees: "La détection démarre le {debut} (une semaine d'historique) et sera fiable à partir du {fiable}."

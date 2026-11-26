@@ -63,6 +63,8 @@ def _rank(a: dict[str, Any]) -> tuple:
 
 
 def select_content(articles: list[dict[str, Any]], cfg: Config, now: datetime) -> dict[str, Any]:
+    _UI.clear()
+    _UI.update(cfg.ui or {})
     nl = cfg.settings["newsletter"]
     tz = ZoneInfo(nl["timezone"])
     now_local = now.astimezone(tz)
@@ -130,30 +132,35 @@ def select_content(articles: list[dict[str, Any]], cfg: Config, now: datetime) -
     }
 
 
+# Plain-language vocabulary shared with the site (config/ui_texts.yaml), set by select_content
+_UI: dict[str, Any] = {}
+
+
+def level_label(level: str) -> str:
+    return ((_UI.get("niveaux") or {}).get(level) or {}).get("libelle", level)
+
+
+def exploited_label() -> str:
+    return (_UI.get("carte_article") or {}).get("pirates", "Déjà utilisée par des pirates")
+
+
 def health_summary(cfg: Config) -> dict[str, Any] | None:
-    """« Santé de la veille » block from data/kpi_latest.json (None if KPI are not available)."""
+    """3-line « Santé de la veille » block: verdict, top priorities, what is not measurable yet."""
     report = read_json(cfg.data_dir / "kpi_latest.json", None)
-    if not report or not report.get("kpis"):
+    sante = (report or {}).get("sante")
+    if not sante:
         return None
-    order = {"rouge": 0, "orange": 1}
-    off = sorted((k for k in report["kpis"] if k.get("status") in order), key=lambda k: (order[k["status"]], k["id"]))
+    texts = (cfg.ui or {}).get("email", {})
+    learning = (sante.get("learning") or {}).get("active", False)
     return {
-        "off_target": [
-            {
-                "nom": k["nom"],
-                "value": k["value"],
-                "unite": k.get("unite") or "",
-                "cible": k.get("cible"),
-                "sens": k.get("sens"),
-                "status": k["status_label"],
-            }  # fmt: skip
-            for k in off[:6]
-        ],
-        "off_count": len(off),
-        "signals": [
-            {"term": sg["term"], "axis": sg.get("axis"), "count": sg["count_week"]} for sg in report.get("signals", [])[:5]
-        ],
-        "actions": [a for a in report.get("actions", []) if a.get("status") == "ouverte"][:5],
+        "title": texts.get("sante_titre", "Santé de la veille"),
+        "verdict_label": texts.get("sante_verdict", "Bilan"),
+        "verdict": sante["verdict"]["sentence"] + (" " + texts.get("apprentissage", "") if learning else ""),
+        "todo_label": texts.get("sante_a_traiter", "À traiter en premier"),
+        "todo": [p["text"] for p in sante.get("priorities", [])[:3]],
+        "missing_label": texts.get("sante_pas_encore", "Pas encore mesurable"),
+        "missing": list(sante["verdict"]["groups"].get("sans_donnees", [])),
+        "none": texts.get("sante_rien", "rien"),
     }
 
 
@@ -188,8 +195,8 @@ def render_markdown(c: dict[str, Any], site_url: str) -> str:
     def item(a: dict[str, Any], detailed: bool = True) -> list[str]:
         url = safe_url(a["url"]).replace(")", "%29")
         line = [
-            f"- **[{_md(a['title'])}]({url})** — {_md(a['source'])}, {_fmt_date(a['published'])} · {a['level']}"
-            + (" · KEV" if a.get("kev") else "")
+            f"- **[{_md(a['title'])}]({url})** — {_md(a['source'])}, {_fmt_date(a['published'])} · {level_label(a['level'])}"
+            + (f" · {exploited_label()}" if a.get("kev") else "")
         ]
         if detailed and a.get("summary"):
             line.append(f"  {_md(a['summary'])}")
@@ -202,15 +209,15 @@ def render_markdown(c: dict[str, Any], site_url: str) -> str:
         out += item(a)
     if not c["top"]:
         out.append("_Aucun article cette semaine._")
-    for theme, block in c["blocks"].items():
-        out += ["", f"## {theme} – {block['label']}", ""]
+    for block in c["blocks"].values():
+        out += ["", f"## {block['label']}", ""]
         if block["note"]:
             out += [f"_{block['note']}_", ""]
         for a in block["items"]:
             out += item(a, block["detailed"])
         if not block["items"]:
             out.append("_Rien de notable._")
-    out += ["", "## CVE exploitées activement (CISA KEV) citées cette semaine", ""]
+    out += ["", "## Failles déjà utilisées par des pirates (liste officielle CISA)", ""]
     for cve, info in c["kev"].items():
         out.append(f"- **{cve}** – {_md(info['product'])}" + (" – utilisée par des rançongiciels" if info["ransomware"] else ""))
     if not c["kev"]:
@@ -224,20 +231,15 @@ def render_markdown(c: dict[str, Any], site_url: str) -> str:
         out.append("_Aucune action spécifique (résumés IA indisponibles ou rien d'urgent)._")
     h = c.get("health")
     if h:
-        out += ["", "## Santé de la veille", ""]
-        if h["off_target"]:
-            out.append(f"**KPI hors cible ({h['off_count']})** :")
-            for k in h["off_target"]:
-                comp = "≤" if k["sens"] == "baisse" else "≥"
-                out.append(
-                    f"- {_md(k['nom'])} : {_fmt_num(k['value'])} {k['unite']} (cible {comp} {_fmt_num(k['cible'])}) – {k['status']}"
-                )
-        else:
-            out.append("_Tous les KPI suivis sont dans leur cible._")
-        sig = ", ".join(f"{_md(x['term'])} ({x['axis'] or '—'}, {x['count']})" for x in h["signals"]) or "aucun"
-        out += ["", f"**Signaux faibles de la semaine** : {sig}", ""]
-        out.append("**Actions d'amélioration proposées** :")
-        out += [f"- {_md(a['action'])}" for a in h["actions"]] or ["- _Aucune._"]
+        todo = " ; ".join(f"{i}. {_md(x.rstrip('.'))}" for i, x in enumerate(h["todo"], 1)) or h["none"]
+        out += [
+            "",
+            f"## {h['title']}",
+            "",
+            f"- **{h['verdict_label']}** : {_md(h['verdict'])}",
+            f"- **{h['todo_label']}** : {todo}",
+            f"- **{h['missing_label']}** : {_md(' · '.join(h['missing'])) or h['none']}",
+        ]
     out += ["", "## Prochains salons", ""]
     for e in c["events"]:
         out.append(
@@ -261,7 +263,7 @@ def _badge(level: str) -> str:
     fg, bg = LEVEL_COLORS.get(level, LEVEL_COLORS["Info"])
     return (
         f'<span style="{FONT}font-size:11px;font-weight:bold;color:{fg};background-color:{bg};'
-        f'padding:1px 6px;border-radius:3px;">{_e(level)}</span>'
+        f'padding:1px 6px;border-radius:3px;">{_e(level_label(level))}</span>'
     )
 
 
@@ -270,7 +272,7 @@ def _item_html(a: dict[str, Any], detailed: bool) -> str:
     kev = (
         (
             ' <span style="' + FONT + "font-size:11px;font-weight:bold;color:#ffffff;background-color:#7a0f5c;"
-            'padding:1px 6px;border-radius:3px;">KEV</span>'
+            'padding:1px 6px;border-radius:3px;">' + _e(exploited_label()) + "</span>"
         )
         if a.get("kev")
         else ""
@@ -313,10 +315,10 @@ def render_html(c: dict[str, Any], site_url: str, unsubscribe: str) -> str:
             "Les faits marquants", "".join(_item_html(a, True) for a in c["top"]) or _para("Aucun article cette semaine.", True)
         )
     )
-    for theme, block in c["blocks"].items():
+    for block in c["blocks"].values():
         inner = _para(_e(block["note"]), True) if block["note"] else ""
         inner += "".join(_item_html(a, block["detailed"]) for a in block["items"]) or _para("Rien de notable.", True)
-        parts.append(_section(f"{theme} – {block['label']}", inner))
+        parts.append(_section(block["label"], inner))
     kev_rows = "".join(
         f'<tr><td style="padding:4px 0;{FONT}font-size:14px;color:#222222;"><b>{_e(cve)}</b> – {_e(i["product"])}'
         f"{' – <b>utilisée par des rançongiciels</b>' if i['ransomware'] else ''}</td></tr>"
@@ -324,7 +326,7 @@ def render_html(c: dict[str, Any], site_url: str, unsubscribe: str) -> str:
     )
     parts.append(
         _section(
-            "CVE exploitées activement (CISA KEV)", kev_rows or _para("Aucune CVE du catalogue KEV citée cette semaine.", True)
+            "Failles déjà utilisées par des pirates", kev_rows or _para("Aucune faille de ce type citée cette semaine.", True)
         )
     )
     act_rows = "".join(
@@ -341,20 +343,14 @@ def render_html(c: dict[str, Any], site_url: str, unsubscribe: str) -> str:
     )
     h = c.get("health")
     if h:
-        rows = "".join(
-            f'<tr><td style="padding:3px 0;{FONT}font-size:14px;color:#222222;">• {_e(k["nom"])} : <b>{_e(_fmt_num(k["value"]))} {_e(k["unite"])}</b>'
-            f" (cible {'≤' if k['sens'] == 'baisse' else '≥'} {_e(_fmt_num(k['cible']))}) – {_e(k['status'])}</td></tr>"
-            for k in h["off_target"]
-        ) or _para("Tous les KPI suivis sont dans leur cible.", True)
-        sig = ", ".join(f"{_e(x['term'])} ({_e(x['axis'] or '—')}, {x['count']})" for x in h["signals"]) or "aucun"
-        rows += (
-            f'<tr><td style="padding:8px 0 3px 0;{FONT}font-size:14px;color:#222222;"><b>Signaux faibles :</b> {sig}</td></tr>'
+        todo = " ; ".join(f"{i}. {_e(x.rstrip('.'))}" for i, x in enumerate(h["todo"], 1)) or _e(h["none"])
+        line = f'<tr><td style="padding:3px 0;{FONT}font-size:14px;line-height:20px;color:#222222;">'
+        rows = (
+            f"{line}<b>{_e(h['verdict_label'])} :</b> {_e(h['verdict'])}</td></tr>"
+            f"{line}<b>{_e(h['todo_label'])} :</b> {todo}</td></tr>"
+            f"{line}<b>{_e(h['missing_label'])} :</b> {_e(' · '.join(h['missing'])) or _e(h['none'])}</td></tr>"
         )
-        rows += "".join(
-            f'<tr><td style="padding:3px 0;{FONT}font-size:14px;color:#222222;">→ {_e(a["action"])}</td></tr>'
-            for a in h["actions"]
-        )
-        parts.append(_section("Santé de la veille", rows))
+        parts.append(_section(h["title"], rows))
     parts.append(_section("Prochains salons", ev_rows or _para("Aucun salon programmé.", True)))
 
     return f"""<!DOCTYPE html>

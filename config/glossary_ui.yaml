@@ -1,0 +1,18 @@
+# ---------------------------------------------------------------------------
+# Glossaire affiché sur la page Aide et derrière les « ? » des zones Détails.
+# Une phrase simple par terme.
+# ---------------------------------------------------------------------------
+
+termes:
+  CVE: "Numéro unique attribué à une faille de sécurité connue (par exemple CVE-2026-1234)."
+  CVSS: "Note de gravité d'une faille, de 0 (bénigne) à 10 (critique)."
+  EPSS: "Probabilité, en pourcentage, qu'une faille soit exploitée par des pirates dans les 30 prochains jours."
+  KEV: "Liste officielle américaine (CISA) des failles déjà utilisées par des pirates."
+  SQS: "Note de qualité d'une source sur 100 : utilité, fiabilité, nouveauté et rapidité."
+  TTRI: "Délai entre la publication d'un article et sa réception par la veille."
+  HHI: "Indice de concentration : plus il est élevé, plus la veille dépend de quelques sources."
+  DFIR: "Investigation numérique et réponse à incident : comprendre une attaque après coup."
+  IA: "Intelligence artificielle ; ici, la sécurité des systèmes d'IA et les attaques contre eux."
+  Flux RSS: "Fil d'actualités qu'un site publie pour être suivi automatiquement."
+  Rançongiciel: "Logiciel malveillant qui bloque les données d'une entreprise contre une rançon."
+  Signal faible: "Sujet encore rare mais en forte hausse, qui pourrait devenir important."

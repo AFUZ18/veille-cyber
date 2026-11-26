@@ -64,6 +64,29 @@ class KpiContext:
     signals_warmup: str | None = None  # set while the reference history is too short
 
     @property
+    def ui(self) -> dict[str, Any]:
+        return self.cfg.ui or {}
+
+    @property
+    def first_measure(self) -> datetime:
+        """Date of the first KPI measurement (start of the learning period)."""
+        if self.history:
+            return min(parse_iso(s["ts"]) for s in self.history)
+        return self.now
+
+    @property
+    def learning_weeks(self) -> int:
+        return int((self.cfg.kpi or {}).get("mode_apprentissage_semaines", 4))
+
+    @property
+    def learning_until(self) -> datetime:
+        return self.first_measure + timedelta(weeks=self.learning_weeks)
+
+    @property
+    def in_learning(self) -> bool:
+        return self.now < self.learning_until
+
+    @property
     def params(self) -> dict[str, Any]:
         return (self.cfg.kpi or {}).get("parametres", {}) or {}
 
@@ -320,10 +343,33 @@ def evaluate(value: Value, kdef: dict[str, Any]) -> str:
     return "rouge" if alert is not None and value > alert else "orange"
 
 
+def availability(ctx: KpiContext, kdef: dict[str, Any]) -> tuple[str | None, str | None]:
+    """(reason, available_from) when a KPI cannot be measured yet, else (None, None).
+
+    A KPI that requires human input is « not yet measurable » while nobody declared any usage;
+    a KPI that needs history is « not yet measurable » before `historique_min_jours`.
+    Such a KPI is never orange or red and never triggers an action.
+    """
+    rule = kdef.get("disponibilite") or {}
+    message = kdef.get("message_sans_donnees") or "Pas encore de données."
+    if rule.get("saisie_requise") and not ctx.usage:
+        return message, None
+    min_days = rule.get("historique_min_jours")
+    if min_days:
+        ready = ctx.first_measure + timedelta(days=int(min_days))
+        if ctx.now < ready:
+            return message, ready.date().isoformat()
+    return None, None
+
+
 def compute_all(ctx: KpiContext) -> dict[str, dict[str, Any]]:
     """Run every KPI of config/kpi.yaml. Errors => « non disponible », never an exception."""
     out: dict[str, dict[str, Any]] = {}
     for kdef in (ctx.cfg.kpi or {}).get("kpis", []) or []:
+        reason, available_from = availability(ctx, kdef)
+        if reason:
+            out[kdef["id"]] = {"value": None, "status": "na", "subs": None, "reason": reason, "available_from": available_from}
+            continue
         fn = CALCULATORS.get(kdef.get("calcul", ""))
         try:
             res = fn(ctx) if fn else result(None)
@@ -338,6 +384,8 @@ def compute_all(ctx: KpiContext) -> dict[str, dict[str, Any]]:
             "status": evaluate(res["value"], kdef),
             "subs": {k: {"value": v, "status": evaluate(v, kdef)} for k, v in subs.items()} if subs else None,
         }
+        if res["value"] is None:
+            out[kdef["id"]]["reason"] = kdef.get("message_sans_donnees") or "Pas encore de données."
     return out
 
 
@@ -487,7 +535,8 @@ def build_report(
     for kdef in (ctx.cfg.kpi or {}).get("kpis", []) or []:
         v = values.get(kdef["id"], {"value": None, "status": "na", "subs": None})
         entry = {k: kdef.get(k) for k in ("id", "nom", "famille", "smart", "formule", "unite", "periode", "sens",
-                                          "cible", "seuil_alerte", "par", "responsable", "action")}  # fmt: skip
+                                          "cible", "seuil_alerte", "par", "responsable", "action", "question",
+                                          "libelle_simple", "phrase_resultat", "pourquoi", "que_faire", "affichage")}  # fmt: skip
         entry.update(v, status_label=STATUS_LABELS[v["status"]], details=ctx.details.get(kdef["id"]),
                      trend=daily_series(history, kdef["id"]))  # fmt: skip
         if kdef.get("par") == "axe":
@@ -500,6 +549,26 @@ def build_report(
         "signals": ctx.signals,
         "actions": sorted(actions.values(), key=lambda a: (a["status"] != "ouverte", a.get("first_seen", ""))),
         "usage_total": len(ctx.usage),
+        "sante": health_view(ctx, values, history),
+    }
+
+
+def health_view(ctx: KpiContext, values: dict[str, dict[str, Any]], history: list[dict[str, Any]]) -> dict[str, Any]:
+    """Plain-language view: 9 cards, honest verdict, top-3 priorities, learning mode (chantier 3)."""
+    from .cards import build_cards, priorities, verdict
+
+    cards = build_cards(ctx, values, history)
+    texts = ctx.ui.get("sante", {})
+    return {
+        "cards": cards,
+        "verdict": verdict(cards, texts),
+        "priorities": priorities(cards),
+        "learning": {
+            "active": ctx.in_learning,
+            "until": ctx.learning_until.date().isoformat(),
+            "weeks": ctx.learning_weeks,
+            "first_measure": ctx.first_measure.date().isoformat(),
+        },
     }
 
 

@@ -105,7 +105,13 @@ def test_newsletter_archive_and_test_mode(env, monkeypatch):
     archives = list((env["data"] / "weekly").glob("*-W*.md"))
     assert len(archives) == 1
     md = archives[0].read_text()
-    for section in ("Les faits marquants", "H1 – Cloud", "H3 – Sécurité de l'IA", "CVE exploitées", "Prochains salons"):
+    for section in (
+        "Les faits marquants",
+        "## Cloud",
+        "## Sécurité de l'IA",
+        "Failles déjà utilisées par des pirates",
+        "Prochains salons",
+    ):
         assert section in md
     assert "CVE-2099-0001" in md
     assert sent and sent[0][1] == ["interne@example.com"] and sent[0][0].endswith("[TEST]")
