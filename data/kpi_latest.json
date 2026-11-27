@@ -7,7 +7,7 @@
    "kpi": "D1_utilisations",
    "kpi_nom": "Utilisations de l'information collectée",
    "kpi_status": "rouge",
-   "last_seen": "2026-11-27T08:43:54Z",
+   "last_seen": "2026-11-27T21:24:16Z",
    "periods": 1,
    "status": "ouverte",
    "sujet": null
@@ -19,7 +19,7 @@
    "kpi": "B6_disponibilite_flux",
    "kpi_nom": "Disponibilité des flux",
    "kpi_status": "rouge",
-   "last_seen": "2026-11-27T08:43:54Z",
+   "last_seen": "2026-11-27T21:24:16Z",
    "periods": 5,
    "status": "ouverte",
    "sujet": null
@@ -31,8 +31,8 @@
    "kpi": "B7_flux_en_erreur",
    "kpi_nom": "Disponibilité par flux",
    "kpi_status": "rouge",
-   "last_seen": "2026-11-27T08:43:54Z",
-   "periods": 9,
+   "last_seen": "2026-11-27T21:24:16Z",
+   "periods": 10,
    "status": "ouverte",
    "sujet": "13Cubed (YouTube)"
   },
@@ -43,8 +43,8 @@
    "kpi": "B7_flux_en_erreur",
    "kpi_nom": "Disponibilité par flux",
    "kpi_status": "rouge",
-   "last_seen": "2026-11-27T08:43:54Z",
-   "periods": 9,
+   "last_seen": "2026-11-27T21:24:16Z",
+   "periods": 10,
    "status": "ouverte",
    "sujet": "Cloud Security Alliance"
   },
@@ -55,8 +55,8 @@
    "kpi": "B7_flux_en_erreur",
    "kpi_nom": "Disponibilité par flux",
    "kpi_status": "rouge",
-   "last_seen": "2026-11-27T08:43:54Z",
-   "periods": 9,
+   "last_seen": "2026-11-27T21:24:16Z",
+   "periods": 10,
    "status": "ouverte",
    "sujet": "Dark Reading"
   },
@@ -67,8 +67,8 @@
    "kpi": "B7_flux_en_erreur",
    "kpi_nom": "Disponibilité par flux",
    "kpi_status": "rouge",
-   "last_seen": "2026-11-27T08:43:54Z",
-   "periods": 9,
+   "last_seen": "2026-11-27T21:24:16Z",
+   "periods": 10,
    "status": "ouverte",
    "sujet": "HiddenLayer Blog"
   },
@@ -79,8 +79,8 @@
    "kpi": "B7_flux_en_erreur",
    "kpi_nom": "Disponibilité par flux",
    "kpi_status": "rouge",
-   "last_seen": "2026-11-27T08:43:54Z",
-   "periods": 9,
+   "last_seen": "2026-11-27T21:24:16Z",
+   "periods": 10,
    "status": "ouverte",
    "sujet": "LeMagIT"
   },
@@ -91,8 +91,8 @@
    "kpi": "B7_flux_en_erreur",
    "kpi_nom": "Disponibilité par flux",
    "kpi_status": "rouge",
-   "last_seen": "2026-11-27T08:43:54Z",
-   "periods": 9,
+   "last_seen": "2026-11-27T21:24:16Z",
+   "periods": 10,
    "status": "ouverte",
    "sujet": "NIST - Cybersecurity news"
   },
@@ -103,8 +103,8 @@
    "kpi": "B7_flux_en_erreur",
    "kpi_nom": "Disponibilité par flux",
    "kpi_status": "rouge",
-   "last_seen": "2026-11-27T08:43:54Z",
-   "periods": 9,
+   "last_seen": "2026-11-27T21:24:16Z",
+   "periods": 10,
    "status": "ouverte",
    "sujet": "Orca Security Blog"
   },
@@ -115,8 +115,8 @@
    "kpi": "B7_flux_en_erreur",
    "kpi_nom": "Disponibilité par flux",
    "kpi_status": "rouge",
-   "last_seen": "2026-11-27T08:43:54Z",
-   "periods": 9,
+   "last_seen": "2026-11-27T21:24:16Z",
+   "periods": 10,
    "status": "ouverte",
    "sujet": "SANS Blog (DFIR)"
   },
@@ -127,8 +127,8 @@
    "kpi": "B7_flux_en_erreur",
    "kpi_nom": "Disponibilité par flux",
    "kpi_status": "rouge",
-   "last_seen": "2026-11-27T08:43:54Z",
-   "periods": 9,
+   "last_seen": "2026-11-27T21:24:16Z",
+   "periods": 10,
    "status": "ouverte",
    "sujet": "SANS Internet Storm Center"
   },
@@ -139,8 +139,8 @@
    "kpi": "B7_flux_en_erreur",
    "kpi_nom": "Disponibilité par flux",
    "kpi_status": "rouge",
-   "last_seen": "2026-11-27T08:43:54Z",
-   "periods": 9,
+   "last_seen": "2026-11-27T21:24:16Z",
+   "periods": 10,
    "status": "ouverte",
    "sujet": "Sysdig Blog"
   },
@@ -151,13 +151,13 @@
    "kpi": "B7_flux_en_erreur",
    "kpi_nom": "Disponibilité par flux",
    "kpi_status": "rouge",
-   "last_seen": "2026-11-27T08:43:54Z",
-   "periods": 9,
+   "last_seen": "2026-11-27T21:24:16Z",
+   "periods": 10,
    "status": "ouverte",
    "sujet": "ZATAZ"
   }
  ],
- "generated_at": "2026-11-27T08:43:54Z",
+ "generated_at": "2026-11-27T21:24:16Z",
  "kpis": [
   {
    "action": "Axe {sujet} : revoir les mots-clés du thème et les sources peu pertinentes de l'axe.",
@@ -201,7 +201,7 @@
      ],
      [
       "2026-11-27",
-      91.5
+      93.0
      ]
     ],
     "H2": [
@@ -223,7 +223,7 @@
      ],
      [
       "2026-11-27",
-      81.2
+      87.5
      ]
     ],
     "H3": [
@@ -245,7 +245,7 @@
      ],
      [
       "2026-11-27",
-      100.0
+      91.3
      ]
     ],
     "H4": [
@@ -267,26 +267,26 @@
      ],
      [
       "2026-11-27",
-      54.6
+      55.0
      ]
     ]
    },
    "subs": {
     "H1": {
      "status": "vert",
-     "value": 91.5
+     "value": 93.0
     },
     "H2": {
      "status": "vert",
-     "value": 81.2
+     "value": 87.5
     },
     "H3": {
      "status": "vert",
-     "value": 100.0
+     "value": 91.3
     },
     "H4": {
      "status": "vert",
-     "value": 54.6
+     "value": 55.0
     }
    },
    "trend": [
@@ -319,19 +319,19 @@
    "cible": 100,
    "details": {
     "H1": {
-     "articles_pertinents": 43,
+     "articles_pertinents": 40,
      "cible_hebdo": 10
     },
     "H2": {
-     "articles_pertinents": 13,
+     "articles_pertinents": 14,
      "cible_hebdo": 4
     },
     "H3": {
-     "articles_pertinents": 26,
+     "articles_pertinents": 21,
      "cible_hebdo": 3
     },
     "H4": {
-     "articles_pertinents": 71,
+     "articles_pertinents": 72,
      "cible_hebdo": 15
     }
    },
@@ -373,7 +373,7 @@
      ],
      [
       "2026-11-27",
-      430.0
+      400.0
      ]
     ],
     "H2": [
@@ -395,7 +395,7 @@
      ],
      [
       "2026-11-27",
-      325.0
+      350.0
      ]
     ],
     "H3": [
@@ -417,7 +417,7 @@
      ],
      [
       "2026-11-27",
-      866.7
+      700.0
      ]
     ],
     "H4": [
@@ -439,26 +439,26 @@
      ],
      [
       "2026-11-27",
-      473.3
+      480.0
      ]
     ]
    },
    "subs": {
     "H1": {
      "status": "vert",
-     "value": 430.0
+     "value": 400.0
     },
     "H2": {
      "status": "vert",
-     "value": 325.0
+     "value": 350.0
     },
     "H3": {
      "status": "vert",
-     "value": 866.7
+     "value": 700.0
     },
     "H4": {
      "status": "vert",
-     "value": 473.3
+     "value": 480.0
     }
    },
    "trend": [
@@ -480,11 +480,11 @@
     ],
     [
      "2026-11-27",
-     325.0
+     350.0
     ]
    ],
    "unite": "%",
-   "value": 325.0
+   "value": 350.0
   },
   {
    "action": "Trop d'articles hors sujet consultés : renforcer les exclusions (themes.yaml > exclusions).",
@@ -576,11 +576,11 @@
     ],
     [
      "2026-11-27",
-     76.5
+     77.0
     ]
    ],
    "unite": "/100",
-   "value": 76.5
+   "value": 77.0
   },
   {
    "action": "Source « {sujet} » sous le score de qualité cible depuis 4 semaines : la remplacer ou la désactiver (feeds.yaml).",
@@ -619,7 +619,7 @@
     },
     "BleepingComputer": {
      "status": "vert",
-     "value": 64.5
+     "value": 63.2
     },
     "CERT-FR - Alertes": {
      "status": "vert",
@@ -627,7 +627,7 @@
     },
     "CERT-FR - Avis": {
      "status": "vert",
-     "value": 93.9
+     "value": 94.3
     },
     "CERT-FR - Menaces et incidents": {
      "status": "vert",
@@ -666,8 +666,8 @@
      "value": null
     },
     "MITRE ATLAS - releases (atlas-data)": {
-     "status": "rouge",
-     "value": 45.6
+     "status": "orange",
+     "value": 55.6
     },
     "Magnet Forensics Blog": {
      "status": "orange",
@@ -711,7 +711,7 @@
     },
     "The Hacker News": {
      "status": "vert",
-     "value": 67.2
+     "value": 67.8
     },
     "Trail of Bits Blog": {
      "status": "vert",
@@ -719,7 +719,7 @@
     },
     "Unit 42 (Palo Alto Networks)": {
      "status": "vert",
-     "value": 92.8
+     "value": 92.7
     },
     "Velociraptor - releases": {
      "status": "orange",
@@ -809,11 +809,11 @@
     ],
     [
      "2026-11-27",
-     66.7
+     71.4
     ]
    ],
    "unite": "%",
-   "value": 66.7
+   "value": 71.4
   },
   {
    "action": "Des articles pointent vers des domaines non approuvés : vérifier ces domaines et compléter sources_quality.yaml.",
@@ -905,11 +905,11 @@
     ],
     [
      "2026-11-27",
-     6.5
+     6.8
     ]
    ],
    "unite": "h",
-   "value": 6.5
+   "value": 6.8
   },
   {
    "action": "Trop de flux en panne : lancer scripts/check_feeds.py et corriger feeds.yaml.",
@@ -1456,11 +1456,11 @@
    "subs": {
     "en": {
      "status": "info",
-     "value": 89.8
+     "value": 86.6
     },
     "fr": {
      "status": "info",
-     "value": 10.2
+     "value": 13.4
     }
    },
    "trend": [
@@ -1482,11 +1482,11 @@
     ],
     [
      "2026-11-27",
-     89.8
+     86.6
     ]
    ],
    "unite": "%",
-   "value": 89.8
+   "value": 86.6
   },
   {
    "action": "Des articles ont subi plusieurs étapes de traduction : vérifier src/summarize.py.",
@@ -1628,11 +1628,11 @@
     ],
     [
      "2026-11-27",
-     32.5
+     33.1
     ]
    ],
    "unite": "%",
-   "value": 32.5
+   "value": 33.1
   },
   {
    "action": "Veille trop concentrée sur quelques sources : diversifier le panel.",
@@ -1676,11 +1676,11 @@
     ],
     [
      "2026-11-27",
-     2264
+     2239
     ]
    ],
    "unite": "points",
-   "value": 2264
+   "value": 2239
   },
   {
    "action": "",
@@ -1711,7 +1711,7 @@
     },
     "officielle": {
      "status": "info",
-     "value": 12.7
+     "value": 15.9
     },
     "outil": {
      "status": "info",
@@ -1719,15 +1719,15 @@
     },
     "presse": {
      "status": "info",
-     "value": 63.7
+     "value": 62.4
     },
     "recherche": {
      "status": "info",
-     "value": 2.5
+     "value": 3.8
     },
     "éditeur": {
      "status": "info",
-     "value": 19.7
+     "value": 16.6
     }
    },
    "trend": [
@@ -1749,11 +1749,11 @@
     ],
     [
      "2026-11-27",
-     19.7
+     16.6
     ]
    ],
    "unite": "%",
-   "value": 19.7
+   "value": 16.6
   },
   {
    "action": "",
@@ -1780,15 +1780,15 @@
    "subs": {
     "CA": {
      "status": "info",
-     "value": 1.3
+     "value": 0.6
     },
     "FR": {
      "status": "info",
-     "value": 10.2
+     "value": 13.4
     },
     "IN": {
      "status": "info",
-     "value": 31.2
+     "value": 29.3
     },
     "INT": {
      "status": "info",
@@ -1796,7 +1796,7 @@
     },
     "US": {
      "status": "info",
-     "value": 56.7
+     "value": 56.1
     }
    },
    "trend": [
@@ -1818,11 +1818,11 @@
     ],
     [
      "2026-11-27",
-     56.7
+     56.1
     ]
    ],
    "unite": "%",
-   "value": 56.7
+   "value": 56.1
   },
   {
    "action": "Biais géographique : ajouter des sources françaises (presse, CERT sectoriels, CLUSIF…).",
@@ -1866,11 +1866,11 @@
     ],
     [
      "2026-11-27",
-     10.2
+     13.4
     ]
    ],
    "unite": "%",
-   "value": 10.2
+   "value": 13.4
   }
  ],
  "signals": [],
@@ -1940,34 +1940,34 @@
    "type": "officielle"
   },
   {
-   "articles": 32,
-   "authority": 70.2,
+   "articles": 37,
+   "authority": 70.3,
    "country": "FR",
    "credibilite": 92.0,
-   "efficacite": 87.0,
-   "nouveaute": 93.9,
+   "efficacite": 88.0,
+   "nouveaute": 94.7,
    "org": "ANSSI",
    "pertinence": 100.0,
    "referenced": true,
-   "reprise": 3.1,
+   "reprise": 2.7,
    "source": "CERT-FR - Avis",
-   "sqs": 93.9,
-   "ttri_h": 23.2,
+   "sqs": 94.3,
+   "ttri_h": 21.8,
    "type": "officielle"
   },
   {
-   "articles": 13,
+   "articles": 12,
    "authority": 65.0,
    "country": "US",
    "credibilite": 80.0,
    "efficacite": 98.8,
-   "nouveaute": 92.3,
+   "nouveaute": 91.7,
    "org": "Palo Alto Networks",
    "pertinence": 100.0,
    "referenced": true,
-   "reprise": 7.7,
+   "reprise": 8.3,
    "source": "Unit 42 (Palo Alto Networks)",
-   "sqs": 92.8,
+   "sqs": 92.7,
    "ttri_h": 7.5,
    "type": "recherche"
   },
@@ -2052,35 +2052,35 @@
    "type": "officielle"
   },
   {
-   "articles": 75,
-   "authority": 54.2,
+   "articles": 79,
+   "authority": 54.1,
    "country": "IN",
    "credibilite": 57.0,
-   "efficacite": 75.8,
-   "nouveaute": 92.0,
+   "efficacite": 76.1,
+   "nouveaute": 92.4,
    "org": "The Hacker News",
-   "pertinence": 49.3,
+   "pertinence": 50.6,
    "referenced": true,
-   "reprise": 10.7,
+   "reprise": 10.1,
    "source": "The Hacker News",
-   "sqs": 67.2,
-   "ttri_h": 9.0,
+   "sqs": 67.8,
+   "ttri_h": 9.1,
    "type": "presse"
   },
   {
-   "articles": 51,
+   "articles": 60,
    "authority": 58.5,
    "country": "US",
    "credibilite": 67.0,
-   "efficacite": 66.7,
+   "efficacite": 64.9,
    "nouveaute": 100.0,
    "org": "BleepingComputer",
-   "pertinence": 31.4,
+   "pertinence": 28.3,
    "referenced": true,
    "reprise": 0.0,
    "source": "BleepingComputer",
-   "sqs": 64.5,
-   "ttri_h": 5.5,
+   "sqs": 63.2,
+   "ttri_h": 6.1,
    "type": "presse"
   },
   {
@@ -2097,6 +2097,22 @@
    "source": "Trail of Bits Blog",
    "sqs": 61.6,
    "ttri_h": null,
+   "type": "recherche"
+  },
+  {
+   "articles": 4,
+   "authority": 66.2,
+   "country": "US",
+   "credibilite": 82.5,
+   "efficacite": 50.0,
+   "nouveaute": 100.0,
+   "org": "MITRE",
+   "pertinence": 0.0,
+   "referenced": true,
+   "reprise": 0.0,
+   "source": "MITRE ATLAS - releases (atlas-data)",
+   "sqs": 55.6,
+   "ttri_h": 3.0,
    "type": "recherche"
   },
   {
@@ -2130,22 +2146,6 @@
    "sqs": 51.2,
    "ttri_h": 6.5,
    "type": "outil"
-  },
-  {
-   "articles": 2,
-   "authority": 66.2,
-   "country": "US",
-   "credibilite": 82.5,
-   "efficacite": 0.0,
-   "nouveaute": 100.0,
-   "org": "MITRE",
-   "pertinence": 0.0,
-   "referenced": true,
-   "reprise": 0.0,
-   "source": "MITRE ATLAS - releases (atlas-data)",
-   "sqs": 45.6,
-   "ttri_h": null,
-   "type": "recherche"
   },
   {
    "articles": 6,
