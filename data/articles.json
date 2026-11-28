@@ -1304,6 +1304,7 @@
    "action": null,
    "action_type": null,
    "ai_tags": [],
+   "also_in": [],
    "checks": {
     "approved_domain": true,
     "corroborated": true,
@@ -1373,6 +1374,7 @@
    "action": null,
    "action_type": null,
    "ai_tags": [],
+   "also_in": [],
    "checks": {
     "approved_domain": true,
     "corroborated": true,
@@ -30238,5 +30240,5 @@
   }
  ],
  "count": 418,
- "updated": "2026-11-27T21:24:16Z"
+ "updated": "2026-11-28T07:57:34Z"
 }
